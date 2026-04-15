@@ -92,7 +92,7 @@ def build_graph(relations: list[dict]) -> Network:
             color=color,
             label=rel["type"],
             font={"size": 9, "color": color},
-            arrows="to",
+            arrows="to, from" if rel["type"] == "CONTRASTS-WITH" else "to",
         )
 
     return net

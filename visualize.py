@@ -22,6 +22,22 @@ def extract_nodes(relations: list[dict]) -> set[str]:
     return nodes
 
 
+def compute_degrees(relations: list[dict]) -> dict[str, int]:
+    """Count total connections (in + out) for each node."""
+    degrees: dict[str, int] = {}
+    for rel in relations:
+        degrees[rel["source"]] = degrees.get(rel["source"], 0) + 1
+        degrees[rel["target"]] = degrees.get(rel["target"], 0) + 1
+    return degrees
+
+
+def scale_size(degree: int, min_deg: int, max_deg: int, min_size: float = 12, max_size: float = 40) -> float:
+    """Map a degree value linearly onto [min_size, max_size]."""
+    if max_deg == min_deg:
+        return (min_size + max_size) / 2
+    return min_size + (degree - min_deg) / (max_deg - min_deg) * (max_size - min_size)
+
+
 def get_edge_color(relation_type: str) -> str:
     """Return hex color for a relation type, falling back to grey."""
     return EDGE_COLORS.get(relation_type, "#999999")
@@ -37,16 +53,33 @@ def build_graph(relations: list[dict]) -> Network:
         font_color="#e0e0e0",
         notebook=False,
     )
-    net.barnes_hut(gravity=-8000, central_gravity=0.3, spring_length=120)
+    net.barnes_hut(
+        gravity=-6000,
+        central_gravity=0.4,
+        spring_length=120,
+        spring_strength=0.05,
+        damping=0.18,
+    )
+    net.options.physics.maxVelocity = 30
+    net.options.physics.minVelocity = 0.5
+    net.options.physics.stabilization.iterations = 300
+    net.options.physics.stabilization.updateInterval = 25
+
+    degrees = compute_degrees(relations)
+    min_deg = min(degrees.values())
+    max_deg = max(degrees.values())
 
     for node_id in extract_nodes(relations):
+        deg = degrees.get(node_id, 1)
+        size = scale_size(deg, min_deg, max_deg)
+        font_size = 10 + int((size - 12) / 4)
         net.add_node(
             node_id,
             label=node_id.replace("_", " "),
-            title=node_id,
+            title=f"{node_id} (connections: {deg})",
             color="#4a4a8a",
-            size=16,
-            font={"size": 12},
+            size=size,
+            font={"size": font_size},
         )
 
     for rel in relations:

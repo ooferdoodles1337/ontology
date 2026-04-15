@@ -1,13 +1,14 @@
 # Ontology Maintenance Instructions
 
-This project builds a concept graph for a course (FAB 2026). The graph is stored in two YAML files and rendered via `visualize.py`.
+This project builds a concept graph for a course (FAB 2026). The graph is stored in YAML files and rendered via `visualize.py`.
 
 ## File Roles
 
 | File | Purpose |
 |------|---------|
 | `ontology.yaml` | Vocabulary — all node IDs (concepts, people, examples). No relation instances here. |
-| `relations.yaml` | Relation instances — every edge in the graph with source, target, type, and note. |
+| `knowledge-base/relations.yaml` | Relation instances — every edge in the graph with source, target, type, and note. |
+| `knowledge-base/metadata.yaml` | Human-readable metadata for every node: labels, descriptions, module numbers, and type-specific fields. |
 | `docs/course-notes/` | Source documents to extract from. |
 
 ---
@@ -55,13 +56,15 @@ Format:
 - id: another_concept_id
 ```
 
+Also add a corresponding metadata entry in `knowledge-base/metadata.yaml` for each new node (label, description, and type-specific fields). See **Entry Formats** below for templates.
+
 Commit this vocabulary update before proceeding to Step 2.
 
 ---
 
 ### Step 2 — Extract relations, one document at a time
 
-**CRITICAL RULE: Read exactly one source document, then immediately update `relations.yaml`. Never read two or more documents before writing.**
+**CRITICAL RULE: Read exactly one source document, then immediately update `knowledge-base/relations.yaml`. Never read two or more documents before writing.**
 
 For each document (working through them in module order):
 
@@ -69,7 +72,7 @@ For each document (working through them in module order):
 2. Identify every relationship between nodes that is:
    - Explicitly stated in the text, OR
    - Strongly implied by the structure of the argument (e.g., a concept is introduced as a subtype, a prerequisite is listed, an example is walked through).
-3. Append all new relations to `relations.yaml` under a comment block that identifies the source document.
+3. Append all new relations to `knowledge-base/relations.yaml` under a comment block that identifies the source document.
 4. Save and verify the YAML is valid before moving to the next document.
 
 Repeat for each remaining document.
@@ -93,7 +96,7 @@ Repeat for each remaining document.
 - id: ex_short_descriptive_name
 ```
 
-### relations.yaml — adding a relation
+### knowledge-base/relations.yaml — adding a relation
 ```yaml
 - type: IS-A                      # one of the six types above
   source: child_concept
@@ -103,17 +106,49 @@ Repeat for each remaining document.
     the text if possible. This becomes the edge tooltip in the graph.
 ```
 
+### knowledge-base/metadata.yaml — adding a concept entry
+```yaml
+- id: concept_name
+  label: Human Readable Name
+  description: >
+    One or two sentences defining this concept.
+  module: 3
+  tags: [optional, keywords]
+```
+
+### knowledge-base/metadata.yaml — adding a person/institution entry
+```yaml
+- id: firstname_lastname
+  label: Full Name
+  type: person            # or: institution
+  era: "1950s–1970s"
+  affiliation: University Name
+  description: >
+    Brief bio or description of their contribution.
+```
+
+### knowledge-base/metadata.yaml — adding an example entry
+```yaml
+- id: ex_short_name
+  label: Descriptive Example Name
+  description: >
+    What this example illustrates and how.
+  source: "Author / Work / Year"
+  illustrates: [concept_id_1, concept_id_2]
+```
+
 ---
 
 ## Validation Checklist
 
 Before finishing any update session, verify:
 
-- [ ] Every `source` and `target` in `relations.yaml` exists as an `id` in `ontology.yaml`.
+- [ ] Every `source` and `target` in `knowledge-base/relations.yaml` exists as an `id` in `ontology.yaml`.
 - [ ] No duplicate relation entries (same type + source + target pair).
 - [ ] All new node IDs follow `snake_case` and `ex_` prefix rules.
 - [ ] Each relation has a non-empty `note`.
-- [ ] YAML parses without error: `python -c "import yaml; yaml.safe_load(open('relations.yaml'))"` and same for `ontology.yaml`.
+- [ ] New nodes added to `ontology.yaml` also have a corresponding entry in `knowledge-base/metadata.yaml`.
+- [ ] YAML parses without error: `python -c "import yaml; yaml.safe_load(open('knowledge-base/relations.yaml'))"` and same for `ontology.yaml` and `knowledge-base/metadata.yaml`.
 - [ ] Graph regenerates cleanly: `python visualize.py`
 
 ---

@@ -4,7 +4,7 @@
 # Populated from all six sessions of course notes.
 #
 # RELATION TYPES
-#   IS-A, PART-OF, CAUSES, CONTRASTS-WITH, EXAMPLE-OF, REQUIRES
+#   IS-A, PART-OF, CAUSES, CONTRASTS-WITH, EXAMPLE-OF, REQUIRES, ATTRIBUTED-TO
 # ============================================================
 
 relations:
@@ -326,37 +326,37 @@ relations:
       Credit assignment presupposes agents with goals against which
       actions can be evaluated.
 
-  # --- People ---
-  - type: EXAMPLE-OF
-    source: arthur_samuel
-    target: credit_assignment
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: credit_assignment
+    target: arthur_samuel
     note: >
       Samuel (1959) first described the general solution to credit
       assignment as generating intermediate feedback (checkers program).
 
-  - type: EXAMPLE-OF
-    source: minsky_1961
-    target: society_of_mind_hypothesis
+  - type: ATTRIBUTED-TO
+    source: society_of_mind_hypothesis
+    target: minsky_1961
     note: >
       Minsky's 1961 paper argued that reinforcement is insufficient and
       proposed learning in a society as an alternative paradigm.
 
-  - type: EXAMPLE-OF
-    source: richard_sutton
-    target: reward_hypothesis
+  - type: ATTRIBUTED-TO
+    source: reward_hypothesis
+    target: richard_sutton
     note: >
       Sutton (with Barto) developed the reward hypothesis and temporal
       differencing at UMass Amherst.
 
-  - type: EXAMPLE-OF
-    source: andrew_barto
-    target: temporal_differencing
+  - type: ATTRIBUTED-TO
+    source: temporal_differencing
+    target: andrew_barto
     note: >
       Barto co-developed TD learning with Sutton.
 
-  - type: EXAMPLE-OF
-    source: richard_bellman
-    target: reinforcement_learning
+  - type: ATTRIBUTED-TO
+    source: reinforcement_learning
+    target: richard_bellman
     note: >
       Bellman's operations research work at RAND laid mathematical
       foundations for reinforcement learning.
@@ -644,26 +644,33 @@ relations:
       All information processing requires some amount of processing
       capacity (energy or work).
 
-  # --- People ---
-  - type: EXAMPLE-OF
-    source: claude_shannon
-    target: shannon_information
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: shannon_information
+    target: claude_shannon
     note: >
       Shannon pioneered syntactic information theory at Bell Labs / MIT.
 
-  - type: EXAMPLE-OF
-    source: herbert_simon
-    target: simon_information
+  - type: ATTRIBUTED-TO
+    source: simon_information
+    target: herbert_simon
     note: >
       Simon pioneered semantic information processing at Carnegie-Mellon.
 
-  - type: EXAMPLE-OF
-    source: alan_turing
-    target: turing_machine
+  - type: ATTRIBUTED-TO
+    source: turing_machine
+    target: alan_turing
     note: >
       Turing introduced the Turing machine in 1936 as a model of
       effective procedures.
 
+  - type: ATTRIBUTED-TO
+    source: physical_symbol_system_hypothesis
+    target: allen_newell
+    note: >
+      Newell (with Simon) articulated the PSSH in their Turing Award speech.
+
+  # --- EXAMPLE-OF (people as users/commentators) ---
   - type: EXAMPLE-OF
     source: saleema_amershi
     target: modularity
@@ -677,12 +684,6 @@ relations:
     note: >
       Cantwell Smith's definition of information processing as storing,
       manipulating, displaying, and trafficking in information.
-
-  - type: EXAMPLE-OF
-    source: allen_newell
-    target: physical_symbol_system_hypothesis
-    note: >
-      Newell (with Simon) articulated the PSSH in their Turing Award speech.
 
 
   # =========================================================
@@ -1022,34 +1023,35 @@ relations:
       Simon search requires meaningful physical symbols that can be
       manipulated to transform states.
 
-  # --- People ---
-  - type: EXAMPLE-OF
-    source: john_von_neumann
-    target: von_neumann_search
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: von_neumann_search
+    target: john_von_neumann
     note: >
       Von Neumann's game theory work in the 1930s-40s founded the
       adversarial approach to search.
 
-  - type: EXAMPLE-OF
-    source: herbert_simon
-    target: satisficing
+  - type: ATTRIBUTED-TO
+    source: satisficing
+    target: herbert_simon
     note: >
       Simon proposed satisficing as the fundamental heuristic of
       intelligent agents with bounded rationality.
 
+  - type: ATTRIBUTED-TO
+    source: division_of_labor
+    target: adam_smith
+    note: >
+      Smith explained the logic of division of labor and gains to
+      specialization in The Wealth of Nations (1776).
+
+  # --- EXAMPLE-OF (people as users/commentators) ---
   - type: EXAMPLE-OF
     source: charles_babbage
     target: algorithm
     note: >
       Babbage proposed that any complex task can be divided into simple
       subtasks mechanized as programs (algorithms).
-
-  - type: EXAMPLE-OF
-    source: adam_smith
-    target: division_of_labor
-    note: >
-      Smith explained the logic of division of labor and gains to
-      specialization in The Wealth of Nations (1776).
 
   - type: EXAMPLE-OF
     source: demis_hassabis
@@ -1460,35 +1462,36 @@ relations:
       Forward checking requires propagation to check whether an
       assignment is consistent.
 
-  # --- People ---
-  - type: EXAMPLE-OF
-    source: judea_pearl
-    target: bayesian_networks
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: bayesian_networks
+    target: judea_pearl
     note: >
       Pearl developed causal nets / Bayesian networks as a framework
       for representing and testing cause-effect relations.
 
-  - type: EXAMPLE-OF
-    source: geoff_hinton
-    target: boltzmann_machines
+  - type: ATTRIBUTED-TO
+    source: boltzmann_machines
+    target: geoff_hinton
     note: >
       Hinton invented Boltzmann machines, the foundational building
       block of deep learning.
 
-  - type: EXAMPLE-OF
-    source: ludwig_von_boltzmann
-    target: entropy
+  - type: ATTRIBUTED-TO
+    source: entropy
+    target: ludwig_von_boltzmann
     note: >
       Boltzmann developed the modern definition of entropy in
       statistical mechanics, after whom the machine is named.
 
-  - type: EXAMPLE-OF
-    source: feigenbaum
-    target: knowledge_acquisition_bottleneck
+  - type: ATTRIBUTED-TO
+    source: knowledge_acquisition_bottleneck
+    target: feigenbaum
     note: >
       Feigenbaum (1964) identified the knowledge acquisition bottleneck
       as a primary limitation of expert systems.
 
+  # --- EXAMPLE-OF (people as users/commentators) ---
   - type: EXAMPLE-OF
     source: russell_norvig
     target: bayesian_networks
@@ -1996,38 +1999,38 @@ relations:
       Adaptation depends on measuring fitness (ability to survive and
       reproduce relative to the environment).
 
-  # --- People ---
-  - type: EXAMPLE-OF
-    source: john_holland
-    target: genetic_algorithms
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: genetic_algorithms
+    target: john_holland
     note: >
       Holland pioneered genetic algorithms and the concept of implicit
       parallelism at the University of Michigan.
 
-  - type: EXAMPLE-OF
-    source: charles_darwin
-    target: natural_selection
+  - type: ATTRIBUTED-TO
+    source: natural_selection
+    target: charles_darwin
     note: >
       Darwin's theory of evolution by natural selection is the
       biological foundation of evolutionary strategies.
 
-  - type: EXAMPLE-OF
-    source: gregor_mendel
-    target: mendelian_approach
+  - type: ATTRIBUTED-TO
+    source: mendelian_approach
+    target: gregor_mendel
     note: >
       Mendel's work on plant breeding inspired the gene-level
       experimental approach in evolutionary strategies.
 
-  - type: EXAMPLE-OF
-    source: gerald_sussman
-    target: propagator_model
+  - type: ATTRIBUTED-TO
+    source: propagator_model
+    target: gerald_sussman
     note: >
       Sussman (Minsky's student at MIT) pioneered the propagator model
       as a biological systems-inspired approach.
 
-  - type: EXAMPLE-OF
-    source: marvin_minsky
-    target: mesa_landscape
+  - type: ATTRIBUTED-TO
+    source: mesa_landscape
+    target: marvin_minsky
     note: >
       Minsky described mesa landscapes and the need for giant strides
       as an alternative to hill-climbing.
@@ -2179,21 +2182,29 @@ relations:
       Gains to specialization require that labor be divided into
       simpler, more focused subtasks.
 
-  # --- People cross-module ---
-  - type: EXAMPLE-OF
-    source: levitt_march
-    target: superstitious_learning
+  # --- ATTRIBUTED-TO (cross-module) ---
+  - type: ATTRIBUTED-TO
+    source: superstitious_learning
+    target: levitt_march
     note: >
       Levitt and March (1988) named the phenomenon of superstitious
       learning in organizations.
 
-  - type: EXAMPLE-OF
-    source: cyert_march
-    target: organizational_learning
+  - type: ATTRIBUTED-TO
+    source: organizational_learning
+    target: cyert_march
     note: >
       Cyert and March (1963) studied organizational decision-making
       and budgeting processes.
 
+  - type: ATTRIBUTED-TO
+    source: physics_hypothesis
+    target: newton
+    note: >
+      Newton's deterministic classical mechanics inspired the physics
+      hypothesis view of intelligence.
+
+  # --- EXAMPLE-OF (people as users/commentators, cross-module) ---
   - type: EXAMPLE-OF
     source: denrell_fang_levinthal
     target: reinforcement_learning
@@ -2236,9 +2247,377 @@ relations:
       Wittgenstein's philosophy inspired Dreyfus's argument about
       infinite regress in rule-based systems.
 
-  - type: EXAMPLE-OF
-    source: newton
-    target: physics_hypothesis
+  # =========================================================
+  # SUPPLEMENT: Connecting isolated nodes
+  # =========================================================
+
+  # --- Concepts: intelligence & environment framing ---
+  - type: IS-A
+    source: general_problem_of_intelligence
+    target: intelligence
     note: >
-      Newton's deterministic classical mechanics inspired the physics
-      hypothesis view of intelligence.
+      The general problem of intelligence (credit assignment) is the
+      course's central framing of what intelligence fundamentally requires.
+
+  - type: PART-OF
+    source: agent_environment_distinction
+    target: task_environment
+    note: >
+      Separating agent from environment is the foundational act of
+      defining any task environment.
+
+  - type: PART-OF
+    source: task_environment
+    target: search
+    note: >
+      A task environment specifies the state space, operators, and goal
+      that constitute the domain of a search problem.
+
+  # --- Concepts: information processing ---
+  - type: IS-A
+    source: digital_abstraction
+    target: abstraction
+    note: >
+      Digital abstraction is a specific form of abstraction that
+      represents information as discrete bit patterns.
+
+  - type: IS-A
+    source: cognitive_representations
+    target: internal_representations
+    note: >
+      Cognitive representations are mental/computational internal
+      representations used in reasoning and problem-solving.
+
+  - type: PART-OF
+    source: processing_power
+    target: information_processing
+    note: >
+      Processing power (computational capacity) is a core resource
+      constraint on information processing.
+
+  - type: IS-A
+    source: convenient_fictions
+    target: abstraction
+    note: >
+      Convenient fictions are a form of abstraction — treating
+      entities as having properties they do not strictly possess
+      in order to simplify reasoning.
+
+  - type: REQUIRES
+    source: mechanization_of_thought
+    target: algorithm
+    note: >
+      Mechanizing thought requires reducing it to an algorithm — a
+      finite, effective procedure executable by a machine.
+
+  - type: IS-A
+    source: minimal_effective_procedure
+    target: effective_procedure
+    note: >
+      A minimal effective procedure is the simplest effective procedure
+      that computes a given function; a special case of effective procedure.
+
+  - type: PART-OF
+    source: short_term_long_term_memory
+    target: memory_management
+    note: >
+      The distinction between short-term and long-term memory is the
+      central organizing principle of memory management.
+
+  - type: PART-OF
+    source: memory_management
+    target: information_processing
+    note: >
+      Managing which information is stored, retrieved, and discarded
+      is a core component of information processing.
+
+  # --- Concepts: search ---
+  - type: IS-A
+    source: game_tree
+    target: search_tree
+    note: >
+      A game tree is a search tree in which alternating levels
+      represent the moves of two adversarial players.
+
+  - type: PART-OF
+    source: local_vs_global_optima
+    target: performance_landscape
+    note: >
+      The distinction between local and global optima is a defining
+      structural feature of any performance landscape.
+
+  - type: IS-A
+    source: local_peaks
+    target: local_vs_global_optima
+    note: >
+      Local peaks are the specific suboptimal points that embody
+      the local-vs-global optima problem in practice.
+
+  - type: IS-A
+    source: find_best_solution_goal
+    target: optimization_goal
+    note: >
+      Finding the best solution is the canonical instantiation
+      of an optimization goal.
+
+  - type: CONTRASTS-WITH
+    source: find_any_solution_goal
+    target: find_best_solution_goal
+    note: >
+      Finding any solution (satisficing) contrasts with finding the
+      best solution (optimization) as two fundamentally different
+      search objectives.
+
+  - type: CONTRASTS-WITH
+    source: find_all_solutions_goal
+    target: find_any_solution_goal
+    note: >
+      Enumerating all solutions contrasts with stopping at the first
+      acceptable one; the former is exhaustive, the latter is satisficing.
+
+  - type: PART-OF
+    source: differences_current_vs_goal
+    target: means_ends_analysis
+    note: >
+      Means-ends analysis works by measuring and reducing the
+      differences between the current state and the goal state.
+
+  # --- Concepts: representation ---
+  - type: IS-A
+    source: abstract_patterns
+    target: schema
+    note: >
+      Abstract patterns are the structural regularities that a schema
+      captures and generalizes over.
+
+  - type: PART-OF
+    source: conceptual_units
+    target: schema
+    note: >
+      Conceptual units are the named, bounded pieces of knowledge
+      that a schema organizes.
+
+  - type: PART-OF
+    source: modules
+    target: modularity
+    note: >
+      Modules are the discrete, encapsulated components that modular
+      organization is made of.
+
+  - type: IS-A
+    source: hierarchy
+    target: decomposition
+    note: >
+      Hierarchical organization is a form of decomposition in which
+      sub-components are themselves decomposable into lower-level units.
+
+  - type: REQUIRES
+    source: paradigms
+    target: representation
+    note: >
+      Each AI paradigm (symbolic, connectionist, evolutionary) presupposes
+      a specific representational commitment about how knowledge is encoded.
+
+  - type: PART-OF
+    source: abstraction_level
+    target: hierarchy
+    note: >
+      Abstraction levels are the layers that constitute a hierarchy;
+      each level hides lower-level detail from higher-level reasoning.
+
+  # --- Concepts: KRR ---
+  - type: PART-OF
+    source: costs_soft_violation
+    target: soft_constraints
+    note: >
+      The cost incurred when a soft constraint is violated is the
+      defining feature that distinguishes soft from hard constraints.
+
+  - type: IS-A
+    source: cost_function
+    target: evaluation_function
+    note: >
+      A cost function is a type of evaluation function that assigns
+      a penalty (rather than a score) to states or assignments.
+
+  - type: PART-OF
+    source: probabilities
+    target: bayesian_inference
+    note: >
+      Probability values assigned to random variables are the
+      fundamental inputs and outputs of Bayesian inference.
+
+  - type: IS-A
+    source: statistical_distribution
+    target: probability_distribution
+    note: >
+      A statistical distribution is a probability distribution
+      fitted to empirical data.
+
+  - type: IS-A
+    source: constraint_propagation
+    target: propagation
+    note: >
+      Constraint propagation is the primary form of propagation
+      used in CSP solving.
+
+  - type: PART-OF
+    source: iid_problems
+    target: iid_vs_ood_problems
+    note: >
+      IID problems form one side of the IID-vs-OOD distinction;
+      they assume a stable, known statistical distribution.
+
+  - type: PART-OF
+    source: ood_problems
+    target: iid_vs_ood_problems
+    note: >
+      OOD problems form the contrasting side of the IID-vs-OOD
+      distinction; they involve unknown or shifting distributions.
+
+  # --- Concepts: evolutionary strategies ---
+  - type: IS-A
+    source: fitness_measure
+    target: fitness_function
+    note: >
+      A fitness measure is a specific instantiation of a fitness
+      function applied to a population of chromosomes.
+
+  - type: IS-A
+    source: genotype
+    target: genetic_sequences
+    note: >
+      A genotype is the organism's complete genetic sequence —
+      the inherited specification of its traits.
+
+  - type: IS-A
+    source: gene_allele
+    target: genes
+    note: >
+      A gene allele is a specific variant of a gene at a given
+      locus; different alleles produce different trait expressions.
+
+  - type: IS-A
+    source: population_level_learning
+    target: learning
+    note: >
+      Population-level learning is a form of learning in which
+      selection pressure acts on a whole population of candidate
+      solutions rather than a single agent.
+
+  - type: IS-A
+    source: mesa_topology
+    target: performance_landscape
+    note: >
+      Mesa topology is a performance landscape characterized by
+      flat plateaus (mesas) followed by sharp drops.
+
+  - type: PART-OF
+    source: watchmaker_parable
+    target: vsr
+    note: >
+      Dawkins's watchmaker parable is a thought experiment arguing
+      that hierarchical, stepwise assembly (VSR) can produce
+      complex structures that brute-force random assembly cannot.
+
+  - type: IS-A
+    source: modifications
+    target: evolutionary_operators
+    note: >
+      Modifications (small changes to genetic sequences) are one
+      class of evolutionary operators alongside crossover and mutation.
+
+  - type: IS-A
+    source: sparse_learning
+    target: learning
+    note: >
+      Sparse learning refers to learning from very few feedback
+      signals, a challenge closely related to sparse feedback and
+      superstitious learning.
+
+  - type: IS-A
+    source: cumulative_expected_value
+    target: value_function
+    note: >
+      Cumulative expected value is the value function's central
+      quantity — the discounted sum of expected future rewards.
+
+  # --- Institutions: ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: shannon_information
+    target: bell_labs_att
+    note: >
+      Shannon developed information theory while at Bell Labs, where
+      the problem of reliable telephone transmission motivated the work.
+
+  - type: ATTRIBUTED-TO
+    source: physical_symbol_system_hypothesis
+    target: carnegie_mellon
+    note: >
+      Newell and Simon developed the PSSH at Carnegie Mellon, where
+      it became the defining thesis of the symbolic AI program.
+
+  - type: ATTRIBUTED-TO
+    source: society_of_mind_hypothesis
+    target: mit_ai_lab
+    note: >
+      Minsky and Sussman developed the society-of-mind and propagator
+      ideas at the MIT AI Lab throughout the 1960s–80s.
+
+  - type: ATTRIBUTED-TO
+    source: reinforcement_learning
+    target: umass_amherst
+    note: >
+      Sutton and Barto formalized modern reinforcement learning and
+      temporal differencing at UMass Amherst.
+
+  - type: ATTRIBUTED-TO
+    source: reinforcement_learning
+    target: rand_corporation
+    note: >
+      Bellman developed dynamic programming and the Bellman equation
+      at RAND, providing RL's mathematical foundations.
+
+  - type: ATTRIBUTED-TO
+    source: credit_assignment
+    target: ibm
+    note: >
+      Arthur Samuel's checkers program — the first practical solution
+      to credit assignment — was developed at IBM Research.
+
+  - type: EXAMPLE-OF
+    source: google_deepmind
+    target: reinforcement_learning
+    note: >
+      DeepMind is the premier institutional example of large-scale
+      reinforcement learning research (AlphaGo, AlphaFold, Gemini).
+
+  - type: EXAMPLE-OF
+    source: microsoft_research
+    target: modularity
+    note: >
+      Amershi et al. (2019) at Microsoft Research showed that
+      industrial ML deployment requires modular organizational processes.
+
+  # --- Examples: disconnected ---
+  - type: EXAMPLE-OF
+    source: ex_hedge_maze
+    target: search
+    note: >
+      A hedge maze is the canonical physical metaphor for search:
+      a state space with paths, dead ends, and a goal to find.
+
+  - type: EXAMPLE-OF
+    source: ex_pharmaceutical_company
+    target: credit_assignment
+    note: >
+      A pharmaceutical company deciding which drug candidates to
+      fund illustrates credit assignment under delayed, ambiguous
+      feedback across long development timelines.
+
+  - type: EXAMPLE-OF
+    source: ex_artificial_brain_analogy
+    target: society_of_mind_hypothesis
+    note: >
+      The artificial brain analogy — building intelligence from many
+      simpler sub-agents — directly illustrates Minsky's society of mind.

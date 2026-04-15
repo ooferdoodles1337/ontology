@@ -38,6 +38,11 @@
 #               the learner, not a causal relation between the concepts
 #               themselves.
 #               Example: Backtracking REQUIRES Partial Assignment.
+# ATTRIBUTED-TO: A is a concept, theory, or mechanism that was primarily 
+# developed or introduced by person or institution B. This is not a 
+# structural relation between two concepts but a provenance link connecting 
+# a concept to its intellectual origin. 
+# Example: Schema Theorem ATTRIBUTED-TO John Holland.
 # ============================================================
 
 

@@ -5,6 +5,12 @@
       "source": "run-llama/llamaparse-agent-skills",
       "sourceType": "github",
       "computedHash": "93b85e81ea3e469a0628e9a31a14c510f11a4531f72f3647783ab5e5cac71858"
+    },
+    "skill-creator": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/skill-creator/SKILL.md",
+      "computedHash": "5ea13a6d9f0d4bb694405d79acd00cadec0d21bb138c4dd10fcf3c500cb835c2"
     }
   }
 }

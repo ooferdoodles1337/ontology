@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 graph.html
+ontology.db
+eng.traineddata
+settings.local.json

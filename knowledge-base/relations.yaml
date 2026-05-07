@@ -1,16 +1,15 @@
 # ============================================================
 # FAB 2026 — Course Ontology Relations
-# v2: original relations retained in full; new relations
-#     appended in a clearly-labelled supplement section.
 # ============================================================
-# RELATION TYPES
-#   IS-A, PART-OF, CAUSES, CONTRASTS-WITH, EXAMPLE-OF, REQUIRES, ATTRIBUTED-TO
+# Relation types are defined in knowledge-base/relation-schema.yaml.
+# Type names are free-form strings from that vocabulary.
 # ============================================================
 
 relations:
 
   # =========================================================
-  # MODULE 1: General Problem of Intelligence / Credit Assignment
+  # MODULE 1: The General Problem of Intelligence — Credit Assignment
+  # Source: 2026_Course Notes_Ch. 1 — The General Problem of Intelligence_ Credit Assignment - FAB.pdf
   # =========================================================
 
   # --- IS-A ---
@@ -18,2829 +17,1582 @@ relations:
     source: credit_assignment
     target: general_problem_of_intelligence
     note: >
-      Credit assignment is characterized as the specific formulation of the
-      general problem of intelligence: learning to evaluate effects of
-      individual actions on solving a problem.
+      The text frames credit assignment as the specific, tractable formulation of the general
+      problem of intelligence — the problem of learning which actions deserve credit for a given outcome.
+    quote: >
+      "Founders of AI referred to this general problem of intelligence as that of learning to assign credit."
 
   - type: IS-A
     source: reinforcement_learning
     target: learning
     note: >
-      Reinforcement learning is one paradigm of learning, defined by
-      reinforcing actions that seem to move the agent closer to a goal.
+      Reinforcement learning is one paradigm of learning, defined by reinforcing actions that
+      seem to move an agent closer to its goal.
+    quote: >
+      "In reinforcement learning, an agent assigns credit simply by 'reinforcing' actions that
+      seem to have the effect of getting it closer to its goal."
+
+  - type: IS-A
+    source: society_of_mind_hypothesis
+    target: learning
+    note: >
+      The society-of-mind hypothesis is presented as an alternative paradigm of learning,
+      contrasting with reinforcement learning throughout the document.
+    quote: ~
 
   - type: IS-A
     source: delayed_feedback
     target: feedback
     note: >
-      Delayed feedback is feedback that arrives well after actions are generated.
+      Delayed feedback is a specific problematic variety of feedback where signals arrive well
+      after the actions that caused them.
+    quote: >
+      "Feedback about goals... was either delayed until well after actions were generated, or ambiguous."
 
   - type: IS-A
     source: ambiguous_feedback
     target: feedback
     note: >
-      Ambiguous feedback is feedback whose relationship to actions is unclear.
+      Ambiguous feedback is feedback whose causal link to specific actions is unclear.
+    quote: >
+      "While the organizations 'learned' something... there was no easy way to know whether they
+      learned the right things due to these challenges of assigning credit of delayed and ambiguous feedback."
 
   - type: IS-A
     source: sparse_feedback
     target: feedback
     note: >
-      Sparse feedback is feedback where only a small subset of actions
-      generate information useful for assigning credit (Minsky).
+      Sparse feedback is Minsky's third major difficulty: only a small fraction of actions generate
+      feedback that is useful for assigning credit.
+    quote: >
+      "Minsky argued feedback is not just uncertain or ambiguous but sparse, meaning that only a
+      small subset of actions generate feedback useful for assigning credit."
 
   - type: IS-A
     source: intermediate_feedback
     target: feedback
     note: >
-      Intermediate feedback refers to proxies indicating progress toward
-      a goal, used to assign credit before a final outcome.
+      Intermediate feedback is a specific type of feedback — proxy signals evaluated during the
+      process rather than only at the final outcome.
+    quote: >
+      "Samuel called the evaluation of such proxies the use of 'intermediate feedback' to assign credit."
 
   - type: IS-A
-    source: policy
-    target: organizational_programs
-    note: >
-      A policy in RL is a set of rules defining how to update probabilities,
-      analogous to an organizational program.
-
-  - type: IS-A
-    source: delegation
-    target: actions
-    note: >
-      In the society-of-mind paradigm, delegation of subproblems to
-      other agents is itself a fundamental type of action.
-
-  - type: IS-A
-    source: hierarchical_management
-    target: delegation
-    note: >
-      Hierarchical management is a specific form of delegation structured
-      into levels of agents.
-
-  # --- PART-OF ---
-  - type: PART-OF
-    source: feedback
-    target: credit_assignment
-    note: >
-      Feedback is the essential input to any credit assignment process;
-      generating and using feedback is how credit is assigned.
-
-  - type: PART-OF
-    source: trial_and_error
-    target: credit_assignment
-    note: >
-      Trial-and-error is the basic generate-and-test mechanism through
-      which credit assignment operates.
-
-  - type: PART-OF
-    source: policy
+    source: temporal_differencing
     target: reinforcement_learning
     note: >
-      A policy (rules for updating beliefs) is a core component of
-      reinforcement learning.
+      Temporal differencing is a specific technique within reinforcement learning developed by
+      Sutton and Barto to address combinatorial explosion.
+    quote: >
+      "Richard Sutton and his colleague Andrew Barto developed a reinforcement learning approach to
+      address combinatorial explosion that they called temporal differencing, or TD."
 
-  - type: PART-OF
-    source: value_function
-    target: reinforcement_learning
-    note: >
-      The value function estimates aggregate rewards and is a core
-      component of the RL framework.
-
-  - type: PART-OF
-    source: learning_rate
+  - type: IS-A
+    source: exploration
     target: policy
     note: >
-      The learning rate (0 to 1) determines the magnitude of belief
-      updates and is the key parameter of a policy.
+      Exploration is the RL policy of using a high learning rate to rapidly update beliefs and
+      take risks on new actions.
+    quote: >
+      "they call a policy of using a high learning rate as exploration, in that making large updates
+      amounts to taking a risk on a new belief without much basis in prior feedback"
 
-  - type: PART-OF
-    source: maximize_rewards
-    target: reinforcement_learning
+  - type: IS-A
+    source: exploitation
+    target: policy
     note: >
-      The overall goal in reinforcement learning is to maximize rewards.
+      Exploitation is the RL policy of using a low learning rate to conserve and build on prior
+      trial-and-error learning.
+    quote: >
+      "AI and organizational researchers call a policy of using a low learning rate exploitation,
+      in that it 'exploits' learning based on prior trial-and-error actions"
 
-  - type: PART-OF
-    source: aggregate_rewards
-    target: value_function
-    note: >
-      The value function estimates aggregate (cumulative expected) rewards.
-
-  - type: PART-OF
-    source: agent_specialization
-    target: society_of_mind_hypothesis
-    note: >
-      Specialized agents are constituent parts of Minsky's society of mind.
-
-  - type: PART-OF
-    source: division_of_labor
-    target: society_of_mind_hypothesis
-    note: >
-      Division of labor among agents is a structural component of the
-      society of mind.
-
-  - type: PART-OF
-    source: organizational_memory
-    target: organizational_learning
-    note: >
-      Organizational memory (storing and using feedback about past
-      decompositions) is a component of organizational learning.
-
-  - type: PART-OF
-    source: organizational_programs
-    target: organizational_learning
-    note: >
-      Organizational programs are stored routines that constitute the
-      repertoire of organizational learning.
-
-  # --- CAUSES ---
-  - type: CAUSES
-    source: interdependence_of_actions
-    target: combinatorial_explosion
-    note: >
-      A linear increase in interdependent actions leads to a
-      combinatorial increase in the cost of trial-and-error learning.
-
-  - type: CAUSES
-    source: sparse_feedback
-    target: superstitious_learning
-    note: >
-      Lacking enough feedback about interdependent actions leads to
-      reinforcing beliefs without adequate evidence (superstitious learning).
-
-  - type: CAUSES
-    source: combinatorial_explosion
-    target: superstitious_learning
-    note: >
-      Combinatorial explosion overwhelms trial-and-error, making it
-      impossible to tell if reinforced beliefs are true or superstitious.
-
-  - type: CAUSES
-    source: delayed_feedback
-    target: superstitious_learning
-    note: >
-      Delayed feedback contributes to superstitious learning because
-      agents cannot easily link actions to outcomes.
-
-  - type: CAUSES
-    source: ambiguous_feedback
-    target: superstitious_learning
-    note: >
-      Ambiguous feedback makes it hard to know which actions actually
-      caused observed outcomes.
-
-  # --- CONTRASTS-WITH ---
-  - type: CONTRASTS-WITH
-    source: reward_hypothesis
-    target: management_hypothesis
-    note: >
-      The reward hypothesis (Sutton) proposes maximizing cumulative scalar
-      reward; the management hypothesis (Minsky-inspired) proposes managing
-      decomposition of problems into societies of agents.
-
-  - type: CONTRASTS-WITH
-    source: reinforcement_learning
-    target: society_of_mind_hypothesis
-    note: >
-      RL assigns credit via a single agent updating beliefs about actions;
-      society of mind assigns credit through coordinated societies of
-      specialized agents.
-
-  - type: CONTRASTS-WITH
-    source: unitary_actor_assumption
-    target: society_of_mind_hypothesis
-    note: >
-      The unitary actor assumption treats the agent as a single
-      decision-maker; society of mind treats it as an organization of
-      many cooperating agents.
-
-  # --- EXAMPLE-OF ---
-  - type: EXAMPLE-OF
-    source: ex_tmaze_mouse_cheese
-    target: reinforcement_learning
-    note: >
-      The T-maze mouse searching for cheese is the primary example of
-      reinforcement learning and belief updating in Module 1.
-
-  - type: EXAMPLE-OF
+  # --- INSTANCE-OF ---
+  - type: INSTANCE-OF
     source: ex_checkers_game
     target: credit_assignment
     note: >
-      Samuel's checkers program is the canonical example of using
-      intermediate feedback to assign credit.
+      Samuel's checkers program is the canonical example introducing the credit assignment problem
+      and its solution form.
+    quote: >
+      "The shape of the general solution to challenges of credit assignment was initially described by
+      the IBM scientist Arthur Samuel in 1959 regarding his pioneering AI program for learning to
+      play the game of checkers."
 
-  - type: EXAMPLE-OF
-    source: ex_coin_toss_weighted_70_30
+  - type: INSTANCE-OF
+    source: ex_checkers_game
+    target: intermediate_feedback
+    note: >
+      Counting pieces and monitoring board distribution are the concrete examples of intermediate
+      feedback as proxy signals.
+    quote: >
+      "Good checkers players, Samuel noted, do not wait until the end of a game to assign credit…
+      they count the number of pieces left, and monitor how the pieces are distributed across the board."
+
+  - type: INSTANCE-OF
+    source: ex_tmaze_mouse_cheese
     target: reinforcement_learning
     note: >
-      The weighted 70/30 coin determines cheese placement in the T-maze,
-      illustrating the probabilistic structure of RL problems.
+      The T-maze is the primary worked example for reinforcement learning, illustrating how a
+      policy updates beliefs over many trials.
+    quote: >
+      "let us first look at the use of reinforcement to assign credit in a simple problem… Imagine
+      a mouse who generates actions in a T-shaped 'maze' to find cheese as a reward"
 
-  - type: EXAMPLE-OF
+  - type: INSTANCE-OF
+    source: ex_tmaze_mouse_cheese
+    target: exploration_exploitation_tradeoff
+    note: >
+      The two learning rates (10% vs 30%) in the T-maze directly illustrate the efficiency vs
+      effectiveness tradeoff between exploitation and exploration.
+    quote: >
+      "Compare, for example, how the learning rates in Table 1 change the efficiency and
+      effectiveness of updating the mouse's probability of going left."
+
+  - type: INSTANCE-OF
     source: ex_shipbuilding_company
     target: credit_assignment
     note: >
-      The shipbuilding company learning to reduce defects illustrates
-      credit assignment challenges in organizations.
+      The shipbuilding company illustrates credit assignment under combinatorial complexity:
+      managers cannot isolate which interdependent actions caused improvements.
+    quote: >
+      "how did management know which changes to the vast number of interdependent actions in the
+      shipbuilding factory actually caused faster production speed and fewer defects"
 
-  - type: EXAMPLE-OF
+  - type: INSTANCE-OF
+    source: ex_shipbuilding_company
+    target: organizational_learning
+    note: >
+      The shipbuilding company is a direct illustration of organizational learning through
+      accumulated trial-and-error feedback.
+    quote: >
+      "Many years later, having built hundreds of ships, management claims to have 'learned' to
+      make them faster and with fewer defects than its competitors."
+
+  - type: INSTANCE-OF
     source: ex_app_development_team
     target: credit_assignment
     note: >
-      The app team using A/B testing illustrates organizational credit
-      assignment through generate-and-test.
+      The A/B testing team illustrates credit assignment under limited test coverage — they can
+      only evaluate features relative to each other, not against all possible features.
+    quote: >
+      "how could they tell whether they learned the features of a social media app that users
+      actually want, or just which features users relatively want among the ones that they tested?"
 
-  - type: EXAMPLE-OF
+  - type: INSTANCE-OF
     source: ex_budgeting_committee
     target: credit_assignment
     note: >
-      The pharma budgeting committee illustrates credit assignment
-      challenges of delayed and ambiguous feedback.
+      The budgeting committee illustrates ambiguous credit assignment across interdependent
+      business unit decisions.
+    quote: >
+      "many business unit heads believe sales would have grown even more if more budget had been
+      allocated to their units."
 
-  - type: EXAMPLE-OF
+  - type: INSTANCE-OF
     source: ex_ceo_builder_grasp_move_agents
     target: society_of_mind_hypothesis
     note: >
-      Geoffrey delegating maze construction to Builder, Add, Grasp,
-      and Move agents illustrates the society of mind.
+      The CEO/Builder/Add/Grasp/MoveAgent hierarchy concretely illustrates the society-of-mind
+      decomposition of intelligence into specialized delegating agents.
+    quote: >
+      "Geoffrey delegates the overall problem of constructing a maze to a 'Builder' agent in his
+      mind, who is specialized in making stuff like mazes out of blocks."
 
-  - type: EXAMPLE-OF
-    source: ex_ab_testing
-    target: trial_and_error
+  - type: INSTANCE-OF
+    source: ex_ceo_builder_grasp_move_agents
+    target: delegation
     note: >
-      A/B testing is a concrete organizational instantiation of
-      generate-and-test for credit assignment.
+      The example is built entirely around delegation as the primary action primitive — every
+      agent acts by delegating to subordinate agents.
+    quote: >
+      "Geoffrey is a sort of 'CEO' agent, whose actions manage lower-level agents in his mind or
+      body needed to construct the maze."
 
-  - type: EXAMPLE-OF
-    source: ex_kpi_milestones_customer_journey
-    target: intermediate_feedback
+  - type: INSTANCE-OF
+    source: ex_hedge_maze
+    target: organizational_memory
     note: >
-      KPIs for each step of a customer journey are a form of
-      intermediate feedback in organizations.
+      Switching from a block maze to a hedge maze illustrates the challenge of selective memory:
+      what to carry forward and what to discard from prior problem decompositions.
+    quote: >
+      "Geoffrey's credit assignment challenge is… largely a matter of figuring out what to remember
+      and what not to about how the previous problem was decomposed and managed."
 
-  - type: EXAMPLE-OF
+  - type: INSTANCE-OF
     source: ex_net_present_value_cash_flows
     target: temporal_differencing
     note: >
-      NPV estimating investment reward as the sum of cash flows is
-      analogous to temporal differencing in RL.
+      NPV illustrates the TD insight: estimate cumulative value from intermediate cash flows
+      without tracking every interdependent action.
+    quote: >
+      "The intuition is much like that of economic valuation techniques such as net present value
+      (NPV) that managers commonly use when deciding to invest in a project."
 
-  - type: EXAMPLE-OF
+  - type: INSTANCE-OF
+    source: ex_kpi_milestones_customer_journey
+    target: intermediate_feedback
+    note: >
+      KPIs per journey step are an organizational example of intermediate feedback — proxy
+      signals that allow credit assignment before the final outcome.
+    quote: >
+      "the app development team may have defined key performance indicators (KPIs) for each step
+      of a customer 'journey'"
+
+  - type: INSTANCE-OF
     source: ex_muscle_fibers
     target: agent_specialization
     note: >
-      Muscle fiber agents controlling Geoffrey's fingers illustrate
-      the lowest level of agent specialization.
-
-  # --- REQUIRES ---
-  - type: REQUIRES
-    source: temporal_differencing
-    target: value_function
-    note: >
-      TD updates estimates of cumulative reward, which requires the
-      concept of a value function.
-
-  - type: REQUIRES
-    source: reinforcement_learning
-    target: feedback
-    note: >
-      RL cannot operate without some form of feedback to reinforce or
-      punish actions.
-
-  - type: REQUIRES
-    source: society_of_mind_hypothesis
-    target: decomposition
-    note: >
-      Learning in a society requires decomposing problems into subproblems
-      delegated to specialized agents.
-
-  - type: REQUIRES
-    source: management_hypothesis
-    target: organizational_memory
-    note: >
-      The management hypothesis requires memory about past decompositions
-      and how agents were organized.
-
-  - type: REQUIRES
-    source: credit_assignment
-    target: goal_directed_agents
-    note: >
-      Credit assignment presupposes agents with goals against which
-      actions can be evaluated.
+      The muscle fiber agents illustrate extreme bottom-level specialization in the society of
+      mind: each agent controls only a tiny, specific action.
+    quote: >
+      "These agents… only know that they need to delegate their actions to thousands of other
+      agents who control the muscle fibers of Geoffrey's fingers."
 
   # --- ATTRIBUTED-TO ---
   - type: ATTRIBUTED-TO
     source: credit_assignment
     target: arthur_samuel
     note: >
-      Samuel (1959) first described the general solution to credit
-      assignment as generating intermediate feedback (checkers program).
+      Samuel coined the credit assignment framing in his 1959 checkers paper.
+    quote: >
+      "Founders of AI referred to this general problem of intelligence as that of learning to
+      assign credit (Samuel 1959; Minsky 1961; Holland 1975)."
 
   - type: ATTRIBUTED-TO
-    source: society_of_mind_hypothesis
-    target: minsky_1961
+    source: credit_assignment
+    target: marvin_minsky
     note: >
-      Minsky's 1961 paper argued that reinforcement is insufficient and
-      proposed learning in a society as an alternative paradigm.
+      Minsky co-founded the credit assignment framing in his 1961 AI agenda-setting paper.
+    quote: >
+      "Founders of AI referred to this general problem of intelligence as that of learning to
+      assign credit (Samuel 1959; Minsky 1961; Holland 1975)."
 
   - type: ATTRIBUTED-TO
-    source: reward_hypothesis
+    source: credit_assignment
+    target: john_holland
+    note: >
+      Holland contributed the credit assignment framing in his 1975 work on adaptive systems
+      and genetic algorithms.
+    quote: >
+      "Founders of AI referred to this general problem of intelligence as that of learning to
+      assign credit (Samuel 1959; Minsky 1961; Holland 1975)."
+
+  - type: ATTRIBUTED-TO
+    source: temporal_differencing
     target: richard_sutton
     note: >
-      Sutton (with Barto) developed the reward hypothesis and temporal
-      differencing at UMass Amherst.
+      Sutton and Barto developed temporal differencing as their main contribution to reinforcement
+      learning at the University of Massachusetts, Amherst.
+    quote: >
+      "Richard Sutton and his colleague Andrew Barto developed a reinforcement learning approach
+      to address combinatorial explosion that they called temporal differencing, or TD."
 
   - type: ATTRIBUTED-TO
     source: temporal_differencing
     target: andrew_barto
     note: >
-      Barto co-developed TD learning with Sutton.
+      Barto co-developed temporal differencing with Sutton at the University of Massachusetts, Amherst.
+    quote: >
+      "Richard Sutton and his colleague Andrew Barto developed a reinforcement learning approach
+      to address combinatorial explosion that they called temporal differencing, or TD."
+
+  - type: ATTRIBUTED-TO
+    source: reward_hypothesis
+    target: richard_sutton
+    note: >
+      Sutton and Barto formulated the reward hypothesis as the theoretical claim underlying TD.
+    quote: >
+      "Sutton and Barto claim that this approach offers a general solution to the credit assignment
+      problem, corresponding to what they call the 'reward hypothesis'."
+
+  - type: ATTRIBUTED-TO
+    source: society_of_mind_hypothesis
+    target: marvin_minsky
+    note: >
+      Minsky proposed the society of mind as an alternative paradigm to reinforcement learning
+      in his 1961 paper and subsequent work.
+    quote: >
+      "A counterargument in the AI field is from Minsky… He proposed a distinct paradigm he
+      called learning in a 'society of mind'."
 
   - type: ATTRIBUTED-TO
     source: reinforcement_learning
     target: richard_bellman
     note: >
-      Bellman's operations research work at RAND laid mathematical
+      Bellman's operations research work at RAND in the 1940s–1950s established the mathematical
       foundations for reinforcement learning.
+    quote: >
+      "Reinforcement learning has roots in 1940s-1950s research in the US, famously by Richard
+      Bellman, an applied mathematician at a US government think tank called the RAND Corporation."
 
+  # --- CONTRASTS-WITH ---
+  - type: CONTRASTS-WITH
+    source: exploration
+    target: exploitation
+    note: >
+      Exploration (high learning rate, rapid belief updates) and exploitation (low learning rate,
+      conservative updates) are opposing RL policies that must be balanced.
+    quote: >
+      "The need to balance the efficiency and effectiveness of these policies is famously called
+      the exploration-exploitation tradeoff."
+
+  - type: CONTRASTS-WITH
+    source: reward_hypothesis
+    target: management_hypothesis
+    note: >
+      The reward hypothesis (maximize cumulative rewards via a single value function) and the
+      management hypothesis (manage decompositions and memories in a society) offer fundamentally
+      different solutions to credit assignment.
+    quote: >
+      "Sutton's reward hypothesis proposes reinforcement learning as a general solution to credit
+      assignment… Is this really plausible? A counterargument in the AI field is from Minsky."
+
+  - type: CONTRASTS-WITH
+    source: reinforcement_learning
+    target: society_of_mind_hypothesis
+    note: >
+      The two paradigms represent competing views of intelligence: RL reduces problems to reward
+      maximization; the society of mind requires decomposition, delegation, and memory management.
+    quote: >
+      "he proposed a distinct paradigm he called learning in a 'society of mind'. Next, we explore
+      these two paradigms, both to better understand the idea of credit assignment."
+
+  # --- ADDRESSES ---
+  - type: ADDRESSES
+    source: intermediate_feedback
+    target: credit_assignment
+    note: >
+      Generating and testing intermediate feedback is the general solution form for credit
+      assignment, as Samuel argued.
+    quote: >
+      "Solutions to the credit assignment problem, Samuel argued, are generally of this form: they
+      are ways of generating-and-testing various types of intermediate feedback."
+
+  - type: ADDRESSES
+    source: temporal_differencing
+    target: combinatorial_explosion
+    note: >
+      TD was specifically developed to overcome the exponential cost growth caused by interdependent
+      actions, by aggregating rewards rather than tracking individual belief paths.
+    quote: >
+      "Richard Sutton and his colleague Andrew Barto developed a reinforcement learning approach to
+      address combinatorial explosion that they called temporal differencing."
+
+  - type: ADDRESSES
+    source: reward_hypothesis
+    target: credit_assignment
+    note: >
+      The reward hypothesis claims that maximizing cumulative expected value via TD is a sufficient
+      general solution to any credit assignment problem.
+    quote: >
+      "Sutton and Barto claim that this approach offers a general solution to the credit assignment
+      problem, corresponding to what they call the 'reward hypothesis'."
+
+  - type: ADDRESSES
+    source: management_hypothesis
+    target: credit_assignment
+    note: >
+      The management hypothesis offers an alternative by framing credit assignment as managing
+      problem decompositions and memories across a society of agents.
+    quote: >
+      "All of this leads to an overall view of how to address the general problem of credit
+      assignment that we will call in this course the 'management hypothesis'."
+
+  # --- CAUSES ---
+  - type: CAUSES
+    source: interdependence_of_actions
+    target: combinatorial_explosion
+    note: >
+      Each added interdependent action multiplies the number of belief paths to evaluate, causing
+      exponential growth in the cost of trial-and-error learning.
+    quote: >
+      "a linear increase in interdependent actions leads to a combinatorial increase in the cost
+      of trial-and-error learning… even small increases in the number of interdependent actions…
+      overwhelm the effectiveness of trial-and-error learning policies."
+
+  - type: CAUSES
+    source: combinatorial_explosion
+    target: superstitious_learning
+    note: >
+      Combinatorial explosion makes adequate feedback collection impossible, so agents reinforce
+      beliefs that may be false rather than causally accurate.
+    quote: >
+      "Combinatorial explosion helps explain why our three organizations struggled to assign credit…
+      they could not tell if the beliefs they reinforced about these actions were true or just 'superstitious'."
+
+  # --- COMPLICATES ---
+  - type: COMPLICATES
+    source: delayed_feedback
+    target: credit_assignment
+    note: >
+      Delayed feedback makes it difficult to trace outcomes back to the specific earlier actions
+      responsible for them.
+    quote: >
+      "Feedback about goals… was either delayed until well after actions were generated, or ambiguous."
+
+  - type: COMPLICATES
+    source: ambiguous_feedback
+    target: credit_assignment
+    note: >
+      Ambiguous feedback obscures the causal link between actions and outcomes, so agents cannot
+      reliably identify which actions deserve credit.
+    quote: >
+      "there was no easy way to know whether they learned the right things due to these challenges
+      of assigning credit of delayed and ambiguous feedback regarding interdependent actions."
+
+  - type: COMPLICATES
+    source: sparse_feedback
+    target: credit_assignment
+    note: >
+      Sparse feedback leaves most actions unevaluated, making it impossible to assign credit
+      broadly across an agent's repertoire of possible behaviors.
+    quote: >
+      "Minsky argued feedback is not just uncertain or ambiguous but sparse, meaning that only a
+      small subset of actions generate feedback useful for assigning credit."
+
+  - type: COMPLICATES
+    source: interdependence_of_actions
+    target: credit_assignment
+    note: >
+      When actions are interdependent, isolating the contribution of any single action is
+      confounded by the effects of all other simultaneous or sequential actions.
+    quote: >
+      "We will refer to this requirement as the challenge of assigning credit arising from the
+      interdependence of actions."
+
+  # --- REQUIRES ---
+  - type: REQUIRES
+    source: credit_assignment
+    target: feedback
+    note: >
+      Credit assignment is fundamentally about using feedback to evaluate individual actions;
+      the concept cannot be understood without prior understanding of what feedback is.
+    quote: ~
+
+  # --- PART-OF ---
+  - type: PART-OF
+    source: policy
+    target: reinforcement_learning
+    note: >
+      Policy is the central mechanism in RL that defines how credit is assigned via belief updates
+      after each action.
+    quote: >
+      "a policy in reinforcement learning is a set of rules defining how to update probabilities
+      of beliefs about actions."
+
+  - type: PART-OF
+    source: learning_rate
+    target: policy
+    note: >
+      The learning rate is the specific parameter that operationalises a RL policy — it determines
+      how much each trial updates the agent's beliefs.
+    quote: >
+      "The policy refers to the amount of updating after each action, called a learning rate,
+      that ranges from 0 to 1"
+
+  - type: PART-OF
+    source: beliefs
+    target: policy
+    note: >
+      In RL, beliefs are the probability estimates for actions that the policy updates after each
+      trial; they are the state the policy operates on.
+    quote: >
+      "we will call these probabilities for generating actions 'beliefs', in that they capture not
+      facts about reality per se, so much as an estimate by some agent of how much credit individual
+      actions should get"
+
+  - type: PART-OF
+    source: value_function
+    target: temporal_differencing
+    note: >
+      The value function is the data structure TD operates on — it aggregates rewards across
+      interdependent actions without requiring explicit belief paths.
+    quote: >
+      "an agent may learn to act effectively by assigning credit to a much simpler 'value function'
+      that only estimates actions' aggregate rewards"
+
+  - type: PART-OF
+    source: maximize_rewards
+    target: reinforcement_learning
+    note: >
+      Maximizing cumulative rewards is the fundamental objective that defines reinforcement learning
+      as a paradigm.
+    quote: >
+      "The overall goal in reinforcement learning is to 'maximize rewards'."
+
+  - type: PART-OF
+    source: exploration_exploitation_tradeoff
+    target: reinforcement_learning
+    note: >
+      The exploration-exploitation tradeoff is the central design challenge inherent to RL — the
+      core tension the paradigm must resolve.
+    quote: >
+      "The need to balance the efficiency and effectiveness of these policies is famously called
+      the exploration-exploitation tradeoff. This tradeoff frames the solution to the fundamental
+      problem of credit assignment in our first AI idea."
+
+  - type: PART-OF
+    source: generate_and_test
+    target: credit_assignment
+    note: >
+      Generate-and-test is the basic action mechanism shared across all instances of credit
+      assignment: agents generate actions, test effects, and modify accordingly.
+    quote: >
+      "all three examples involved (1) goal-directed agents who (2) generated actions (3) tested
+      the effects of actions on goals using (4) trial-and-error feedback, and used this feedback
+      to (5) modify actions."
+
+  - type: PART-OF
+    source: delegation
+    target: society_of_mind_hypothesis
+    note: >
+      Delegation is the fundamental action primitive in the society of mind — every agent acts by
+      delegating subproblems to subordinate specialized agents.
+    quote: >
+      "Geoffrey is a sort of 'CEO' agent, whose actions manage lower-level agents in his mind or
+      body needed to construct the maze."
+
+  - type: PART-OF
+    source: agent_specialization
+    target: society_of_mind_hypothesis
+    note: >
+      Each agent in the society of mind is specialized for a narrow task and cannot act alone;
+      specialization is what makes delegation possible.
+    quote: >
+      "'Add' itself does not actually know how to construct the walls. It does know, however,
+      that it needs another agent 'Grasp' to pick up the actual blocks"
+
+  - type: PART-OF
+    source: organizational_memory
+    target: management_hypothesis
+    note: >
+      Managing memories about problem decompositions is a core requirement of the management
+      hypothesis alongside managing delegation structures.
+    quote: >
+      "he also needs to simplify all these memories, such as decomposing agents into hierarchical
+      levels and assigning credit to their actions at these aggregate levels, akin to managing
+      an organization."
+
+  - type: PART-OF
+    source: hierarchical_management
+    target: management_hypothesis
+    note: >
+      Hierarchical management of agents is the structural feature that allows the management
+      hypothesis to handle complexity by operating at different levels of abstraction.
+    quote: >
+      "he also needs to simplify all these memories, such as decomposing agents into hierarchical
+      levels and assigning credit to their actions at these aggregate levels, akin to managing
+      an organization."
 
   # =========================================================
   # MODULE 2: Information Processing
+  # Source: Course Notes, Session 2 — Information Processing - FAB.pdf
   # =========================================================
 
   # --- IS-A ---
   - type: IS-A
-    source: shannon_information
-    target: information
+    source: credit_assignment
+    target: information_processing
     note: >
-      Shannon information is a specific approach that treats information
-      as meaningless syntactic units (bits).
+      The text explicitly reframes credit assignment as a specific form of information processing —
+      the evaluation of symbolic patterns to determine which actions deserve credit.
+    quote: >
+      "Assigning credit is an information process of evaluating (i.e., matching or recognizing)
+      patterns in symbols about problems."
+
+  - type: IS-A
+    source: shannon_information
+    target: syntactic_information
+    note: >
+      Shannon's entire approach is built on the premise that information can be treated as
+      syntactic patterns in bit strings, independent of meaning.
+    quote: >
+      "We will understand the Shannon information approach in terms of three assumptions:
+      information processing as syntactic."
 
   - type: IS-A
     source: simon_information
-    target: information
+    target: semantic_information
     note: >
-      Simon information is an approach that treats information as
-      meaningful semantic units (lists).
+      Simon's approach is defined by the primacy of semantic content — information must carry
+      meaning that agents can interpret, not just statistical patterns.
+    quote: >
+      "We will contrast Simon information from Shannon's approach in terms of three assumptions:
+      information processing as semantic and not just syntactic."
 
   - type: IS-A
-    source: syntactic_information
-    target: information
+    source: shannon_entropy
+    target: entropy
     note: >
-      Syntactic information concerns the structural patterns of symbols,
-      independent of meaning.
+      Shannon entropy is a specific mathematical formalization of the thermodynamic entropy
+      concept, applied to probability distributions over messages.
+    quote: >
+      "A crowning achievement of Shannon is to formalize a measure of uncertainty… that he
+      called 'entropy', named for its similarity to entropy in thermodynamics."
 
   - type: IS-A
-    source: semantic_information
-    target: information
+    source: digital_abstraction
+    target: convenient_fictions
     note: >
-      Semantic information concerns the meaning that symbols designate
-      in the physical or conceptual world.
-
-  - type: IS-A
-    source: compression
-    target: encoding
-    note: >
-      Compression is a specific form of encoding that removes statistical
-      redundancies to reduce the number of bits.
-
-  - type: IS-A
-    source: meaningful_abstraction
-    target: abstraction
-    note: >
-      Meaningful abstraction (Simon) organizes information into named
-      semantic structures, as distinct from mere data reduction.
-
-  - type: IS-A
-    source: statistical_redundancy_removal
-    target: compression
-    note: >
-      Statistical redundancy removal is the mechanism by which Shannon
-      compression works.
-
-  - type: IS-A
-    source: pattern_matching
-    target: symbol_manipulation
-    note: >
-      Pattern matching (matching exact symbols) is a basic type of
-      symbol manipulation.
-
-  - type: IS-A
-    source: pattern_recognition
-    target: symbol_manipulation
-    note: >
-      Pattern recognition (matching similar symbols) is a basic type of
-      symbol manipulation.
-
-  - type: IS-A
-    source: ood_problems
-    target: information_processing
-    note: >
-      Out-of-distribution problems are a class of information processing
-      challenges where the statistical distribution of outcomes changes.
-
-  - type: IS-A
-    source: iid_problems
-    target: information_processing
-    note: >
-      IID problems are information processing tasks where outcomes are
-      independently and identically distributed.
+      The digital abstraction is one of the convenient fictions the course asks students to
+      maintain — treating information as a symbolic thing independent of physical substrate.
+    quote: >
+      "this symbol manipulation assumption will require us to maintain a second fiction, called
+      the 'digital abstraction', which is that we can talk about information as a symbolic thing,
+      independent of the physical world."
 
   # --- PART-OF ---
-  - type: PART-OF
-    source: shannon_entropy
-    target: information_theory
-    note: >
-      Shannon entropy (uncertainty measure over probability distributions)
-      is a central component of information theory.
-
   - type: PART-OF
     source: bit
     target: shannon_information
     note: >
-      The bit (binary digit) is the fundamental unit of Shannon information.
+      Bits are the fundamental unit of Shannon information — the atomic building blocks from
+      which all syntactic messages are composed.
+    quote: >
+      "Shannon proposed binary digits — 0's or 1's — that he called 'bits' as the building
+      block units of syntactic information processing."
 
   - type: PART-OF
     source: bit_strings
     target: shannon_information
     note: >
-      Bit strings are sequences of bits that encode symbolic patterns.
+      Bit strings are the patterns of bits that encode all messages in Shannon's framework.
+    quote: >
+      "Bits are linked together into 'messages' as patterns of 0's and 1's called bit strings."
 
   - type: PART-OF
-    source: encoding
-    target: information_processing
+    source: shannon_entropy
+    target: shannon_information
     note: >
-      Encoding (converting symbols into bit strings) is a basic
-      information processing operation.
-
-  - type: PART-OF
-    source: decoding
-    target: information_processing
-    note: >
-      Decoding (reconstructing symbols from bit strings) is a basic
-      information processing operation.
+      Shannon entropy is the central measure of information quantity in Shannon's framework,
+      quantifying uncertainty reduction from receiving a message.
+    quote: >
+      "the amount of information in a message… refers to the uncertainty reduced about the
+      probability distribution of outcomes from receiving a compressed message."
 
   - type: PART-OF
     source: channel_capacity
-    target: information_theory
+    target: shannon_information
     note: >
-      Channel capacity (maximum bandwidth of a physical channel) is a
-      core concept in Shannon's information theory.
+      Channel capacity is the physical constraint that limits how much information can be
+      transmitted, and is central to Shannon's theory.
+    quote: >
+      "Shannon described these limits as arising from how communication… ultimately happens
+      over physical channels, or restricted pathways to send and receive messages."
+
+  - type: PART-OF
+    source: bandwidth
+    target: channel_capacity
+    note: >
+      Bandwidth is the measure of channel capacity — the amount of information that can be
+      processed per unit of time over a given channel.
+    quote: >
+      "Limits to channel capacity mean that only a certain amount of information, or 'bandwidth',
+      can be processed at a certain speed over any one period of time."
 
   - type: PART-OF
     source: noise
-    target: information_theory
+    target: channel_capacity
     note: >
-      Noise (wrong or irrelevant bit strings) is a fundamental concept
-      in information theory.
+      Noise is defined as the inaccurate transmission of bit strings due to channel capacity
+      limits; it is the failure mode of any channel.
+    quote: >
+      "Channel capacity limits mean that information in messages is what Shannon called 'noisy'
+      — that the symbolic patterns encoded into bit strings are only communicated with a certain
+      probability."
 
   - type: PART-OF
     source: signal_to_noise_ratio
-    target: information_theory
+    target: channel_capacity
     note: >
-      Signal-to-noise ratio measures how reliably messages can be
-      communicated over a channel.
+      The signal-to-noise ratio measures how reliably a channel communicates messages and is the
+      key performance metric of channel capacity.
+    quote: >
+      "The signal-to-noise ratio is a measure of how reliable a message can be communicated."
 
-  # --- CAUSES ---
-  - type: CAUSES
-    source: processing_complexity
-    target: combinatorial_explosion
+  - type: PART-OF
+    source: encoding
+    target: bit_strings
     note: >
-      As problem complexity grows, the number of symbol manipulation
-      operations required explodes combinatorially.
+      Encoding is the process of converting symbols into bit strings — it is the operation that
+      creates bit string representations from source messages.
+    quote: >
+      "Converting symbols into bit strings is called encoding a message."
 
-  - type: CAUSES
-    source: combinatorial_complexity
-    target: curse_of_dimensionality
+  - type: PART-OF
+    source: decoding
+    target: bit_strings
     note: >
-      Combinatorial complexity in high-dimensional problems produces
-      the curse of dimensionality.
+      Decoding is the reverse: reconstructing the original symbolic message from its bit string
+      representation.
+    quote: >
+      "reconstructing the symbols in the original message is called decoding it."
+
+  - type: PART-OF
+    source: compression
+    target: shannon_information
+    note: >
+      Compression reduces the bit string representation by removing statistical redundancies,
+      and is a core operation in the Shannon information framework.
+    quote: >
+      "allows the original message to be 'compressed' into a smaller number of bit strings that,
+      in turn, reduces the processing capacity required."
+
+  - type: PART-OF
+    source: statistical_redundancy_removal
+    target: compression
+    note: >
+      Statistical redundancy removal is the specific mechanism by which compression is achieved
+      — redundant symbol sequences are identified and eliminated.
+    quote: >
+      "since messages often have redundant sequences of symbols (e.g., repeating the same words
+      or grammatical patterns), the encoded bit strings… are not a true measure of the number of
+      bits required to communicate the message."
+
+  - type: PART-OF
+    source: lists
+    target: simon_information
+    note: >
+      Lists — meaningful symbol patterns with a name and items — are Simon's fundamental
+      informational unit, replacing Shannon's meaningless bit strings.
+    quote: >
+      "Simon proposed that… the bits should be organized into meaningful patterns… that he
+      called lists."
+
+  - type: PART-OF
+    source: abstraction
+    target: simon_information
+    note: >
+      Abstraction — describing problems at higher levels to reduce the number of informational
+      units needed — is the core mechanism of Simon information.
+    quote: >
+      "One is better off just trying to find better and higher-level abstractions (i.e.,
+      decompositions of problems) to avoid having to process so much information in the first place."
+
+  - type: PART-OF
+    source: modularity
+    target: simon_information
+    note: >
+      Modularity — decomposing problems into meaningful named components — is the credit
+      assignment strategy that follows directly from Simon's informational approach.
+    quote: >
+      "having a system learn to assign credit… through how problem-solving is abstracted into
+      meaningful modules akin to Simon's watchmaker is called a modularity strategy."
+
+  - type: PART-OF
+    source: physical_symbol_system_hypothesis
+    target: simon_information
+    note: >
+      The physical symbol system hypothesis is the theoretical claim underlying Simon information:
+      that meaningful symbols are a necessary and sufficient basis for intelligence.
+    quote: >
+      "In their Turing Award speech, Simon and his colleague Newell explained this idea…
+      through what they called the 'physical symbol system hypothesis' (1976)."
+
+  - type: PART-OF
+    source: pattern_matching
+    target: symbol_manipulation
+    note: >
+      Pattern matching (exact symbol matching) is one of the two basic operations underlying
+      all symbol manipulation.
+    quote: >
+      "Such evaluation may involve either pattern matching (matching exact symbols) or pattern
+      recognition (matching similar symbols)."
+
+  - type: PART-OF
+    source: pattern_recognition
+    target: symbol_manipulation
+    note: >
+      Pattern recognition (fuzzy/similar symbol matching) is the second basic operation
+      underlying symbol manipulation.
+    quote: >
+      "Such evaluation may involve either pattern matching (matching exact symbols) or pattern
+      recognition (matching similar symbols)."
+
+  - type: PART-OF
+    source: symbol_manipulation
+    target: information_processing
+    note: >
+      Symbol manipulation — applying operations to symbolic patterns — is the basic action
+      underlying all information processing.
+    quote: >
+      "we will refer to all basic actions underlying information processing or message passing
+      as 'symbol manipulation' operations."
+
+  - type: PART-OF
+    source: digital_abstraction
+    target: shannon_information
+    note: >
+      The digital abstraction is a foundational assumption of Shannon's approach — treating
+      information as symbolic regardless of the physical substrate.
+    quote: >
+      "The digital abstraction… enables us to relate any actions (analog or otherwise) to a
+      single, coherent system for evaluating and transforming patterns of symbols."
+
+  - type: PART-OF
+    source: brute_force
+    target: shannon_information
+    note: >
+      Brute force is the credit assignment strategy that naturally follows from Shannon
+      information: scale up channel capacity to overcome combinatorial complexity.
+    quote: >
+      "having a system learn to assign credit intelligently just by pairing a simple strategy with
+      essentially big computers is called a brute force strategy."
 
   # --- CONTRASTS-WITH ---
   - type: CONTRASTS-WITH
     source: shannon_information
     target: simon_information
     note: >
-      Shannon treats information as meaningless bits processed via brute
-      force; Simon treats information as meaningful lists processed via
-      abstraction and modularity.
+      The two paradigms differ fundamentally in their units of information (bits vs lists),
+      their view of meaning (syntactic vs semantic), and their solution to credit assignment
+      (brute force vs modularity).
+    quote: >
+      "To explore this question robustly, we will… consider two paradigmatically-different
+      approaches to information in the study of AI systems and organizations."
 
   - type: CONTRASTS-WITH
     source: syntactic_information
     target: semantic_information
     note: >
-      Syntactic information concerns structural patterns independent of
-      meaning; semantic information concerns what symbols designate.
+      Syntactic information strips away meaning and treats symbols as arbitrary patterns;
+      semantic information treats meaning as essential to intelligent processing.
+    quote: >
+      "information processing as semantic and not just syntactic… the fundamental units of
+      information for intelligence as meaningful lists, rather than meaningless bits."
 
   - type: CONTRASTS-WITH
-    source: internal_representations
-    target: external_representations
+    source: bit
+    target: lists
     note: >
-      Internal representations are stored in minds or computer memory;
-      external representations are stored in artifacts like documents
-      or displays.
+      Bits are meaningless atomic units; lists are meaningful named structures. They represent
+      the opposing views of what constitutes the basic unit of information.
+    quote: >
+      "Simon proposed that, rather than reduce symbols to individual bits that are formed into
+      meaningless strings of 0's and 1's, the bits should be organized into meaningful patterns
+      … that he called lists."
 
   - type: CONTRASTS-WITH
-    source: explicit_knowledge
-    target: tacit_knowledge
+    source: brute_force
+    target: modularity
     note: >
-      Explicit knowledge can be articulated and codified; tacit knowledge
-      is too hard to extract or formalize.
+      Brute force scales syntactic processing capacity; modularity works by finding better
+      semantic abstractions. They are the two opposing strategies for handling combinatorial
+      explosion in credit assignment.
+    quote: >
+      "You should see that a belief in modularity rests on a specific assumption… that contrasts
+      with what is implied by Shannon information."
 
   - type: CONTRASTS-WITH
     source: iid_problems
     target: ood_problems
     note: >
-      IID problems assume a stable statistical distribution; OOD problems
-      involve distributions that change or are unknown.
-
-  - type: CONTRASTS-WITH
-    source: abstraction
-    target: compression
-    note: >
-      Abstraction (Simon) organizes information into meaningful modules;
-      compression (Shannon) removes statistical redundancy from bit strings.
-
-  # --- EXAMPLE-OF ---
-  - type: EXAMPLE-OF
-    source: ex_theseus_robot_1950
-    target: shannon_information
-    note: >
-      Shannon's Theseus robot learned to navigate a maze using only
-      syntactic electrical circuit messages, with no semantic content.
-
-  - type: EXAMPLE-OF
-    source: ex_electrical_circuits
-    target: agentic_environment
-    note: >
-      The electrical circuits underneath Theseus's maze illustrate
-      the convenient fiction of treating environments as agentic.
-
-  - type: EXAMPLE-OF
-    source: ex_telephone_network_routing
-    target: channel_capacity
-    note: >
-      AT&T's telephone network routing was the canonical problem that
-      motivated Shannon's information theory.
-
-  - type: EXAMPLE-OF
-    source: ex_pilot_cockpit_altimeter
-    target: information_processing
-    note: >
-      A pilot reading cockpit instruments illustrates information
-      processing through symbol manipulation.
-
-  - type: EXAMPLE-OF
-    source: ex_fiber_optic_5g_tv_bandwidth
-    target: bandwidth
-    note: >
-      Fiber optic and 5G channels illustrate differences in bandwidth
-      and channel capacity.
-
-  - type: EXAMPLE-OF
-    source: ex_english_word_distribution
-    target: iid_problems
-    note: >
-      Predicting the next English word in an LLM prompt assumes
-      an IID distribution of English words.
-
-  - type: EXAMPLE-OF
-    source: ex_mechanical_watch_assembly
-    target: modularity
-    note: >
-      Simon's watchmaker parable (1000 parts vs 100 modules of 10)
-      is the canonical illustration of modularity.
-
-  - type: EXAMPLE-OF
-    source: ex_neuron_synapses_100_trillion
-    target: processing_capacity
-    note: >
-      The estimate of 100 trillion brain synapses illustrates the scale
-      of processing capacity relevant to artificial brain arguments.
-
-  - type: EXAMPLE-OF
-    source: ex_coin_toss_fair
-    target: iid_problems
-    note: >
-      A fair coin toss is the canonical example of IID outcomes.
-
-  # --- REQUIRES ---
-  - type: REQUIRES
-    source: compression
-    target: encoding
-    note: >
-      Compression requires first encoding symbols into bit strings
-      before redundancies can be removed.
-
-  - type: REQUIRES
-    source: physical_symbol_system_hypothesis
-    target: simon_information
-    note: >
-      The PSSH requires meaningful (Simon-type) symbols that designate
-      objects in the world.
-
-  - type: REQUIRES
-    source: information_processing
-    target: processing_capacity
-    note: >
-      All information processing requires some amount of processing
-      capacity (energy or work).
+      IID problems have a stable probability distribution that agents can learn; OOD problems
+      violate this assumption, making statistical credit assignment unreliable.
+    quote: >
+      "These and many other possible violations of the basic IID coin toss set-up can be thought
+      of as out-of-distribution, or 'OOD'."
 
   # --- ATTRIBUTED-TO ---
   - type: ATTRIBUTED-TO
     source: shannon_information
     target: claude_shannon
     note: >
-      Shannon pioneered syntactic information theory at Bell Labs / MIT.
+      Shannon developed his information theory at Bell Labs in the 1930s–1940s, published in
+      his landmark 1948 paper.
+    quote: >
+      "In a 1948 paper, Shannon introduced an approach to thinking about information that has
+      been so influential… that it is still often simply called 'information theory'."
+
+  - type: ATTRIBUTED-TO
+    source: information_theory
+    target: claude_shannon
+    note: >
+      Information theory is the name widely given to Shannon's 1948 framework for measuring
+      and transmitting information.
+    quote: >
+      "In a 1948 paper, Shannon introduced an approach… that is still often simply called
+      'information theory'."
+
+  - type: ATTRIBUTED-TO
+    source: shannon_entropy
+    target: claude_shannon
+    note: >
+      Shannon formalized entropy as a measure of uncertainty in probability distributions
+      over messages.
+    quote: >
+      "A crowning achievement of Shannon is to formalize a measure of uncertainty… that he
+      called 'entropy'."
 
   - type: ATTRIBUTED-TO
     source: simon_information
     target: herbert_simon
     note: >
-      Simon pioneered semantic information processing at Carnegie-Mellon.
+      Simon developed his semantic information approach through his research on organizational
+      decision-making from the 1930s–1950s, synthesized in his famous 1962 paper.
+    quote: >
+      "In a famous 1962 paper titled 'The Architecture of Complexity', Herbert Simon described
+      an alternative to Shannon's approach."
 
   - type: ATTRIBUTED-TO
-    source: turing_machine
-    target: alan_turing
+    source: physical_symbol_system_hypothesis
+    target: herbert_simon
     note: >
-      Turing introduced the Turing machine in 1936 as a model of
-      effective procedures.
+      Simon and Newell proposed the physical symbol system hypothesis in their joint Turing
+      Award lecture in 1976.
+    quote: >
+      "In their Turing Award speech, Simon and his colleague Newell explained this idea…
+      through what they called the 'physical symbol system hypothesis' (1976)."
 
   - type: ATTRIBUTED-TO
     source: physical_symbol_system_hypothesis
     target: allen_newell
     note: >
-      Newell (with Simon) articulated the PSSH in their Turing Award speech.
+      Newell co-proposed the physical symbol system hypothesis with Simon in their 1976 Turing
+      Award lecture, after years of joint work on AI and cognitive simulation.
+    quote: >
+      "In their Turing Award speech, Simon and his colleague Newell explained this idea…
+      through what they called the 'physical symbol system hypothesis' (1976)."
 
-  # --- EXAMPLE-OF (people as users/commentators) ---
-  - type: EXAMPLE-OF
-    source: saleema_amershi
+  - type: ATTRIBUTED-TO
+    source: ex_theseus_robot_1950
+    target: claude_shannon
+    note: >
+      Shannon built Theseus in 1950 to demonstrate that a machine could learn to navigate a
+      configurable maze using only syntactic circuit signals.
+    quote: >
+      "Shannon… famously displayed this convenient fiction in a robotic mouse he built in 1950
+      called Theseus, which 'learns' to navigate a maze whose walls can be flexibly configured."
+
+  - type: ATTRIBUTED-TO
+    source: brute_force
+    target: richard_sutton
+    note: >
+      Sutton's 2019 "Bitter Lesson" blog post articulated the brute force view: that AI progress
+      has come from scaling compute, not from complex strategies.
+    quote: >
+      "Richard Sutton… wrote a short blog post titled 'The Bitter Lesson'… the result of over
+      seven decades of research… is that 'progress' in the AI field has mostly been made not by
+      AI researchers thinking of complex strategies for assigning credit, but rather of
+      embarrassingly simple strategies… paired with massive increases in channel capacity."
+
+  # --- ADDRESSES ---
+  - type: ADDRESSES
+    source: brute_force
+    target: combinatorial_explosion
+    note: >
+      Brute force addresses combinatorial explosion by claiming that a linear increase in
+      channel capacity produces an exponential gain in signal-to-noise, overwhelming the
+      complexity growth.
+    quote: >
+      "a belief in brute force rests on a specific assumption… that any combinatorial explosion
+      in the complexity of problems will be more than made up for by the exponential increase
+      in signal-to-noise from just a linear increase in channel capacity."
+
+  - type: ADDRESSES
+    source: modularity
+    target: combinatorial_explosion
+    note: >
+      Modularity addresses combinatorial explosion by decomposing problems into named
+      components, dramatically reducing the search space rather than scaling processing power.
+    quote: >
+      "having a system learn to assign credit not through brute force, so much as through how
+      problem-solving is abstracted into meaningful modules akin to Simon's watchmaker is called
+      a modularity strategy."
+
+  - type: ADDRESSES
+    source: compression
+    target: channel_capacity
+    note: >
+      Compression reduces the information load on a channel by removing redundancies, allowing
+      more content to be transmitted within the same capacity.
+    quote: >
+      "the original message can be 'compressed' into a smaller number of bit strings that, in
+      turn, reduces the processing capacity required."
+
+  - type: ADDRESSES
+    source: abstraction
+    target: combinatorial_explosion
+    note: >
+      Abstraction reduces the number of informational units needed to describe a problem by
+      working at higher levels of structure, avoiding the need to process every detail.
+    quote: >
+      "One is better off just trying to find better and higher-level abstractions (i.e.,
+      decompositions of problems) to avoid having to process so much information in the first place."
+
+  # --- COMPLICATES ---
+  - type: COMPLICATES
+    source: noise
+    target: information_processing
+    note: >
+      Noise — the inaccurate transmission of bit strings — makes reliable information processing
+      harder by introducing errors into the symbolic patterns being communicated.
+    quote: >
+      "'Noise' (communication of wrong or irrelevant bit strings) is contrasted with 'signals',
+      or the accurate communication of bit strings in a message."
+
+  - type: COMPLICATES
+    source: ood_problems
+    target: credit_assignment
+    note: >
+      OOD problems violate the IID statistical assumptions underlying Shannon information,
+      making it impossible to rely on learned probability distributions for credit assignment.
+    quote: >
+      "in many or most real-world settings, they are the rule rather than the exception, and
+      this was precisely Minsky's point."
+
+  - type: COMPLICATES
+    source: combinatorial_complexity
+    target: information_processing
+    note: >
+      More combinatorially complex problems require exponentially more processing capacity,
+      eventually overwhelming any finite system.
+    quote: >
+      "the complexity of a problem as the amount of symbol manipulation actions for solving it…
+      processing more complex information requires greater 'processing power' or 'processing capacity'."
+
+  # --- REQUIRES ---
+  - type: REQUIRES
+    source: brute_force
+    target: channel_capacity
+    note: >
+      The brute force strategy is only viable if sufficient channel capacity exists to match the
+      combinatorial growth of the problem; without it, the strategy fails.
+    quote: >
+      "having a system learn to assign credit intelligently just by pairing a simple strategy with
+      essentially big computers is called a brute force strategy."
+
+  - type: REQUIRES
+    source: physical_symbol_system_hypothesis
+    target: abstraction
+    note: >
+      The physical symbol system hypothesis depends on agents having access to meaningful
+      abstractions; without abstraction, symbols remain meaningless bit strings.
+    quote: >
+      "efficient intelligent systems arise not by sheer scaling of syntactic processing capacity,
+      but by how meaningful abstractions of bit strings eliminate the need to process information
+      about every detail of the environment."
+
+  # --- INSTANCE-OF ---
+  - type: INSTANCE-OF
+    source: ex_theseus_robot_1950
+    target: shannon_information
+    note: >
+      Theseus demonstrates Shannon's approach in action: a machine that learns to navigate
+      a maze using only syntactic circuit signals as information.
+    quote: >
+      "Shannon… famously displayed this convenient fiction in a robotic mouse he built in 1950
+      called Theseus, which 'learns' to navigate a maze."
+
+  - type: INSTANCE-OF
+    source: ex_theseus_robot_1950
+    target: syntactic_information
+    note: >
+      Theseus processed only syntactic information — circuit signals indicating open or closed
+      paths — with no semantic interpretation of what they meant.
+    quote: >
+      "Such 'learning' did not require Theseus to interpret the sequence of actions he took,
+      other than associating the actions with good or bad paths."
+
+  - type: INSTANCE-OF
+    source: ex_telephone_network_routing
+    target: channel_capacity
+    note: >
+      The AT&T telephone network is Shannon's original motivating example of a system with
+      physical channel capacity limits to be managed.
+    quote: >
+      "He developed his approach… ostensibly to solve problems of routing calls over complex
+      telephone networks while working at Bell Labs."
+
+  - type: INSTANCE-OF
+    source: ex_fiber_optic_5g_tv_bandwidth
+    target: bandwidth
+    note: >
+      The contrast between a TV channel and fiber optic 5G cable illustrates differences in
+      bandwidth — the amount of information a channel can carry per unit time.
+    quote: >
+      "A conventional TV channel… has access to only a limited amount of bandwidth, while
+      fiber optic cables in a 5G network have more capacity."
+
+  - type: INSTANCE-OF
+    source: ex_pilot_cockpit_altimeter
+    target: information_processing
+    note: >
+      The cockpit pilot illustrates information processing as symbol manipulation — receiving,
+      interpreting, and acting on diverse symbolic inputs.
+    quote: >
+      "A pilot, for example, receives feedback as symbolic information in the visual displays
+      of cockpit instruments, audio updates from air traffic control, or ear pressure from a
+      sudden change in altitude."
+
+  - type: INSTANCE-OF
+    source: ex_coin_toss_fair
+    target: iid_problems
+    note: >
+      A fair coin toss is the canonical IID example: each flip is independent of all others and
+      the probability distribution (50/50) never changes.
+    quote: >
+      "A canonical example is a coin toss, assuming a fair coin. The first coin flip does not
+      depend on the second coin flip… the coin flips are independent."
+
+  - type: INSTANCE-OF
+    source: ex_coin_toss_weighted_70_30
+    target: ood_problems
+    note: >
+      The non-fair or otherwise violated coin toss illustrates OOD conditions — violations of
+      the IID assumptions (weighted coin, edge landing, unreadable result).
+    quote: >
+      "The coin may not be fair… These and many other possible violations of the basic IID
+      coin toss set-up can be thought of as out-of-distribution, or 'OOD'."
+
+  - type: INSTANCE-OF
+    source: ex_watchmaker_parable_1000_parts
+    target: simon_information
+    note: >
+      Simon's watchmaker parable is his key illustration of the need for semantic information:
+      meaningful modules dramatically outperform flat assembly.
+    quote: >
+      "In his 1962 paper, Simon famously illustrated the need for semantic information through
+      his watchmaker parable."
+
+  - type: INSTANCE-OF
+    source: ex_watchmaker_100_modules_of_10
     target: modularity
     note: >
-      Amershi et al. (2019) at Microsoft Research showed ML deployment
-      requires organizational/modular processes, not just brute force.
+      The first watchmaker, who decomposes the watch into 100 named modules of 10 parts,
+      directly illustrates the modularity strategy.
+    quote: >
+      "One decomposes the watch into 100 named (i.e., meaningful) modules (i.e., components)
+      of 10 parts each."
 
-  - type: EXAMPLE-OF
-    source: cantwell_smith
-    target: information_processing
-    note: >
-      Cantwell Smith's definition of information processing as storing,
-      manipulating, displaying, and trafficking in information.
-
-
-  # =========================================================
-  # MODULE 3: Search
-  # =========================================================
-
-  # --- IS-A ---
-  - type: IS-A
-    source: search
-    target: information_processing
-    note: >
-      Search is a specific information processing strategy that divides
-      complex problems into plans using heuristics.
-
-  - type: IS-A
-    source: uninformed_search
-    target: search
-    note: >
-      Uninformed search uses no domain-specific heuristics to guide
-      action selection.
-
-  - type: IS-A
-    source: informed_search
-    target: search
-    note: >
-      Informed search uses domain-specific heuristics to guide action
-      selection and prune the search tree.
-
-  - type: IS-A
-    source: breadth_first_search
-    target: uninformed_search
-    note: >
-      BFS searches many paths, generating-and-testing a few actions
-      for each path.
-
-  - type: IS-A
-    source: depth_first_search
-    target: uninformed_search
-    note: >
-      DFS searches one or few paths deeply, generating-and-testing
-      many actions per path.
-
-  - type: IS-A
-    source: hill_climbing
-    target: informed_search
-    note: >
-      Hill-climbing is an informed search that follows local gradients
-      toward higher performance.
-
-  - type: IS-A
-    source: adversarial_search
-    target: search
-    note: >
-      Adversarial search involves two or more agents with conflicting
-      goals (game-playing).
-
-  - type: IS-A
-    source: von_neumann_search
-    target: adversarial_search
-    note: >
-      Von Neumann search conceives of search as playing a well-defined
-      game with utility functions.
-
-  - type: IS-A
-    source: simon_search
-    target: search
-    note: >
-      Simon search conceives of search as understanding and structuring
-      an ill-defined problem using means-ends analysis.
-
-  - type: IS-A
-    source: means_ends_analysis
-    target: heuristics
-    note: >
-      Means-ends analysis is a general heuristic method: identify
-      differences between current state and goal, then reduce them.
-
-  - type: IS-A
-    source: satisficing
-    target: heuristics
-    note: >
-      Satisficing is itself a heuristic: generate plans until a
-      satisfactory solution is found, then stop.
-
-  - type: IS-A
-    source: brute_force
-    target: search
-    note: >
-      Brute force is a search strategy that tests all possible states,
-      contrasted with heuristic search.
-
-  - type: IS-A
-    source: generate_and_test
-    target: search
-    note: >
-      Generate-and-test is the most basic search strategy: produce a
-      candidate and evaluate it.
-
-  - type: IS-A
-    source: backtracking
-    target: depth_first_search
-    note: >
-      Backtracking is a depth-first strategy that reverses one move
-      when a violation is detected.
-
-  - type: IS-A
-    source: algorithm
-    target: effective_procedure
-    note: >
-      An algorithm is a precise and unambiguous specification for
-      controlling a sequence of mechanically executable steps.
-
-  # --- PART-OF ---
-  - type: PART-OF
-    source: state
-    target: search_space
-    note: >
-      States are the nodes of the search space / search tree.
-
-  - type: PART-OF
-    source: initial_state
-    target: search
-    note: >
-      The initial state is the starting point of any search process.
-
-  - type: PART-OF
-    source: goal_state
-    target: search
-    note: >
-      The goal state is the target endpoint of a search process.
-
-  - type: PART-OF
-    source: intermediate_state
-    target: search
-    note: >
-      Intermediate states are the states visited between the initial
-      and goal states.
-
-  - type: PART-OF
-    source: operators
-    target: search
-    note: >
-      Operators are the actions available to transform one state into another.
-
-  - type: PART-OF
-    source: state_transitions
-    target: search
-    note: >
-      State transitions are the moves from one state to another via operators.
-
-  - type: PART-OF
-    source: paths
-    target: search_tree
-    note: >
-      Paths are sequences of actions / state transitions in the search tree.
-
-  - type: PART-OF
-    source: branches
-    target: search_tree
-    note: >
-      Branches are segments of the search tree that can be pruned.
-
-  - type: PART-OF
-    source: node
-    target: search_tree
-    note: >
-      Nodes represent individual states in the search tree.
-
-  - type: PART-OF
-    source: evaluation_function
-    target: von_neumann_search
-    note: >
-      The evaluation function collapses intermediate feedback into a
-      single utility value for each state in von Neumann search.
-
-  - type: PART-OF
-    source: subgoals
-    target: planning
-    note: >
-      Subgoals are intermediate targets that decompose a complex
-      planning problem.
-
-  - type: PART-OF
-    source: memory_of_action_sequences
-    target: planning
-    note: >
-      Remembering good sequences of actions allows agents to form
-      beliefs about plans.
-
-  - type: PART-OF
-    source: aspiration_level
-    target: satisficing
-    note: >
-      The aspiration level is the threshold of satisfactory performance
-      that triggers the stop-search heuristic.
-
-  # --- CAUSES ---
-  - type: CAUSES
-    source: heuristics
-    target: pruning
-    note: >
-      Using heuristics eliminates (prunes) large branches of the
-      search tree that need not be evaluated.
-
-  - type: CAUSES
-    source: myopia
-    target: local_peaks
-    note: >
-      Myopic search (only seeing things locally) causes agents to get
-      stuck on local peaks rather than finding the global optimum.
-
-  # --- CONTRASTS-WITH ---
-  - type: CONTRASTS-WITH
-    source: von_neumann_search
-    target: simon_search
-    note: >
-      Von Neumann search uses utility functions for well-defined games;
-      Simon search uses means-ends analysis for ill-defined problems.
-
-  - type: CONTRASTS-WITH
-    source: brute_force
-    target: heuristics
-    note: >
-      Brute force tests all states; heuristics economize by testing
-      only promising states.
-
-  - type: CONTRASTS-WITH
-    source: uninformed_search
-    target: informed_search
-    note: >
-      Uninformed search has no domain-specific guidance; informed search
-      uses heuristics to prune and prioritize.
-
-  - type: CONTRASTS-WITH
-    source: global_optimum
-    target: local_peaks
-    note: >
-      The global optimum is the best solution overall; local peaks are
-      suboptimal solutions that appear best in their neighborhood.
-
-  - type: CONTRASTS-WITH
-    source: find_best_solution_goal
-    target: satisficing
-    note: >
-      Finding the best solution (optimization) contrasts with satisficing
-      (finding any good-enough solution).
-
-  # --- EXAMPLE-OF ---
-  - type: EXAMPLE-OF
-    source: ex_safe_combination_81_factorial
+  - type: INSTANCE-OF
+    source: ex_neuron_synapses_100_trillion
     target: brute_force
     note: >
-      Trying all combinations of a safe illustrates brute force search.
+      The 100-trillion-synapse brain analogy illustrates the brute force reasoning: if the brain
+      is a Shannon processor, constructing artificial general intelligence is just a matter of
+      scaling up chip and data capacity.
+    quote: >
+      "Consider the estimate from some neuroscientists that the human brain has 100 trillion
+      synapses… constructing an artificial brain is just a matter of time."
 
-  - type: EXAMPLE-OF
-    source: ex_kaist_to_incheon_airport
-    target: search
+  - type: INSTANCE-OF
+    source: ex_english_word_distribution
+    target: iid_problems
     note: >
-      Planning a train route from KAIST to Incheon Airport illustrates
-      search with pruning via a map representation.
+      An LLM predicting English words assumes IID: the distribution of possible next words is
+      stable regardless of prompt context.
+    quote: >
+      "when you prompt an LLM in English to predict the next word of a sentence, we assume that
+      the LLM has perfect certainty that it will be some word in English."
 
-  - type: EXAMPLE-OF
-    source: ex_pin_factory_adam_smith
-    target: division_of_labor
+  - type: INSTANCE-OF
+    source: ex_budgeting_committee
+    target: simon_information
     note: >
-      Smith's pin factory is the canonical example of gains to
-      specialization through division of labor.
-
-  - type: EXAMPLE-OF
-    source: ex_checkers_game
-    target: von_neumann_search
-    note: >
-      Samuel's checkers program exemplifies von Neumann search with
-      evaluation functions and backward propagation.
-
-  - type: EXAMPLE-OF
-    source: deliberate_practice
-    target: heuristics
-    note: >
-      Deliberate practice is a heuristic experts use to learn other
-      heuristics (Simon's research on expertise).
-
-  - type: EXAMPLE-OF
-    source: effectuation
-    target: simon_search
-    note: >
-      Effectuation (entrepreneurs constructing ideas piecemeal) is
-      an example of Simon-style search.
-
-  # --- REQUIRES ---
-  - type: REQUIRES
-    source: search
-    target: state_space
-    note: >
-      Search requires a defined state space to navigate from initial
-      to goal states.
-
-  - type: REQUIRES
-    source: pruning
-    target: heuristics
-    note: >
-      Pruning branches of the search tree requires heuristic rules
-      to decide what to eliminate.
-
-  - type: REQUIRES
-    source: planning
-    target: search
-    note: >
-      Planning (looking ahead by evaluating possible sequences) is a
-      search process.
-
-  - type: REQUIRES
-    source: satisficing
-    target: aspiration_level
-    note: >
-      Satisficing requires an aspiration level to determine when a
-      solution is good enough.
-
-  - type: REQUIRES
-    source: von_neumann_search
-    target: utility_function
-    note: >
-      Von Neumann search requires a utility function to assign
-      numerical values to states.
-
-  - type: REQUIRES
-    source: backward_propagation
-    target: evaluation_function
-    note: >
-      Backward propagation sends evaluated utilities up the game tree,
-      requiring an evaluation function.
-
-  - type: REQUIRES
-    source: simon_search
-    target: physical_symbol_system_hypothesis
-    note: >
-      Simon search requires meaningful physical symbols that can be
-      manipulated to transform states.
-
-  # --- ATTRIBUTED-TO ---
-  - type: ATTRIBUTED-TO
-    source: von_neumann_search
-    target: john_von_neumann
-    note: >
-      Von Neumann's game theory work in the 1930s-40s founded the
-      adversarial approach to search.
-
-  - type: ATTRIBUTED-TO
-    source: satisficing
-    target: herbert_simon
-    note: >
-      Simon proposed satisficing as the fundamental heuristic of
-      intelligent agents with bounded rationality.
-
-  - type: ATTRIBUTED-TO
-    source: division_of_labor
-    target: adam_smith
-    note: >
-      Smith explained the logic of division of labor and gains to
-      specialization in The Wealth of Nations (1776).
-
-  # --- EXAMPLE-OF (people as users/commentators) ---
-  - type: EXAMPLE-OF
-    source: charles_babbage
-    target: algorithm
-    note: >
-      Babbage proposed that any complex task can be divided into simple
-      subtasks mechanized as programs (algorithms).
-
-  - type: EXAMPLE-OF
-    source: demis_hassabis
-    target: von_neumann_search
-    note: >
-      Hassabis (Google DeepMind) combines RL with von Neumann search
-      in AlphaGo and AlphaFold.
-
+      The pharmaceutical budgeting committee is reused to illustrate Simon information: in
+      practice, managers use semantic categories (unit names, innovation types) rather than raw
+      bit strings.
+    quote: >
+      "In practice, they rely on semantic categories, such as the names of the business units and
+      the types of innovations that they propose."
 
   # =========================================================
-  # MODULE 4: Representation
-  # =========================================================
-
-  # --- IS-A ---
-  - type: IS-A
-    source: representation
-    target: schema
-    note: >
-      A representation used in an AI system or organization is called
-      a schema (they are synonymous in the course).
-
-  - type: IS-A
-    source: csp
-    target: search
-    note: >
-      CSPs are a type of search that interleaves representations
-      (constraint propagation) with heuristic search.
-
-  - type: IS-A
-    source: bayesian_networks
-    target: constraint_network
-    note: >
-      Bayesian networks (causal nets) are a specific type of constraint
-      network using conditional probabilities.
-
-  - type: IS-A
-    source: boltzmann_machines
-    target: constraint_network
-    note: >
-      Boltzmann machines are a constraint network using binary variables
-      and learned correlation weights.
-
-  - type: IS-A
-    source: expert_systems
-    target: knowledge_base
-    note: >
-      Expert systems store heuristic rules in a knowledge base acquired
-      from domain experts.
-
-  - type: IS-A
-    source: hard_constraints
-    target: variables
-    note: >
-      Hard constraints are restrictions where violation eliminates a
-      value from any possible solution.
-
-  - type: IS-A
-    source: soft_constraints
-    target: variables
-    note: >
-      Soft constraints impose a cost on violation but do not eliminate
-      the value from solutions.
-
-  - type: IS-A
-    source: unary_constraint
-    target: hard_constraints
-    note: >
-      A unary constraint restricts the values of a single variable.
-
-  - type: IS-A
-    source: binary_constraint
-    target: hard_constraints
-    note: >
-      A binary constraint restricts the relation between two variables.
-
-  - type: IS-A
-    source: higher_order_constraint
-    target: hard_constraints
-    note: >
-      Higher-order constraints restrict relations among three or more
-      variables; they can usually be reduced to binary constraints.
-
-  - type: IS-A
-    source: forward_checking_search
-    target: csp
-    note: >
-      Forward checking interleaves a search action with constraint
-      propagation to check consistency.
-
-  - type: IS-A
-    source: arc_consistency
-    target: constraint_propagation
-    note: >
-      Arc consistency is a specific propagation technique ensuring
-      every value in a domain has a consistent partner.
-
-  - type: IS-A
-    source: gradient_descent
-    target: hill_climbing
-    note: >
-      Gradient descent is hill-climbing viewed from the minimization
-      perspective (the landscape flipped upside down).
-
-  - type: IS-A
-    source: autoencoders
-    target: boltzmann_machines
-    note: >
-      Autoencoders are models for automatically encoding correlations,
-      performing similar functions to Boltzmann machines.
-
-  - type: IS-A
-    source: representation_learning
-    target: learning
-    note: >
-      Representation learning refers to learning constraint networks
-      (specifically correlation-based ones in deep learning).
-
-  # --- PART-OF ---
-  - type: PART-OF
-    source: variables
-    target: csp
-    note: >
-      Variables are one of the three defining elements of any constraint
-      problem.
-
-  - type: PART-OF
-    source: domain
-    target: csp
-    note: >
-      Domains (allowable values for variables) are a defining element
-      of constraint problems.
-
-  - type: PART-OF
-    source: constraint_propagation
-    target: constraint_network
-    note: >
-      Constraint propagation (sending information across network links)
-      is the core mechanism of constraint networks.
-
-  - type: PART-OF
-    source: conditional_probabilities
-    target: bayesian_networks
-    note: >
-      Conditional probabilities between parent and child variables
-      define the constraints in a Bayesian network.
-
-  - type: PART-OF
-    source: dag
-    target: bayesian_networks
-    note: >
-      A directed acyclic graph is the required structure for a
-      Bayesian network.
-
-  - type: PART-OF
-    source: parent_variable
-    target: bayesian_networks
-    note: >
-      Parent variables are those that cause or direct child variables
-      in a Bayesian network.
-
-  - type: PART-OF
-    source: child_variable
-    target: bayesian_networks
-    note: >
-      Child variables depend on parent variables in a Bayesian network.
-
-  - type: PART-OF
-    source: binary_variables_boltzmann
-    target: boltzmann_machines
-    note: >
-      Binary (1,0) variables resembling on/off neurons are the
-      building blocks of Boltzmann machines.
-
-  - type: PART-OF
-    source: weights_boltzmann
-    target: boltzmann_machines
-    note: >
-      Weights (correlation probabilities) are the learned constraints
-      in a Boltzmann machine.
-
-  - type: PART-OF
-    source: productions
-    target: expert_systems
-    note: >
-      Productions (if-then heuristic rules) are the knowledge units
-      stored in expert systems.
-
-  - type: PART-OF
-    source: partial_assignment
-    target: state
-    note: >
-      A partial assignment (only some variables assigned values)
-      characterizes most intermediate states.
-
-  - type: PART-OF
-    source: complete_assignment
-    target: state
-    note: >
-      A complete assignment (all variables assigned) characterizes
-      a terminal state.
-
-  - type: PART-OF
-    source: consistent_assignment
-    target: solution
-    note: >
-      A consistent assignment (satisfies all constraints) is required
-      for a solution.
-
-  # --- CAUSES ---
-  - type: CAUSES
-    source: constraint_propagation
-    target: intermediate_feedback
-    note: >
-      Propagating information across a constraint network generates
-      intermediate feedback for credit assignment.
-
-  - type: CAUSES
-    source: entropy_minimization_boltzmann
-    target: representation_learning
-    note: >
-      Minimizing entropy (cost) across the Boltzmann network is the
-      learning mechanism that produces learned representations.
-
-  - type: CAUSES
-    source: knowledge_acquisition_bottleneck
-    target: brittleness
-    note: >
-      The difficulty of extracting all expert heuristic rules
-      contributes to the brittleness of expert systems.
-
-  # --- CONTRASTS-WITH ---
-  - type: CONTRASTS-WITH
-    source: hard_constraints
-    target: soft_constraints
-    note: >
-      Hard constraints are binary (satisfied/violated); soft constraints
-      impose costs on a continuum.
-
-  - type: CONTRASTS-WITH
-    source: constraint_network
-    target: search_tree
-    note: >
-      A constraint network has informative links (constraints) among
-      variables; a search tree has sequential links among states.
-      A search tree is a highly restricted type of constraint network.
-
-  - type: CONTRASTS-WITH
-    source: physics_hypothesis
-    target: society_of_mind_hypothesis
-    note: >
-      The physics hypothesis (Hinton/Boltzmann) reduces intelligence to
-      simple statistical laws; the society of mind hypothesis requires
-      diverse knowledge representations.
-
-  - type: CONTRASTS-WITH
-    source: bayesian_networks
-    target: boltzmann_machines
-    note: >
-      Bayesian nets have directed acyclic structure with causal relations;
-      Boltzmann machines have undirected cyclic structure with correlations.
-
-  - type: CONTRASTS-WITH
-    source: expert_systems
-    target: representation_learning
-    note: >
-      Expert systems acquire knowledge by codifying expert heuristics;
-      representation learning discovers patterns from large data volumes.
-
-  # --- EXAMPLE-OF ---
-  - type: EXAMPLE-OF
-    source: ex_sudoku_9x9
-    target: csp
-    note: >
-      Sudoku is the canonical example of a CSP, with 81 variables,
-      domains of 1-9, and three all-different constraints.
-
-  - type: EXAMPLE-OF
-    source: ex_crossword_puzzle
-    target: constraint_propagation
-    note: >
-      Crossword puzzles illustrate how richer propagation (more overlap
-      among clues) makes constraint solving easier.
-
-  - type: EXAMPLE-OF
-    source: ex_car_exterior_interior_color_constraint
-    target: binary_constraint
-    note: >
-      The constraint that car exterior and interior colors must differ
-      is the running example of a binary constraint.
-
-  - type: EXAMPLE-OF
-    source: ex_toothache_cavity_diagnosis
-    target: bayesian_networks
-    note: >
-      Diagnosing a toothache with 80% belief in a cavity illustrates
-      Bayesian inference and belief updating.
-
-  - type: EXAMPLE-OF
-    source: ex_mycin_expert_system
-    target: expert_systems
-    note: >
-      MYCIN (200 if-then rules for diagnosing bacterial infections)
-      is the canonical early expert system.
-
-  - type: EXAMPLE-OF
-    source: ex_image_classification_boltzmann
-    target: boltzmann_machines
-    note: >
-      Image classification illustrates Boltzmann machines learning
-      correlations among input/output binary variables.
-
-  - type: EXAMPLE-OF
-    source: ex_llm_text_generation_boltzmann
-    target: boltzmann_machines
-    note: >
-      LLM text generation uses embeddings consistent with the
-      Boltzmann machine framework.
-
-  - type: EXAMPLE-OF
-    source: ex_pin_factory_csp_scheduling
-    target: csp
-    note: >
-      Scheduling pin factory production tasks illustrates CSP
-      formulation with temporal constraints.
-
-  - type: EXAMPLE-OF
-    source: ex_algebraic_notation_17th_century
-    target: external_representations
-    note: >
-      Algebraic notation (17th c.) replaced prose for math problems,
-      illustrating the power of external representations.
-
-  - type: EXAMPLE-OF
-    source: ex_double_entry_bookkeeping_15th_century
-    target: external_representations
-    note: >
-      Double-entry bookkeeping (15th c.) illustrates how external
-      representations expose natural constraints.
-
-  - type: EXAMPLE-OF
-    source: ex_engineering_drawings_gm_tamron
-    target: external_representations
-    note: >
-      Engineering drawings at GM and Tamron illustrate external
-      representations for complex system design.
-
-  - type: EXAMPLE-OF
-    source: ex_visiCalc_apple_1979
-    target: external_representations
-    note: >
-      VisiCalc (1979) illustrates digital external representations
-      enabling financial projections.
-
-  - type: EXAMPLE-OF
-    source: ex_microsoft_excel_projections
-    target: external_representations
-    note: >
-      Excel projections illustrate how digital representations
-      enable scenario analysis under uncertainty.
-
-  - type: EXAMPLE-OF
-    source: ex_filing_cabinet_vs_relational_database
-    target: relational_databases
-    note: >
-      The contrast between filing cabinets and relational databases
-      illustrates the shift to conceptually-organized data storage.
-
-  - type: EXAMPLE-OF
-    source: ex_cad_software
-    target: external_representations
-    note: >
-      CAD software illustrates digital representations that are more
-      complex and easier to change than manual drawings.
-
-  # --- REQUIRES ---
-  - type: REQUIRES
-    source: csp
-    target: constraint_propagation
-    note: >
-      CSPs require propagation to check consistency of assignments
-      across the constraint network.
-
-  - type: REQUIRES
-    source: backtracking
-    target: partial_assignment
-    note: >
-      Backtracking requires a partial assignment from which to reverse
-      one step when a constraint is violated.
-
-  - type: REQUIRES
-    source: bayesian_inference
-    target: conditional_probabilities
-    note: >
-      Bayesian inference requires defined conditional probabilities
-      between parent and child variables.
-
-  - type: REQUIRES
-    source: boltzmann_machines
-    target: entropy
-    note: >
-      Boltzmann machines learn by minimizing entropy (cost) across
-      the network of weights.
-
-  - type: REQUIRES
-    source: forward_checking
-    target: constraint_propagation
-    note: >
-      Forward checking requires propagation to check whether an
-      assignment is consistent.
-
-  # --- ATTRIBUTED-TO ---
-  - type: ATTRIBUTED-TO
-    source: bayesian_networks
-    target: judea_pearl
-    note: >
-      Pearl developed causal nets / Bayesian networks as a framework
-      for representing and testing cause-effect relations.
-
-  - type: ATTRIBUTED-TO
-    source: boltzmann_machines
-    target: geoff_hinton
-    note: >
-      Hinton invented Boltzmann machines, the foundational building
-      block of deep learning.
-
-  - type: ATTRIBUTED-TO
-    source: entropy
-    target: ludwig_von_boltzmann
-    note: >
-      Boltzmann developed the modern definition of entropy in
-      statistical mechanics, after whom the machine is named.
-
-  - type: ATTRIBUTED-TO
-    source: knowledge_acquisition_bottleneck
-    target: feigenbaum
-    note: >
-      Feigenbaum (1964) identified the knowledge acquisition bottleneck
-      as a primary limitation of expert systems.
-
-  # --- EXAMPLE-OF (people as users/commentators) ---
-  - type: EXAMPLE-OF
-    source: russell_norvig
-    target: bayesian_networks
-    note: >
-      Russell and Norvig's textbook uses the toothache/cavity example
-      to illustrate Bayesian networks.
-
-  - type: EXAMPLE-OF
-    source: hubert_dreyfus
-    target: infinite_regress
-    note: >
-      Dreyfus (1965) argued (drawing on Wittgenstein) that expert
-      systems face the issue of infinite regress.
-
-  - type: EXAMPLE-OF
-    source: prietula_simon
-    target: tacit_knowledge
-    note: >
-      Prietula and Simon (1989) noted expertise involves knowing when
-      to apply rules, not just storing them.
-
-
-  # =========================================================
-  # MODULE 5: Knowledge Representation and Reasoning (KRR)
-  # =========================================================
-
-  # --- IS-A ---
-  - type: IS-A
-    source: krr
-    target: representation
-    note: >
-      KRR is a strategy for representation that augments constraints
-      with knowledge bases and inference engines.
-
-  - type: IS-A
-    source: commonsense_knowledge
-    target: explicit_knowledge
-    note: >
-      Commonsense knowledge is a vast set of default assumptions about
-      how the world works, largely stored implicitly but derivable
-      from explicit representations.
-
-  - type: IS-A
-    source: bayesian_inference
-    target: krr
-    note: >
-      Bayesian inference is one reasoning strategy within the broader
-      KRR framework.
-
-  # --- PART-OF ---
-  - type: PART-OF
-    source: knowledge_base
-    target: krr
-    note: >
-      A knowledge base (representations of knowledge) is one of the
-      two main components of KRR.
-
-  - type: PART-OF
-    source: bayesian_inference
-    target: bayesian_networks
-    note: >
-      Bayesian inference is the reasoning process that operates
-      within the Bayesian network structure.
-
-  - type: PART-OF
-    source: beliefs
-    target: bayesian_networks
-    note: >
-      Beliefs (an agent's probabilities about cause-effect relations)
-      are the content that Bayesian inference updates.
-
-  - type: PART-OF
-    source: random_variables
-    target: bayesian_networks
-    note: >
-      Random variables (events that can be tested as in experiments)
-      are the nodes of a Bayesian network.
-
-  - type: PART-OF
-    source: probability_distribution
-    target: bayesian_networks
-    note: >
-      The overall probability distribution learned across all variables
-      is the output of a Bayesian network.
-
-  # --- CAUSES ---
-  - type: CAUSES
-    source: commonsense_knowledge
-    target: coherence
-    note: >
-      Having adequate commonsense knowledge enables coherent reasoning
-      across diverse situations.
-
-  # --- CONTRASTS-WITH ---
-  - type: CONTRASTS-WITH
-    source: decision_models
-    target: mental_models
-    note: >
-      Decision models are formal representations for specific choices;
-      mental models are broader simplified representations of the world.
-      Both are types of satisficing representations.
-
-  # --- EXAMPLE-OF ---
-  - type: EXAMPLE-OF
-    source: ex_french_language_model
-    target: commonsense_knowledge
-    note: >
-      A language model for French relies on commonsense knowledge
-      about language structure.
-
-  - type: EXAMPLE-OF
-    source: ex_food_ordering_model
-    target: commonsense_knowledge
-    note: >
-      A food ordering model relies on commonsense knowledge about
-      how ordering and menus work.
-
-  # --- REQUIRES ---
-  - type: REQUIRES
-    source: krr
-    target: commonsense_knowledge
-    note: >
-      McCarthy argued that KRR ultimately reduces to representing and
-      reasoning about commonsense knowledge.
-
-  - type: REQUIRES
-    source: krr
-    target: commonsense_knowledge
-    note: >
-      The ability to reason about any specific problem presupposes a
-      base of commonsense knowledge (McCarthy).
-
-
-  # =========================================================
-  # MODULE 6: Evolutionary Strategies
+  # Evolutionary Strategies
+  # Source: Course Notes — Evolutionary Strategies - FAB Spring 2026.pdf
   # =========================================================
 
   # --- IS-A ---
   - type: IS-A
     source: evolutionary_strategies
-    target: learning
+    target: adaptation
     note: >
-      Evolutionary strategies are a class of learning processes that
-      assign credit at the population level through adaptation.
+      The document defines evolutionary strategies as AI ideas for how to adapt, treating
+      them as the specific AI formalisation of adaptation processes.
+    quote: >
+      "We will call processes of learning to search effectively for solutions to problems as ones
+      of adaptation, and AI ideas for how to adapt as evolutionary strategies."
 
   - type: IS-A
     source: genetic_algorithms
     target: evolutionary_strategies
     note: >
-      Genetic algorithms are a specific evolutionary strategy using
-      chromosome-inspired representations with crossover and mutation.
+      Genetic algorithms are a chromosome-inspired form of evolutionary strategy, using
+      crossover and mutation operators to search performance landscapes.
+    quote: >
+      "A first approach pioneered by the AI scholar John Holland at the University of Michigan
+      is called 'genetic algorithms'."
 
   - type: IS-A
-    source: natural_selection
-    target: selection
+    source: mendelian_approach
+    target: evolutionary_strategies
     note: >
-      Natural selection is the biological form of the selection
-      operator in evolutionary strategies.
-
-  - type: IS-A
-    source: artificial_selection
-    target: selection
-    note: >
-      Artificial selection is a designed selection environment (e.g.,
-      Mendelian plant breeding or A/B testing within a firm).
-
-  - type: IS-A
-    source: crossover
-    target: evolutionary_operators
-    note: >
-      Crossover (combining parts of two chromosomes) is one of the
-      three core evolutionary operators.
-
-  - type: IS-A
-    source: mutation
-    target: evolutionary_operators
-    note: >
-      Mutation (randomly changing a gene value) is one of the
-      core evolutionary operators.
-
-  - type: IS-A
-    source: selection
-    target: evolutionary_operators
-    note: >
-      Selection (assigning credit to high-fitness solutions) is one
-      of the core evolutionary operators.
-
-  - type: IS-A
-    source: rugged_landscape
-    target: performance_landscape
-    note: >
-      A rugged landscape has multiple local fitness peaks due to
-      interdependence among components.
-
-  - type: IS-A
-    source: single_peaked_landscape
-    target: performance_landscape
-    note: >
-      A single-peaked landscape has one global optimum with smooth
-      gradients leading to it.
-
-  - type: IS-A
-    source: mesa_landscape
-    target: performance_landscape
-    note: >
-      A mesa landscape has a flat bottom and flat top with no
-      gradients for trial-and-error learning.
+      The Mendelian (gene-inspired) approach is a baseline evolutionary strategy that treats
+      adaptive building blocks as individual genes varied by random experimentation.
+    quote: >
+      "This is much like the idea of plant-breeding as introduced by Gregor Mendel, in which
+      evolution occurs through crossing-over (and occasionally mutating) genetic sequences
+      across generations."
 
   - type: IS-A
     source: propagator_model
     target: evolutionary_strategies
     note: >
-      The propagator model (Sussman) is an alternative evolutionary
-      strategy using constraint-based objects rather than bit strings.
+      The propagator model is a biological-systems-inspired evolutionary strategy that
+      propagates constraint information through object networks rather than varying genetic
+      sequences across a population.
+    quote: >
+      "A second approach, pioneered by Marvin Minsky's student Gerald Sussman at MIT, is
+      called the 'propagator model'."
 
   - type: IS-A
-    source: schema_genetic
-    target: schema
+    source: hill_climbing
+    target: exploitation
     note: >
-      A genetic schema is a template describing a subset of
-      chromosome positions (fixed and variable bits).
+      Hill-climbing consists of incremental modifications guided by local feedback — the
+      canonical exploitation strategy in performance landscapes.
+    quote: >
+      "we will call smaller modifications — hill-climbing actions — as 'exploitation', in the
+      sense that such actions exploit the feedback immediately available to us."
+
+  - type: IS-A
+    source: long_jumping
+    target: exploration
+    note: >
+      Long-jumping makes large modifications that venture beyond immediate feedback,
+      constituting exploration in the landscape.
+    quote: >
+      "we will call such movement in the landscape as 'long-jumping'… we will call such
+      actions as 'exploration', in that we are venturing into a part of the landscape about
+      which we do not have good feedback."
+
+  - type: IS-A
+    source: gradient_descent
+    target: hill_climbing
+    note: >
+      Gradient descent is hill-climbing applied to a minimisation objective — the landscape is
+      simply viewed upside-down.
+    quote: >
+      "If the performance measure is something to minimize, then the landscape is simply
+      viewed upside-down, and the learning process is called 'gradient descent'."
+
+  - type: IS-A
+    source: vsr
+    target: evolutionary_strategies
+    note: >
+      VSR (Variation–Selection–Retention) is the core algorithmic mechanism that underlies
+      all evolutionary strategies.
+    quote: >
+      "These operators are commonly summarized as VSR, standing for variation…selection…
+      and retention."
+
+  - type: IS-A
+    source: adaptation
+    target: credit_assignment
+    note: >
+      The document frames adaptation as a population-level form of credit assignment:
+      generate-and-test applied across a population rather than to a single agent's actions.
+    quote: >
+      "adaptation is essentially a generate-and-test strategy for assigning credit at the
+      population-level."
 
   # --- PART-OF ---
   - type: PART-OF
     source: variation
     target: vsr
     note: >
-      Variation (generating different solutions) is the V in VSR.
+      Variation is the first operator of VSR, generating different candidate solutions in
+      the population.
+    quote: >
+      "VSR, standing for variation (generating different solutions), selection…and retention."
 
   - type: PART-OF
     source: selection
     target: vsr
     note: >
-      Selection (assigning credit to high-fitness solutions) is the
-      S in VSR.
+      Selection is the second VSR operator, assigning credit to high-fitness solutions.
+    quote: >
+      "selection (assigning credit to high-fitness (i.e., high-performing) solutions)."
 
   - type: PART-OF
     source: retention
     target: vsr
     note: >
-      Retention (using high-performing solutions in the next generation)
-      is the R in VSR.
+      Retention is the third VSR operator, carrying high-performing solutions into the next
+      generation of trials.
+    quote: >
+      "retention (using high-performing solutions in the next 'generation' of trials)."
 
   - type: PART-OF
     source: genes
     target: chromosome
     note: >
-      Individual genes (bits) are the components of a chromosome.
+      In genetic algorithms, the chromosome is composed of individual genes, each encoded
+      as a bit in a bit string.
+    quote: >
+      "In genetic algorithms, a schema…is analogized to a 'chromosome', composed of sets
+      of 'genetic sequences'. Each bit is analogized to a 'gene'."
 
   - type: PART-OF
-    source: alleles
-    target: genes
-    note: >
-      Alleles are the possible values (expressions) of a gene.
-
-  - type: PART-OF
-    source: genetic_sequences
-    target: chromosome
-    note: >
-      Genetic sequences are ordered sets of genes within a chromosome.
-
-  - type: PART-OF
-    source: fitness_function
-    target: evolutionary_strategies
-    note: >
-      The fitness function evaluates how well a solution performs
-      relative to the problem environment.
-
-  - type: PART-OF
-    source: population_of_chromosomes
+    source: crossover
     target: genetic_algorithms
     note: >
-      A population of chromosomes is the set of candidate solutions
-      that evolve across generations.
+      Crossover is one of the two core genetic operators in GAs; it randomly combines
+      chromosomes across a population to generate variation.
+    quote: >
+      "Variation in the population of genes is coded by making random combinations of two
+      or more chromosomes (called 'crossover')."
 
   - type: PART-OF
-    source: building_blocks
-    target: schema_genetic
+    source: mutation
+    target: genetic_algorithms
     note: >
-      Building blocks are short, high-fitness schemas that combine
-      to form good solutions.
+      Mutation randomly changes the value of one or more genes in a chromosome, providing
+      another source of variation in GAs.
+    quote: >
+      "by randomly changing the values of one or more genes in a chromosome (called
+      'mutation')."
 
   - type: PART-OF
-    source: objects_propagator
-    target: propagator_model
-    note: >
-      Objects (cells encoded with constraint information) are the
-      building blocks of the propagator model.
-
-  # --- CAUSES ---
-  - type: CAUSES
-    source: spatial_interdependence
-    target: rugged_landscape
-    note: >
-      Spatial interdependence among components causes the landscape
-      to become rugged with multiple local peaks.
-
-  - type: CAUSES
-    source: path_dependence
-    target: local_peaks
-    note: >
-      Path dependence (early actions having outsized effects) causes
-      agents to get stuck on local peaks.
-
-  - type: CAUSES
-    source: myopia
-    target: path_dependence
-    note: >
-      Myopic (local-only) search causes agents to follow paths
-      determined by their initial position.
-
-  - type: CAUSES
     source: implicit_parallelism
-    target: exploration_exploitation_tradeoff
+    target: genetic_algorithms
     note: >
-      Implicit parallelism in GAs enables efficiently searching vast
-      spaces by balancing exploration and exploitation.
+      Implicit parallelism is Holland's key insight behind genetic algorithms: crossover and
+      mutation effectively search a vast space of chromosomes without trying most of them.
+    quote: >
+      "Holland's key insight was that, just by the simple evolutionary mechanisms of crossover
+      and mutation, a vast space of possible combinations of genes can be searched… He called
+      his insight 'implicit parallelism'."
 
-  - type: CAUSES
-    source: exploration
-    target: novel_configurations
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: evolutionary_strategies
+    target: charles_darwin
     note: >
-      Exploration (large modifications / long-jumping) generates novel
-      configurations not informed by immediate feedback.
+      Evolutionary strategies in AI derive from Darwinism, which provides the general
+      framework of fitness-based adaptation.
+    quote: >
+      "Evolutionary strategies in AI systems and organizations can be traced to the work of
+      Charles Darwin in the 19th century."
 
-  - type: CAUSES
-    source: exploitation
-    target: local_peaks
+  - type: ATTRIBUTED-TO
+    source: genetic_algorithms
+    target: john_holland
     note: >
-      Exploitation (small incremental modifications / hill-climbing)
-      tends to converge on local peaks.
+      Holland pioneered genetic algorithms at the University of Michigan, introducing the
+      chromosome representation and implicit parallelism insight.
+    quote: >
+      "A first approach pioneered by the AI scholar John Holland at the University of Michigan
+      is called 'genetic algorithms'."
+
+  - type: ATTRIBUTED-TO
+    source: propagator_model
+    target: gerald_sussman
+    note: >
+      Gerald Sussman, Minsky's student at MIT, pioneered the propagator model as a
+      biological-systems-inspired alternative to genetic algorithms.
+    quote: >
+      "A second approach, pioneered by Marvin Minsky's student Gerald Sussman at MIT, is
+      called the 'propagator model'."
+
+  - type: ATTRIBUTED-TO
+    source: mendelian_approach
+    target: gregor_mendel
+    note: >
+      The Mendelian approach is named after Gregor Mendel's plant-breeding experiments,
+      which first formalised heredity through crossing-over and mutation.
+    quote: >
+      "This is much like the idea of plant-breeding as introduced by Gregor Mendel."
 
   # --- CONTRASTS-WITH ---
   - type: CONTRASTS-WITH
     source: exploration
     target: exploitation
     note: >
-      Exploration (large risky modifications / long-jumping) contrasts
-      with exploitation (small incremental modifications / hill-climbing).
-
-  - type: CONTRASTS-WITH
-    source: mendelian_approach
-    target: genetic_algorithms
-    note: >
-      The Mendelian approach experiments with individual gene traits;
-      genetic algorithms use chromosome-level abstractions (crossover).
+      Exploration and exploitation are the two opposing poles of the adaptive learning
+      tradeoff: exploration ventures beyond immediate feedback; exploitation refines
+      within a known gradient.
+    quote: >
+      "Given that both 'exploring' and 'exploiting' have risks, the idea in learning programs
+      in AI and in organizations is often to balance the two strategically."
 
   - type: CONTRASTS-WITH
     source: genetic_algorithms
     target: propagator_model
     note: >
-      GAs use bit strings with crossover/mutation; the propagator model
-      uses richly-encoded objects with constraint-based propagation.
-
-  - type: CONTRASTS-WITH
-    source: rugged_landscape
-    target: single_peaked_landscape
-    note: >
-      Rugged landscapes have multiple local peaks from interdependence;
-      single-peaked landscapes have one smooth gradient.
-
-  - type: CONTRASTS-WITH
-    source: mesa_landscape
-    target: rugged_landscape
-    note: >
-      Mesa landscapes lack gradients entirely; rugged landscapes have
-      local gradients that enable hill-climbing.
-
-  - type: CONTRASTS-WITH
-    source: long_jumping
-    target: hill_climbing
-    note: >
-      Long-jumping makes large exploratory moves across the landscape;
-      hill-climbing makes small exploitative moves along gradients.
-
-  - type: CONTRASTS-WITH
-    source: giant_strides
-    target: hill_climbing
-    note: >
-      Giant strides (Minsky) are coherent logical leaps needed in mesa
-      landscapes; hill-climbing follows existing gradients.
-
-  - type: CONTRASTS-WITH
-    source: smoothing_topology
-    target: rugged_landscape
-    note: >
-      Understanding component structure smooths the landscape topology
-      from rugged to gentler, enabling easier navigation.
-
-  # --- EXAMPLE-OF ---
-  - type: EXAMPLE-OF
-    source: ex_watchmaker_parable_1000_parts
-    target: modularity
-    note: >
-      Simon's watchmaker assembling 1000 parts one at a time illustrates
-      the cost of not using modular decomposition.
-
-  - type: EXAMPLE-OF
-    source: ex_watchmaker_100_modules_of_10
-    target: decomposition
-    note: >
-      The second watchmaker using 100 modules of 10 parts illustrates
-      gains from modular decomposition.
-
-  - type: EXAMPLE-OF
-    source: ex_laptop_design_components
-    target: spatial_interdependence
-    note: >
-      The laptop design problem (screen, CPU, memory, keyboard) illustrates
-      spatial interdependence among components.
-
-  - type: EXAMPLE-OF
-    source: ex_hippos_tropics_penguins_antarctica
-    target: fitness
-    note: >
-      Hippos thriving in tropics and penguins in Antarctica illustrate
-      fitness as relative to a specific environment.
-
-  - type: EXAMPLE-OF
-    source: ex_dna_plant_breeding_mendel
-    target: mendelian_approach
-    note: >
-      Mendel's plant breeding illustrates the gene-level experimental
-      approach to evolution.
-
-  - type: EXAMPLE-OF
-    source: ex_firm_strategy_as_performance_landscape
-    target: performance_landscape
-    note: >
-      A firm's strategic choices and their market performance can be
-      visualized as a performance landscape.
-
-  - type: EXAMPLE-OF
-    source: ex_market_forces_selection
-    target: market_mechanism
-    note: >
-      Market forces selecting among competing factories illustrate
-      the market mechanism as an evolutionary operator.
-
-  - type: EXAMPLE-OF
-    source: ex_biological_cells_propagator
-    target: propagator_model
-    note: >
-      Biological cells sending signals to one another illustrate the
-      propagator model's cell-based architecture.
-
-  # --- REQUIRES ---
-  - type: REQUIRES
-    source: genetic_algorithms
-    target: fitness_function
-    note: >
-      GAs require a fitness function to evaluate and select among
-      candidate chromosomes.
-
-  - type: REQUIRES
-    source: crossover
-    target: chromosome
-    note: >
-      Crossover requires chromosome-level representations to combine.
-
-  - type: REQUIRES
-    source: mutation
-    target: genes
-    note: >
-      Mutation operates on individual genes within a chromosome.
-
-  - type: REQUIRES
-    source: exploration_exploitation_tradeoff
-    target: performance_landscape
-    note: >
-      The exploration-exploitation tradeoff is meaningful only within
-      a performance landscape that has topological features.
-
-  - type: REQUIRES
-    source: long_jumping
-    target: exploration
-    note: >
-      Long-jumping across the landscape requires exploratory (risky,
-      large) modifications to actions.
-
-  - type: REQUIRES
-    source: hill_climbing
-    target: exploitation
-    note: >
-      Hill-climbing requires exploiting local gradient information.
-
-  - type: REQUIRES
-    source: giant_strides
-    target: mesa_landscape
-    note: >
-      Giant strides are needed specifically in mesa landscapes where
-      there are no gradients for hill-climbing.
-
-  - type: REQUIRES
-    source: propagator_model
-    target: constraint_propagation
-    note: >
-      The propagator model works by propagating constraint information
-      among connected objects.
-
-  - type: REQUIRES
-    source: adaptation
-    target: fitness
-    note: >
-      Adaptation depends on measuring fitness (ability to survive and
-      reproduce relative to the environment).
-
-  # --- ATTRIBUTED-TO ---
-  - type: ATTRIBUTED-TO
-    source: genetic_algorithms
-    target: john_holland
-    note: >
-      Holland pioneered genetic algorithms and the concept of implicit
-      parallelism at the University of Michigan.
-
-  - type: ATTRIBUTED-TO
-    source: natural_selection
-    target: charles_darwin
-    note: >
-      Darwin's theory of evolution by natural selection is the
-      biological foundation of evolutionary strategies.
-
-  - type: ATTRIBUTED-TO
-    source: mendelian_approach
-    target: gregor_mendel
-    note: >
-      Mendel's work on plant breeding inspired the gene-level
-      experimental approach in evolutionary strategies.
-
-  - type: ATTRIBUTED-TO
-    source: propagator_model
-    target: gerald_sussman
-    note: >
-      Sussman (Minsky's student at MIT) pioneered the propagator model
-      as a biological systems-inspired approach.
-
-  - type: ATTRIBUTED-TO
-    source: mesa_landscape
-    target: marvin_minsky
-    note: >
-      Minsky described mesa landscapes and the need for giant strides
-      as an alternative to hill-climbing.
-
-
-  # =========================================================
-  # MODULE 6 (KRR session) — Additional relations
-  # =========================================================
-
-  # --- IS-A ---
-  - type: IS-A
-    source: possible_worlds
-    target: relations_possible_worlds
-    note: >
-      Possible worlds are the set of allowable combinations of values
-      that satisfy a constraint; relations define these.
-
-  # --- PART-OF ---
-  - type: PART-OF
-    source: tuples
-    target: relational_databases
-    note: >
-      Tuples (rows of data) are the basic units stored in relational
-      databases.
-
-  - type: PART-OF
-    source: lists
-    target: simon_information
-    note: >
-      Lists (named, meaningful sequences) are the fundamental unit
-      of Simon information.
-
-  - type: PART-OF
-    source: cells_objects
-    target: propagator_model
-    note: >
-      Cells/objects containing constraint information are the
-      building blocks of the propagator model.
+      Genetic algorithms represent the gene/chromosome-inspired paradigm (search via
+      variation-selection); the propagator model represents the biological-systems paradigm
+      (constraint propagation without population-level search).
+    quote: >
+      "The first two examples are closer to the reinforcement learning paradigm…The third
+      example is closer to the learning in a society paradigm."
 
   # --- CAUSES ---
   - type: CAUSES
-    source: database_integrity
-    target: relational_databases
+    source: exploitation
+    target: myopia
     note: >
-      Database integrity (consistency in storing and updating data)
-      is a key property enabled by relational database design.
-
-  # --- EXAMPLE-OF ---
-  - type: EXAMPLE-OF
-    source: ex_relational_databases_sql
-    target: relational_databases
-    note: >
-      SQL databases are the most popular type of relational database.
-
-  # --- REQUIRES ---
-  - type: REQUIRES
-    source: relational_databases
-    target: database_integrity
-    note: >
-      Relational databases require integrity constraints to maintain
-      consistent, trustworthy data.
-
-
-  # =========================================================
-  # CROSS-MODULE RELATIONS
-  # =========================================================
-
-  - type: REQUIRES
-    source: search
-    target: information_processing
-    note: >
-      Search is defined as a specific approach to information processing
-      that uses heuristics to economize.
-
-  - type: REQUIRES
-    source: evolutionary_strategies
-    target: performance_landscape
-    note: >
-      Evolutionary strategies require the performance landscape metaphor
-      to visualize adaptive processes.
-
-  - type: REQUIRES
-    source: representation
-    target: constraint_network
-    note: >
-      Representations are structured as constraint networks; understanding
-      constraints is required to build representations.
-
-  - type: REQUIRES
-    source: krr
-    target: representation
-    note: >
-      KRR augments representations with knowledge bases and inference
-      engines, so it requires the concept of representation.
-
-  - type: IS-A
-    source: search
-    target: credit_assignment
-    note: >
-      Search is a specific strategy for assigning credit by dividing
-      complex problems into plans using heuristics.
-
-  - type: IS-A
-    source: evolutionary_strategies
-    target: credit_assignment
-    note: >
-      Evolutionary strategies are a population-level approach to
-      assigning credit through adaptation.
-
-  - type: IS-A
-    source: representation
-    target: credit_assignment
-    note: >
-      Representation strategies assign credit by exposing natural
-      constraints inherent in problems.
-
-  - type: IS-A
-    source: krr
-    target: credit_assignment
-    note: >
-      KRR assigns credit through representing and reasoning about
-      knowledge across situations.
-
-  - type: CONTRASTS-WITH
-    source: von_neumann_search
-    target: effectuation
-    note: >
-      Von Neumann search plans ahead with full game rules; effectuation
-      constructs understanding piecemeal without full information.
-
-  - type: CONTRASTS-WITH
-    source: constraint_propagation
-    target: search
-    note: >
-      Constraint propagation sends information across spatial network
-      links; search traverses sequential paths in a tree.
+      Relying purely on hill-climbing (exploitation) causes myopia: the agent only sees the
+      local gradient and misses the global optimum.
+    quote: >
+      "Such learning is called 'myopic', in that the agent is only seeing things locally,
+      rather than the entire landscape, and hence missing the global optimum."
 
   - type: CAUSES
-    source: modularity
-    target: gains_to_specialization
-    note: >
-      Modular decomposition of problems produces gains to specialization,
-      reducing credit assignment complexity.
-
-  - type: REQUIRES
-    source: gains_to_specialization
-    target: division_of_labor
-    note: >
-      Gains to specialization require that labor be divided into
-      simpler, more focused subtasks.
-
-  # --- ATTRIBUTED-TO (cross-module) ---
-  - type: ATTRIBUTED-TO
-    source: superstitious_learning
-    target: levitt_march
-    note: >
-      Levitt and March (1988) named the phenomenon of superstitious
-      learning in organizations.
-
-  - type: ATTRIBUTED-TO
-    source: organizational_learning
-    target: cyert_march
-    note: >
-      Cyert and March (1963) studied organizational decision-making
-      and budgeting processes.
-
-  - type: ATTRIBUTED-TO
-    source: physics_hypothesis
-    target: newton
-    note: >
-      Newton's deterministic classical mechanics inspired the physics
-      hypothesis view of intelligence.
-
-  # --- EXAMPLE-OF (people as users/commentators, cross-module) ---
-  - type: EXAMPLE-OF
-    source: denrell_fang_levinthal
-    target: reinforcement_learning
-    note: >
-      Denrell, Fang, and Levinthal (2004) analyzed the T-maze problem
-      from an organizational learning perspective.
-
-  - type: EXAMPLE-OF
-    source: lave_march
-    target: reinforcement_learning
-    note: >
-      Lave and March (1975) provided the T-maze and learning rate
-      formalization used in the course.
-
-  - type: EXAMPLE-OF
-    source: thomke
-    target: trial_and_error
-    note: >
-      Thomke (2020) studied experimentation and A/B testing in
-      app development organizations.
-
-  - type: EXAMPLE-OF
-    source: argote_epple
-    target: organizational_learning
-    note: >
-      Argote and Epple (1990) studied learning curves in shipbuilding
-      companies.
-
-  - type: EXAMPLE-OF
-    source: norbert_wiener
-    target: society_of_mind_hypothesis
-    note: >
-      Wiener proposed cybernetics as a mathematics for managing complex
-      societies, related to Minsky's society of mind.
-
-  - type: EXAMPLE-OF
-    source: wittgenstein
-    target: infinite_regress
-    note: >
-      Wittgenstein's philosophy inspired Dreyfus's argument about
-      infinite regress in rule-based systems.
-
-  # =========================================================
-  # SUPPLEMENT: Connecting isolated nodes
-  # =========================================================
-
-  # --- Concepts: intelligence & environment framing ---
-  - type: IS-A
-    source: general_problem_of_intelligence
-    target: intelligence
-    note: >
-      The general problem of intelligence (credit assignment) is the
-      course's central framing of what intelligence fundamentally requires.
-
-  - type: PART-OF
-    source: agent_environment_distinction
-    target: task_environment
-    note: >
-      Separating agent from environment is the foundational act of
-      defining any task environment.
-
-  - type: PART-OF
-    source: task_environment
-    target: search
-    note: >
-      A task environment specifies the state space, operators, and goal
-      that constitute the domain of a search problem.
-
-  # --- Concepts: information processing ---
-  - type: IS-A
-    source: digital_abstraction
-    target: abstraction
-    note: >
-      Digital abstraction is a specific form of abstraction that
-      represents information as discrete bit patterns.
-
-  - type: IS-A
-    source: cognitive_representations
-    target: internal_representations
-    note: >
-      Cognitive representations are mental/computational internal
-      representations used in reasoning and problem-solving.
-
-  - type: PART-OF
-    source: processing_power
-    target: information_processing
-    note: >
-      Processing power (computational capacity) is a core resource
-      constraint on information processing.
-
-  - type: IS-A
-    source: convenient_fictions
-    target: abstraction
-    note: >
-      Convenient fictions are a form of abstraction — treating
-      entities as having properties they do not strictly possess
-      in order to simplify reasoning.
-
-  - type: REQUIRES
-    source: mechanization_of_thought
-    target: algorithm
-    note: >
-      Mechanizing thought requires reducing it to an algorithm — a
-      finite, effective procedure executable by a machine.
-
-  - type: IS-A
-    source: minimal_effective_procedure
-    target: effective_procedure
-    note: >
-      A minimal effective procedure is the simplest effective procedure
-      that computes a given function; a special case of effective procedure.
-
-  - type: PART-OF
-    source: short_term_long_term_memory
-    target: memory_management
-    note: >
-      The distinction between short-term and long-term memory is the
-      central organizing principle of memory management.
-
-  - type: PART-OF
-    source: memory_management
-    target: information_processing
-    note: >
-      Managing which information is stored, retrieved, and discarded
-      is a core component of information processing.
-
-  # --- Concepts: search ---
-  - type: IS-A
-    source: game_tree
-    target: search_tree
-    note: >
-      A game tree is a search tree in which alternating levels
-      represent the moves of two adversarial players.
-
-  - type: PART-OF
-    source: local_vs_global_optima
-    target: performance_landscape
-    note: >
-      The distinction between local and global optima is a defining
-      structural feature of any performance landscape.
-
-  - type: IS-A
-    source: local_peaks
-    target: local_vs_global_optima
-    note: >
-      Local peaks are the specific suboptimal points that embody
-      the local-vs-global optima problem in practice.
-
-  - type: IS-A
-    source: find_best_solution_goal
-    target: optimization_goal
-    note: >
-      Finding the best solution is the canonical instantiation
-      of an optimization goal.
-
-  - type: CONTRASTS-WITH
-    source: find_any_solution_goal
-    target: find_best_solution_goal
-    note: >
-      Finding any solution (satisficing) contrasts with finding the
-      best solution (optimization) as two fundamentally different
-      search objectives.
-
-  - type: CONTRASTS-WITH
-    source: find_all_solutions_goal
-    target: find_any_solution_goal
-    note: >
-      Enumerating all solutions contrasts with stopping at the first
-      acceptable one; the former is exhaustive, the latter is satisficing.
-
-  - type: PART-OF
-    source: differences_current_vs_goal
-    target: means_ends_analysis
-    note: >
-      Means-ends analysis works by measuring and reducing the
-      differences between the current state and the goal state.
-
-  # --- Concepts: representation ---
-  - type: IS-A
-    source: abstract_patterns
-    target: schema
-    note: >
-      Abstract patterns are the structural regularities that a schema
-      captures and generalizes over.
-
-  - type: PART-OF
-    source: conceptual_units
-    target: schema
-    note: >
-      Conceptual units are the named, bounded pieces of knowledge
-      that a schema organizes.
-
-  - type: PART-OF
-    source: modules
-    target: modularity
-    note: >
-      Modules are the discrete, encapsulated components that modular
-      organization is made of.
-
-  - type: IS-A
-    source: hierarchy
-    target: decomposition
-    note: >
-      Hierarchical organization is a form of decomposition in which
-      sub-components are themselves decomposable into lower-level units.
-
-  - type: REQUIRES
-    source: paradigms
-    target: representation
-    note: >
-      Each AI paradigm (symbolic, connectionist, evolutionary) presupposes
-      a specific representational commitment about how knowledge is encoded.
-
-  - type: PART-OF
-    source: abstraction_level
-    target: hierarchy
-    note: >
-      Abstraction levels are the layers that constitute a hierarchy;
-      each level hides lower-level detail from higher-level reasoning.
-
-  # --- Concepts: KRR ---
-  - type: PART-OF
-    source: costs_soft_violation
-    target: soft_constraints
-    note: >
-      The cost incurred when a soft constraint is violated is the
-      defining feature that distinguishes soft from hard constraints.
-
-  - type: IS-A
-    source: cost_function
-    target: evaluation_function
-    note: >
-      A cost function is a type of evaluation function that assigns
-      a penalty (rather than a score) to states or assignments.
-
-  - type: PART-OF
-    source: probabilities
-    target: bayesian_inference
-    note: >
-      Probability values assigned to random variables are the
-      fundamental inputs and outputs of Bayesian inference.
-
-  - type: IS-A
-    source: statistical_distribution
-    target: probability_distribution
-    note: >
-      A statistical distribution is a probability distribution
-      fitted to empirical data.
-
-  - type: IS-A
-    source: constraint_propagation
-    target: propagation
-    note: >
-      Constraint propagation is the primary form of propagation
-      used in CSP solving.
-
-  - type: PART-OF
-    source: iid_problems
-    target: iid_vs_ood_problems
-    note: >
-      IID problems form one side of the IID-vs-OOD distinction;
-      they assume a stable, known statistical distribution.
-
-  - type: PART-OF
-    source: ood_problems
-    target: iid_vs_ood_problems
-    note: >
-      OOD problems form the contrasting side of the IID-vs-OOD
-      distinction; they involve unknown or shifting distributions.
-
-  # --- Concepts: evolutionary strategies ---
-  - type: IS-A
-    source: fitness_measure
-    target: fitness_function
-    note: >
-      A fitness measure is a specific instantiation of a fitness
-      function applied to a population of chromosomes.
-
-  - type: IS-A
-    source: genotype
-    target: genetic_sequences
-    note: >
-      A genotype is the organism's complete genetic sequence —
-      the inherited specification of its traits.
-
-  - type: IS-A
-    source: gene_allele
-    target: genes
-    note: >
-      A gene allele is a specific variant of a gene at a given
-      locus; different alleles produce different trait expressions.
-
-  - type: IS-A
-    source: population_level_learning
-    target: learning
-    note: >
-      Population-level learning is a form of learning in which
-      selection pressure acts on a whole population of candidate
-      solutions rather than a single agent.
-
-  - type: IS-A
-    source: mesa_topology
-    target: performance_landscape
-    note: >
-      Mesa topology is a performance landscape characterized by
-      flat plateaus (mesas) followed by sharp drops.
-
-  - type: PART-OF
-    source: watchmaker_parable
-    target: vsr
-    note: >
-      Dawkins's watchmaker parable is a thought experiment arguing
-      that hierarchical, stepwise assembly (VSR) can produce
-      complex structures that brute-force random assembly cannot.
-
-  - type: IS-A
-    source: modifications
-    target: evolutionary_operators
-    note: >
-      Modifications (small changes to genetic sequences) are one
-      class of evolutionary operators alongside crossover and mutation.
-
-  - type: IS-A
-    source: sparse_learning
-    target: learning
-    note: >
-      Sparse learning refers to learning from very few feedback
-      signals, a challenge closely related to sparse feedback and
-      superstitious learning.
-
-  - type: IS-A
-    source: cumulative_expected_value
-    target: value_function
-    note: >
-      Cumulative expected value is the value function's central
-      quantity — the discounted sum of expected future rewards.
-
-  # --- Institutions: ATTRIBUTED-TO ---
-  - type: ATTRIBUTED-TO
-    source: shannon_information
-    target: bell_labs_att
-    note: >
-      Shannon developed information theory while at Bell Labs, where
-      the problem of reliable telephone transmission motivated the work.
-
-  - type: ATTRIBUTED-TO
-    source: physical_symbol_system_hypothesis
-    target: carnegie_mellon
-    note: >
-      Newell and Simon developed the PSSH at Carnegie Mellon, where
-      it became the defining thesis of the symbolic AI program.
-
-  - type: ATTRIBUTED-TO
-    source: society_of_mind_hypothesis
-    target: mit_ai_lab
-    note: >
-      Minsky and Sussman developed the society-of-mind and propagator
-      ideas at the MIT AI Lab throughout the 1960s-80s.
-
-  - type: ATTRIBUTED-TO
-    source: reinforcement_learning
-    target: umass_amherst
-    note: >
-      Sutton and Barto formalized modern reinforcement learning and
-      temporal differencing at UMass Amherst.
-
-  - type: ATTRIBUTED-TO
-    source: reinforcement_learning
-    target: rand_corporation
-    note: >
-      Bellman developed dynamic programming and the Bellman equation
-      at RAND, providing RL's mathematical foundations.
-
-  - type: ATTRIBUTED-TO
-    source: credit_assignment
-    target: ibm
-    note: >
-      Arthur Samuel's checkers program — the first practical solution
-      to credit assignment — was developed at IBM Research.
-
-  - type: EXAMPLE-OF
-    source: google_deepmind
-    target: reinforcement_learning
-    note: >
-      DeepMind is the premier institutional example of large-scale
-      reinforcement learning research (AlphaGo, AlphaFold, Gemini).
-
-  - type: EXAMPLE-OF
-    source: microsoft_research
-    target: modularity
-    note: >
-      Amershi et al. (2019) at Microsoft Research showed that
-      industrial ML deployment requires modular organizational processes.
-
-  # --- Examples: disconnected ---
-  - type: EXAMPLE-OF
-    source: ex_hedge_maze
-    target: search
-    note: >
-      A hedge maze is the canonical physical metaphor for search:
-      a state space with paths, dead ends, and a goal to find.
-
-  - type: EXAMPLE-OF
-    source: ex_pharmaceutical_company
-    target: credit_assignment
-    note: >
-      A pharmaceutical company deciding which drug candidates to
-      fund illustrates credit assignment under delayed, ambiguous
-      feedback across long development timelines.
-
-  - type: EXAMPLE-OF
-    source: ex_artificial_brain_analogy
-    target: society_of_mind_hypothesis
-    note: >
-      The artificial brain analogy — building intelligence from many
-      simpler sub-agents — directly illustrates Minsky's society of mind.
-
-
-  # =========================================================
-  # NEW RELATIONS — derived from close reading of course notes
-  # =========================================================
-
-  # --- MODULE 1: new additions ---
-
-  - type: CAUSES
-    source: division_of_labor
-    target: gains_to_specialization
-    note: >
-      The notes state explicitly: dividing labor into simpler tasks
-      reduces interdependencies and makes learning how to perform
-      those tasks easier, producing gains to specialization.
-
-  # --- MODULE 3: new additions ---
-
-  - type: PART-OF
-    source: unitary_actor_assumption
-    target: von_neumann_search
-    note: >
-      Von Neumann search makes the unitary actor assumption — it does
-      not matter whether nodes are assigned to different agents; the
-      entire search process is controlled by one centralized agent.
-
-  - type: PART-OF
-    source: backward_propagation
-    target: von_neumann_search
-    note: >
-      Backward propagation — sending evaluated utility values up the
-      game tree to decide on a path — is the core credit assignment
-      mechanism inside von Neumann search.
-
-  - type: PART-OF
-    source: satisficing
-    target: simon_search
-    note: >
-      Satisficing is a central component of Simon search: agents
-      generate plans until one crosses the aspiration level, then stop.
-
-  - type: CONTRASTS-WITH
-    source: breadth_first_search
-    target: depth_first_search
-    note: >
-      BFS searches many paths shallowly (few actions per path); DFS
-      searches few paths deeply (many actions per path). The notes
-      describe these as two generic uninformed search strategies.
-
-  - type: REQUIRES
-    source: backward_propagation
-    target: game_tree
-    note: >
-      Backward propagation requires a game tree structure to send
-      utility values from leaves back to the root for path selection.
-
-  - type: ATTRIBUTED-TO
-    source: means_ends_analysis
-    target: allen_newell
-    note: >
-      Newell and Simon developed the General Problem Solver (GPS),
-      the AI system that operationalized means-ends analysis.
-
-  - type: ATTRIBUTED-TO
-    source: means_ends_analysis
-    target: herbert_simon
-    note: >
-      Simon co-developed GPS and the means-ends analysis framework
-      with Newell at Carnegie Mellon.
-
-  - type: ATTRIBUTED-TO
-    source: algorithm
-    target: charles_babbage
-    note: >
-      The notes state that Babbage coined "algorithm" to describe a
-      precise and unambiguous specification for controlling a sequence
-      of mechanically executable steps.
-
-  - type: ATTRIBUTED-TO
-    source: effective_procedure
-    target: alan_turing
-    note: >
-      Turing introduced the standard measure of effective procedures
-      in 1936 via the Turing machine model.
-
-  - type: EXAMPLE-OF
-    source: ex_checkers_game
-    target: backward_propagation
-    note: >
-      Samuel's checkers program used backprop to send utility values
-      up the game tree to select the move with the highest value.
-
-  - type: EXAMPLE-OF
-    source: ex_tmaze_mouse_cheese
-    target: exploration_exploitation_tradeoff
-    note: >
-      The T-maze example with 10% vs 30% learning rates directly
-      illustrates the exploration-exploitation tradeoff in Module 1.
-
-  # --- MODULE 4/5: new additions ---
-
-  - type: EXAMPLE-OF
-    source: ex_sudoku_9x9
-    target: constraint_propagation
-    note: >
-      The Sudoku example shows how guessing one value allows
-      propagation across row, column, and 3x3 grid constraints to
-      generate intermediate feedback and evaluate consistency.
-
-  - type: EXAMPLE-OF
-    source: ex_watchmaker_100_modules_of_10
-    target: modularity
-    note: >
-      The second watchmaker (100 modules of 10) is the canonical
-      illustration of modularity as a solution to credit assignment —
-      complements the existing decomposition link.
-
-  - type: EXAMPLE-OF
-    source: bayesian_networks
-    target: decision_models
-    note: >
-      The notes describe causal nets as an instance of mental/decision
-      models: simplified representations that enable satisficing under
-      limited information.
-
-  - type: IS-A
-    source: autoencoders
-    target: representation_learning
-    note: >
-      The notes define autoencoders as models for "automatically
-      encoding correlations" — a specific form of representation
-      learning of Boltzmann-style constraint networks.
-
-  - type: PART-OF
-    source: possible_worlds
-    target: constraint_network
-    note: >
-      Possible worlds (the set of allowable combinations of values
-      satisfying all constraints) are the output space of any
-      constraint network.
-
-  # --- MODULE 6: new additions ---
-
-  - type: ATTRIBUTED-TO
-    source: implicit_parallelism
-    target: john_holland
-    note: >
-      Holland's key insight — that crossover and mutation allow
-      considering most possible chromosomes without testing most
-      of them — is what he called implicit parallelism.
-
-  - type: REQUIRES
-    source: genetic_algorithms
-    target: crossover
-    note: >
-      Crossover (combining parts of two chromosomes) is a defining
-      and required mechanism of genetic algorithms.
-
-  - type: REQUIRES
-    source: genetic_algorithms
-    target: mutation
-    note: >
-      Mutation (randomly changing gene values) is a defining and
-      required mechanism of genetic algorithms.
-
-  - type: REQUIRES
-    source: adaptation
-    target: vsr
-    note: >
-      The notes describe adaptation as a generate-and-test strategy
-      at the population level, which is precisely what VSR encodes.
-
-  - type: REQUIRES
-    source: giant_strides
-    target: sparse_learning
-    note: >
-      The notes characterize mesa landscapes as environments of sparse
-      learning (no gradients for trial-and-error), making giant strides
-      the required strategy.
-
-  - type: CAUSES
-    source: rugged_landscape
+    source: exploitation
     target: path_dependence
     note: >
-      The notes state: "the costs of myopia depend on the luck of
-      wherever our initial actions map to in the performance landscape.
-      This is called path dependence." A rugged landscape is the
-      structural cause of this dependency.
+      Because exploitative agents climb to the nearest peak, their final position depends
+      heavily on their initial random starting point.
+    quote: >
+      "the costs of myopia depend on the luck of wherever our initial actions map to in the
+      performance landscape. This is called path dependence."
 
   - type: CAUSES
     source: local_peaks
     target: superstitious_learning
     note: >
-      The notes note that climbing the wrong local peak produces
-      performance improvements that are feedback artifacts, not genuine
-      learning — a precise description of superstitious learning.
+      When an agent climbs the wrong local peak, the improving feedback signal creates the
+      illusion that actions are genuinely creditworthy, producing superstitious learning.
+    quote: >
+      "a rugged landscape also helps visualize the phenomenon of superstitious learning.
+      When we go up the 'wrong' local peak, it is because we are getting feedback that our
+      performance is improving, yet this feedback may be just superstition."
 
-  - type: EXAMPLE-OF
-    source: ex_laptop_design_components
-    target: rugged_landscape
+  # --- ADDRESSES ---
+  - type: ADDRESSES
+    source: long_jumping
+    target: local_peaks
     note: >
-      The notes use the laptop design problem (screen, CPU, memory,
-      keyboard) as the primary illustration of a rugged landscape
-      arising from spatial interdependence.
+      Long-jumping is the strategy for escaping local peaks by making large exploratory
+      modifications that move off the current gradient.
+    quote: >
+      "to avoid myopia and path dependence, we need to be able to move off of local peaks
+      to other peaks… we will call such movement in the landscape as 'long-jumping'."
 
-  - type: EXAMPLE-OF
-    source: ex_watchmaker_parable_1000_parts
-    target: sparse_learning
+  - type: ADDRESSES
+    source: satisficing
+    target: local_peaks
     note: >
-      Assembling 1000 parts one at a time, with interruptions forcing
-      restarts, illustrates sparse-feedback learning where credit
-      cannot be assigned to sub-task configurations.
+      Setting an aspiration level below the global optimum allows an agent to accept a
+      satisfactory solution, avoiding the worst local peaks without needing to find the global
+      maximum.
+    quote: >
+      "even while economizing on information processing, the agent is able to avoid the worst
+      peaks, which may be 'good enough'."
 
-  # --- CROSS-MODULE: new additions ---
-
-  - type: CONTRASTS-WITH
-    source: krr
-    target: search
+  - type: ADDRESSES
+    source: propagator_model
+    target: mesa_landscape
     note: >
-      The notes explicitly contrast the two: search is a heuristic
-      approach that assumes the problem is already given; KRR is an
-      epistemological approach in which agents must first learn what
-      the problem is before searching for solutions.
+      The propagator model's constraint-propagation approach is suited to mesa landscapes
+      where there are no gradients to climb, requiring "giant strides" of coherent reasoning.
+    quote: >
+      "something like Sussman's propagator model is needed to construct an understanding of
+      the structure of a problem in terms of stable functions (constraints)."
+
+  - type: ADDRESSES
+    source: decomposition
+    target: spatial_interdependence
+    note: >
+      Decomposing a problem into independently-functioning parts is the fundamental response
+      to spatial interdependence, echoing the watchmaker parable's logic.
+    quote: >
+      "we will take the fundamental challenge of intelligence as essentially one of
+      decomposing the parts of a problem according to their functions."
+
+  - type: ADDRESSES
+    source: smoothing_topology
+    target: local_peaks
+    note: >
+      Using modular abstractions (like the second watchmaker's component understanding)
+      smooths the rugged landscape, reducing the risk of getting trapped on local peaks.
+    quote: >
+      "you can think of the effects of such use of components as 'smoothing' the topology
+      of the landscape from steep and rugged to gentler."
+
+  # --- COMPLICATES ---
+  - type: COMPLICATES
+    source: spatial_interdependence
+    target: credit_assignment
+    note: >
+      When actions are spatially interdependent, even small changes to one component affect
+      all others combinatorially, making it difficult to assign credit to individual actions.
+    quote: >
+      "Due to interdependence and combinatorial complexity, even small changes to just a
+      single component can have large effects on the performance."
+
+  - type: COMPLICATES
+    source: mesa_landscape
+    target: exploration_exploitation_tradeoff
+    note: >
+      In mesa landscapes there are no gradients, so neither hill-climbing nor long-jumping
+      provides useful feedback, making the standard exploration–exploitation tradeoff
+      inapplicable.
+    quote: >
+      "Unlike a hilly or peaked landscape, there are no obvious slopes for hill-climbing or
+      long-jumping to a satisfactory solution — exploration-exploitation strategies will not work."
+
+  # --- REQUIRES ---
+  - type: REQUIRES
+    source: performance_landscape
+    target: schema
+    note: >
+      Constructing a performance landscape requires first defining a schema — a simplified
+      representation of the agent's task environment (actions, states, performance criteria).
+    quote: >
+      "We will refer to these simplified representations of symbols as the agent's schemas…
+      To interpret a landscape, we need to describe (1) a performance goal; (2) the set of
+      actions and states in the schema."
+
+  - type: REQUIRES
+    source: genetic_algorithms
+    target: exploration_exploitation_tradeoff
+    note: >
+      Genetic algorithms explicitly operationalise the exploration–exploitation tradeoff
+      through crossover (exploration) and incremental variation (exploitation).
+    quote: >
+      "genetic algorithms, or other schemes inspired by them, enable such effects simply
+      based on balancing the level of exploration-exploitation."
+
+  # --- INSTANCE-OF ---
+  - type: INSTANCE-OF
+    source: natural_selection
+    target: selection
+    note: >
+      Natural selection is the biological instantiation of the VSR selection operator:
+      organisms with higher fitness survive and reproduce.
+    quote: >
+      "In evolutionary terms, we would say that the firms that thrive have higher 'fitness'."
+
+  - type: INSTANCE-OF
+    source: market_mechanism
+    target: selection
+    note: >
+      Market forces operate as a selection mechanism, assigning credit (survival) to
+      high-performing firms and eliminating low-performing ones.
+    quote: >
+      "Credit would be assigned by market forces (selection). Factories that made higher
+      quality or cheaper pins would thrive (retention)."
+
+  - type: INSTANCE-OF
+    source: watchmaker_parable
+    target: spatial_interdependence
+    note: >
+      The watchmaker parable concretely illustrates the challenge of spatial interdependence:
+      assembling a watch with 1000 parts requires understanding how they function together.
+    quote: >
+      "the challenge is not really the sequence of the watch assembly tasks, but in the need
+      for effective decomposition based on understanding how a large number of parts are
+      spatially-configured to function together."
+
+  - type: INSTANCE-OF
+    source: chromosome
+    target: schema
+    note: >
+      In genetic algorithms, the chromosome is the schema — a simplified bit-string
+      representation of candidate solutions in the problem space.
+    quote: >
+      "a schema for representing a problem is analogized to a 'chromosome'."
+

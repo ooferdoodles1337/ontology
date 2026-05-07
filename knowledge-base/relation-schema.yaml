@@ -1,0 +1,80 @@
+# ============================================================
+# FAB 2026 — Relation Type Vocabulary
+# ============================================================
+# This file grows as new documents are processed.
+#
+# RULES FOR AGENTS:
+#   1. Read this file before extracting any relations.
+#   2. Reuse an existing type when it fits — even imperfectly.
+#      Consistency across documents matters more than precision.
+#   3. Invent a new type only when no existing one works.
+#   4. After writing relations, append new types below.
+#   5. If a later document reveals a better way to structure
+#      existing types, rename or consolidate them:
+#        a. Update the entry here (change `name`, add old name to `aliases`).
+#        b. Rename all instances in relations.yaml with:
+#           python scripts/rename_relation_type.py OLD-NAME NEW-NAME
+#
+# ENTRY FORMAT:
+#   - name: VERB-PHRASE          # UPPER-CASE, hyphenated
+#     description: "..."         # one sentence — what A→B means
+#     direction: "A → B (role → role)"
+#     first_seen: doc_id         # doc_id of first document that used this type
+#     aliases: []                # former names, if any
+# ============================================================
+
+relation_types:
+
+- name: IS-A
+  description: "A is a more specific kind or subtype of B; anything true of B is also true of A."
+  direction: "A → B (specific → general)"
+  first_seen: notes_credit_assignment
+  aliases: []
+
+- name: INSTANCE-OF
+  description: "A is a concrete case, example, or metaphor that illustrates abstract concept B."
+  direction: "A → B (instance → abstraction)"
+  first_seen: notes_credit_assignment
+  aliases: []
+
+- name: PART-OF
+  description: "A is a component, mechanism, or sub-element that constitutes or operates within B."
+  direction: "A → B (component → whole)"
+  first_seen: notes_credit_assignment
+  aliases: []
+
+- name: CONTRASTS-WITH
+  description: "A and B represent opposing approaches, poles, or paradigms along a shared dimension."
+  direction: "write once in the most prominent direction; bidirectional in meaning"
+  first_seen: notes_credit_assignment
+  aliases: []
+
+- name: ATTRIBUTED-TO
+  description: "A was developed, coined, or primarily proposed by person or institution B."
+  direction: "A → B (concept/idea → person/institution)"
+  first_seen: notes_credit_assignment
+  aliases: []
+
+- name: ADDRESSES
+  description: "A is a proposed solution, approach, or response to the challenge or problem of B."
+  direction: "A → B (solution → problem)"
+  first_seen: notes_credit_assignment
+  aliases: []
+
+- name: CAUSES
+  description: "A produces B as a direct consequence; A precedes B and is responsible for B occurring."
+  direction: "A → B (cause → effect)"
+  first_seen: notes_credit_assignment
+  aliases: []
+
+- name: COMPLICATES
+  description: "A makes B harder to achieve, solve, or understand."
+  direction: "A → B (obstacle → challenge)"
+  first_seen: notes_credit_assignment
+  aliases: []
+
+- name: REQUIRES
+  description: "B must be understood before A can be meaningfully grasped; epistemic dependency."
+  direction: "A → B (dependent → prerequisite)"
+  first_seen: notes_credit_assignment
+  aliases: []

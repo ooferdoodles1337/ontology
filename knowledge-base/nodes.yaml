@@ -2408,6 +2408,30 @@ concepts:
     local interdependencies and avoid combinatorial complexity.
   source_documents:
   - notes_representation
+- id: procedural_complexity
+  label: Procedural Complexity
+  description: >
+    The complexity of a problem measured as the minimum number of actions (states) a
+    program must transition through to solve it — Babbage and Turing's complement to
+    information-theoretic measures of complexity.
+  source_documents:
+  - notes_search
+- id: general_problem_solver
+  label: General Problem Solver (GPS)
+  description: >
+    Newell and Simon's AI system (1957) that modelled intelligent search through means-ends
+    analysis: reducing the difference between current and goal states using pattern-matching
+    and generate-and-test heuristics that could discover new heuristics during search.
+  source_documents:
+  - notes_search
+- id: ill_defined_problems
+  label: Ill-Defined Problems
+  description: >
+    Problems where the goal state, initial state, or available operators are not fully
+    specified in advance. Contrasted with well-defined problems; requires constructing
+    the problem representation during search rather than before it.
+  source_documents:
+  - notes_search
 people_and_institutions:
 - id: alan_turing
   label: Alan Turing

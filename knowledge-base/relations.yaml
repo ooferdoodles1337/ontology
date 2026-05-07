@@ -2326,3 +2326,377 @@ relations:
       "alternative versions of the Boltzmann machine in deep learning that perform similar
       functions are called 'autoencoders'."
 
+
+  # =========================================================
+  # Search
+  # Source: Course Notes — Search - FAB - Spring 2026.pdf
+  # =========================================================
+
+  # --- IS-A ---
+  - type: IS-A
+    source: search
+    target: credit_assignment
+    note: >
+      Search is framed as a general strategy for efficient credit assignment: dividing
+      the labor of a problem into plans and using heuristics to economize on information
+      processing.
+    quote: >
+      "search…a fundamental approach to assigning credit for any complex real-world problem."
+
+  - type: IS-A
+    source: von_neumann_search
+    target: search
+    note: >
+      Von Neumann search is one of two paradigmatically-different approaches to search,
+      treating it as playing a well-defined game using utility functions and reinforcement
+      learning.
+    quote: >
+      "What we will call von Neumann search builds on the former, conceiving of search
+      as akin to playing a well-defined game."
+
+  - type: IS-A
+    source: simon_search
+    target: search
+    note: >
+      Simon search is the second paradigm, treating search as understanding and structuring
+      an ill-defined problem through means-ends analysis and physical symbol manipulation.
+    quote: >
+      "What we will call Simon search builds on the latter, conceiving of search as
+      understanding and structuring an ill-defined problem."
+
+  - type: IS-A
+    source: means_ends_analysis
+    target: heuristics
+    note: >
+      Means-ends analysis is a fundamental heuristic method in Simon search: comparing
+      current and goal states to identify differences and invoking operators to reduce them.
+    quote: >
+      "if two states are not equal…then this difference can be thought of as a measure of
+      intermediate feedback. The particular difference is then linked to a heuristic."
+
+  - type: IS-A
+    source: satisficing
+    target: heuristics
+    note: >
+      Satisficing is itself a heuristic: "generate plans until a satisfactory solution is
+      identified, then stop generating plans."
+    quote: >
+      "Satisficing is itself a heuristic, corresponding to a rule of 'generate plans until
+      a satisfactory solution is identified, then stop generating plans'."
+
+  - type: IS-A
+    source: general_problem_solver
+    target: simon_search
+    note: >
+      The General Problem Solver (GPS) is Newell and Simon's AI implementation of Simon
+      search, using means-ends analysis to model expert search behaviour.
+    quote: >
+      "Newell & Simon called their system the 'General Problem Solver', or GPS, as a model
+      of intelligent search."
+
+  - type: IS-A
+    source: adversarial_search
+    target: von_neumann_search
+    note: >
+      Adversarial search is the application of von Neumann search to two-player games where
+      agents have conflicting goals; Max/Min game trees are its canonical form.
+    quote: >
+      "You can think of a game as simply a problem where there are two or more agents
+      whose actions are interdependent, yet who have conflicting goals."
+
+  - type: IS-A
+    source: division_of_labor
+    target: credit_assignment
+    note: >
+      The division of labor is described as a general solution to credit assignment: simpler
+      tasks have fewer interdependencies, making it easier to learn to perform them well.
+    quote: >
+      "the division of labor is a general solution to the problem of learning to assign credit."
+
+  - type: IS-A
+    source: planning
+    target: search
+    note: >
+      Planning — looking ahead by evaluating possible sequences of actions — is the
+      mechanism through which search is carried out: agents divide problems into plans
+      and learn to select among them.
+    quote: >
+      "A mouse with some processing capacity can do 'planning' — looking ahead by
+      evaluating possible sequences of actions."
+
+  - type: IS-A
+    source: procedural_complexity
+    target: credit_assignment
+    note: >
+      Procedural complexity is the Turing/Babbage measure of the credit-assignment
+      challenge: the minimum number of states a program must transition through to
+      solve a problem.
+    quote: >
+      "the complexity of a problem refers to the amount of states that a program needs
+      to transition through."
+
+  # --- PART-OF ---
+  - type: PART-OF
+    source: heuristics
+    target: search
+    note: >
+      Heuristics are the defining mechanism of search, enabling agents to prune the search
+      tree and economize on information processing.
+    quote: >
+      "search…dividing the labor of solving a complex problem into plans, using heuristics
+      to economize on information processing."
+
+  - type: PART-OF
+    source: pruning
+    target: search
+    note: >
+      Pruning — eliminating large branches of the search tree — is the practical effect of
+      applying heuristics and the key advantage of search over brute force.
+    quote: >
+      "This effect of search is called 'pruning' the search tree, in that using heuristics…
+      often has the effect of eliminating large sequences of actions or paths."
+
+  - type: PART-OF
+    source: evaluation_function
+    target: von_neumann_search
+    note: >
+      The evaluation function is the heuristic at the core of von Neumann search: it
+      estimates the utility of a state from intermediate feedback measures, collapsing
+      them into a single numerical score.
+    quote: >
+      "what is called an evaluation function, which you can think of as some collection
+      of various amounts of intermediate feedback."
+
+  - type: PART-OF
+    source: means_ends_analysis
+    target: general_problem_solver
+    note: >
+      Means-ends analysis is the core search method implemented in GPS: differences
+      between current and goal states trigger heuristic operators that reduce those differences.
+    quote: >
+      "Newell & Simon called their system the 'General Problem Solver', or GPS…
+      information is generated in the form of differences between the current state and
+      the goal state."
+
+  - type: PART-OF
+    source: subgoals
+    target: means_ends_analysis
+    note: >
+      Subgoals are generated in means-ends analysis when a difference between current and
+      goal state is identified; the agent then works to reduce each subgoal difference.
+    quote: >
+      "there were fundamental heuristics at play…'Pattern-matching': given a goal of
+      transforming object A into B…If there is a difference…then a subgoal is generated
+      of reducing this difference."
+
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: von_neumann_search
+    target: john_von_neumann
+    note: >
+      Von Neumann search is named after John von Neumann, whose 1930s–1940s work on
+      game theory provided the mathematical foundations for search as game-playing.
+    quote: >
+      "A first approach to search derives from…the seminal work of the mathematician
+      John von Neumann in the 1930s and 1940s on game theory."
+
+  - type: ATTRIBUTED-TO
+    source: simon_search
+    target: herbert_simon
+    note: >
+      Simon search is named after Herbert Simon, who developed it by contrast with von
+      Neumann search, focusing on means-ends analysis and satisficing in open-ended problems.
+    quote: >
+      "A second approach pioneered by Simon, along with his colleague at Carnegie-Mellon
+      Allen Newell."
+
+  - type: ATTRIBUTED-TO
+    source: general_problem_solver
+    target: allen_newell
+    note: >
+      Allen Newell co-developed the General Problem Solver with Simon at Carnegie-Mellon.
+    quote: >
+      "Newell and Simon's solution was that…The particular difference is then linked to
+      a heuristic… Newell & Simon called their system the 'General Problem Solver'."
+
+  - type: ATTRIBUTED-TO
+    source: general_problem_solver
+    target: herbert_simon
+    note: >
+      Herbert Simon co-developed GPS with Allen Newell as a model of intelligent search
+      through means-ends analysis.
+    quote: >
+      "Newell & Simon called their system the 'General Problem Solver', or GPS, as a model
+      of intelligent search."
+
+  - type: ATTRIBUTED-TO
+    source: turing_machine
+    target: alan_turing
+    note: >
+      Alan Turing introduced the standard measure of program complexity in 1936 through
+      the Turing machine model.
+    quote: >
+      "The standard way of measuring the effective procedure was introduced in 1936 by
+      the mathematician and co-founder of the field Alan Turing."
+
+  - type: ATTRIBUTED-TO
+    source: division_of_labor
+    target: adam_smith
+    note: >
+      Adam Smith explained the logic of the division of labor in his 1776 Wealth of Nations
+      using the pin factory example.
+    quote: >
+      "The Scottish economist Adam Smith explained the logic in his 1776 book The Wealth
+      of Nations, giving the example of a stylized pin factory."
+
+  - type: ATTRIBUTED-TO
+    source: algorithm
+    target: charles_babbage
+    note: >
+      Babbage coined the concept of the algorithm as a "precise and unambiguous
+      specification for controlling a sequence of steps that can be carried out mechanically".
+    quote: >
+      "Babbage called this sequence of instructions as the algorithm."
+
+  # --- CONTRASTS-WITH ---
+  - type: CONTRASTS-WITH
+    source: von_neumann_search
+    target: simon_search
+    note: >
+      Von Neumann search treats search as a well-defined game with utility functions;
+      Simon search treats it as means-ends analysis in open-ended, ill-defined problems —
+      the two paradigmatically-different approaches.
+    quote: >
+      "We will see that such assumptions can build on either paradigm…What we will call
+      von Neumann search builds on the former…What we will call Simon search builds
+      on the latter."
+
+  - type: CONTRASTS-WITH
+    source: search
+    target: brute_force
+    note: >
+      Search is defined by contrast to brute force: rather than enumerate every possible
+      state, search uses heuristics to evaluate only parts of the search tree.
+    quote: >
+      "we use this term by contrast to brute force: rather than describe and test out every
+      state, search involves economizing by using heuristics."
+
+  # --- CAUSES ---
+  - type: CAUSES
+    source: combinatorial_complexity
+    target: search
+    note: >
+      Combinatorial complexity is the motivating problem for search: when a problem space
+      is combinatorially explosive, brute force is infeasible and heuristic search is required.
+    quote: >
+      "agents cannot evaluate every possible action or path. Hence, we use this term by
+      contrast to brute force."
+
+  - type: CAUSES
+    source: gains_to_specialization
+    target: division_of_labor
+    note: >
+      Gains to specialisation are why division of labor works: simpler tasks with fewer
+      interdependencies are easier to learn, enabling better performance.
+    quote: >
+      "In the second strategy, the labor of each the three tasks is divided across three
+      'specialists'… Smith explained how the latter is more economical thanks to gains
+      to specialization."
+
+  # --- ADDRESSES ---
+  - type: ADDRESSES
+    source: search
+    target: combinatorial_complexity
+    note: >
+      Search directly addresses combinatorial complexity through heuristic pruning:
+      rules-of-thumb eliminate large branches of the search tree, making intractable
+      problems tractable.
+    quote: >
+      "search for us will be…about coordinating interdependent tasks…a fundamental
+      approach to assigning credit for any complex real-world problem."
+
+  - type: ADDRESSES
+    source: satisficing
+    target: optimization_goal
+    note: >
+      Satisficing addresses the unreachability of optimal goals under limited information
+      processing: agents search only until a satisfactory threshold (aspiration level) is met.
+    quote: >
+      "Simon famously proposed that intelligent agents 'satisfice', meaning that they search
+      only for satisfactory plans for solving problems, rather than for optimal plans."
+
+  - type: ADDRESSES
+    source: means_ends_analysis
+    target: ill_defined_problems
+    note: >
+      Means-ends analysis addresses ill-defined problems by progressively reducing the
+      difference between current and goal states, constructing the problem representation
+      during search.
+    quote: >
+      "Simon's focus was instead to start with realistic models of how managers make
+      decisions under uncertainty…the ability to manipulate physical symbols to transform
+      some simplified model into a model of some meaningful goal state."
+
+  # --- REQUIRES ---
+  - type: REQUIRES
+    source: search
+    target: heuristics
+    note: >
+      Search requires heuristics: without rules-of-thumb to guide state selection, agents
+      are reduced to brute-force enumeration.
+    quote: >
+      "Agents search by generating, evaluating, and selecting among plans…using heuristics
+      to guide which plans (or parts of plans) to generate-and-test and which to ignore."
+
+  - type: REQUIRES
+    source: von_neumann_search
+    target: utility_function
+    note: >
+      Von Neumann search requires a utility function to evaluate game states and guide
+      path selection through the game tree.
+    quote: >
+      "the search tree is really a purely syntactic game tree, in which nodes are mapped
+      to numerical values of the expected rewards…called a utility function."
+
+  - type: REQUIRES
+    source: simon_search
+    target: physical_symbol_system_hypothesis
+    note: >
+      Simon search presupposes the physical symbol system hypothesis: heuristics are
+      operators on meaningful lists of physical symbols, not arbitrary bit strings.
+    quote: >
+      "satisficing also follows from Simon's physical symbol system hypothesis…Given
+      information about states of a search tree are physical symbols, they only designate
+      objects or concepts in the external world."
+
+  # --- INSTANCE-OF ---
+  - type: INSTANCE-OF
+    source: general_problem_solver
+    target: means_ends_analysis
+    note: >
+      GPS is the primary instantiation of means-ends analysis: it implements pattern-matching
+      and generate-and-test as a model of how expert problem-solvers search.
+    quote: >
+      "Newell & Simon's idea in GPS was to boil down the vast universe of possible
+      heuristics to their essentials — to heuristics for generating heuristics."
+
+  - type: INSTANCE-OF
+    source: breadth_first_search
+    target: heuristics
+    note: >
+      Breadth-first search is a generic heuristic strategy in a search tree: search many
+      possible paths but only a few actions deep for each.
+    quote: >
+      "'breadth-first' (search many possible paths, only generating-and-testing a few
+      actions for each path)."
+
+  - type: INSTANCE-OF
+    source: depth_first_search
+    target: heuristics
+    note: >
+      Depth-first search is a generic heuristic strategy in a search tree: search only one
+      or a few paths but many actions deep for each.
+    quote: >
+      "'depth-first' (search only one or a few paths, but generate-and-test many actions
+      for each path)."
+

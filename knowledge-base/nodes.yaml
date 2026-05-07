@@ -2217,6 +2217,189 @@ concepts:
     harder sensorimotor challenges identified by the creature hypothesis.
   source_documents:
   - notes_interaction
+- id: epistemological_approach
+  label: Epistemological Approach
+  description: >
+    The KRR stance that an intelligent system must first come to know what a problem is
+    before searching for solutions to it — contrasted with heuristic search, which assumes
+    the problem is already given.
+  source_documents:
+  - notes_krr
+- id: knowledge_about_phenomena
+  label: Knowledge About Phenomena
+  description: >
+    McCarthy's term for general, stable facts about the world that an AI system can represent
+    and then use to reason about specific problem-solving situations.
+  source_documents:
+  - notes_krr
+- id: situation
+  label: Situation
+  description: >
+    McCarthy's term for a specific real-world context in which an agent acts, to which general
+    knowledge about phenomena is applied for reasoning and credit assignment.
+  source_documents:
+  - notes_krr
+- id: advice_taker
+  label: Advice Taker
+  description: >
+    McCarthy's 1959 vision of a hypothetical AI system that learns new knowledge by being
+    told facts in natural language, represents knowledge declaratively across situations, and
+    reasons logically rather than through hard-coded procedures.
+  source_documents:
+  - notes_krr
+- id: frame_problem
+  label: Frame Problem
+  description: >
+    McCarthy's 1969 insight that credit assignment in AI requires knowing not only what actions
+    are relevant in a situation, but also the vast set of facts that remain unchanged — tracking
+    "frame-by-frame" stability across actions in an unfolding situation.
+  source_documents:
+  - notes_krr
+- id: inference_engine
+  label: Inference Engine
+  description: >
+    The reasoning component of a KRR system that draws conclusions from a knowledge base
+    by applying logical or probabilistic procedures; contrasted with the knowledge base itself.
+  source_documents:
+  - notes_krr
+- id: commonsense_reasoning
+  label: Commonsense Reasoning
+  description: >
+    The human-like ability to reason flexibly about real-world situations using commonsense
+    knowledge; McCarthy argued this is the deepest challenge for AI credit assignment.
+  source_documents:
+  - notes_krr
+- id: elaboration_tolerance
+  label: Elaboration Tolerance
+  description: >
+    McCarthy's quality of an intelligent system whereby the effort required to add new
+    knowledge to a repository is proportional to the complexity of that new information;
+    a key criterion for scalable KRR.
+  source_documents:
+  - notes_krr
+- id: elaboration
+  label: Elaboration
+  description: >
+    The process of adding or removing units of knowledge (facts, concepts, propositions) to
+    an evolving knowledge base or repository as an agent interacts with the world.
+  source_documents:
+  - notes_krr
+- id: default_reasoning
+  label: Default Reasoning
+  description: >
+    Reasoning that proceeds from default assumptions about the world and revises them only
+    when specific contradicting evidence arrives; required for elaboration tolerance.
+  source_documents:
+  - notes_krr
+- id: expressiveness
+  label: Expressiveness (KRR)
+  description: >
+    The adequacy of a representational language for expressing all the operations needed to
+    reason about and modify knowledge as situations change; a requirement for elaboration
+    tolerance in KRR systems.
+  source_documents:
+  - notes_krr
+- id: declarative_knowledge
+  label: Declarative Knowledge
+  description: >
+    Knowledge represented as stand-alone facts or concepts (as in a database), independent
+    of any procedure — as opposed to procedural knowledge encoded in step-by-step algorithms.
+    McCarthy argued declarative representations are more efficient for commonsense KRR.
+  source_documents:
+  - notes_krr
+- id: procedural_knowledge
+  label: Procedural Knowledge
+  description: >
+    Knowledge encoded as step-by-step sequences of actions (algorithms or procedures);
+    contrasted by McCarthy with declarative knowledge, which is more flexible and reusable
+    across situations.
+  source_documents:
+  - notes_krr
+- id: logical_entailment
+  label: Logical Entailment
+  description: >
+    The implicit derivation of a fact from other known facts without it ever being explicitly
+    stated; the basis on which declarative commonsense knowledge yields vast implicit knowledge.
+  source_documents:
+  - notes_krr
+- id: implicit_knowledge
+  label: Implicit Knowledge
+  description: >
+    Facts that can be derived from a smaller set of explicitly-represented knowledge through
+    logical entailment; McCarthy argued that capturing implicit knowledge efficiently is the
+    core challenge of commonsense KRR.
+  source_documents:
+  - notes_krr
+- id: speech_acts
+  label: Speech Acts
+  description: >
+    Goal-oriented utterances or written statements whose meaning depends on the pragmatic
+    context — who is saying them and for what purpose; relevant to KRR because commonsense
+    knowledge alone cannot interpret them without organisational context.
+  source_documents:
+  - notes_krr
+- id: mathematical_logic_approach
+  label: Mathematical Logic Approach (KRR)
+  description: >
+    McCarthy's approach to KRR that represents knowledge as precise, explicit logical
+    statements (objects, properties, relationships) and draws inferences through formal
+    reasoning procedures rather than statistical prediction.
+  source_documents:
+  - notes_krr
+- id: deep_learning_krr
+  label: Deep Learning Approach (KRR)
+  description: >
+    The currently dominant approach to KRR that represents knowledge as statistical bit-string
+    patterns extracted from large-scale data and stored in vector databases; relies on emergent
+    reasoning (e.g., chain-of-thought) rather than explicit logical procedures.
+  source_documents:
+  - notes_krr
+- id: vector_databases
+  label: Vector Databases
+  description: >
+    Matrix-like data structures used in deep learning KRR systems to store bit-string
+    representations of knowledge; concepts "emerge" as statistical patterns among stored vectors.
+  source_documents:
+  - notes_krr
+- id: chain_of_thought
+  label: Chain-of-Thought Reasoning
+  description: >
+    A prompting strategy for LLMs that instructs the model to reason step-by-step; described
+    as a heuristic approach to commonsense reasoning under the deep learning KRR paradigm.
+  source_documents:
+  - notes_krr
+- id: context_engineering
+  label: Context Engineering
+  description: >
+    The practice of selecting and providing relevant information at inference time — via prompts,
+    retrieved documents, or other inputs — to condition an LLM's behaviour on a specific
+    situation; a substitute for explicit context representation in deep learning KRR.
+  source_documents:
+  - notes_krr
+- id: retrieval_augmented_generation
+  label: Retrieval-Augmented Generation (RAG)
+  description: >
+    A technique that enables deep learning KRR systems to incorporate information from
+    external repositories at inference time, extending their effective knowledge base beyond
+    what was encoded during training.
+  source_documents:
+  - notes_krr
+- id: world_models
+  label: World Models
+  description: >
+    Deep learning systems that extend LLMs with external memories (vector databases,
+    knowledge graphs, multimodal data) to construct richer representations of the world for
+    reasoning and prediction.
+  source_documents:
+  - notes_krr
+- id: ontology
+  label: Ontology (Formal)
+  description: >
+    A formal categorisation of phenomena into objects and their relationships, used in the
+    mathematical logic approach to KRR to structure knowledge so that AI systems can
+    reason about complex, evolving real-world situations.
+  source_documents:
+  - notes_krr
 people_and_institutions:
 - id: alan_turing
   label: Alan Turing
@@ -2806,6 +2989,27 @@ people_and_institutions:
     the graphical user interface; pioneer of direct manipulation of symbols on a computer screen.
   source_documents:
   - notes_interaction
+- id: john_mccarthy
+  label: John McCarthy
+  type: person
+  era: "1950s–2000s"
+  affiliation: MIT, Stanford University
+  description: >
+    Co-founder of the MIT AI Lab (with Minsky) and later director of the Stanford AI Lab;
+    pioneered knowledge representation and reasoning in AI, including the Advice Taker
+    vision, the frame problem, and the Lisp programming language.
+  source_documents:
+  - notes_krr
+- id: palantir
+  label: Palantir Technologies
+  type: institution
+  affiliation: USA
+  description: >
+    Software platform company that builds large-scale ontologies structuring data for client
+    organisations in terms of real-world entities and relationships; cited as a recent example
+    of the mathematical logic approach to KRR in practice.
+  source_documents:
+  - notes_krr
 examples_and_metaphors:
 - id: ex_checkers_game
   label: Checkers Game (Samuel, 1959)

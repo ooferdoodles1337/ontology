@@ -78,3 +78,9 @@ relation_types:
   direction: "A → B (dependent → prerequisite)"
   first_seen: notes_credit_assignment
   aliases: []
+
+- name: ENABLES
+  description: "A makes B possible or significantly facilitates B, without being a direct causal agent."
+  direction: "A → B (enabler → enabled capability)"
+  first_seen: notes_physical_world
+  aliases: []

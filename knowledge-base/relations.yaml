@@ -3189,3 +3189,504 @@ relations:
       paradigm is (e.g., LLMs today), while all the actually complex parts of intelligence…run
       the risk of never getting addressed."
 
+  # =========================================================
+  # Course Notes 8 — Reasoning about the Physical World
+  # Source: Course Notes 8 — Reasoning about the Physical World - FAB.pdf
+  # =========================================================
+
+  # --- IS-A ---
+  - type: IS-A
+    source: debugging
+    target: credit_assignment
+    note: >
+      The document reframes intelligence in this session as the ability to "debug"
+      representations — credit assignment becomes the process of detecting and resolving
+      discrepancies between representations and the physical world.
+    quote: >
+      "we will call intelligence in this session (i.e., learning to assign credit when solving
+      complex problems) as the ability to learn to 'debug' representations of problems in the
+      physical world."
+
+  - type: IS-A
+    source: bugs
+    target: breakdowns
+    note: >
+      Bugs are the engineering-flavoured term for breakdowns: any discrepancy, symptom, or
+      constraint violation that signals a mismatch between a representation and the physical
+      world.
+    quote: >
+      "A breakdown can also be thought of as a symptom of a problem…we will follow the engineering
+      tradition of AI research in this area at MIT and call all such symptoms, discrepancies, or
+      constraint violations as 'bugs'."
+
+  - type: IS-A
+    source: troubleshooting
+    target: debugging
+    note: >
+      Troubleshooting is one of two complementary debugging strategies: it assumes the
+      representation is correct and seeks faults in the actual physical system.
+    quote: >
+      "First, we can assume that our AI system or organization has the correct representation of a
+      problem regarding some physical system, but that there are bugs in the actual system.
+      We will call such debugging 'troubleshooting'."
+
+  - type: IS-A
+    source: theory_formation
+    target: debugging
+    note: >
+      Theory formation is the complementary debugging strategy: it assumes the physical system
+      is correct and seeks to construct or repair the representation of it.
+    quote: >
+      "Second, we can assume that the physical system is fine, but that bugs may arise in the
+      representation of the system…We will call these latter debugging processes as 'theory
+      formation'."
+
+  - type: IS-A
+    source: generate_test_and_debug
+    target: generate_and_test
+    note: >
+      Generate-test-and-debug is a more powerful extension of generate-and-test in which the
+      debugging step allows modifying the problem representation itself, not just testing
+      candidates against a fixed landscape.
+    quote: >
+      "the process is really generate-test-and-debug, where debugging involves not just
+      generating candidate solutions, but possibly modifying the representation of the problem
+      (and even the goals themselves)."
+
+  - type: IS-A
+    source: reasoning_about_physical_world
+    target: interaction
+    note: >
+      Reasoning about the physical world is a more specific development within the interactionist
+      paradigm: whereas Session 7 treated breakdowns as the exception triggering reflection, this
+      session treats them as the rule — the primary site of intelligent credit assignment.
+    quote: ~
+
+  # --- PART-OF ---
+  - type: PART-OF
+    source: first_principles_reasoning
+    target: debugging
+    note: >
+      First-principles reasoning is the core strategy within debugging: rather than
+      accumulating heuristics, it anchors credit assignment in a small set of stable domain
+      laws that remain relevant across the combinatorially explosive space of possible bugs.
+    quote: >
+      "the strategy for assigning credit by debugging is to reason from first principles — that
+      is, to use a small number of stable, fundamental 'laws' about the physical world that are
+      simple and known to be relevant to a problem."
+
+  - type: PART-OF
+    source: causal_interpretation
+    target: debugging
+    note: >
+      Building and refining a causal interpretation is the central product of the debugging
+      process: it is the threshold-level representation of how function emerges from structure
+      that an AI system or organisation constructs and then reasons about to identify bugs.
+    quote: >
+      "We will call such a threshold understanding as a causal interpretation of the physical
+      system — considered as a representation of meaningful information about its functioning."
+
+  - type: PART-OF
+    source: function_from_structure
+    target: causal_interpretation
+    note: >
+      Deriving function from structure is the core inferential task within constructing a
+      causal interpretation: observing how a system's components are assembled and inferring
+      from that structure what the system does.
+    quote: >
+      "You can think of such reasoning processes as fundamentally about deriving function (what
+      the system does) from the structure of it (i.e., from observing the components or parts
+      of the system)."
+
+  - type: PART-OF
+    source: envisioning
+    target: qualitative_reasoning
+    note: >
+      Envisioning is the active process within qualitative reasoning: running a qualitative
+      simulation in the mind's eye to predict how a physical system's state changes according
+      to domain laws.
+    quote: >
+      "De Kleer characterizes this process as one of 'envisioning' how the components and parts
+      of a physical system function together, which he describes as 'running a qualitative
+      simulation in the mind's eye'."
+
+  - type: PART-OF
+    source: confluences
+    target: qualitative_reasoning
+    note: >
+      Confluences are the qualitative constraint form used in qualitative reasoning: they
+      represent mutual influences between variables according to domain first principles, in
+      place of the discrete, precise constraints of a CSP.
+    quote: >
+      "the constraints are considered as variables that mutually influence one another — or what
+      De Kleer calls 'confluences' — that reflect the first principles of the domain."
+
+  - type: PART-OF
+    source: justifications
+    target: dependency_network
+    note: >
+      Justifications are the links in a dependency network, representing logical relationships
+      (consequences, antecedents, explanations) between knowledge nodes, and labelled "in" or
+      "out" to track whether an assumption is currently believed.
+    quote: >
+      "The links are beliefs called justifications, which represent things like consequences,
+      antecedents, or explanations, and labels that indicate whether such justifications are
+      'in' or 'out'."
+
+  - type: PART-OF
+    source: dependency_network
+    target: propagator_model
+    note: >
+      The dependency network is a key building block of Sussman's propagator model: the
+      "cells" in the model are the locally stored memories of tentative beliefs that form
+      the dependency network.
+    quote: ~
+
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: envisioning
+    target: johan_de_kleer
+    note: >
+      De Kleer coined the term "envisioning" and developed it as a formal strategy for
+      qualitative reasoning about physical systems.
+    quote: >
+      "De Kleer characterizes this process as one of 'envisioning' how the components and parts
+      of a physical system function together."
+
+  - type: ATTRIBUTED-TO
+    source: confluences
+    target: johan_de_kleer
+    note: >
+      De Kleer coined the term "confluences" for the qualitative mutual-influence constraints
+      that underlie qualitative reasoning about physical systems.
+    quote: >
+      "the constraints are considered as variables that mutually influence one another — or what
+      De Kleer calls 'confluences'."
+
+  - type: ATTRIBUTED-TO
+    source: qualitative_reasoning
+    target: johan_de_kleer
+    note: >
+      De Kleer co-developed qualitative reasoning as a formal AI strategy, articulating the
+      key insight that even sophisticated engineers initially reason qualitatively before
+      applying quantitative analysis.
+    quote: >
+      "de Kleer observed that even sophisticated engineers (or other systems designers) initially
+      engage in the same such qualitative reasoning, even regarding sophisticated systems."
+
+  - type: ATTRIBUTED-TO
+    source: qualitative_reasoning
+    target: ken_forbus
+    note: >
+      Forbus co-developed qualitative reasoning alongside de Kleer; the two co-authored
+      Building Problem Solvers, which formalised qualitative reasoning as an AI approach.
+    quote: >
+      "alums from Minsky's AI lab Ken Forbus and Johan de Kleer in their book Building Problem
+      Solvers"
+
+  - type: ATTRIBUTED-TO
+    source: dependency_network
+    target: gerald_sussman
+    note: >
+      Sussman pioneered the dependency network as a complement to constraint propagation in
+      the 1970s, enabling truth maintenance during debugging of physical-world representations.
+    quote: >
+      "The key idea, pioneered by Minsky's student Gerald Sussman and his colleagues in the
+      1970s, is that the constraint network needs to be supplemented by what is called in this
+      tradition of AI research a dependency network."
+
+  - type: ATTRIBUTED-TO
+    source: truth_maintenance
+    target: gerald_sussman
+    note: >
+      Sussman's dependency network work gave rise to the concept of truth maintenance — the
+      process of making, tracking, and retracting tentative assumptions during debugging.
+    quote: >
+      "The key idea, pioneered by Minsky's student Gerald Sussman and his colleagues in the
+      1970s, is that the constraint network needs to be supplemented by…a dependency network."
+
+  - type: ATTRIBUTED-TO
+    source: causal_interpretation
+    target: marvin_minsky
+    note: >
+      Minsky first articulated that the goal of intelligence is not an optimal peak but a
+      threshold understanding — what the document calls a causal interpretation — of how a
+      physical system functions.
+    quote: >
+      "Minsky first pointed out that, rather than reach some optimal peak in a landscape, what
+      is needed is to reach some threshold of understanding."
+
+  - type: ATTRIBUTED-TO
+    source: reasoning_about_physical_world
+    target: mit_ai_lab
+    note: >
+      The MIT AI Lab, through students of Minsky influenced also by McCarthy, originated the
+      foundational AI ideas for reasoning about the physical world in the 1970s and 1980s.
+    quote: >
+      "Foundational AI ideas for reasoning about the physical world emerged in the 1970s and
+      1980s from students at the MIT AI lab who were proteges of Minsky."
+
+  - type: ATTRIBUTED-TO
+    source: first_principles_reasoning
+    target: mit_ai_lab
+    note: >
+      First-principles reasoning as a strategy for debugging emerged from the MIT AI Lab
+      tradition, where engineering backgrounds led researchers to anchor reasoning in domain
+      laws rather than heuristics.
+    quote: >
+      "in the MIT tradition of AI research, this mechanism is commonly thought of as a
+      domain-specific language, meaning a language that enables representing the fundamental
+      entities and relations of the domain such that reasoning can be based on the principles
+      of this domain."
+
+  # --- ADDRESSES ---
+  - type: ADDRESSES
+    source: first_principles_reasoning
+    target: combinatorial_complexity
+    note: >
+      First-principles reasoning addresses the combinatorial explosion of possible bugs by
+      anchoring credit assignment in a small set of stable domain laws, rather than requiring
+      heuristics for every possible fault.
+    quote: >
+      "Due to this combinatorial explosion, it is not realistic to reason based on acquiring
+      heuristics (one would need practically an infinite number of heuristics)…Instead, the
+      strategy for assigning credit by debugging is to reason from first principles."
+
+  - type: ADDRESSES
+    source: dependency_directed_reasoning
+    target: bugs
+    note: >
+      Dependency-directed reasoning directly addresses bugs by enabling an AI system to trace
+      a bug to its specific assumption in the constraint network, reason about it using rich
+      qualitative representations, and propagate the fix.
+    quote: >
+      "when 'bugs' arise, an AI system or organization can trace the bugs to specific assumptions
+      in the constraint network, 'debug' the local representation based on reasoning about these
+      assumptions."
+
+  - type: ADDRESSES
+    source: reasoning_about_physical_world
+    target: breakdowns
+    note: >
+      Session 8 positions reasoning about the physical world as the paradigm that treats
+      breakdowns not as exceptions but as the central site of intelligence — to be actively
+      identified and resolved rather than merely triggering fallback to symbols.
+    quote: >
+      "In this session, we will view breakdowns not as the exception but the rule. Intelligence
+      in AI systems and organizations will involve reflectively reasoning about the physical
+      systems…to identify and resolve breakdowns."
+
+  - type: ADDRESSES
+    source: dependency_network
+    target: frame_problem
+    note: >
+      The dependency network addresses the frame problem by locally tracking which knowledge
+      and assumptions have changed, are in force, or have been retracted — providing the
+      "elaboration-tolerant" memory McCarthy called for.
+    quote: ~
+
+  # --- CONTRASTS-WITH ---
+  - type: CONTRASTS-WITH
+    source: world_models
+    target: propagator_model
+    note: >
+      World models and the propagator model are the two paradigmatically different approaches
+      to reasoning about the physical world: world models learn regularities from vast
+      Shannon-style data; the propagator model supports explicit qualitative reasoning and
+      dependency-directed debugging without requiring such data.
+    quote: >
+      "we will understand AI ideas for reasoning about the physical world in terms of two
+      paradigmatically-different approaches. One approach…is based on deep learning…and is
+      commonly referred to today as the 'world models' approach…Another approach…the 'propagator
+      model'."
+
+  - type: CONTRASTS-WITH
+    source: troubleshooting
+    target: theory_formation
+    note: >
+      Troubleshooting and theory formation are complementary debugging strategies that differ
+      in what is assumed correct: troubleshooting fixes the system given a correct
+      representation; theory formation fixes the representation given a correct system.
+    quote: >
+      "You can think of debugging as manifesting in two complementary strategies. First, we can
+      assume that our AI system or organization has the correct representation…Second, we can
+      assume that the physical system is fine, but that bugs may arise in the representation."
+
+  - type: CONTRASTS-WITH
+    source: dependency_directed_reasoning
+    target: means_ends_analysis
+    note: >
+      Dependency-directed reasoning is explicitly contrasted with Simon's means-ends analysis:
+      MEA is "chronological" (linear state transitions toward a goal), whereas
+      dependency-directed reasoning is iterative and allows revising even the goal representation.
+    quote: >
+      "problem-solving was less dependency-directed than it was chronological — we assumed that
+      we could just use operators and heuristics to transition from an initial state to states
+      closer and closer to a goal state."
+
+  - type: CONTRASTS-WITH
+    source: qualitative_reasoning
+    target: csp
+    note: >
+      Qualitative reasoning contrasts with CSPs in that its constraints (confluences) are
+      continuous and mutual-influence-based rather than discrete and precise; variable values
+      are qualitative descriptions rather than enumerated integers.
+    quote: >
+      "in a standard constraint satisfaction problem, the constraints were discrete and precise…
+      In contrast, the variables in any complex physical system are often continuous and messy."
+
+  # --- REQUIRES ---
+  - type: REQUIRES
+    source: debugging
+    target: causal_interpretation
+    note: >
+      Effective debugging requires a causal interpretation to be constructed and continually
+      refined: without some representation of how a system's components causally produce
+      behaviour, there is no basis for identifying or localising bugs.
+    quote: >
+      "debugging involves not just generating candidate solutions, but possibly modifying the
+      representation of the problem…Such modifications may involve…re-ordering them based on
+      interpreting how the components causally fit together to produce the system's functioning."
+
+  - type: REQUIRES
+    source: dependency_directed_reasoning
+    target: dependency_network
+    note: >
+      Dependency-directed reasoning is only possible when a dependency network is in place:
+      tracing bugs to specific assumptions, explaining provenance, and storing reasoning results
+      all depend on the dependency network's locally maintained memory.
+    quote: >
+      "reasoning about the physical world becomes 'dependency-directed' — informed by rich and
+      diverse information and knowledge about interdependencies (constraints) that enables
+      explaining assumptions, tracking provenance."
+
+  # --- ENABLES ---
+  - type: ENABLES
+    source: dependency_network
+    target: truth_maintenance
+    note: >
+      The dependency network is the mechanism that makes truth maintenance possible: its
+      nodes and justification links store tentative assumptions and their interdependencies,
+      allowing an AI system to make, modify, and retract beliefs during debugging.
+    quote: >
+      "The key idea of a dependency network is to enable debugging as a process of making and
+      modifying (or retracting) tentative assumptions…referred to as debugging based on 'truth
+      maintenance'."
+
+  - type: ENABLES
+    source: dependency_network
+    target: dependency_directed_reasoning
+    note: >
+      By storing rich qualitative knowledge, justifications, and interdependencies, the
+      dependency network enables reasoning to be dependency-directed rather than
+      chronological — dramatically enhancing both the magic of propagation and search efficiency.
+    quote: >
+      "the TMS and dependency network dramatically (1) enhances the 'magic of propagation'
+      by enabling qualitative reasoning; and also (2) greatly enhances the efficiency of any
+      search processes used."
+
+  - type: ENABLES
+    source: domain_specific_language
+    target: first_principles_reasoning
+    note: >
+      A domain-specific language provides the formal vocabulary and structure that enables
+      an AI system to represent domain entities and relations and apply first-principles
+      reasoning to them.
+    quote: >
+      "in the MIT tradition of AI research, this mechanism is commonly thought of as a
+      domain-specific language, meaning a language that enables representing the fundamental
+      entities and relations of the domain such that reasoning can be based on the principles
+      of this domain."
+
+  - type: ENABLES
+    source: first_principles_reasoning
+    target: qualitative_reasoning
+    note: >
+      First-principles reasoning supplies the stable domain laws that qualitative reasoning
+      uses — without domain laws (e.g., gravity, voltage rules), qualitative envisioning has
+      no principled basis for predicting state changes.
+    quote: ~
+
+  # --- COMPLICATES ---
+  - type: COMPLICATES
+    source: combinatorial_complexity
+    target: debugging
+    note: >
+      The combinatorial explosion of possible bugs makes purely heuristic or exhaustive
+      approaches to debugging infeasible; even for a simple watch, the number of possible
+      faults far exceeds the reach of any finite set of heuristics.
+    quote: >
+      "even for a physical system such as a mechanical watch with relatively well-defined parts
+      and components, the number of possible 'bugs' is combinatorially explosive in ways far
+      beyond even a complex search tree."
+
+  # --- INSTANCE-OF ---
+  - type: INSTANCE-OF
+    source: ex_integrated_circuit_board
+    target: debugging
+    note: >
+      ICB design and repair is the canonical MIT-tradition example of physical-world debugging:
+      the combinatorially explosive space of possible faults requires constructing causal
+      interpretations from first principles rather than searching predefined trees.
+    quote: >
+      "A canonical example of reasoning about the physical world in this tradition of AI research
+      is the problem of identifying faults in either the design or repair of an integrated
+      circuit board."
+
+  - type: INSTANCE-OF
+    source: ex_integrated_circuit_board
+    target: first_principles_reasoning
+    note: >
+      ICB debugging is driven by electrical engineering first principles (e.g., voltage laws)
+      that constrain the possible values of transistors, resistors, and capacitors — a small
+      stable set of laws that anchor reasoning across the combinatorially explosive fault space.
+    quote: >
+      "engineers use electrical engineering 'laws', such as how much voltage can flow between
+      the components, to represent and reason about constraints on variables such as transistors,
+      resistors, and capacitors."
+
+  - type: INSTANCE-OF
+    source: ex_three_containers
+    target: qualitative_reasoning
+    note: >
+      The three containers example is the book's canonical illustration of qualitative reasoning:
+      water flow direction can be inferred from gravity alone, with no numbers — demonstrating
+      that domain laws enable useful inference without quantitative data.
+    quote: >
+      "What happens when water is poured into the highest container? It is easy for you to reason
+      that it will flow through the pipes into the second container at medium height…Such
+      reasoning did not require any numbers."
+
+  - type: INSTANCE-OF
+    source: ex_three_containers
+    target: envisioning
+    note: >
+      De Kleer uses the containers example to illustrate envisioning: predicting how qualitative
+      states (water level, flow direction) unfold according to domain laws is precisely "running
+      a qualitative simulation in the mind's eye".
+    quote: >
+      "envisioning means predicting and analyzing changes of the qualitative state of a system
+      (e.g., from water being in one container, to flowing into another)."
+
+  - type: INSTANCE-OF
+    source: ex_nvidia_cuda
+    target: domain_specific_language
+    note: >
+      Nvidia CUDA is cited as an example of a domain-specific language: it provides a
+      programming vocabulary tuned to the first principles of GPU chip design rather than
+      general-purpose computation.
+    quote: >
+      "Nvidia's CUDA language offers a more specific programming language for designing functions
+      for graphical processing unit (GPU) chips."
+
+  - type: INSTANCE-OF
+    source: ex_cad_software
+    target: domain_specific_language
+    note: >
+      CAD software is cited as a domain-specific language for geometric reasoning, enabling
+      engineers to represent and reason about physical systems based on geometric first
+      principles.
+    quote: >
+      "computer-assisted design (CAD) software offers a broad range of engineers a way of
+      reasoning about physical systems based on geometric principles."
+

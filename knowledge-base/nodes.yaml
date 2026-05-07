@@ -1,0 +1,3274 @@
+# ============================================================
+# FAB 2026 — Nodes (Vocabulary + Metadata)
+# ============================================================
+# One file for all nodes. Sections: concepts, people_and_institutions,
+# examples_and_metaphors. Each entry has id, label, description, and
+# type-specific fields (module for concepts; type/era/affiliation for
+# people; source/illustrates for examples). No tags.
+# ============================================================
+
+concepts:
+- id: intelligence
+  label: Intelligence
+  description: 'The general capacity of an agent to adapt behaviour and solve problems across varied environments,
+    typically by learning from experience.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: general_problem_of_intelligence
+  label: General Problem of Intelligence
+  description: 'The overarching challenge of creating agents that can learn which actions to take in order
+    to achieve goals, despite sparse and delayed feedback.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: credit_assignment
+  label: Credit Assignment
+  description: 'The problem of determining which specific actions in a sequence deserve credit (or blame)
+    for a final outcome.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: feedback
+  label: Feedback
+  description: 'Information an agent receives about the consequences of its actions, used to update its
+    behaviour.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: delayed_feedback
+  label: Delayed Feedback
+  description: 'Feedback that arrives well after the actions that caused it, making it harder to assign
+    credit to the right decisions.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: ambiguous_feedback
+  label: Ambiguous Feedback
+  description: 'Feedback whose causal link to specific actions is unclear, complicating the identification
+    of what behaviour produced a given outcome.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: sparse_feedback
+  label: Sparse Feedback
+  description: 'A feedback regime in which only a small fraction of actions generate informative signals,
+    as identified by Minsky.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: intermediate_feedback
+  label: Intermediate Feedback
+  description: 'Proxy signals that indicate progress toward a goal before a final outcome is known, used
+    to assign credit earlier.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: trial_and_error
+  label: Trial and Error
+  description: 'A basic learning strategy that explores actions and reinforces those that produce positive
+    outcomes while abandoning unsuccessful ones.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: reinforcement_learning
+  label: Reinforcement Learning
+  description: 'A learning paradigm where an agent improves its policy by receiving rewards or penalties
+    for actions taken in an environment.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_information_processing
+  - notes_interaction
+- id: reward_hypothesis
+  label: Reward Hypothesis
+  description: 'The proposition that all goals and purposes can be expressed as the maximisation of cumulative
+    scalar reward (Sutton & Barto).
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: policy
+  label: Policy
+  description: 'A mapping from states to actions that specifies what an agent does in each situation it
+    encounters.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: value_function
+  label: Value Function
+  description: 'A function estimating the expected cumulative reward an agent will receive from a given
+    state onward under a given policy.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: utility_function
+  label: Utility Function
+  description: 'A function mapping states or outcomes to scalar values representing their desirability
+    to an agent.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: temporal_differencing
+  label: Temporal Differencing
+  description: 'A reinforcement learning method that updates value estimates by bootstrapping from differences
+    between successive time-step predictions.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: aggregate_rewards
+  label: Aggregate Rewards
+  description: 'The total sum of rewards accumulated by an agent across a sequence of actions and time
+    steps.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: maximize_rewards
+  label: Maximise Rewards
+  description: 'The objective of selecting actions so as to obtain the highest possible cumulative reward
+    over time.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: goal_directed_agents
+  label: Goal-Directed Agents
+  description: 'Agents that select actions based on an internal representation of a desired end state
+    rather than fixed reflexes.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: agent_environment_distinction
+  label: Agent–Environment Distinction
+  description: 'The conceptual boundary separating the learning agent from the world it perceives and
+    acts upon.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: agentic_environment
+  label: Agentic Environment
+  description: 'The environment as modelled and acted upon by an intelligent agent, including the effects
+    of the agent''s own actions.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: task_environment
+  label: Task Environment
+  description: 'The full specification of a problem faced by an agent, including its goals, percepts,
+    actions, and performance measure.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_search
+- id: deliberate_practice
+  label: Deliberate Practice
+  description: 'Effortful, focused practice designed to improve specific skills through rapid feedback
+    and targeted repetition.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: superstitious_learning
+  label: Superstitious Learning
+  description: 'The acquisition of a false causal model due to coincidental correlation between actions
+    and outcomes under sparse feedback.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_evolutionary_strategies
+- id: path_dependence
+  label: Path Dependence
+  description: 'The phenomenon where the sequence of past decisions constrains which options remain available
+    in the future.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_evolutionary_strategies
+- id: interdependence_of_actions
+  label: Interdependence of Actions
+  description: 'The property that the value or appropriateness of one action depends on other actions
+    taken concurrently or previously.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: management_hypothesis
+  label: Management Hypothesis
+  description: 'The hypothesis that intelligence at scale requires coordination, delegation, and management
+    of specialised sub-agents.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: society_of_mind_hypothesis
+  label: Society of Mind Hypothesis
+  description: 'Minsky''s proposal that high-level intelligence emerges from the interaction of many simple,
+    specialised sub-agents.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_representation
+- id: unitary_actor_assumption
+  label: Unitary Actor Assumption
+  description: 'The simplifying assumption that an agent acts as a single coherent decision-maker rather
+    than an organisation of sub-agents.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: agent_specialization
+  label: Agent Specialisation
+  description: 'The differentiation of agents into distinct roles with narrow, focused capabilities that
+    together cover a broader task.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: division_of_labor
+  label: Division of Labour
+  description: 'The allocation of distinct tasks to specialised agents or workers to increase collective
+    efficiency and throughput.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_search
+  - notes_evolutionary_strategies
+- id: organizational_learning
+  label: Organisational Learning
+  description: 'The process by which collectives of agents update their shared knowledge, routines, and
+    behaviour based on experience.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: organizational_memory
+  label: Organisational Memory
+  description: 'Stored knowledge, routines, and programs that persist in an organisation beyond any individual
+    member.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: organizational_programs
+  label: Organisational Programs
+  description: 'Encoded routines and standard operating procedures that guide an organisation''s responses
+    to recurring situations.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_search
+- id: delegation
+  label: Delegation
+  description: 'The assignment of authority and responsibility for a task from a higher-level agent to
+    a subordinate sub-agent.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: hierarchical_management
+  label: Hierarchical Management
+  description: 'An organisational structure where agents are arranged in levels, with each level supervising
+    and coordinating the level below it.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: gains_to_specialization
+  label: Gains to Specialisation
+  description: 'The increased efficiency and output achieved when agents focus on narrow, well-practised
+    tasks rather than general ones.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_search
+  - notes_evolutionary_strategies
+- id: infinite_regress
+  label: Infinite Regress
+  description: 'A logical problem where justifying or explaining something requires invoking the same
+    type of explanation indefinitely.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: learning
+  label: Learning
+  description: 'The general process by which an agent modifies its representations or behaviour based
+    on experience with its environment.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_evolutionary_strategies
+- id: information
+  label: Information
+  description: 'Data that reduces uncertainty about the state of the world; can be characterised either
+    syntactically (Shannon) or semantically (Simon).
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: shannon_information
+  label: Shannon Information
+  description: 'Information defined mathematically as the reduction in uncertainty, measured in bits,
+    independent of meaning.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_interaction
+- id: simon_information
+  label: Simon Information
+  description: 'Herbert Simon''s view of information as meaning-laden representations that guide purposeful
+    behaviour rather than mere signal statistics.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: syntactic_information
+  label: Syntactic Information
+  description: 'Information characterised purely by its formal structure and statistical properties, without
+    regard to its meaning or context.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: semantic_information
+  label: Semantic Information
+  description: 'Information characterised by its meaning and relevance to an agent''s goals, beyond its
+    statistical structure.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: shannon_entropy
+  label: Shannon Entropy
+  description: 'A measure of the average information content (uncertainty) in a probability distribution,
+    defined as H = −Σ p log₂ p.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: entropy
+  label: Entropy
+  description: 'A measure of disorder, uncertainty, or unpredictability in a system; used in both thermodynamics
+    and information theory.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+- id: encoding
+  label: Encoding
+  description: 'The process of converting information into a formal representation suitable for transmission
+    or storage.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: decoding
+  label: Decoding
+  description: 'The process of recovering original information from an encoded representation.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: channel_capacity
+  label: Channel Capacity
+  description: 'The maximum rate at which information can be reliably transmitted through a noisy channel
+    (Shannon''s capacity theorem).
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: bandwidth
+  label: Bandwidth
+  description: 'The range of frequencies or throughput available for transmitting information across a
+    communication channel.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: noise
+  label: Noise
+  description: 'Unwanted random disturbances in a communication channel that corrupt or obscure the transmitted
+    signal.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: signal_to_noise_ratio
+  label: Signal-to-Noise Ratio
+  description: 'The ratio of useful signal power to background noise power, indicating how cleanly information
+    can be extracted from a channel.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: compression
+  label: Compression
+  description: 'Reducing the size of a data representation while preserving its essential information
+    content.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: statistical_redundancy_removal
+  label: Statistical Redundancy Removal
+  description: 'Compression by eliminating predictable, repeated patterns in data, exploiting statistical
+    regularities.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: abstraction
+  label: Abstraction
+  description: 'The process of removing irrelevant detail to focus on essential structure, patterns, or
+    relationships.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+  - notes_evolutionary_strategies
+- id: meaningful_abstraction
+  label: Meaningful Abstraction
+  description: 'An abstraction that preserves the semantically relevant features necessary for a given
+    purpose or task.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+- id: digital_abstraction
+  label: Digital Abstraction
+  description: 'The representation of information as discrete symbolic states rather than continuous analogue
+    values.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: bit
+  label: Bit
+  description: 'The fundamental unit of information, representing a binary choice between two equally
+    likely outcomes.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: bit_strings
+  label: Bit Strings
+  description: 'Sequences of bits used to encode arbitrary information in digital computational systems.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: information_theory
+  label: Information Theory
+  description: 'Shannon''s mathematical framework for quantifying information, channel capacity, compression,
+    and reliable communication.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: information_processing
+  label: Information Processing
+  description: 'The manipulation, transformation, and transmission of information by a computational or
+    cognitive system.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: internal_representations
+  label: Internal Representations
+  description: 'Mental or computational structures that encode aspects of the world within an agent''s
+    memory or model.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+- id: external_representations
+  label: External Representations
+  description: 'Physical artifacts such as diagrams, notation, and tools that offload cognitive work into
+    the environment.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+- id: cognitive_representations
+  label: Cognitive Representations
+  description: 'Internal symbolic or distributed structures encoding knowledge and beliefs used in reasoning
+    and decision-making.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+- id: physical_symbol_system_hypothesis
+  label: Physical Symbol System Hypothesis
+  description: 'Newell and Simon''s claim that a physical symbol system has the necessary and sufficient
+    means for general intelligent action.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+- id: physics_hypothesis
+  label: Physics Hypothesis
+  description: 'The claim that the laws of physics set the boundary conditions and constraints within
+    which any intelligent system must operate.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: symbol_manipulation
+  label: Symbol Manipulation
+  description: 'The process of transforming formal symbol structures according to syntactic rules, without
+    regard to semantic content.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+  - notes_interaction
+- id: processing_complexity
+  label: Processing Complexity
+  description: 'The computational resources — time, space, energy — required to process or solve a given
+    class of problems.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: processing_capacity
+  label: Processing Capacity
+  description: 'The limit on the volume of information an agent can process within a given time period.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: processing_power
+  label: Processing Power
+  description: 'The speed and throughput of a computational system''s information- processing operations.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: combinatorial_explosion
+  label: Combinatorial Explosion
+  description: 'The exponential growth of the number of possible configurations as the number of components
+    or variables increases.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+- id: combinatorial_complexity
+  label: Combinatorial Complexity
+  description: 'The class of problems whose solution space grows combinatorially (exponentially or factorially)
+    with input size.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+- id: curse_of_dimensionality
+  label: Curse of Dimensionality
+  description: 'The exponential growth in data requirements and computation as the number of input dimensions
+    increases.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: tacit_knowledge
+  label: Tacit Knowledge
+  description: 'Knowledge that is difficult or impossible to articulate explicitly, often embodied in
+    skilled performance and intuition.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+- id: explicit_knowledge
+  label: Explicit Knowledge
+  description: 'Knowledge that can be stated, recorded, and transferred in formal representations such
+    as text or rules.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+- id: commonsense_knowledge
+  label: Commonsense Knowledge
+  description: 'Implicit background knowledge about everyday situations that humans apply effortlessly
+    but is hard to formalise for AI systems.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+  - notes_krr
+- id: convenient_fictions
+  label: Convenient Fictions
+  description: 'Simplifying assumptions known to be imperfect but useful for modelling complex systems
+    tractably.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: mechanization_of_thought
+  label: Mechanisation of Thought
+  description: 'The project of formalising and automating cognitive processes through computation and
+    formal symbol systems.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: turing_machine
+  label: Turing Machine
+  description: 'A theoretical model of computation defining what is algorithmically computable by a deterministic
+    finite-state tape automaton.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+- id: effective_procedure
+  label: Effective Procedure
+  description: 'A deterministic, finite sequence of unambiguous steps that correctly solves every instance
+    of a class of problems.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+- id: minimal_effective_procedure
+  label: Minimal Effective Procedure
+  description: 'The simplest effective procedure that achieves a desired result, with no redundant steps
+    or representations.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: algorithm
+  label: Algorithm
+  description: 'A finite, deterministic procedure for solving a class of problems, guaranteed to terminate
+    with a correct answer.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+- id: short_term_long_term_memory
+  label: Short-Term vs Long-Term Memory
+  description: 'The distinction between limited-capacity working memory (seconds) and virtually unlimited
+    long-term storage in cognitive systems.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: memory_management
+  label: Memory Management
+  description: 'The allocation, retrieval, and organisation of information in storage systems, both biological
+    and artificial.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: iid_problems
+  label: IID Problems
+  description: 'Problems where data samples are independently and identically distributed, so training
+    and test conditions match.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: ood_problems
+  label: OOD Problems
+  description: 'Out-of-distribution problems where test conditions differ from the training distribution,
+    challenging generalisation.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: search
+  label: Search
+  description: 'The process of exploring a space of states or candidate solutions to find one that satisfies
+    a given goal or criterion.
+
+    '
+  source_documents:
+  - notes_search
+- id: state_space
+  label: State Space
+  description: 'The set of all possible configurations a system or problem can be in, forming the domain
+    over which search operates.
+
+    '
+  source_documents:
+  - notes_search
+- id: search_space
+  label: Search Space
+  description: 'The portion of the state space actively considered or reachable by a given search algorithm
+    from the initial state.
+
+    '
+  source_documents:
+  - notes_search
+- id: initial_state
+  label: Initial State
+  description: 'The starting configuration from which a search process begins.
+
+    '
+  source_documents:
+  - notes_search
+- id: goal_state
+  label: Goal State
+  description: 'A configuration that satisfies the problem''s objective and constitutes a valid solution.
+
+    '
+  source_documents:
+  - notes_search
+- id: intermediate_state
+  label: Intermediate State
+  description: 'A state encountered during search that is neither the initial state nor a goal state.
+
+    '
+  source_documents:
+  - notes_search
+- id: state
+  label: State
+  description: 'A complete description of the configuration of a system at a given point in time.
+
+    '
+  source_documents:
+  - notes_search
+- id: state_transitions
+  label: State Transitions
+  description: 'The operations that move a system from one state to another, defining the edges in the
+    state space graph.
+
+    '
+  source_documents:
+  - notes_search
+- id: operators
+  label: Operators
+  description: 'Functions that apply transitions to states, producing successor states and defining the
+    structure of the search space.
+
+    '
+  source_documents:
+  - notes_search
+- id: actions
+  label: Actions
+  description: 'The choices available to an agent at each state, which when applied produce state transitions.
+
+    '
+  source_documents:
+  - notes_search
+- id: paths
+  label: Paths
+  description: 'Sequences of states and transitions that connect an initial state to a goal state through
+    the search space.
+
+    '
+  source_documents:
+  - notes_search
+- id: search_tree
+  label: Search Tree
+  description: 'A tree structure representing the states and transitions explored during a search, rooted
+    at the initial state.
+
+    '
+  source_documents:
+  - notes_search
+- id: branches
+  label: Branches
+  description: 'Edges in a search tree representing transitions from a parent state to a successor (child)
+    state.
+
+    '
+  source_documents:
+  - notes_search
+- id: node
+  label: Node
+  description: 'A single state in a search tree, including its path history and accumulated cost from
+    the root.
+
+    '
+  source_documents:
+  - notes_search
+- id: uninformed_search
+  label: Uninformed Search
+  description: 'Search that uses no domain-specific knowledge about proximity to the goal; explores blindly
+    based on structure alone.
+
+    '
+  source_documents:
+  - notes_search
+- id: breadth_first_search
+  label: Breadth-First Search
+  description: 'An uninformed search strategy that explores all states at depth d before advancing to
+    depth d+1, guaranteeing shortest paths.
+
+    '
+  source_documents:
+  - notes_search
+- id: depth_first_search
+  label: Depth-First Search
+  description: 'An uninformed search strategy that fully explores one branch before backtracking, using
+    minimal memory but risking infinite loops.
+
+    '
+  source_documents:
+  - notes_search
+- id: informed_search
+  label: Informed Search
+  description: 'Search that uses heuristic estimates of distance to the goal to guide exploration toward
+    more promising states.
+
+    '
+  source_documents:
+  - notes_search
+- id: heuristics
+  label: Heuristics
+  description: 'Rules of thumb or approximation functions that guide search toward promising regions of
+    the state space.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_evolutionary_strategies
+- id: evaluation_function
+  label: Evaluation Function
+  description: 'A function that estimates the value or promise of a state in informed search, combining
+    path cost and heuristic estimate.
+
+    '
+  source_documents:
+  - notes_search
+- id: hill_climbing
+  label: Hill Climbing
+  description: 'A local search algorithm that greedily moves to the neighbouring state with the best evaluation;
+    can get stuck at local optima.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_evolutionary_strategies
+- id: generate_and_test
+  label: Generate and Test
+  description: 'A search strategy that generates candidate solutions and tests each against the goal criteria,
+    discarding failures.
+
+    '
+  source_documents:
+  - notes_search
+- id: backtracking
+  label: Backtracking
+  description: 'A search technique that undoes recent choices and tries alternatives when a partial solution
+    cannot be extended.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_krr
+- id: pruning
+  label: Pruning
+  description: 'Eliminating branches of the search tree known to be suboptimal or infeasible, reducing
+    computational cost.
+
+    '
+  source_documents:
+  - notes_search
+- id: brute_force
+  label: Brute Force
+  description: 'Search that exhaustively enumerates all possibilities without heuristic guidance; complete
+    but computationally expensive.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+  - notes_representation
+- id: forward_checking_search
+  label: Forward Checking Search
+  description: 'A CSP search procedure that after each variable assignment prunes values in unassigned
+    neighbours'' domains that would violate constraints.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_krr
+- id: adversarial_search
+  label: Adversarial Search
+  description: 'Search in competitive settings where an opponent actively opposes the agent''s goal, requiring
+    minimax or similar strategies.
+
+    '
+  source_documents:
+  - notes_search
+- id: game_tree
+  label: Game Tree
+  description: 'A search tree representing all possible move sequences in a two-player zero-sum game.
+
+    '
+  source_documents:
+  - notes_search
+- id: von_neumann_search
+  label: Von Neumann Search
+  description: 'Von Neumann''s approach to game trees emphasising exhaustive minimax evaluation of all
+    possible futures.
+
+    '
+  source_documents:
+  - notes_search
+- id: simon_search
+  label: Simon Search
+  description: 'Simon''s satisficing approach to search, stopping as soon as a solution meeting an aspiration
+    threshold is found.
+
+    '
+  source_documents:
+  - notes_search
+- id: means_ends_analysis
+  label: Means–Ends Analysis
+  description: 'A problem-solving strategy that identifies the difference between the current state and
+    the goal and selects operators to reduce it.
+
+    '
+  source_documents:
+  - notes_search
+- id: giant_strides
+  label: Giant Strides
+  description: 'Large jumps through the search space enabled by macro-operators or chunked knowledge,
+    bypassing many intermediate states.
+
+    '
+  source_documents:
+  - notes_search
+- id: planning
+  label: Planning
+  description: 'The process of constructing a sequence of actions in advance that will achieve a goal
+    from an initial state.
+
+    '
+  source_documents:
+  - notes_search
+- id: subgoals
+  label: Subgoals
+  description: 'Intermediate goals that decompose a complex objective into simpler, independently achievable
+    steps.
+
+    '
+  source_documents:
+  - notes_search
+- id: memory_of_action_sequences
+  label: Memory of Action Sequences
+  description: 'Stored plans or scripts that can be retrieved and replayed when a familiar situation is
+    encountered.
+
+    '
+  source_documents:
+  - notes_search
+- id: global_optimum
+  label: Global Optimum
+  description: 'The best solution across the entire search space, as opposed to solutions that are only
+    locally superior.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_evolutionary_strategies
+- id: local_peaks
+  label: Local Peaks
+  description: 'Solutions that are better than all immediate neighbours but not globally optimal; traps
+    for greedy local search.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_evolutionary_strategies
+- id: local_vs_global_optima
+  label: Local vs Global Optima
+  description: 'The tension between finding solutions that are locally superior and finding the globally
+    best solution in the entire space.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_evolutionary_strategies
+- id: myopia
+  label: Myopia
+  description: 'A tendency to optimise for immediate gains at the expense of longer-term outcomes; short-sightedness
+    in search or learning.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_evolutionary_strategies
+- id: satisficing
+  label: Satisficing
+  description: 'Accepting the first solution that meets a minimum performance threshold rather than searching
+    for the optimal solution.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_evolutionary_strategies
+- id: aspiration_level
+  label: Aspiration Level
+  description: 'The minimum acceptable performance threshold used by a satisficing agent to decide when
+    a solution is good enough.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_evolutionary_strategies
+- id: find_any_solution_goal
+  label: Find-Any-Solution Goal
+  description: 'A search objective that terminates as soon as any valid solution is found, regardless
+    of its quality.
+
+    '
+  source_documents:
+  - notes_search
+- id: find_all_solutions_goal
+  label: Find-All-Solutions Goal
+  description: 'A search objective that enumerates every valid solution in the search space before terminating.
+
+    '
+  source_documents:
+  - notes_search
+- id: find_best_solution_goal
+  label: Find-Best-Solution Goal
+  description: 'A search objective that seeks the optimal solution among all valid solutions, requiring
+    exhaustive or heuristic optimisation.
+
+    '
+  source_documents:
+  - notes_search
+- id: optimization_goal
+  label: Optimisation Goal
+  description: 'The objective of finding a solution that maximises or minimises a specified criterion
+    over the solution space.
+
+    '
+  source_documents:
+  - notes_search
+- id: differences_current_vs_goal
+  label: Difference (Current vs Goal State)
+  description: 'The measured gap between the current state and the goal state, used in means–ends analysis
+    to select reducing operators.
+
+    '
+  source_documents:
+  - notes_search
+- id: effectuation
+  label: Effectuation
+  description: 'A decision-making logic that starts from available means and constructs goals, contrasting
+    with causal goal-first planning.
+
+    '
+  source_documents:
+  - notes_search
+- id: representation
+  label: Representation
+  description: 'The encoding of information about the world in a format that an agent can store, retrieve,
+    reason over, and act upon.
+
+    '
+  source_documents:
+  - notes_representation
+- id: schema
+  label: Schema
+  description: 'An abstract pattern or template that organises knowledge about a class of situations,
+    enabling rapid recognition and inference.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_evolutionary_strategies
+- id: abstract_patterns
+  label: Abstract Patterns
+  description: 'High-level regularities that generalise across specific instances, forming the basis of
+    schematic and structural knowledge.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+  - notes_evolutionary_strategies
+- id: conceptual_units
+  label: Conceptual Units
+  description: 'The basic building blocks of thought — discrete concepts that can be combined into complex
+    ideas and propositions.
+
+    '
+  source_documents:
+  - notes_representation
+- id: modularity
+  label: Modularity
+  description: 'The design principle of decomposing a system into independent, interchangeable components
+    with well-defined interfaces.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+  - notes_evolutionary_strategies
+- id: modules
+  label: Modules
+  description: 'Discrete, self-contained components of a system with defined inputs, outputs, and encapsulated
+    internal behaviour.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+  - notes_evolutionary_strategies
+- id: decomposition
+  label: Decomposition
+  description: 'Breaking a complex problem or system into smaller, more tractable sub-problems or sub-components.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+  - notes_evolutionary_strategies
+- id: hierarchy
+  label: Hierarchy
+  description: 'An organisational structure of levels where higher levels subsume, control, or abstract
+    over lower ones.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_representation
+  - notes_evolutionary_strategies
+- id: knowledge_base
+  label: Knowledge Base
+  description: 'A structured repository of facts, rules, and relations used by a reasoning system to answer
+    queries or make inferences.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: productions
+  label: Productions
+  description: 'IF-THEN rules in a production system that fire when their condition patterns match elements
+    in working memory.
+
+    '
+  source_documents:
+  - notes_representation
+- id: expert_systems
+  label: Expert Systems
+  description: 'AI systems that encode domain expertise in a knowledge base of rules, enabling automated
+    reasoning within a narrow domain.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_representation
+- id: knowledge_acquisition_bottleneck
+  label: Knowledge Acquisition Bottleneck
+  description: 'The practical difficulty of extracting, formalising, and encoding expert knowledge into
+    a rule-based system at scale.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_representation
+- id: brittleness
+  label: Brittleness
+  description: 'The tendency of a rule-based expert system to fail ungracefully outside its narrow domain
+    of encoded expertise.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_representation
+- id: representation_learning
+  label: Representation Learning
+  description: 'The automatic discovery of useful feature representations from raw data, enabling downstream
+    tasks without manual engineering.
+
+    '
+  source_documents:
+  - notes_representation
+- id: pattern_recognition
+  label: Pattern Recognition
+  description: 'The identification of regularities, categories, or known templates in sensory or symbolic
+    input.
+
+    '
+  source_documents:
+  - notes_representation
+- id: pattern_matching
+  label: Pattern Matching
+  description: 'The process of checking whether a given input matches a stored template or rule condition.
+
+    '
+  source_documents:
+  - notes_representation
+- id: gradient_descent
+  label: Gradient Descent
+  description: 'An optimisation algorithm that iteratively adjusts parameters in the direction of steepest
+    loss reduction.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_evolutionary_strategies
+- id: backward_propagation
+  label: Backpropagation
+  description: 'The algorithm for computing gradients in neural networks by applying the chain rule backward
+    through the computation graph.
+
+    '
+  source_documents:
+  - notes_representation
+- id: autoencoders
+  label: Autoencoders
+  description: 'Neural networks trained to compress input into a compact latent representation and then
+    reconstruct the original input.
+
+    '
+  source_documents:
+  - notes_representation
+- id: boltzmann_machines
+  label: Boltzmann Machines
+  description: 'Stochastic neural networks based on energy minimisation that learn probability distributions
+    over binary configurations.
+
+    '
+  source_documents:
+  - notes_representation
+- id: binary_variables_boltzmann
+  label: Binary Variables (Boltzmann)
+  description: 'The binary-valued units (0 or 1) that form the visible and hidden layers of a Boltzmann
+    machine.
+
+    '
+  source_documents:
+  - notes_representation
+- id: weights_boltzmann
+  label: Weights (Boltzmann)
+  description: 'Numerical parameters in a Boltzmann machine encoding the strength of symmetric pairwise
+    interactions between units.
+
+    '
+  source_documents:
+  - notes_representation
+- id: entropy_minimization_boltzmann
+  label: Entropy Minimisation (Boltzmann)
+  description: 'The learning principle in Boltzmann machines that minimises the KL divergence (free energy)
+    between model and data distributions.
+
+    '
+  source_documents:
+  - notes_representation
+- id: learning_rate
+  label: Learning Rate
+  description: 'A hyperparameter controlling the step size of parameter updates during gradient-based
+    optimisation.
+
+    '
+  source_documents:
+  - notes_representation
+- id: paradigms
+  label: Paradigms
+  description: 'Dominant frameworks or worldviews that structure inquiry, methodology, and shared assumptions
+    within a field.
+
+    '
+  source_documents:
+  - notes_representation
+- id: coherence
+  label: Coherence
+  description: 'The degree to which a representation or belief system is internally consistent, with no
+    contradictory components.
+
+    '
+  source_documents:
+  - notes_representation
+- id: abstraction_level
+  label: Abstraction Level
+  description: 'The degree of generality at which a concept or representation is defined, ranging from
+    concrete instances to high-level abstractions.
+
+    '
+  source_documents:
+  - notes_representation
+- id: krr
+  label: Knowledge Representation and Reasoning (KRR)
+  description: 'The subfield of AI studying how to formally encode knowledge and use it to support automated
+    inference and decision-making.
+
+    '
+  source_documents:
+  - notes_krr
+- id: csp
+  label: Constraint Satisfaction Problem (CSP)
+  description: 'A problem defined by a set of variables, their domains, and constraints that any solution
+    must satisfy.
+
+    '
+  source_documents:
+  - notes_krr
+- id: variables
+  label: Variables (CSP)
+  description: 'The unknowns in a CSP whose values must be chosen from their respective domains to satisfy
+    all constraints.
+
+    '
+  source_documents:
+  - notes_krr
+- id: domain
+  label: Domain (CSP)
+  description: 'The set of possible values that a variable is permitted to take in a constraint satisfaction
+    problem.
+
+    '
+  source_documents:
+  - notes_krr
+- id: hard_constraints
+  label: Hard Constraints
+  description: 'Constraints that must be satisfied for an assignment to be a valid solution; violations
+    are never acceptable.
+
+    '
+  source_documents:
+  - notes_krr
+- id: soft_constraints
+  label: Soft Constraints
+  description: 'Constraints that are preferred but can be violated at a cost, allowing trade-offs in optimisation
+    problems.
+
+    '
+  source_documents:
+  - notes_krr
+- id: unary_constraint
+  label: Unary Constraint
+  description: 'A constraint that restricts the permissible values of a single variable independently
+    of others.
+
+    '
+  source_documents:
+  - notes_krr
+- id: binary_constraint
+  label: Binary Constraint
+  description: 'A constraint that restricts the joint values of exactly two variables.
+
+    '
+  source_documents:
+  - notes_krr
+- id: higher_order_constraint
+  label: Higher-Order Constraint
+  description: 'A constraint involving three or more variables simultaneously.
+
+    '
+  source_documents:
+  - notes_krr
+- id: constraint_propagation
+  label: Constraint Propagation
+  description: 'Using active constraints to prune variable domains, eliminating values that cannot be
+    part of any valid solution.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: arc_consistency
+  label: Arc Consistency
+  description: 'A preprocessing level ensuring that for every value of one variable there exists a compatible
+    value for every constrained neighbour.
+
+    '
+  source_documents:
+  - notes_krr
+- id: forward_checking
+  label: Forward Checking
+  description: 'After each variable assignment, removes from unassigned neighbours'' domains any values
+    that would immediately violate a constraint.
+
+    '
+  source_documents:
+  - notes_krr
+- id: constraint_network
+  label: Constraint Network
+  description: 'A graph representing a CSP where nodes are variables and edges represent binary constraints
+    between them.
+
+    '
+  source_documents:
+  - notes_krr
+- id: complete_assignment
+  label: Complete Assignment
+  description: 'An assignment of values to every variable in a CSP, which may or may not satisfy all constraints.
+
+    '
+  source_documents:
+  - notes_krr
+- id: partial_assignment
+  label: Partial Assignment
+  description: 'An assignment of values to some but not all variables in a CSP, used during incremental
+    search.
+
+    '
+  source_documents:
+  - notes_krr
+- id: consistent_assignment
+  label: Consistent Assignment
+  description: 'An assignment that violates none of the active constraints for the variables assigned
+    so far.
+
+    '
+  source_documents:
+  - notes_krr
+- id: solution
+  label: Solution
+  description: 'A complete, consistent assignment that satisfies all constraints in a CSP.
+
+    '
+  source_documents:
+  - notes_krr
+- id: costs_soft_violation
+  label: Costs of Soft Constraint Violation
+  description: 'The numerical penalty incurred by violating a soft constraint, used to rank assignments
+    in optimisation problems.
+
+    '
+  source_documents:
+  - notes_krr
+- id: cost_function
+  label: Cost Function
+  description: 'A function mapping variable assignments to numerical costs, used to guide optimisation
+    toward low-cost solutions.
+
+    '
+  source_documents:
+  - notes_krr
+- id: bayesian_networks
+  label: Bayesian Networks
+  description: 'Probabilistic graphical models that encode conditional independence relationships among
+    random variables as a DAG.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: bayesian_inference
+  label: Bayesian Inference
+  description: 'The process of updating probability estimates over hypotheses using Bayes'' theorem as
+    new evidence arrives.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: conditional_probabilities
+  label: Conditional Probabilities
+  description: 'The probability of an event given that another event has occurred, denoted P(A | B).
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: probabilities
+  label: Probabilities
+  description: 'Numerical measures in [0, 1] of the likelihood of events in a sample space.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: beliefs
+  label: Beliefs
+  description: 'An agent''s probability assignments over possible world states, representing its epistemic
+    state given available evidence.
+
+    '
+  source_documents:
+  - notes_krr
+- id: random_variables
+  label: Random Variables
+  description: 'Variables whose values are determined by probabilistic outcomes of an experiment or process.
+
+    '
+  source_documents:
+  - notes_krr
+- id: probability_distribution
+  label: Probability Distribution
+  description: 'A function assigning probabilities to all possible values of a random variable, summing
+    to 1.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_krr
+- id: statistical_distribution
+  label: Statistical Distribution
+  description: 'A description of the frequency pattern of values in a dataset or random process, e.g.,
+    normal, Poisson, or Zipfian.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_krr
+- id: dag
+  label: Directed Acyclic Graph (DAG)
+  description: 'A directed graph with no cycles, used as the structural backbone of Bayesian networks
+    to encode causal or probabilistic dependencies.
+
+    '
+  source_documents:
+  - notes_krr
+- id: parent_variable
+  label: Parent Variable
+  description: 'A variable with a directed edge pointing to another (child) variable in a DAG, representing
+    a direct probabilistic dependency.
+
+    '
+  source_documents:
+  - notes_krr
+- id: child_variable
+  label: Child Variable
+  description: 'A variable that is conditionally dependent on its parent variables in a DAG.
+
+    '
+  source_documents:
+  - notes_krr
+- id: possible_worlds
+  label: Possible Worlds
+  description: 'All conceivable states of affairs; used in modal logic and probabilistic reasoning to
+    enumerate uncertainty.
+
+    '
+  source_documents:
+  - notes_krr
+- id: relations_possible_worlds
+  label: Relations Between Possible Worlds
+  description: 'Accessibility relations specifying which worlds are reachable from others, used in modal
+    logic and probabilistic models.
+
+    '
+  source_documents:
+  - notes_krr
+- id: propagator_model
+  label: Propagator Model
+  description: 'A computation model where autonomous objects communicate by propagating constraint values
+    through a shared network.
+
+    '
+  source_documents:
+  - notes_krr
+- id: propagation
+  label: Propagation
+  description: 'The spreading of information or constraint values through a network of connected nodes
+    until a stable state is reached.
+
+    '
+  source_documents:
+  - notes_krr
+- id: objects_propagator
+  label: Objects (Propagator)
+  description: 'The autonomous computational entities in a propagator network that hold partial information
+    and communicate updates to neighbours.
+
+    '
+  source_documents:
+  - notes_krr
+- id: relational_databases
+  label: Relational Databases
+  description: 'Data storage systems that organise information in structured tables with defined relations,
+    queried via SQL.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: database_integrity
+  label: Database Integrity
+  description: 'The enforcement of constraints ensuring data in a database remains consistent, valid,
+    and free from corruption.
+
+    '
+  source_documents:
+  - notes_krr
+- id: tuples
+  label: Tuples
+  description: 'Ordered sequences of values forming rows in a relational database table, representing
+    individual records.
+
+    '
+  source_documents:
+  - notes_krr
+- id: lists
+  label: Lists
+  description: 'Ordered sequences of values used as fundamental data structures in computation and knowledge
+    representation.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_krr
+- id: cells_objects
+  label: Cells / Objects
+  description: 'Basic units in a propagator network or spreadsheet that store values and propagate updates
+    when their content changes.
+
+    '
+  source_documents:
+  - notes_krr
+- id: decision_models
+  label: Decision Models
+  description: 'Formal representations of options, outcomes, and preferences used to structure and resolve
+    decision problems.
+
+    '
+  source_documents:
+  - notes_krr
+- id: mental_models
+  label: Mental Models
+  description: 'Internal cognitive representations of how the world works, used for simulation, prediction,
+    and counterfactual reasoning.
+
+    '
+  source_documents:
+  - notes_krr
+- id: iid_vs_ood_problems
+  label: IID vs OOD Problems
+  description: 'The contrast between problems with consistent training and test distributions and those
+    with distribution shift.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_krr
+- id: evolutionary_strategies
+  label: Evolutionary Strategies
+  description: 'Optimisation algorithms inspired by biological evolution that use population-based search
+    with variation and selection.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: evolutionary_operators
+  label: Evolutionary Operators
+  description: 'The operations applied to populations — selection, crossover, and mutation — that drive
+    evolutionary search.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: genetic_algorithms
+  label: Genetic Algorithms
+  description: 'Evolutionary algorithms that encode solutions as chromosomes and use selection, crossover,
+    and mutation to search solution spaces.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: fitness
+  label: Fitness
+  description: 'A scalar measure of how well an individual solution performs on the objective, determining
+    its reproductive success.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: fitness_function
+  label: Fitness Function
+  description: 'The function that evaluates and assigns a fitness score to each individual chromosome
+    in a population.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: fitness_measure
+  label: Fitness Measure
+  description: 'The criterion or metric used to evaluate and rank individuals relative to the optimisation
+    objective.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: selection
+  label: Selection
+  description: 'The evolutionary operator that preferentially chooses fitter individuals to reproduce
+    in the next generation.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: crossover
+  label: Crossover
+  description: 'A genetic operator that combines segments of two parent chromosomes to produce novel offspring.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: mutation
+  label: Mutation
+  description: 'A genetic operator that randomly alters individual genes in a chromosome to introduce
+    variation and prevent stagnation.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: chromosome
+  label: Chromosome
+  description: 'A candidate solution encoded as an ordered sequence of genes in a genetic algorithm.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: genotype
+  label: Genotype
+  description: 'The internal genetic encoding of an individual, as distinct from its expressed behaviour
+    or performance (phenotype).
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: genes
+  label: Genes
+  description: 'The individual units of a chromosome, each encoding a specific feature or decision variable
+    of the solution.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: alleles
+  label: Alleles
+  description: 'The possible values a gene can take, analogous to the variants of a gene in biological
+    genetics.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: gene_allele
+  label: Gene–Allele Pair
+  description: 'The pairing of a gene position with its specific allele value in a chromosome.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: genetic_sequences
+  label: Genetic Sequences
+  description: 'Ordered strings of genes forming chromosomes, constituting the solution encoding in a
+    genetic algorithm.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: schema_genetic
+  label: Schema (Genetic)
+  description: 'A template specifying fixed values at certain gene positions and wildcards at others,
+    representing a subset of the chromosome space.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: building_blocks
+  label: Building Blocks
+  description: 'Short, high-fitness schemata that the building block hypothesis proposes combine to form
+    increasingly fit solutions.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: implicit_parallelism
+  label: Implicit Parallelism
+  description: 'The property of genetic algorithms that simultaneously evaluates exponentially many schemata
+    across the population.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: natural_selection
+  label: Natural Selection
+  description: 'The biological process favouring heritable traits that improve survival and reproduction
+    in a given environment.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: artificial_selection
+  label: Artificial Selection
+  description: 'Deliberate selection of individuals with desired traits for breeding, analogous to natural
+    selection but human-directed.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: population_of_chromosomes
+  label: Population of Chromosomes
+  description: 'The set of candidate solutions maintained and collectively evolved by a genetic algorithm
+    across generations.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: population_level_learning
+  label: Population-Level Learning
+  description: 'Learning that occurs through the evolution of a population rather than adaptation within
+    a single individual.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: exploration_exploitation_tradeoff
+  label: Exploration–Exploitation Trade-off
+  description: 'The fundamental tension between exploring new, unknown regions of the solution space and
+    exploiting known good solutions.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_search
+  - notes_evolutionary_strategies
+- id: exploitation
+  label: Exploitation
+  description: 'Applying existing knowledge to refine and improve known good solutions rather than searching
+    new territory.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_search
+  - notes_evolutionary_strategies
+- id: exploration
+  label: Exploration
+  description: 'Searching new, unknown regions of the solution space to discover potentially better solutions.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_search
+  - notes_evolutionary_strategies
+- id: performance_landscape
+  label: Performance Landscape
+  description: 'A metaphor mapping solution configurations to performance values, visualised as a terrain
+    with peaks and valleys.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: rugged_landscape
+  label: Rugged Landscape
+  description: 'A fitness landscape with many local optima, making gradient-based or greedy search likely
+    to get trapped.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: single_peaked_landscape
+  label: Single-Peaked Landscape
+  description: 'A fitness landscape with one global optimum and no local optima, making hill climbing
+    sufficient for optimisation.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: mesa_landscape
+  label: Mesa Landscape
+  description: 'A fitness landscape with a broad flat plateau of similar performance, where many solutions
+    are equally good.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: mesa_topology
+  label: Mesa Topology
+  description: 'The topological structure of a performance landscape characterised by a large flat region
+    (plateau) surrounded by steep edges.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: smoothing_topology
+  label: Smoothing Topology
+  description: 'Techniques that transform a rugged fitness landscape into a smoother one to aid optimisation,
+    e.g., by averaging or relaxing constraints.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: long_jumping
+  label: Long Jumping
+  description: 'A mutation-heavy search strategy that makes large random moves across the fitness landscape
+    to escape local optima.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: watchmaker_parable
+  label: Watchmaker Parable
+  description: 'Dawkins'' analogy showing how cumulative selection can produce complex structures that
+    are impossible to assemble by chance alone.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+  - notes_search
+- id: variation
+  label: Variation
+  description: 'The generation of diverse candidate solutions through mutation and crossover, supplying
+    the raw material for selection.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: retention
+  label: Retention
+  description: 'The preservation of high-fitness solutions across generations, ensuring that good discoveries
+    are not lost.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: vsr
+  label: Variation–Selection–Retention (VSR)
+  description: 'The three-step evolutionary loop: generate variation, select the fittest, and retain winners
+    for the next generation.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: adaptation
+  label: Adaptation
+  description: 'The process by which a system adjusts its structure or behaviour to improve fit with its
+    environment over time.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: novel_configurations
+  label: Novel Configurations
+  description: 'New combinations of features not present in any parent, produced by crossover and mutation
+    operators.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: modifications
+  label: Modifications
+  description: 'Changes to existing solutions produced by evolutionary operators, introducing incremental
+    variation.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: mendelian_approach
+  label: Mendelian Approach
+  description: 'Genetics based on discrete heritable units (genes) that segregate independently, following
+    Mendel''s laws of inheritance.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: sparse_learning
+  label: Sparse Learning
+  description: 'Learning in environments where informative feedback is rare, making credit assignment
+    especially difficult.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: spatial_interdependence
+  label: Spatial Interdependence
+  description: 'The property that the fitness contribution of a gene depends on the values of neighbouring
+    genes, causing epistasis in the landscape.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: market_mechanism
+  label: Market Mechanism
+  description: 'The use of price signals and competitive selection to coordinate decentralised decisions
+    without central control.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: cumulative_expected_value
+  label: Cumulative Expected Value
+  description: 'The total expected payoff accumulated over many trials or time steps, as in multi-armed
+    bandit or investment problems.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: interaction
+  label: Interaction
+  description: >
+    The approach to AI and organisations that foregrounds agents' direct engagement with the
+    external physical and cultural world rather than internal symbol manipulation, emphasising
+    sensorimotor action and experiential phenomena.
+  source_documents:
+  - notes_interaction
+- id: cartesianism
+  label: Cartesianism / Cognitivism
+  description: >
+    The view, tracing to Descartes, that intelligence is constituted by internal symbol
+    manipulations divorced from the external world; also called cognitivism. Interactionists
+    critique it for neglecting sensorimotor and cultural dimensions of intelligence.
+  source_documents:
+  - notes_interaction
+- id: critical_technical_practice
+  label: Critical Technical Practice
+  description: >
+    Phil Agre's method (CTP) for (1) surfacing hidden assumptions in AI language, (2) evaluating
+    them against concrete real-world experience, and (3) using the evaluation to guide alternative
+    AI design. Targets wishful mnemonics embedded in everyday AI terminology.
+  source_documents:
+  - notes_interaction
+- id: wishful_mnemonics
+  label: Wishful Mnemonics
+  description: >
+    Memorable terms for symbol manipulation processes (e.g., "search", "planning", "learning")
+    that invite the misleading assumption that such processes faithfully capture real-world
+    phenomena. Coined in the context of Agre's critical technical practice.
+  source_documents:
+  - notes_interaction
+- id: moravecs_paradox
+  label: Moravec's Paradox
+  description: >
+    The observation by Hans Moravec that tasks deemed "complex" in AI (e.g., chess, Go) are
+    often easier to solve than tasks that seem trivially simple to humans (e.g., navigating a
+    real environment), inverting naive assumptions about AI difficulty.
+  source_documents:
+  - notes_interaction
+- id: creature_hypothesis
+  label: Creature Hypothesis
+  description: >
+    Rodney Brooks' hypothesis that the sensorimotor foundations of intelligence represent the
+    evolutionarily hard part, requiring millions of years to develop, whereas symbolic language
+    emerged only recently and relatively quickly. Explains Moravec's paradox from an
+    interactionist view.
+  source_documents:
+  - notes_interaction
+- id: homeostasis
+  label: Homeostasis
+  description: >
+    The goal of maintaining a system state within an acceptable range rather than optimising
+    toward a fixed target. Coined by W. Ross Ashby in cybernetics and central to interactionist
+    AI; contrasts with Cartesian satisficing and optimisation.
+  source_documents:
+  - notes_interaction
+- id: comportment
+  label: Comportment
+  description: >
+    Maintaining an authentic, moment-to-moment alignment between an agent's actions and the
+    unfolding physical world, relying on improvisation and homeostasis rather than pre-planned
+    symbol manipulation.
+  source_documents:
+  - notes_interaction
+- id: situatedness
+  label: Situatedness
+  description: >
+    The property of intelligent action whereby it depends on sensing and responding to ongoing
+    changes in particular real-world situations, not just abstract problem spaces.
+  source_documents:
+  - notes_interaction
+- id: embodiment
+  label: Embodiment
+  description: >
+    The property of intelligent action that grounds it in the physical capabilities and limits
+    of a body, rather than treating it as pure symbol manipulation divorced from physical motion.
+  source_documents:
+  - notes_interaction
+- id: embeddedness
+  label: Embeddedness
+  description: >
+    The property of intelligent action whereby it is shaped by the local cultural norms and
+    context in which it occurs, altering both the goals and constraints of problem-solving.
+  source_documents:
+  - notes_interaction
+- id: indexing
+  label: Indexing
+  description: >
+    Phil Agre's theory that objects are stored in an agent's memory relative to specific
+    experienced situations rather than as abstract designations, enabling efficient sensorimotor
+    action without explicit planning.
+  source_documents:
+  - notes_interaction
+- id: registration
+  label: Registration
+  description: >
+    Brian Cantwell-Smith's theory that intelligence requires an ongoing interplay — "reckoning
+    and judgment" — between representational schemes, physical reality, and the agent's experience
+    of that reality, ensuring representations remain grounded.
+  source_documents:
+  - notes_interaction
+- id: subsumption_architecture
+  label: Subsumption Architecture
+  description: >
+    Rodney Brooks' AI system design organising behaviour as a hierarchy of simple, layered
+    goals implemented by finite state machines, where higher-priority goals can subsume
+    lower ones; no world model is required.
+  source_documents:
+  - notes_interaction
+- id: direct_manipulation
+  label: Direct Manipulation
+  description: >
+    The paradigm of interacting with digital symbolic representations through physical
+    sensorimotor actions on screens and devices, pioneered by Ivan Sutherland's Sketchpad and
+    central to GUI design and modern software interaction.
+  source_documents:
+  - notes_interaction
+- id: variety
+  label: Variety (Wiener)
+  description: >
+    Norbert Wiener's concept of complexity reflecting the richness of natural and social
+    systems, contrasted with purely internal symbol-manipulation measures such as Shannon
+    entropy or Turing-machine step counts.
+  source_documents:
+  - notes_interaction
+- id: cybernetics
+  label: Cybernetics
+  description: >
+    The science of control and communication in animals and machines, founded by Norbert Wiener
+    in the 1940s. Uses feedback from environmental interaction as the basis of intelligent
+    control, making it a precursor to interactionist AI.
+  source_documents:
+  - notes_interaction
+- id: sensorimotor
+  label: Sensorimotor Action
+  description: >
+    Actions that combine perceptual sensing and physical movement, treated in interactionist AI
+    as the fundamental medium of intelligence, prior to and more basic than symbolic representation.
+  source_documents:
+  - notes_interaction
+- id: designation
+  label: Designation
+  description: >
+    Newell and Simon's notion that intelligence requires symbols which "designate" objects in
+    the world by giving them names. Contrasted by interactionists with indexing and registration
+    as insufficient for grounding meaning in experience.
+  source_documents:
+  - notes_interaction
+- id: digital_ecosystem
+  label: Digital Ecosystem
+  description: >
+    A layered network of interdependent digital agents, services, and goals that has replaced
+    the notion of a discrete industry as the unit of strategic innovation; analogised in the text
+    to a subsumption architecture of lower- and higher-level goals.
+  source_documents:
+  - notes_interaction
+- id: breakdowns
+  label: Breakdowns
+  description: >
+    Moments when an agent's homeostatic comportment fails — when a situation is no longer
+    handled automatically — prompting recourse to explicit symbolic representations as resources
+    for action.
+  source_documents:
+  - notes_interaction
+- id: resources_for_action
+  label: Resources for Action
+  description: >
+    The interactionist reframing of symbolic representations: not necessary for interacting
+    with the world, but potentially valuable aids invoked when homeostatic comportment breaks
+    down.
+  source_documents:
+  - notes_interaction
+- id: finite_state_machines
+  label: Finite State Machines
+  description: >
+    Simple computational circuits with no communication channels used to implement individual
+    goal layers in Brooks' subsumption architecture; chosen for their low cost and robustness
+    over complex representations.
+  source_documents:
+  - notes_interaction
+- id: extrapolation_fallacy
+  label: Extrapolation Fallacy
+  description: >
+    The recurring tendency in AI to believe that impressive gains on one benchmark task (e.g.,
+    playing Go) signal imminent artificial general intelligence, diverting resources from the
+    harder sensorimotor challenges identified by the creature hypothesis.
+  source_documents:
+  - notes_interaction
+people_and_institutions:
+- id: alan_turing
+  label: Alan Turing
+  type: person
+  era: 1940s–1950s
+  affiliation: University of Manchester / Bletchley Park
+  description: 'British mathematician and logician who formalised computation with the Turing Machine,
+    proposed the Turing Test, and pioneered codebreaking during World War II.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+- id: john_von_neumann
+  label: John von Neumann
+  type: person
+  era: 1930s–1950s
+  affiliation: Princeton Institute for Advanced Study
+  description: 'Hungarian-American mathematician who contributed to game theory, quantum mechanics, and
+    the stored-program computer architecture.
+
+    '
+  source_documents:
+  - notes_search
+- id: herbert_simon
+  label: Herbert Simon
+  type: person
+  era: 1950s–2000s
+  affiliation: Carnegie Mellon University
+  description: 'American polymath and Nobel laureate who developed bounded rationality, satisficing, means–ends
+    analysis, and co-invented the Logic Theorist.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_information_processing
+  - notes_search
+  - notes_representation
+  - notes_krr
+- id: allen_newell
+  label: Allen Newell
+  type: person
+  era: 1950s–1990s
+  affiliation: Carnegie Mellon University
+  description: 'American cognitive scientist who co-developed the Logic Theorist, GPS, and the SOAR cognitive
+    architecture with Herbert Simon.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+- id: carnegie_mellon
+  label: Carnegie Mellon University
+  type: institution
+  era: 1900–present
+  affiliation: Pittsburgh, PA, USA
+  description: 'Research university in Pittsburgh and home to one of the world''s leading computer science
+    and AI departments; base for Simon and Newell.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+  - notes_representation
+- id: claude_shannon
+  label: Claude Shannon
+  type: person
+  era: 1940s–1970s
+  affiliation: Bell Labs / MIT
+  description: 'American mathematician and electrical engineer who founded information theory in his 1948
+    paper, defining entropy and channel capacity.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: bell_labs_att
+  label: Bell Labs (AT&T)
+  type: institution
+  era: 1925–present
+  affiliation: Murray Hill, NJ, USA
+  description: 'American industrial research laboratory responsible for the transistor, information theory,
+    Unix, and numerous other foundational inventions.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: marvin_minsky
+  label: Marvin Minsky
+  type: person
+  era: 1950s–2010s
+  affiliation: MIT AI Lab
+  description: 'American cognitive scientist and AI pioneer who co-founded the MIT AI Lab, developed the
+    Society of Mind theory, and wrote influential early papers on machine learning and heuristics.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_representation
+  - notes_evolutionary_strategies
+- id: mit_ai_lab
+  label: MIT AI Lab
+  type: institution
+  era: 1959–present
+  affiliation: Cambridge, MA, USA
+  description: 'Artificial intelligence research laboratory at MIT co-founded by Marvin Minsky and John
+    McCarthy in 1959.
+
+    '
+  source_documents:
+  - notes_representation
+- id: gerald_sussman
+  label: Gerald Jay Sussman
+  type: person
+  era: 1970s–present
+  affiliation: MIT
+  description: 'American computer scientist known for the Propagator Model of computation, the Scheme
+    programming language, and SICP.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: richard_sutton
+  label: Richard Sutton
+  type: person
+  era: 1980s–present
+  affiliation: University of Alberta / DeepMind
+  description: 'Canadian computer scientist and father of modern reinforcement learning; co-author of
+    the canonical RL textbook with Andrew Barto.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: andrew_barto
+  label: Andrew Barto
+  type: person
+  era: 1980s–present
+  affiliation: University of Massachusetts Amherst
+  description: 'American computer scientist who co-developed temporal-difference learning and the actor-critic
+    architecture with Richard Sutton.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: umass_amherst
+  label: University of Massachusetts Amherst
+  type: institution
+  era: 1863–present
+  affiliation: Amherst, MA, USA
+  description: 'Public research university in Massachusetts; home to Andrew Barto''s reinforcement learning
+    research group.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: richard_bellman
+  label: Richard Bellman
+  type: person
+  era: 1950s–1980s
+  affiliation: RAND Corporation / USC
+  description: 'American mathematician who invented dynamic programming and coined the term ''curse of
+    dimensionality''.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: rand_corporation
+  label: RAND Corporation
+  type: institution
+  era: 1948–present
+  affiliation: Santa Monica, CA, USA
+  description: 'American think tank originally founded to advise the US Air Force; home to early AI and
+    operations research work, including Bellman''s dynamic programming.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_search
+- id: arthur_samuel
+  label: Arthur Samuel
+  type: person
+  era: 1950s–1960s
+  affiliation: IBM
+  description: 'American pioneer in machine learning who created the first self-learning checkers program,
+    demonstrating reinforcement-style learning in 1959.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: ibm
+  label: IBM
+  type: institution
+  era: 1911–present
+  affiliation: Armonk, NY, USA
+  description: 'American technology corporation and early home of AI research, including Arthur Samuel''s
+    checkers learning program.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: norbert_wiener
+  label: Norbert Wiener
+  type: person
+  era: 1940s–1960s
+  affiliation: MIT
+  description: 'American mathematician who founded cybernetics — the study of feedback and control in
+    animals and machines.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_information_processing
+  - notes_interaction
+- id: john_holland
+  label: John Holland
+  type: person
+  era: 1960s–2000s
+  affiliation: University of Michigan
+  description: 'American computer scientist and psychologist who invented genetic algorithms and developed
+    the schema theorem.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: charles_darwin
+  label: Charles Darwin
+  type: person
+  era: 19th century
+  affiliation: None (independent naturalist)
+  description: 'British naturalist who developed the theory of evolution by natural selection in ''On
+    the Origin of Species'' (1859).
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: gregor_mendel
+  label: Gregor Mendel
+  type: person
+  era: 19th century
+  affiliation: St Thomas's Abbey, Brno
+  description: 'Austrian Augustinian friar and scientist who discovered the laws of genetic inheritance
+    through pea plant experiments.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: judea_pearl
+  label: Judea Pearl
+  type: person
+  era: 1980s–present
+  affiliation: UCLA
+  description: 'Israeli-American computer scientist who developed Bayesian networks and the do-calculus
+    for causal inference; Turing Award 2011.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: geoff_hinton
+  label: Geoffrey Hinton
+  type: person
+  era: 1980s–present
+  affiliation: University of Toronto / Google Brain
+  description: 'British-Canadian cognitive scientist who pioneered backpropagation, deep learning, and
+    Boltzmann machines; Turing Award 2018.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ludwig_von_boltzmann
+  label: Ludwig Boltzmann
+  type: person
+  era: 19th century
+  affiliation: University of Vienna / University of Graz
+  description: 'Austrian physicist who developed statistical mechanics and the entropy formula on which
+    Boltzmann machines are based.
+
+    '
+  source_documents:
+  - notes_representation
+- id: adam_smith
+  label: Adam Smith
+  type: person
+  era: 18th century
+  affiliation: University of Glasgow
+  description: 'Scottish moral philosopher and economist who described the division of labour and the
+    invisible hand of market mechanisms.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_evolutionary_strategies
+- id: charles_babbage
+  label: Charles Babbage
+  type: person
+  era: 19th century
+  affiliation: University of Cambridge
+  description: 'British mathematician and inventor who designed the Difference Engine and Analytical Engine,
+    precursors to modern computers.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_search
+- id: demis_hassabis
+  label: Demis Hassabis
+  type: person
+  era: 2000s–present
+  affiliation: Google DeepMind
+  description: 'British neuroscientist and AI researcher who co-founded DeepMind, leading AlphaGo, AlphaFold,
+    and Gemini.
+
+    '
+  source_documents:
+  - notes_search
+- id: google_deepmind
+  label: Google DeepMind
+  type: institution
+  era: 2010–present
+  affiliation: London, UK / Mountain View, CA, USA
+  description: 'British AI research lab founded in 2010, acquired by Google in 2014; responsible for AlphaGo,
+    AlphaFold, and Gemini.
+
+    '
+  source_documents:
+  - notes_search
+- id: feigenbaum
+  label: Edward Feigenbaum
+  type: person
+  era: 1960s–2000s
+  affiliation: Stanford University
+  description: 'American computer scientist known as the ''father of expert systems'' for developing DENDRAL
+    and MYCIN at Stanford.
+
+    '
+  source_documents:
+  - notes_representation
+- id: hubert_dreyfus
+  label: Hubert Dreyfus
+  type: person
+  era: 1960s–2010s
+  affiliation: UC Berkeley
+  description: 'American philosopher and influential critic of AI who argued in ''What Computers Can''t
+    Do'' that tacit, embodied knowledge resists formalisation.
+
+    '
+  source_documents:
+  - notes_representation
+- id: cantwell_smith
+  label: Brian Cantwell Smith
+  type: person
+  era: 1980s–present
+  affiliation: University of Toronto
+  description: 'Canadian philosopher of information and computation who studies the ontological status
+    of digital objects and representations.
+
+    '
+  source_documents:
+  - notes_information_processing
+  - notes_krr
+- id: russell_norvig
+  label: Russell & Norvig
+  type: person
+  era: 1990s–present
+  affiliation: UC Berkeley / Google
+  description: 'Stuart Russell (UC Berkeley) and Peter Norvig (Google) — co-authors of ''Artificial Intelligence:
+    A Modern Approach'', the field''s canonical textbook.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_krr
+- id: levitt_march
+  label: Levitt & March
+  type: person
+  era: 1980s–1990s
+  affiliation: Stanford University
+  description: 'Barbara Levitt and James March, organisational theorists who formalised the concept of
+    organisational learning in their 1988 paper.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_evolutionary_strategies
+- id: cyert_march
+  label: Cyert & March
+  type: person
+  era: 1960s
+  affiliation: Carnegie Mellon University
+  description: 'Richard Cyert and James March, who developed the behavioural theory of the firm emphasising
+    bounded rationality and organisational goals.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: denrell_fang_levinthal
+  label: Denrell, Fang & Levinthal
+  type: person
+  era: 2000s
+  affiliation: Oxford / Wharton
+  description: 'Organisational theorists who studied how rugged performance landscapes affect learning
+    and adaptation in organisations.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: lave_march
+  label: Lave & March
+  type: person
+  era: 1970s
+  affiliation: Princeton University
+  description: 'Charles Lave and James March, authors of ''An Introduction to Models in the Social Sciences'',
+    emphasising model-based reasoning.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: thomke
+  label: Stefan Thomke
+  type: person
+  era: 1990s–present
+  affiliation: Harvard Business School
+  description: 'Innovation management researcher known for work on experimentation in firms and the economics
+    of exploration and exploitation.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: prietula_simon
+  label: Prietula & Simon
+  type: person
+  era: 1980s–1990s
+  affiliation: Carnegie Mellon University
+  description: 'Michael Prietula and Herbert Simon, who studied expert performance and computational models
+    of organisational behaviour.
+
+    '
+  source_documents:
+  - notes_representation
+- id: argote_epple
+  label: Argote & Epple
+  type: person
+  era: 1990s
+  affiliation: Carnegie Mellon University
+  description: 'Linda Argote and Dennis Epple, known for empirical work on organisational learning curves
+    in manufacturing settings.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: saleema_amershi
+  label: Saleema Amershi
+  type: person
+  era: 2010s–present
+  affiliation: Microsoft Research
+  description: 'Researcher in human-AI interaction who studies how people work with and learn from AI
+    systems in real-world settings.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: microsoft_research
+  label: Microsoft Research
+  type: institution
+  era: 1991–present
+  affiliation: Redmond, WA, USA
+  description: 'Research arm of Microsoft Corporation, conducting basic and applied research in computing,
+    AI, and human-computer interaction.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: newton
+  label: Isaac Newton
+  type: person
+  era: 17th–18th century
+  affiliation: University of Cambridge
+  description: 'British mathematician and physicist who developed calculus, the laws of motion, and universal
+    gravitation.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: wittgenstein
+  label: Ludwig Wittgenstein
+  type: person
+  era: 20th century
+  affiliation: University of Cambridge
+  description: 'Austrian-British philosopher who profoundly influenced philosophy of language, meaning,
+    and the limits of formal representation.
+
+    '
+  source_documents:
+  - notes_representation
+- id: minsky_1961
+  label: Minsky (1961) — Steps Toward AI
+  type: person
+  era: '1961'
+  affiliation: MIT
+  description: 'Marvin Minsky''s landmark 1961 paper ''Steps Toward Artificial Intelligence'', which systematically
+    surveyed the credit assignment problem and key AI sub-problems.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: rene_descartes
+  label: René Descartes
+  type: person
+  era: "1600s"
+  affiliation: France
+  description: >
+    17th-century French philosopher whose "I think therefore I am" grounded the view that
+    intelligence is constituted by internal thought; cited in the course as the historical
+    origin of Cartesianism / cognitivism in AI.
+  source_documents:
+  - notes_interaction
+- id: phil_agre
+  label: Phil Agre
+  type: person
+  era: "1980s–1990s"
+  affiliation: MIT
+  description: >
+    MIT AI scholar who developed critical technical practice (CTP) for surfacing Cartesian
+    assumptions in AI language, and the indexing theory of how objects are stored relative to
+    experienced situations.
+  source_documents:
+  - notes_interaction
+- id: rodney_brooks
+  label: Rodney Brooks
+  type: person
+  era: "1980s–2000s"
+  affiliation: MIT
+  description: >
+    MIT roboticist who proposed the creature hypothesis, subsumption architecture, and "the
+    world is its own best model"; commercialised interactionist AI through the Roomba.
+  source_documents:
+  - notes_interaction
+- id: hans_moravec
+  label: Hans Moravec
+  type: person
+  era: "1980s–1990s"
+  affiliation: Carnegie Mellon University
+  description: >
+    Carnegie-Mellon roboticist who identified the paradox that seemingly complex symbolic AI
+    tasks are often simpler to solve than seemingly simple sensorimotor tasks.
+  source_documents:
+  - notes_interaction
+- id: w_ross_ashby
+  label: W. Ross Ashby
+  type: person
+  era: "1940s–1960s"
+  affiliation: UK
+  description: >
+    British cybernetician who coined the term "homeostasis" to describe goal-maintaining
+    intelligence and contributed foundational ideas to cybernetics.
+  source_documents:
+  - notes_interaction
+- id: w_grey_walter
+  label: W. Grey Walter
+  type: person
+  era: "1940s–1950s"
+  affiliation: UK
+  description: >
+    British cybernetician who built the "tortoise" robots in the early 1950s — analogue
+    circuit creatures that could navigate unstructured environments homeostically, anticipating
+    Brooks' Roomba.
+  source_documents:
+  - notes_interaction
+- id: brian_cantwell_smith
+  label: Brian Cantwell-Smith
+  type: person
+  era: "1980s–1990s"
+  affiliation: MIT
+  description: >
+    MIT AI researcher who developed the theory of registration: the ongoing interplay between
+    representational schemes, physical reality, and experiential judgment required for
+    grounded intelligent action.
+  source_documents:
+  - notes_interaction
+- id: ivan_sutherland
+  label: Ivan Sutherland
+  type: person
+  era: "1960s"
+  affiliation: MIT
+  description: >
+    MIT electrical engineer who designed Sketchpad (1963), the forerunner to CAD software and
+    the graphical user interface; pioneer of direct manipulation of symbols on a computer screen.
+  source_documents:
+  - notes_interaction
+examples_and_metaphors:
+- id: ex_checkers_game
+  label: Checkers Game (Samuel, 1959)
+  description: 'Arthur Samuel''s self-improving checkers-playing program — one of the first demonstrations
+    of machine learning via reinforcement and self-play.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: ex_tmaze_mouse_cheese
+  label: T-Maze Mouse Experiment
+  description: 'A mouse navigating a T-shaped maze toward a cheese reward, illustrating delayed feedback
+    and trial-and-error reinforcement learning.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: ex_hedge_maze
+  label: Hedge Maze Navigation
+  description: 'Navigating a physical hedge maze as a concrete search problem with a goal state and blind
+    exploration.
+
+    '
+  source_documents:
+  - notes_search
+- id: ex_coin_toss_fair
+  label: Fair Coin Toss
+  description: 'A fair coin toss as the canonical maximum-entropy binary distribution, where each outcome
+    has probability 0.5 and 1 bit of information.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: ex_coin_toss_weighted_70_30
+  label: Weighted Coin Toss (70/30)
+  description: 'A biased coin with probabilities 0.7 and 0.3, illustrating a lower- entropy distribution
+    with less uncertainty than a fair coin.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: ex_watchmaker_parable_1000_parts
+  label: Watchmaker Parable — 1000 Parts
+  description: 'Dawkins'' parable of a watchmaker assembling 1000 parts: random assembly is astronomically
+    unlikely, illustrating the impossibility of blind search in large spaces.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+  - notes_search
+- id: ex_watchmaker_100_modules_of_10
+  label: Watchmaker Parable — 100 Modules of 10
+  description: 'The modular variant: assembling 100 modules of 10 parts, then combining modules. Dramatically
+    reduces assembly difficulty, illustrating the power of hierarchy and decomposition.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+  - notes_search
+- id: ex_sudoku_9x9
+  label: 9×9 Sudoku Puzzle
+  description: 'A standard Sudoku puzzle as a canonical CSP: 81 variables, domains {1–9}, and row/column/box
+    uniqueness constraints.
+
+    '
+  source_documents:
+  - notes_krr
+- id: ex_safe_combination_81_factorial
+  label: Combination Safe (81! Possibilities)
+  description: 'A combination lock with 81 positions illustrating the combinatorial explosion of brute-force
+    search over a large, unstructured space.
+
+    '
+  source_documents:
+  - notes_search
+- id: ex_crossword_puzzle
+  label: Crossword Puzzle
+  description: 'A crossword puzzle as a CSP where letter variables are shared between across and down
+    words, requiring consistent assignment.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_krr
+- id: ex_pin_factory_adam_smith
+  label: Pin Factory (Adam Smith)
+  description: 'Adam Smith''s famous pin factory in ''The Wealth of Nations'' showing how division of
+    labour and specialisation dramatically increase output.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_evolutionary_strategies
+- id: ex_pin_factory_csp_scheduling
+  label: Pin Factory Scheduling (CSP)
+  description: 'The pin factory production schedule reframed as a CSP, where tasks are variables with
+    temporal and resource constraints.
+
+    '
+  source_documents:
+  - notes_krr
+- id: ex_toothache_cavity_diagnosis
+  label: Toothache–Cavity Diagnosis
+  description: 'A dental scenario where the probability of a cavity is updated given evidence of a toothache,
+    illustrating Bayesian inference.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: ex_mycin_expert_system
+  label: MYCIN Expert System
+  description: 'Stanford''s MYCIN (1970s) diagnosed bacterial blood infections using 600 IF-THEN rules,
+    demonstrating expert systems at clinical scale.
+
+    '
+  source_documents:
+  - notes_search
+  - notes_representation
+- id: ex_kaist_to_incheon_airport
+  label: KAIST to Incheon Airport Route
+  description: 'A route-planning example from campus to the airport, illustrating state-space search with
+    intermediate stops.
+
+    '
+  source_documents:
+  - notes_search
+- id: ex_visiCalc_apple_1979
+  label: VisiCalc on Apple II (1979)
+  description: 'VisiCalc — the first personal computer spreadsheet — as a landmark external representation
+    that transformed business modelling.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ex_microsoft_excel_projections
+  label: Microsoft Excel Financial Projections
+  description: 'Excel spreadsheets as external representations that offload arithmetic and scenario modelling
+    from human working memory.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ex_dna_plant_breeding_mendel
+  label: Mendel's Pea Plant Breeding
+  description: 'Gregor Mendel''s pea plant hybridisation experiments that revealed discrete hereditary
+    units (genes) and their segregation laws.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: ex_hippos_tropics_penguins_antarctica
+  label: Hippos in Tropics / Penguins in Antarctica
+  description: 'Contrasting animals adapted to radically different environments, illustrating adaptation
+    and environmental fit.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: ex_biological_cells_propagator
+  label: Biological Cells as Propagators
+  description: 'Biological cells communicating via chemical signals as an analogy for the propagator model
+    of constraint-based computation.
+
+    '
+  source_documents:
+  - notes_krr
+- id: ex_algebraic_notation_17th_century
+  label: Algebraic Notation (17th Century)
+  description: 'The development of symbolic algebraic notation as a powerful external representation that
+    enabled new kinds of mathematical reasoning.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ex_double_entry_bookkeeping_15th_century
+  label: Double-Entry Bookkeeping (15th Century)
+  description: 'The invention of double-entry accounting as an external representation that made complex
+    commercial reasoning tractable.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ex_engineering_drawings_gm_tamron
+  label: Engineering Drawings (GM / Tamron)
+  description: 'Standardised engineering drawings shared between GM and Tamron as external representations
+    coordinating complex manufacturing.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ex_cad_software
+  label: CAD Software
+  description: 'Computer-aided design tools as modern external representations that augment human spatial
+    reasoning in engineering design.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ex_image_classification_boltzmann
+  label: Image Classification with Boltzmann Machines
+  description: 'Using Boltzmann machines to learn and classify image features, illustrating energy-based
+    probabilistic representation learning.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ex_llm_text_generation_boltzmann
+  label: LLM Text Generation via Boltzmann Distribution
+  description: 'Large language model token sampling as drawing from a Boltzmann (softmax) distribution
+    over the vocabulary at each step.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ex_shipbuilding_company
+  label: Shipbuilding Company
+  description: 'A shipbuilding organisation used to illustrate how complex artefacts require hierarchical
+    decomposition and specialised teams.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: ex_app_development_team
+  label: Software App Development Team
+  description: 'A software development team as an example of hierarchical organisation, delegation, and
+    specialisation in a knowledge-work setting.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: ex_budgeting_committee
+  label: Budgeting Committee
+  description: 'A corporate budgeting process illustrating organisational decision- making, negotiation,
+    and the limits of the unitary actor assumption.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: ex_pharmaceutical_company
+  label: Pharmaceutical Company R&D
+  description: 'Drug R&D in a pharmaceutical company as an example of the exploration–exploitation trade-off
+    under high uncertainty.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: ex_ab_testing
+  label: A/B Testing
+  description: 'Randomised controlled experiments in product development as an exploration strategy for
+    identifying better design choices.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: ex_ceo_builder_grasp_move_agents
+  label: CEO–Builder–Grasp/Move Hierarchy
+  description: 'A three-level agent hierarchy (CEO → builder → grasp/move robots) illustrating Minsky''s
+    Society of Mind with delegation and specialisation.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: ex_muscle_fibers
+  label: Muscle Fibres
+  description: 'Muscle fibres as units that collectively produce movement through parallel specialised
+    action, analogising society of mind.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+- id: ex_neuron_synapses_100_trillion
+  label: 100 Trillion Neural Synapses
+  description: 'The human brain''s ~100 trillion synapses as an illustration of the enormous processing
+    capacity and complexity of biological intelligence.
+
+    '
+  source_documents:
+  - notes_credit_assignment
+  - notes_representation
+- id: ex_theseus_robot_1950
+  label: Shannon's Theseus Maze-Solving Robot (1950)
+  description: 'Claude Shannon''s electromechanical mouse ''Theseus'' that learned to navigate a maze
+    — an early physical demonstration of adaptive search.
+
+    '
+  source_documents:
+  - notes_search
+- id: ex_electrical_circuits
+  label: Electrical Circuits
+  description: 'Electrical circuit networks as an example of constraint propagation: Kirchhoff''s laws
+    constrain voltages and currents throughout.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: ex_telephone_network_routing
+  label: Telephone Network Routing
+  description: 'Routing calls through a telephone network as a search and constraint satisfaction problem
+    over a large graph.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: ex_pilot_cockpit_altimeter
+  label: Pilot's Cockpit Altimeter
+  description: 'A cockpit altimeter as an external representation that offloads altitude awareness from
+    the pilot''s working memory.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: ex_fiber_optic_5g_tv_bandwidth
+  label: Fibre Optic / 5G / TV Bandwidth
+  description: 'Fibre optic cables, 5G networks, and broadcast TV as examples of different channel capacities
+    and bandwidths.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: ex_english_word_distribution
+  label: English Word Frequency Distribution
+  description: 'The Zipfian distribution of English word frequencies illustrating non-uniform probability
+    distributions and redundancy in language.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: ex_french_language_model
+  label: French Language Model (OOD)
+  description: 'A language model trained on French text failing on English input as a concrete example
+    of out-of-distribution generalisation failure.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: ex_food_ordering_model
+  label: Food Ordering Probabilistic Model
+  description: 'A probabilistic model over food choices used to illustrate conditional probabilities and
+    Bayesian network structure.
+
+    '
+  source_documents:
+  - notes_information_processing
+- id: ex_laptop_design_components
+  label: Laptop Design Components
+  description: 'A laptop broken down into CPU, battery, screen, and keyboard as an example of modular
+    decomposition and hierarchical design.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ex_filing_cabinet_vs_relational_database
+  label: Filing Cabinet vs Relational Database
+  description: 'The contrast between physical filing cabinets and SQL databases to illustrate the representational
+    power of relational structures.
+
+    '
+  source_documents:
+  - notes_krr
+- id: ex_relational_databases_sql
+  label: Relational Databases / SQL
+  description: 'SQL relational databases as a powerful external representation for structured knowledge
+    with integrity constraints and flexible queries.
+
+    '
+  source_documents:
+  - notes_krr
+- id: ex_firm_strategy_as_performance_landscape
+  label: Firm Strategy as Performance Landscape
+  description: 'A firm''s strategic choices mapped onto a performance landscape, illustrating how organisations
+    navigate rugged fitness terrains.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: ex_car_exterior_interior_color_constraint
+  label: Car Exterior/Interior Colour Constraint
+  description: 'Constraints between a car''s exterior and interior colour options as a concrete binary
+    CSP edge.
+
+    '
+  source_documents:
+  - notes_krr
+- id: ex_net_present_value_cash_flows
+  label: Net Present Value / Cash Flow Projections
+  description: 'NPV calculations across future cash flow scenarios as an example of decision modelling
+    under uncertainty.
+
+    '
+  source_documents:
+  - notes_krr
+- id: ex_kpi_milestones_customer_journey
+  label: KPIs, Milestones & Customer Journey
+  description: 'Business KPIs and customer journey maps as intermediate feedback signals that proxy progress
+    toward ultimate business goals.
+
+    '
+  source_documents:
+  - notes_representation
+  - notes_krr
+- id: ex_artificial_brain_analogy
+  label: Artificial Brain Analogy
+  description: 'The analogy of an AI system as an artificial brain to motivate the cognitive architecture
+    and processing capacity questions.
+
+    '
+  source_documents:
+  - notes_representation
+- id: ex_mechanical_watch_assembly
+  label: Mechanical Watch Assembly
+  description: 'Assembling a mechanical watch as an example of hierarchical decomposition enabling tractable
+    construction of complex artefacts.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: ex_market_forces_selection
+  label: Market Forces as Selection Pressure
+  description: 'Competitive market forces eliminating unfit firms as an analogy for natural selection
+    in evolutionary search.
+
+    '
+  source_documents:
+  - notes_evolutionary_strategies
+- id: ex_thermostat
+  label: Analog Thermostat
+  description: >
+    A room thermostat as the canonical cybernetics example of homeostatic interaction:
+    it maintains temperature within a range by sensing environmental feedback, with no
+    internal model of the room.
+  source: "Ashby / Wiener, cybernetics, 1940s"
+  illustrates: [homeostasis, cybernetics, interaction]
+  source_documents:
+  - notes_interaction
+- id: ex_walter_tortoise
+  label: Walter's Tortoise Robot
+  description: >
+    W. Grey Walter's analogue-circuit robot (1951) that navigated unstructured home
+    environments homeostically using a small set of simple circuits, without any symbolic
+    representation of a path or map.
+  source: "W. Grey Walter, 1951"
+  illustrates: [homeostasis, subsumption_architecture, interaction]
+  source_documents:
+  - notes_interaction
+- id: ex_roomba
+  label: Roomba Vacuum Cleaner
+  description: >
+    Brooks' commercial robot vacuum (iRobot) that navigates any real-world floor plan using
+    simple reactive circuits with no CPU, map, or complex algorithm; the best-selling robot
+    of all time and a practical proof of the subsumption architecture.
+  source: "Rodney Brooks / iRobot"
+  illustrates: [subsumption_architecture, homeostasis, creature_hypothesis]
+  source_documents:
+  - notes_interaction
+- id: ex_sketchpad
+  label: Sutherland's Sketchpad
+  description: >
+    Ivan Sutherland's 1963 system allowing engineers to directly manipulate circuit diagrams
+    as graphical objects on a screen, forerunner to CAD software and the GUI; illustrates
+    direct manipulation of symbols as resources for action.
+  source: "Ivan Sutherland, MIT, 1963"
+  illustrates: [direct_manipulation, resources_for_action]
+  source_documents:
+  - notes_interaction

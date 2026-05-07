@@ -1,8 +1,7 @@
 # Subskill: Extract Vocabulary
 
 **Purpose:** Parse the course note PDF with liteparse, then identify every new node that
-does not yet exist in `ontology.yaml` and write it into both `ontology.yaml` and
-`knowledge-base/metadata.yaml`.
+does not yet exist in `knowledge-base/nodes.yaml` and write it into that file.
 
 ---
 
@@ -18,16 +17,16 @@ this extraction pass.
 
 ## Step 2 — Load the existing vocabulary
 
-Read `ontology.yaml` and collect every existing `id` into a set. This is your deduplication
-guard: if a term already has an id in this set, do not add it again (even if the spelling
-differs slightly — check for near-duplicates by label as well).
+Read `knowledge-base/nodes.yaml` and collect every existing `id` into a set. This is your
+deduplication guard: if a term already has an id in this set, do not add it again (even if
+the spelling differs slightly — check for near-duplicates by label as well).
 
 ```bash
 uv run python -c "
 import yaml
-ont = yaml.safe_load(open('ontology.yaml'))
+nodes = yaml.safe_load(open('knowledge-base/nodes.yaml'))
 ids = {e['id'] for section in ['concepts','people_and_institutions','examples_and_metaphors']
-       for e in ont.get(section, [])}
+       for e in nodes.get(section, [])}
 print(f'{len(ids)} existing nodes')
 "
 ```
@@ -36,9 +35,8 @@ print(f'{len(ids)} existing nodes')
 
 ## Step 3 — Extract new terms
 
-Read through the full parsed text carefully. For each term produce a rationale table before
-writing anything to disk — it forces explicit justification for each candidate and makes it
-easy to catch duplicates or near-misses against the existing vocabulary:
+Read through the full parsed text carefully. Produce a rationale table before writing anything
+to disk — it forces explicit justification and makes it easy to catch duplicates:
 
 | Candidate ID | Type | Why extracted |
 |---|---|---|
@@ -54,34 +52,11 @@ easy to catch duplicates or near-misses against the existing vocabulary:
 - **Concrete examples or metaphors** used to illustrate an abstract concept
 
 **What to skip:**
-- Passing mentions with no definition or explanatory role (e.g., "IBM" named only as an employer — not central to the argument)
+- Passing mentions with no definition or explanatory role
 - General-purpose words used in their everyday sense ("process", "effect", "problem")
-- Specific details *inside* a larger example that don't stand alone as concepts (e.g., "number of pieces" within a checkers example — it's a detail, not a standalone node)
+- Specific details *inside* a larger example that don't stand alone as concepts
 
-**Worked example** — given this passage:
-
-> "Founders of AI referred to this general problem of intelligence as that of learning to assign credit (Samuel 1959; Minsky 1961). **Credit assignment** refers to any process for evaluating effects of individual actions on solving a problem. […] all three examples involved (1) **goal-directed agents** who (2) generated **actions** (3) tested effects on **goals** using (4) **trial-and-error feedback**, and used this to (5) **modify** actions. […] Samuel called the evaluation of such proxies the use of **'intermediate feedback'** to assign credit."
-
-The extraction table would be:
-
-| Candidate ID | Type | Why extracted |
-|---|---|---|
-| `credit_assignment` | concept | Central term, explicitly defined |
-| `goal_directed_agents` | concept | Explicitly listed as a structural building block |
-| `actions` | concept | Explicitly listed — the things agents generate and test |
-| `goals` | concept | Explicitly listed — criteria against which actions are evaluated |
-| `trial_and_error_feedback` | concept | Explicitly listed — the feedback mechanism |
-| `interdependence_of_actions` | concept | Named as the fundamental challenge |
-| `delayed_feedback` | concept | Named as a key difficulty |
-| `ambiguous_feedback` | concept | Named as a key difficulty |
-| `intermediate_feedback` | concept | Named explicitly with a definition (Samuel's term) |
-| `arthur_samuel` | person | Named as the IBM scientist who first described the solution |
-| `ex_checkers_game` | example | Concrete case used to illustrate intermediate feedback |
-
-Note what was *not* extracted: "IBM" (only Arthur Samuel's employer, not load-bearing),
-"number of pieces" (a detail inside the checkers example, not a standalone concept).
-
-**ID conventions (enforce these strictly):**
+**ID conventions:**
 - All IDs: `snake_case`, lowercase only
 - Concepts: plain noun phrase — `credit_assignment`, `constraint_propagation`
 - People / institutions: `firstname_lastname` or institution name — `herbert_simon`, `carnegie_mellon`
@@ -89,25 +64,10 @@ Note what was *not* extracted: "IBM" (only Arthur Samuel's employer, not load-be
 
 ---
 
-## Step 4 — Write new entries to `ontology.yaml`
+## Step 4 — Write new entries to `knowledge-base/nodes.yaml`
 
-Append new entries under the correct top-level section (`concepts`, `people_and_institutions`,
-or `examples_and_metaphors`). Group them under a comment that names the source document:
-
-```yaml
-  # — <Module N>: <Document Title> —
-  - id: new_concept_id
-  - id: another_concept_id
-```
-
-Do not add relation instances to this file.
-
----
-
-## Step 5 — Write metadata entries to `metadata.yaml`
-
-For every new node, append a metadata entry to the correct section in
-`knowledge-base/metadata.yaml`. Use these templates exactly:
+Append new entries under the correct top-level section. Group them with a comment naming
+the source document. Do not add relation instances here.
 
 **Concept:**
 ```yaml
@@ -115,8 +75,6 @@ For every new node, append a metadata entry to the correct section in
   label: Human Readable Name
   description: >
     One or two sentences defining this concept in the context of the course.
-  module: <N>
-  tags: [optional, keywords]
   source_documents:
   - <doc_id>
 ```
@@ -158,17 +116,15 @@ For every new node, append a metadata entry to the correct section in
   - <doc_id>
 ```
 
-**Important:** If a node was introduced in an earlier document and you are now seeing it
-again in a new document, do not create a duplicate entry — instead add the new `doc_id`
-to its existing `source_documents` list in `metadata.yaml`.
+**If a node was introduced in an earlier document** and appears again in this one, do not
+create a duplicate — add the new `doc_id` to its existing `source_documents` list instead.
 
 ---
 
-## Step 6 — Verify YAML validity
+## Step 5 — Verify YAML validity
 
 ```bash
-uv run python -c "import yaml; yaml.safe_load(open('ontology.yaml'))" && echo "OK"
-uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/metadata.yaml'))" && echo "OK"
+uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/nodes.yaml'))" && echo "OK"
 ```
 
 Fix any parse errors before returning control to the parent skill.

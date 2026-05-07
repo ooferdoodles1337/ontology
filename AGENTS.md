@@ -9,9 +9,9 @@ This project builds a concept graph for a course (FAB 2026). The graph is stored
 
 | File | Purpose |
 |------|---------|
-| `ontology.yaml` | Vocabulary — all node IDs (concepts, people, examples). No relation instances here. |
+| `knowledge-base/nodes.yaml` | All nodes (concepts, people, examples) with their metadata. Single source of truth for vocabulary and node descriptions. |
 | `knowledge-base/relations.yaml` | Relation instances — every edge in the graph with source, target, type, and note. |
-| `knowledge-base/metadata.yaml` | Human-readable metadata for every node: labels, descriptions, module numbers, and type-specific fields. |
+| `knowledge-base/relation-schema.yaml` | The evolving vocabulary of relation types. Read before extracting relations; update after coining new types. |
 | `docs/course-notes/` | Source documents to extract from. |
 
 ---
@@ -27,14 +27,18 @@ This project builds a concept graph for a course (FAB 2026). The graph is stored
 
 ## Relation Types
 
-| Type | Meaning | Direction |
-|------|---------|-----------|
-| `IS-A` | A is a more specific version of B. A inherits B's properties. | A → B (specific → general) |
-| `PART-OF` | A is a component that constitutes B. Removing A makes B incomplete. | A → B (part → whole) |
-| `CAUSES` | A produces or gives rise to B as a consequence. | A → B (cause → effect) |
-| `CONTRASTS-WITH` | A and B differ meaningfully along a shared dimension. Neither is fully defined without the other. | Bidirectional, but write once with the most prominent direction |
-| `EXAMPLE-OF` | A is a concrete instantiation that illustrates abstract concept B. | A → B (instance → abstraction) |
-| `REQUIRES` | A cannot be meaningfully understood without first understanding B. Epistemic dependency, not causal. | A → B (dependent → prerequisite) |
+Relation types are **not predefined**. They are maintained in `knowledge-base/relation-schema.yaml`
+and grow as documents are processed.
+
+**Rules when extracting relations:**
+1. Read `relation-schema.yaml` first. Reuse an existing type whenever it reasonably fits —
+   consistency across documents matters more than precision.
+2. Invent a new type only when no existing one captures the relationship without distorting it.
+   Use a short UPPER-CASE verb phrase: `ENABLES`, `MOTIVATES`, `OPERATIONALISES`, `SCALES-WITH`.
+3. After writing relations, append any new types to `relation-schema.yaml`.
+4. If a later document reveals a better way to name or structure existing types, refactor:
+   update the schema entry and run `python scripts/rename_relation_type.py OLD NEW` to
+   propagate the rename across all of `relations.yaml`.
 
 ---
 
@@ -44,22 +48,14 @@ When one or more new documents are placed in `docs/`, follow these steps **stric
 
 ### Step 1 — Extract new vocabulary (before touching any existing document)
 
-Read the new document and collect every term that does not already appear as a node ID in `ontology.yaml`. Categorise each as:
+Read the new document and collect every term that does not already appear as a node in
+`knowledge-base/nodes.yaml`. Categorise each as concept, person/institution, or example.
 
-- **concept** — an abstract idea, technique, mechanism, or phenomenon discussed in the course
-- **person / institution** — a named researcher, organisation, or historical figure
-- **example / metaphor** — a concrete case study, analogy, or illustrative scenario
+Add all new entries to `knowledge-base/nodes.yaml` under the correct section, grouped under
+a comment naming the module or document they came from.
 
-Add all new entries to `ontology.yaml` under the correct section. Group them under a comment that names the module or document they came from. Do not add relation instances yet.
-
-Format:
-```yaml
-# — Module N: <Title> —
-- id: new_concept_id
-- id: another_concept_id
-```
-
-Also add a corresponding metadata entry in `knowledge-base/metadata.yaml` for each new node (label, description, and type-specific fields). See **Entry Formats** below for templates.
+Also add the `doc_id` to the `source_documents` list of any existing nodes re-introduced
+by this document.
 
 Commit this vocabulary update before proceeding to Step 2.
 
@@ -71,55 +67,28 @@ Commit this vocabulary update before proceeding to Step 2.
 
 For each document (working through them in module order):
 
-1. Read the document in full.
-2. Identify every relationship between nodes that is:
-   - Explicitly stated in the text, OR
-   - Strongly implied by the structure of the argument (e.g., a concept is introduced as a subtype, a prerequisite is listed, an example is walked through).
-3. Append all new relations to `knowledge-base/relations.yaml` under a comment block that identifies the source document.
-4. Save and verify the YAML is valid before moving to the next document.
-
-Repeat for each remaining document.
+1. Read `knowledge-base/relation-schema.yaml` to load the current type vocabulary.
+2. Read the document in full.
+3. Identify every relationship that is explicitly stated or strongly implied.
+4. Append relations to `relations.yaml` under a labelled comment block.
+5. Append any new relation types to `relation-schema.yaml`.
+6. Rebuild the DB and validate before moving to the next document.
 
 ---
 
 ## Entry Formats
 
-### ontology.yaml — adding a concept
-```yaml
-- id: concept_name
-```
-
-### ontology.yaml — adding a person
-```yaml
-- id: firstname_lastname
-```
-
-### ontology.yaml — adding an example
-```yaml
-- id: ex_short_descriptive_name
-```
-
-### knowledge-base/relations.yaml — adding a relation
-```yaml
-- type: IS-A                      # one of the six types above
-  source: child_concept
-  target: parent_concept
-  note: >
-    One or two sentences explaining why this relation holds, citing
-    the text if possible. This becomes the edge tooltip in the graph.
-```
-
-### knowledge-base/metadata.yaml — adding a concept entry
+### knowledge-base/nodes.yaml — adding a concept
 ```yaml
 - id: concept_name
   label: Human Readable Name
   description: >
     One or two sentences defining this concept.
-  module: 3
-  tags: [optional, keywords]
+  source_documents:
+  - doc_id
 ```
 
-### knowledge-base/metadata.yaml — adding a person/institution entry
+### knowledge-base/nodes.yaml — adding a person
 ```yaml
 - id: firstname_lastname
   label: Full Name
@@ -128,9 +97,11 @@ Repeat for each remaining document.
   affiliation: University Name
   description: >
     Brief bio or description of their contribution.
+  source_documents:
+  - doc_id
 ```
 
-### knowledge-base/metadata.yaml — adding an example entry
+### knowledge-base/nodes.yaml — adding an example
 ```yaml
 - id: ex_short_name
   label: Descriptive Example Name
@@ -138,6 +109,33 @@ Repeat for each remaining document.
     What this example illustrates and how.
   source: "Author / Work / Year"
   illustrates: [concept_id_1, concept_id_2]
+  source_documents:
+  - doc_id
+```
+
+### knowledge-base/relations.yaml — adding a relation
+```yaml
+- type: RELATION-TYPE         # from relation-schema.yaml vocabulary
+  source: source_node
+  target: target_node
+  note: >
+    One or two sentences explaining why this relation holds, citing
+    the text if possible. This becomes the edge tooltip in the graph.
+  quote: >
+    "verbatim excerpt from the source document that directly supports this relation"
+```
+
+`quote` is a short verbatim passage (≤ 2 sentences) copied exactly from the source PDF. Use
+ellipsis (`…`) to trim irrelevant middle text. If the relation is strongly implied but not
+explicitly stated, write `quote: ~` (null).
+
+### knowledge-base/relation-schema.yaml — adding a relation type
+```yaml
+- name: RELATION-TYPE
+  description: "One sentence: what A→B means."
+  direction: "A → B (role of A → role of B)"
+  first_seen: doc_id
+  aliases: []
 ```
 
 ---
@@ -146,12 +144,18 @@ Repeat for each remaining document.
 
 Before finishing any update session, verify:
 
-- [ ] Every `source` and `target` in `knowledge-base/relations.yaml` exists as an `id` in `ontology.yaml`.
+- [ ] Every `source` and `target` in `relations.yaml` exists as an `id` in `nodes.yaml`.
 - [ ] No duplicate relation entries (same type + source + target pair).
 - [ ] All new node IDs follow `snake_case` and `ex_` prefix rules.
 - [ ] Each relation has a non-empty `note`.
-- [ ] New nodes added to `ontology.yaml` also have a corresponding entry in `knowledge-base/metadata.yaml`.
-- [ ] YAML parses without error: `python -c "import yaml; yaml.safe_load(open('knowledge-base/relations.yaml'))"` and same for `ontology.yaml` and `knowledge-base/metadata.yaml`.
+- [ ] Each relation has a `quote` field (verbatim excerpt or `~` for implied relations).
+- [ ] All new relation types in `relations.yaml` have an entry in `relation-schema.yaml`.
+- [ ] YAML parses without error:
+  ```bash
+  uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/nodes.yaml'))"
+  uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/relations.yaml'))"
+  uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/relation-schema.yaml'))"
+  ```
 - [ ] Graph regenerates cleanly: `python visualize.py`
 
 ---

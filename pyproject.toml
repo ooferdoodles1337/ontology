@@ -1,0 +1,10 @@
+[project]
+name = "ontology"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "pyvis>=0.3.2",
+    "pyyaml>=6.0.3",
+    "sqlite-utils>=3.39",
+]

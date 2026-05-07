@@ -6,3 +6,11 @@ graph.html
 ontology.db
 eng.traineddata
 settings.local.json
+.rag/*
+!.rag/
+!.rag/README.md
+!.rag/manifests/
+!.rag/manifests/*.sections.json
+!.rag/reviews/
+!.rag/reviews/.gitkeep
+!.rag/reviews/*.section-review.md

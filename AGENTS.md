@@ -9,10 +9,91 @@ This project builds a concept graph for a course (FAB 2026). The graph is stored
 
 | File | Purpose |
 |------|---------|
+| `knowledge-base/documents.yaml` | Source-document registry: canonical `doc_id`, title, path, aliases, and course order for course notes. |
 | `knowledge-base/nodes.yaml` | All nodes (concepts, people, examples) with their metadata. Single source of truth for vocabulary and node descriptions. |
 | `knowledge-base/relations.yaml` | Relation instances — every edge in the graph with source, target, type, and note. |
 | `knowledge-base/relation-schema.yaml` | The evolving vocabulary of relation types. Read before extracting relations; update after coining new types. |
 | `docs/course-notes/` | Source documents to extract from. |
+| `.rag/manifests/*.sections.json` | Durable RAG section-boundary manifests. Draft mechanically, then review before indexing. |
+| `.rag/reviews/*.section-review.md` | LLM-facing packets for checking and repairing section boundaries. |
+
+---
+
+## Question Routing: RAG vs SQLite vs Source Documents
+
+Before answering a course or ontology question, decide which evidence source fits the question.
+Use the smallest source that can answer accurately, and combine sources when useful.
+
+### Use RAG for semantic course understanding
+
+Use the local RAG index (`query-course-rag` skill or `uv run python scripts/rag.py query ...`) when the user asks:
+
+- what the course "means by" a concept, theory, example, or phrase;
+- for a fuzzy comparison or explanation across notes;
+- for semantically relevant passages, examples, or source-backed interpretation;
+- questions where the wording may not exactly match node IDs or relation types.
+
+RAG results are retrieval context, not the final answer. Ground the response in retrieved chunks
+and graph expansion, and say when retrieval looks weak or incomplete.
+
+### Use SQLite for exact ontology lookups
+
+Use the ontology database when the question is exact, structural, or countable:
+
+- list nodes, relations, people, examples, or documents;
+- find all edges for a node, relation type, or document;
+- count entries, detect duplicates, validate IDs, or check schema coverage;
+- answer "what is connected to X?" or "does relation Y exist?"
+
+Use `sqlite-utils query ontology.db "..." --table` for DB inspection. Do not write inline Python
+scripts to query SQLite.
+
+### Read source documents or YAML directly for precision
+
+Read the source PDF/text/YAML directly when:
+
+- the user asks for exact wording, quotes, page-level evidence, or section boundaries;
+- RAG returns weak, contradictory, stale, or overly truncated context;
+- the document is new or likely not indexed yet;
+- extracting vocabulary or relations for ingestion;
+- the question is about repository configuration, scripts, or YAML contents rather than course meaning.
+
+When extracting ontology updates from course notes, follow the one-document-at-a-time rule:
+read one source document, update the relevant YAML, rebuild/validate, then move on.
+
+### Default sequence for ambiguous questions
+
+1. If it is a natural-language course question, start with RAG.
+2. If the answer depends on exact graph facts, verify with SQLite.
+3. If exact quotes, full context, or ingestion-quality evidence are needed, read the source document.
+4. If the question is about code or file structure, read the relevant files directly.
+
+---
+
+## RAG Chunking Workflow
+
+PDF section extraction is heuristic and can be fragile when formatting changes. Treat generated
+section boundaries as drafts, not unquestioned truth.
+
+When adding or changing course-note PDFs:
+
+1. Draft or refresh section manifests:
+   ```bash
+   uv run python scripts/rag.py sections --write
+   ```
+2. Generate LLM review packets:
+   ```bash
+   uv run python scripts/rag.py review-sections --write
+   ```
+3. Read the relevant `.rag/reviews/*.section-review.md` packet and check whether chunks are
+   semantically coherent. If needed, edit the matching `.rag/manifests/*.sections.json` file.
+4. Rebuild the index only after the manifest review pass:
+   ```bash
+   uv run python scripts/rag.py index
+   ```
+
+Use `--doc-id notes_krr` with `review-sections` to review a single document. Use `--redraft`
+only when you specifically want to compare against fresh heuristic boundaries.
 
 ---
 
@@ -45,6 +126,9 @@ and grow as documents are processed.
 ## Process: Adding a New Document
 
 When one or more new documents are placed in `docs/`, follow these steps **strictly in order**.
+
+Before Step 1, add or update the document's canonical `doc_id`, title, path, aliases, and course order
+in `knowledge-base/documents.yaml`.
 
 ### Step 1 — Extract new vocabulary (before touching any existing document)
 
@@ -133,6 +217,7 @@ Before finishing any update session, verify:
 - [ ] All new relation types in `relations.yaml` have an entry in `relation-schema.yaml`.
 - [ ] YAML parses without error:
   ```bash
+  uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/documents.yaml'))"
   uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/nodes.yaml'))"
   uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/relations.yaml'))"
   uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/relation-schema.yaml'))"

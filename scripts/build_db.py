@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Convert YAML ontology files into a SQLite database."""
 
+import json
 import sqlite3
 import yaml
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-DB_PATH = ROOT / "ontology.db"
-NODES_YAML = ROOT / "knowledge-base" / "nodes.yaml"
-RELATIONS_YAML = ROOT / "knowledge-base" / "relations.yaml"
+try:
+    from .config import DB_PATH, DOCUMENTS_YAML, NODES_YAML, RELATIONS_YAML
+except ImportError:
+    from config import DB_PATH, DOCUMENTS_YAML, NODES_YAML, RELATIONS_YAML
 
 
 def load_yaml(path):
@@ -24,6 +24,15 @@ def build_db():
     cur = conn.cursor()
     cur.execute("PRAGMA foreign_keys=ON")
 
+    cur.execute("""
+        CREATE TABLE documents (
+            doc_id       TEXT PRIMARY KEY,
+            title        TEXT NOT NULL DEFAULT '',
+            source_path  TEXT NOT NULL DEFAULT '',
+            course_order INTEGER,
+            aliases      TEXT NOT NULL DEFAULT '[]'
+        )
+    """)
     cur.execute("""
         CREATE TABLE nodes (
             id          TEXT PRIMARY KEY,
@@ -46,7 +55,7 @@ def build_db():
     cur.execute("""
         CREATE TABLE source_documents (
             node_id     TEXT NOT NULL REFERENCES nodes(id),
-            doc_id      TEXT NOT NULL,
+            doc_id      TEXT NOT NULL REFERENCES documents(doc_id),
             PRIMARY KEY (node_id, doc_id)
         )
     """)
@@ -55,8 +64,22 @@ def build_db():
     cur.execute("CREATE INDEX idx_rel_type   ON relations(rel_type)")
     conn.commit()
 
+    docs_data = load_yaml(DOCUMENTS_YAML)
     nodes_data = load_yaml(NODES_YAML)
     rels_data  = load_yaml(RELATIONS_YAML)
+
+    documents = docs_data.get("documents") or []
+    for doc in documents:
+        cur.execute("""
+            INSERT INTO documents (doc_id, title, source_path, course_order, aliases)
+            VALUES (?,?,?,?,?)
+        """, (
+            doc["id"],
+            doc.get("title", ""),
+            doc.get("source_path", ""),
+            doc.get("course_order"),
+            json.dumps(doc.get("aliases") or []),
+        ))
 
     inserted = set()
 
@@ -93,6 +116,7 @@ def build_db():
     conn.commit()
     conn.close()
     print(f"Database created at {DB_PATH}")
+    print(f"  Documents: {len(documents)}")
     print(f"  Nodes:     {len(inserted)}")
     print(f"  Relations: {len((rels_data.get('relations') or []))}")
 

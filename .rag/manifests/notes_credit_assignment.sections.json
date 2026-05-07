@@ -1,0 +1,159 @@
+{
+  "doc_id": "notes_credit_assignment",
+  "title": "2026 Course Notes Ch. 1 — The General Problem of Intelligence Credit Assignment - FAB",
+  "source_path": "docs/course-notes/2026_Course Notes_Ch. 1 — The General Problem of Intelligence_ Credit Assignment - FAB.pdf",
+  "source_sha256": "1f71a26dcf73c4f0379aa37e264ee5f46f40894a27ba3d3e44da171b7b5a7b48",
+  "extractor": "pypdf-layout-numbered-sections-v1",
+  "sections": [
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:001",
+      "title": "Front Matter",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 2,
+      "line_start": 0,
+      "line_end": 37,
+      "word_count": 486
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:002",
+      "title": "Introducing the credit assignment problem",
+      "level": 1,
+      "page_start": 2,
+      "page_end": 2,
+      "line_start": 37,
+      "line_end": 62,
+      "word_count": 335
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:003",
+      "title": "Individual actions as “generate-and-test” processes",
+      "level": 2,
+      "page_start": 2,
+      "page_end": 3,
+      "line_start": 62,
+      "line_end": 81,
+      "word_count": 212
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:004",
+      "title": "Credit assignment as the problem of generating intermediate feedback",
+      "level": 2,
+      "page_start": 3,
+      "page_end": 4,
+      "line_start": 81,
+      "line_end": 115,
+      "word_count": 466
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:005",
+      "title": "Paradigm 1: assigning credit by reinforcement learning",
+      "level": 1,
+      "page_start": 4,
+      "page_end": 5,
+      "line_start": 115,
+      "line_end": 148,
+      "word_count": 475
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:006",
+      "title": "Navigating a T-maze",
+      "level": 2,
+      "page_start": 5,
+      "page_end": 7,
+      "line_start": 148,
+      "line_end": 227,
+      "word_count": 1091
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:007",
+      "title": "Navigating two, interdependent T-mazes",
+      "level": 2,
+      "page_start": 7,
+      "page_end": 8,
+      "line_start": 227,
+      "line_end": 247,
+      "word_count": 279
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:008",
+      "title": "Navigating arbitrarily complex mazes: Sutton’s “reward hypothesis”",
+      "level": 2,
+      "page_start": 8,
+      "page_end": 9,
+      "line_start": 247,
+      "line_end": 283,
+      "word_count": 485
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:009",
+      "title": "Minsky and the limits of the reinforcement paradigm",
+      "level": 1,
+      "page_start": 10,
+      "page_end": 10,
+      "line_start": 283,
+      "line_end": 309,
+      "word_count": 361
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:010",
+      "title": "Revisiting the T-maze",
+      "level": 2,
+      "page_start": 10,
+      "page_end": 12,
+      "line_start": 310,
+      "line_end": 366,
+      "word_count": 824
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:011",
+      "title": "Constructing two different mazes",
+      "level": 2,
+      "page_start": 12,
+      "page_end": 12,
+      "line_start": 366,
+      "line_end": 388,
+      "word_count": 333
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:012",
+      "title": "The management hypothesis",
+      "level": 2,
+      "page_start": 13,
+      "page_end": 13,
+      "line_start": 388,
+      "line_end": 417,
+      "word_count": 416
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:013",
+      "title": "Conclusion",
+      "level": 1,
+      "page_start": 13,
+      "page_end": 13,
+      "line_start": 417,
+      "line_end": 425,
+      "word_count": 98
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:014",
+      "title": "Historical link between the AI ideas and organizations",
+      "level": 2,
+      "page_start": 14,
+      "page_end": 14,
+      "line_start": 426,
+      "line_end": 450,
+      "word_count": 323
+    },
+    {
+      "section_id": "2026_course_notes_ch_1_the_general_problem_of_intelligence_credit_assignment_fab:015",
+      "title": "Further reading",
+      "level": 2,
+      "page_start": 14,
+      "page_end": 15,
+      "line_start": 451,
+      "line_end": 462,
+      "word_count": 110
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "doc_id": "notes_evolutionary_strategies",
+  "title": "Course Notes — Evolutionary Strategies - FAB Spring 2026",
+  "source_path": "docs/course-notes/Course Notes — Evolutionary Strategies - FAB Spring 2026.pdf",
+  "source_sha256": "d856014e765c4495a2198389ca4bf35f317b7f8c22967f35e54e9f2cb6b5eb80",
+  "extractor": "pypdf-layout-numbered-sections-v1",
+  "sections": [
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:001",
+      "title": "Introduction",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 2,
+      "line_start": 0,
+      "line_end": 40,
+      "word_count": 502
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:002",
+      "title": "Adaptation: linking evolution to problem-solving in AI systems and organizations",
+      "level": 1,
+      "page_start": 2,
+      "page_end": 2,
+      "line_start": 40,
+      "line_end": 50,
+      "word_count": 128
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:003",
+      "title": "The magic of adaptation",
+      "level": 2,
+      "page_start": 2,
+      "page_end": 3,
+      "line_start": 50,
+      "line_end": 76,
+      "word_count": 325
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:004",
+      "title": "Visualizing adaptive processes with performance landscapes",
+      "level": 2,
+      "page_start": 3,
+      "page_end": 4,
+      "line_start": 76,
+      "line_end": 123,
+      "word_count": 614
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:005",
+      "title": "Landscape topologies",
+      "level": 1,
+      "page_start": 4,
+      "page_end": 4,
+      "line_start": 123,
+      "line_end": 129,
+      "word_count": 74
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:006",
+      "title": "Single-peaked landscapes: hill-climbing (a.k.a., gradient descent)",
+      "level": 2,
+      "page_start": 4,
+      "page_end": 5,
+      "line_start": 129,
+      "line_end": 152,
+      "word_count": 291
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:007",
+      "title": "Rugged landscapes: hill-climbing and long-jumps",
+      "level": 2,
+      "page_start": 5,
+      "page_end": 7,
+      "line_start": 152,
+      "line_end": 209,
+      "word_count": 770
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:008",
+      "title": "Satisficing and the landscape: lowering expectations vs. taking giant strides",
+      "level": 2,
+      "page_start": 7,
+      "page_end": 8,
+      "line_start": 209,
+      "line_end": 262,
+      "word_count": 594
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:009",
+      "title": "Approaches to adapting on the landscape",
+      "level": 1,
+      "page_start": 9,
+      "page_end": 9,
+      "line_start": 262,
+      "line_end": 271,
+      "word_count": 114
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:010",
+      "title": "Approach 1a: gene-inspired representations",
+      "level": 2,
+      "page_start": 9,
+      "page_end": 10,
+      "line_start": 271,
+      "line_end": 303,
+      "word_count": 393
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:011",
+      "title": "Approach 1b: chromosome-inspired representations",
+      "level": 2,
+      "page_start": 10,
+      "page_end": 11,
+      "line_start": 303,
+      "line_end": 343,
+      "word_count": 535
+    },
+    {
+      "section_id": "course_notes_evolutionary_strategies_fab_spring_2026:012",
+      "title": "Approach 2: biological systems-inspired schemas",
+      "level": 2,
+      "page_start": 11,
+      "page_end": 12,
+      "line_start": 343,
+      "line_end": 385,
+      "word_count": 534
+    }
+  ]
+}

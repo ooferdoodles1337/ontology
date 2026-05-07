@@ -1,0 +1,119 @@
+{
+  "doc_id": "notes_interaction",
+  "title": "Course Notes 7 — Interaction - FAB",
+  "source_path": "docs/course-notes/Course Notes 7 — Interaction - FAB.pdf",
+  "source_sha256": "7de5b3990b447cda92879709166676d906a09e8f230847c9847fcb9101f54231",
+  "extractor": "pypdf-layout-numbered-sections-v1",
+  "sections": [
+    {
+      "section_id": "course_notes_7_interaction_fab:001",
+      "title": "Introduction",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 2,
+      "line_start": 0,
+      "line_end": 36,
+      "word_count": 448
+    },
+    {
+      "section_id": "course_notes_7_interaction_fab:002",
+      "title": "Defamiliarizing our language for talking about AI",
+      "level": 1,
+      "page_start": 2,
+      "page_end": 2,
+      "line_start": 36,
+      "line_end": 53,
+      "word_count": 229
+    },
+    {
+      "section_id": "course_notes_7_interaction_fab:003",
+      "title": "Agre’s critical technical practice: defamiliarizing Cartesian metaphors in AI",
+      "level": 2,
+      "page_start": 2,
+      "page_end": 3,
+      "line_start": 53,
+      "line_end": 84,
+      "word_count": 415
+    },
+    {
+      "section_id": "course_notes_7_interaction_fab:004",
+      "title": "Brooks’ “creature hypothesis”: defamiliarizing Cartesian stories about learning",
+      "level": 2,
+      "page_start": 3,
+      "page_end": 4,
+      "line_start": 84,
+      "line_end": 114,
+      "word_count": 400
+    },
+    {
+      "section_id": "course_notes_7_interaction_fab:005",
+      "title": "Wiener’s “variety”: defamiliarizing Cartesian concepts of complexity",
+      "level": 2,
+      "page_start": 4,
+      "page_end": 4,
+      "line_start": 114,
+      "line_end": 139,
+      "word_count": 338
+    },
+    {
+      "section_id": "course_notes_7_interaction_fab:006",
+      "title": "Goals: homeostasis or “comportment”",
+      "level": 2,
+      "page_start": 5,
+      "page_end": 6,
+      "line_start": 140,
+      "line_end": 184,
+      "word_count": 613
+    },
+    {
+      "section_id": "course_notes_7_interaction_fab:007",
+      "title": "Action as situated, embodied, and embedded",
+      "level": 2,
+      "page_start": 6,
+      "page_end": 7,
+      "line_start": 184,
+      "line_end": 219,
+      "word_count": 472
+    },
+    {
+      "section_id": "course_notes_7_interaction_fab:008",
+      "title": "Assigning credit efficiently: the world as its own best model",
+      "level": 2,
+      "page_start": 7,
+      "page_end": 9,
+      "line_start": 219,
+      "line_end": 284,
+      "word_count": 921
+    },
+    {
+      "section_id": "course_notes_7_interaction_fab:009",
+      "title": "Strategies for interaction in AI and organizations",
+      "level": 1,
+      "page_start": 9,
+      "page_end": 9,
+      "line_start": 284,
+      "line_end": 295,
+      "word_count": 132
+    },
+    {
+      "section_id": "course_notes_7_interaction_fab:010",
+      "title": "Learning based on goals for interacting with the world: the subsumption architecture",
+      "level": 2,
+      "page_start": 9,
+      "page_end": 10,
+      "line_start": 295,
+      "line_end": 331,
+      "word_count": 499
+    },
+    {
+      "section_id": "course_notes_7_interaction_fab:011",
+      "title": "Direct manipulation of symbols",
+      "level": 2,
+      "page_start": 10,
+      "page_end": 11,
+      "line_start": 331,
+      "line_end": 376,
+      "word_count": 617
+    }
+  ]
+}

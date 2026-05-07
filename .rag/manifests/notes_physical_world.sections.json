@@ -1,0 +1,119 @@
+{
+  "doc_id": "notes_physical_world",
+  "title": "Course Notes 8 — Reasoning about the Physical World - FAB",
+  "source_path": "docs/course-notes/Course Notes 8 — Reasoning about the Physical World - FAB.pdf",
+  "source_sha256": "3de1cc6b6d42aa938799592f84767c25d4f72b02cb314cb589a6da89168f2367",
+  "extractor": "pypdf-layout-numbered-sections-v1",
+  "sections": [
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:001",
+      "title": "Introduction",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "line_start": 0,
+      "line_end": 34,
+      "word_count": 444
+    },
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:002",
+      "title": "Bugs and debugging",
+      "level": 2,
+      "page_start": 2,
+      "page_end": 2,
+      "line_start": 35,
+      "line_end": 63,
+      "word_count": 395
+    },
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:003",
+      "title": "Debugging as a distinct problem-solving process",
+      "level": 2,
+      "page_start": 2,
+      "page_end": 4,
+      "line_start": 63,
+      "line_end": 112,
+      "word_count": 635
+    },
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:004",
+      "title": "First principles reasoning",
+      "level": 2,
+      "page_start": 4,
+      "page_end": 4,
+      "line_start": 112,
+      "line_end": 142,
+      "word_count": 415
+    },
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:005",
+      "title": "Debugging strategies",
+      "level": 1,
+      "page_start": 5,
+      "page_end": 5,
+      "line_start": 142,
+      "line_end": 147,
+      "word_count": 57
+    },
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:006",
+      "title": "Qualitative reasoning: “envisioning” how a physical system functions",
+      "level": 2,
+      "page_start": 5,
+      "page_end": 6,
+      "line_start": 147,
+      "line_end": 187,
+      "word_count": 569
+    },
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:007",
+      "title": "Propagating qualitative information",
+      "level": 2,
+      "page_start": 6,
+      "page_end": 7,
+      "line_start": 187,
+      "line_end": 216,
+      "word_count": 406
+    },
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:008",
+      "title": "“Truth maintenance” using dependency networks",
+      "level": 2,
+      "page_start": 7,
+      "page_end": 9,
+      "line_start": 216,
+      "line_end": 280,
+      "word_count": 843
+    },
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:009",
+      "title": "Approaches to reasoning about the physical world",
+      "level": 1,
+      "page_start": 9,
+      "page_end": 9,
+      "line_start": 280,
+      "line_end": 287,
+      "word_count": 94
+    },
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:010",
+      "title": "Machine learning-based “world models”",
+      "level": 2,
+      "page_start": 9,
+      "page_end": 10,
+      "line_start": 287,
+      "line_end": 323,
+      "word_count": 499
+    },
+    {
+      "section_id": "course_notes_8_reasoning_about_the_physical_world_fab:011",
+      "title": "Sussman’s propagator model",
+      "level": 2,
+      "page_start": 10,
+      "page_end": 11,
+      "line_start": 323,
+      "line_end": 364,
+      "word_count": 575
+    }
+  ]
+}

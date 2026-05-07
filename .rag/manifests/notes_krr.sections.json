@@ -1,0 +1,149 @@
+{
+  "doc_id": "notes_krr",
+  "title": "Course Notes — Knowledge Representation and Reasoning - FAB Spring 2026",
+  "source_path": "docs/course-notes/Course Notes — Knowledge Representation and Reasoning - FAB Spring 2026.pdf",
+  "source_sha256": "6e573f692e214c91d187b09d5a3a2a515d792ab6bc4484f559db7ede5fb3f928",
+  "extractor": "pypdf-layout-numbered-sections-v1",
+  "sections": [
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:001",
+      "title": "Introduction",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 2,
+      "line_start": 0,
+      "line_end": 65,
+      "word_count": 906
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:002",
+      "title": "The Advice taker and the frame problem",
+      "level": 1,
+      "page_start": 2,
+      "page_end": 2,
+      "line_start": 65,
+      "line_end": 71,
+      "word_count": 78
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:003",
+      "title": "Advice taker: envisioning an AI system that represents and reasons about knowledge",
+      "level": 2,
+      "page_start": 3,
+      "page_end": 3,
+      "line_start": 71,
+      "line_end": 100,
+      "word_count": 378
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:004",
+      "title": "The frame problem: KRR and the credit assignment problem",
+      "level": 2,
+      "page_start": 3,
+      "page_end": 5,
+      "line_start": 100,
+      "line_end": 147,
+      "word_count": 746
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:005",
+      "title": "Representing commonsense knowledge",
+      "level": 1,
+      "page_start": 5,
+      "page_end": 5,
+      "line_start": 147,
+      "line_end": 159,
+      "word_count": 138
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:006",
+      "title": "Knowledge representations need to be declarative",
+      "level": 2,
+      "page_start": 5,
+      "page_end": 6,
+      "line_start": 159,
+      "line_end": 181,
+      "word_count": 313
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:007",
+      "title": "Knowledge representations need to allow concepts at various levels of abstraction",
+      "level": 2,
+      "page_start": 6,
+      "page_end": 6,
+      "line_start": 181,
+      "line_end": 188,
+      "word_count": 97
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:008",
+      "title": "Knowledge representations need to reflect contexts",
+      "level": 2,
+      "page_start": 6,
+      "page_end": 6,
+      "line_start": 188,
+      "line_end": 215,
+      "word_count": 427
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:009",
+      "title": "Elaborating commonsense knowledge",
+      "level": 1,
+      "page_start": 7,
+      "page_end": 7,
+      "line_start": 215,
+      "line_end": 248,
+      "word_count": 472
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:010",
+      "title": "Elaboration tolerance requires “default reasoning”",
+      "level": 2,
+      "page_start": 7,
+      "page_end": 8,
+      "line_start": 248,
+      "line_end": 257,
+      "word_count": 136
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:011",
+      "title": "Elaboration tolerance requires adequately “expressive” languages",
+      "level": 2,
+      "page_start": 8,
+      "page_end": 8,
+      "line_start": 257,
+      "line_end": 272,
+      "word_count": 214
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:012",
+      "title": "Approaches to representing and reasoning about knowledge",
+      "level": 1,
+      "page_start": 8,
+      "page_end": 8,
+      "line_start": 272,
+      "line_end": 280,
+      "word_count": 98
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:013",
+      "title": "Approach based on deep learning",
+      "level": 2,
+      "page_start": 8,
+      "page_end": 10,
+      "line_start": 280,
+      "line_end": 327,
+      "word_count": 579
+    },
+    {
+      "section_id": "course_notes_knowledge_representation_and_reasoning_fab_spring_2026:014",
+      "title": "Approach based on mathematical logic",
+      "level": 2,
+      "page_start": 10,
+      "page_end": 11,
+      "line_start": 327,
+      "line_end": 366,
+      "word_count": 509
+    }
+  ]
+}

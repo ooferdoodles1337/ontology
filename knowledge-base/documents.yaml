@@ -1,0 +1,52 @@
+documents:
+- id: notes_credit_assignment
+  title: Credit Assignment
+  source_path: docs/course-notes/2026_Course Notes_Ch. 1 — The General Problem of Intelligence_ Credit Assignment - FAB.pdf
+  course_order: 1
+  aliases:
+  - credit assignment
+  - general problem of intelligence
+- id: notes_information_processing
+  title: Information Processing
+  source_path: docs/course-notes/Course Notes, Session 2 — Information Processing - FAB.pdf
+  course_order: 2
+  aliases:
+  - information processing
+- id: notes_search
+  title: Search
+  source_path: docs/course-notes/Course Notes — Search - FAB - Spring 2026.pdf
+  course_order: 3
+  aliases:
+  - search
+- id: notes_representation
+  title: Representation
+  source_path: docs/course-notes/Course Notes — Representation - FAB.pdf
+  course_order: 4
+  aliases:
+  - representation
+- id: notes_evolutionary_strategies
+  title: Evolutionary Strategies
+  source_path: docs/course-notes/Course Notes — Evolutionary Strategies - FAB Spring 2026.pdf
+  course_order: 5
+  aliases:
+  - evolutionary strategies
+- id: notes_interaction
+  title: Interaction
+  source_path: docs/course-notes/Course Notes 7 — Interaction - FAB.pdf
+  course_order: 7
+  aliases:
+  - interaction
+- id: notes_krr
+  title: Knowledge Representation and Reasoning
+  source_path: docs/course-notes/Course Notes — Knowledge Representation and Reasoning - FAB Spring 2026.pdf
+  course_order: 6
+  aliases:
+  - knowledge representation and reasoning
+  - krr
+- id: notes_physical_world
+  title: Reasoning about the Physical World
+  source_path: docs/course-notes/Course Notes 8 — Reasoning about the Physical World - FAB.pdf
+  course_order: 8
+  aliases:
+  - reasoning about the physical world
+  - physical world

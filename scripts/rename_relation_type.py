@@ -6,11 +6,14 @@ Usage: uv run python scripts/rename_relation_type.py OLD-NAME NEW-NAME
 
 import sys
 import yaml
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-RELATIONS = ROOT / "knowledge-base" / "relations.yaml"
-SCHEMA    = ROOT / "knowledge-base" / "relation-schema.yaml"
+try:
+    from .config import RELATIONS_YAML, RELATION_SCHEMA_YAML
+except ImportError:
+    from config import RELATIONS_YAML, RELATION_SCHEMA_YAML
+
+RELATIONS = RELATIONS_YAML
+SCHEMA = RELATION_SCHEMA_YAML
 
 
 def main():

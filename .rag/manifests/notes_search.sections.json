@@ -1,0 +1,169 @@
+{
+  "doc_id": "notes_search",
+  "title": "Course Notes — Search - FAB - Spring 2026",
+  "source_path": "docs/course-notes/Course Notes — Search - FAB - Spring 2026.pdf",
+  "source_sha256": "5dceeb933b336100107c02902e5d14e666cdec9c1e1b6622c8d7286e3b9bd1d5",
+  "extractor": "pypdf-layout-numbered-sections-v1",
+  "sections": [
+    {
+      "section_id": "course_notes_search_fab_spring_2026:001",
+      "title": "Introduction",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 2,
+      "line_start": 0,
+      "line_end": 59,
+      "word_count": 764
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:002",
+      "title": "Plans: dividing the labor of problem-solving",
+      "level": 1,
+      "page_start": 2,
+      "page_end": 3,
+      "line_start": 59,
+      "line_end": 71,
+      "word_count": 171
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:003",
+      "title": "The division of labor as a general solution to credit assignment",
+      "level": 2,
+      "page_start": 3,
+      "page_end": 4,
+      "line_start": 71,
+      "line_end": 98,
+      "word_count": 381
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:004",
+      "title": "Dividing labor into plans (programs)",
+      "level": 2,
+      "page_start": 4,
+      "page_end": 4,
+      "line_start": 98,
+      "line_end": 117,
+      "word_count": 247
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:005",
+      "title": "Effective procedures as measures of program complexity",
+      "level": 2,
+      "page_start": 4,
+      "page_end": 5,
+      "line_start": 117,
+      "line_end": 149,
+      "word_count": 438
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:006",
+      "title": "Search processes",
+      "level": 1,
+      "page_start": 5,
+      "page_end": 6,
+      "line_start": 149,
+      "line_end": 161,
+      "word_count": 165
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:007",
+      "title": "Search as a heuristic process",
+      "level": 2,
+      "page_start": 6,
+      "page_end": 7,
+      "line_start": 161,
+      "line_end": 195,
+      "word_count": 414
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:008",
+      "title": "Search as a satisficing process",
+      "level": 2,
+      "page_start": 7,
+      "page_end": 8,
+      "line_start": 195,
+      "line_end": 228,
+      "word_count": 425
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:009",
+      "title": "Paradigmatically-different approaches to search",
+      "level": 2,
+      "page_start": 8,
+      "page_end": 8,
+      "line_start": 228,
+      "line_end": 244,
+      "word_count": 216
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:010",
+      "title": "Von Neumann search: search as game-playing",
+      "level": 1,
+      "page_start": 9,
+      "page_end": 9,
+      "line_start": 244,
+      "line_end": 253,
+      "word_count": 116
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:011",
+      "title": "Why games?",
+      "level": 2,
+      "page_start": 9,
+      "page_end": 9,
+      "line_start": 253,
+      "line_end": 275,
+      "word_count": 277
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:012",
+      "title": "Heuristics defined in terms of economic utility functions",
+      "level": 2,
+      "page_start": 9,
+      "page_end": 11,
+      "line_start": 275,
+      "line_end": 309,
+      "word_count": 485
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:013",
+      "title": "Satisficing by extending the reinforcement paradigm of maximizing rewards",
+      "level": 2,
+      "page_start": 11,
+      "page_end": 11,
+      "line_start": 309,
+      "line_end": 329,
+      "word_count": 245
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:014",
+      "title": "Simon search: search as means-ends analysis",
+      "level": 1,
+      "page_start": 11,
+      "page_end": 11,
+      "line_start": 329,
+      "line_end": 339,
+      "word_count": 121
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:015",
+      "title": "Heuristics as general methods for manipulating physical symbols",
+      "level": 2,
+      "page_start": 11,
+      "page_end": 13,
+      "line_start": 339,
+      "line_end": 394,
+      "word_count": 701
+    },
+    {
+      "section_id": "course_notes_search_fab_spring_2026:016",
+      "title": "Learning as the use of search operations to acquire new heuristics like an expert",
+      "level": 2,
+      "page_start": 13,
+      "page_end": 13,
+      "line_start": 394,
+      "line_end": 408,
+      "word_count": 189
+    }
+  ]
+}

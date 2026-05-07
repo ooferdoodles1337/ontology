@@ -1,0 +1,169 @@
+{
+  "doc_id": "notes_information_processing",
+  "title": "Course Notes, Session 2 — Information Processing - FAB",
+  "source_path": "docs/course-notes/Course Notes, Session 2 — Information Processing - FAB.pdf",
+  "source_sha256": "f1e93af84663b9f8841d5c1ec7f3a227151eeaf43b1bc6d0b6bfe1b5547c3a86",
+  "extractor": "pypdf-layout-numbered-sections-v1",
+  "sections": [
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:001",
+      "title": "Introduction",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 2,
+      "line_start": 0,
+      "line_end": 37,
+      "word_count": 497
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:002",
+      "title": "Establishing some shared terminology (and convenient fictions)",
+      "level": 1,
+      "page_start": 2,
+      "page_end": 4,
+      "line_start": 37,
+      "line_end": 123,
+      "word_count": 1160
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:003",
+      "title": "Approach 1: Shannon information (syntactic information processing)",
+      "level": 1,
+      "page_start": 4,
+      "page_end": 5,
+      "line_start": 123,
+      "line_end": 135,
+      "word_count": 172
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:004",
+      "title": "Learning to assign credit based on syntactic information processing",
+      "level": 2,
+      "page_start": 5,
+      "page_end": 5,
+      "line_start": 135,
+      "line_end": 153,
+      "word_count": 271
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:005",
+      "title": "Units of information: bits",
+      "level": 2,
+      "page_start": 5,
+      "page_end": 6,
+      "line_start": 153,
+      "line_end": 189,
+      "word_count": 508
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:006",
+      "title": "Credit assignment as a challenge of limited “channel capacity”",
+      "level": 2,
+      "page_start": 6,
+      "page_end": 7,
+      "line_start": 189,
+      "line_end": 220,
+      "word_count": 420
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:007",
+      "title": "“Brute force” solutions to credit assignment",
+      "level": 2,
+      "page_start": 7,
+      "page_end": 8,
+      "line_start": 220,
+      "line_end": 257,
+      "word_count": 546
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:008",
+      "title": "Approach 2: Simon information (semantic information processing)",
+      "level": 1,
+      "page_start": 8,
+      "page_end": 8,
+      "line_start": 257,
+      "line_end": 272,
+      "word_count": 182
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:009",
+      "title": "Learning based on semantic information processing",
+      "level": 2,
+      "page_start": 9,
+      "page_end": 9,
+      "line_start": 272,
+      "line_end": 302,
+      "word_count": 409
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:010",
+      "title": "Units of information: lists",
+      "level": 2,
+      "page_start": 9,
+      "page_end": 10,
+      "line_start": 302,
+      "line_end": 334,
+      "word_count": 464
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:011",
+      "title": "Credit assignment as a challenge of limits to one’s abstractions",
+      "level": 2,
+      "page_start": 10,
+      "page_end": 11,
+      "line_start": 334,
+      "line_end": 358,
+      "word_count": 325
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:012",
+      "title": "“Modularity” as a solution to credit assignment",
+      "level": 2,
+      "page_start": 11,
+      "page_end": 12,
+      "line_start": 358,
+      "line_end": 383,
+      "word_count": 336
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:013",
+      "title": "Dynamics of information processing: IID versus OOD problems",
+      "level": 1,
+      "page_start": 12,
+      "page_end": 12,
+      "line_start": 383,
+      "line_end": 394,
+      "word_count": 152
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:014",
+      "title": "Shannon information and the IID assumption",
+      "level": 2,
+      "page_start": 12,
+      "page_end": 13,
+      "line_start": 394,
+      "line_end": 426,
+      "word_count": 497
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:015",
+      "title": "How to process information about OOD problems?",
+      "level": 2,
+      "page_start": 13,
+      "page_end": 14,
+      "line_start": 426,
+      "line_end": 454,
+      "word_count": 423
+    },
+    {
+      "section_id": "course_notes_session_2_information_processing_fab:016",
+      "title": "Conclusion",
+      "level": 1,
+      "page_start": 14,
+      "page_end": 14,
+      "line_start": 454,
+      "line_end": 468,
+      "word_count": 200
+    }
+  ]
+}

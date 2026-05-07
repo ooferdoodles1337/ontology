@@ -1973,3 +1973,356 @@ relations:
       "the software platform Palantir builds vast ontologies that structure data for specific
       client organizations in terms of real-world 'entities'…and their relationships."
 
+
+  # =========================================================
+  # Representation
+  # Source: Course Notes — Representation - FAB.pdf
+  # =========================================================
+
+  # --- IS-A ---
+  - type: IS-A
+    source: representation
+    target: schema
+    note: >
+      The document explicitly defines representation as the term for a schema when it is used
+      in an AI system or organisation.
+    quote: >
+      "We will refer to a schema used in an AI system or organization as a 'representation'."
+
+  - type: IS-A
+    source: representation
+    target: credit_assignment
+    note: >
+      The document frames representation as an intelligence strategy for credit assignment:
+      the right representation "exposes the natural constraints" that simplify finding solutions.
+    quote: >
+      "given the right representation, challenges of assigning credit to complex sequences
+      of actions largely go away."
+
+  - type: IS-A
+    source: csp
+    target: constraint_network
+    note: >
+      Constraint satisfaction problems are a specific, representation-informed type of search
+      that operates on a constraint network where goals are uniquely or optimally satisfiable.
+    quote: >
+      "constraint satisfaction as almost like a new type of search that interleaves representations."
+
+  - type: IS-A
+    source: bayesian_networks
+    target: constraint_network
+    note: >
+      Causal nets (Bayesian networks) are a type of constraint network where constraints are
+      conditional probabilities in a directed acyclic graph structure.
+    quote: >
+      "causal nets…involves viewing a constraint network as a strategy for representing and
+      testing for cause-effect relations among variables."
+
+  - type: IS-A
+    source: boltzmann_machines
+    target: constraint_network
+    note: >
+      Boltzmann machines are a constraint network type where constraints are learned correlations
+      (weights) among binary variables, with soft constraints and entropy minimisation.
+    quote: >
+      "In Boltzmann machines, the variables are meant to resemble neurons that are either
+      'on' or 'off'… A Boltzmann machine largely 'learns' constraints by processing information."
+
+  - type: IS-A
+    source: expert_systems
+    target: representation
+    note: >
+      Expert systems are a representation strategy in which domain experts' heuristic rules
+      are codified as if-then productions in a knowledge base.
+    quote: >
+      "Representations that are acquired and stored as heuristics for solving problems… is
+      done in what is called an expert system."
+
+  - type: IS-A
+    source: constraint_propagation
+    target: credit_assignment
+    note: >
+      Propagation across a constraint network is the mechanism by which representations
+      assign credit: information about one constraint yields "gold mine" feedback for
+      neighbouring constraints.
+    quote: >
+      "The credit assignment mechanism can be explained in information processing terms
+      through the concept of propagation."
+
+  - type: IS-A
+    source: forward_checking
+    target: constraint_propagation
+    note: >
+      Forward-checking interleaves a search action with a propagation step: after guessing
+      a value, the system checks consistency across all related constraints.
+    quote: >
+      "Interleaving propagation with search is called forward-checking."
+
+  - type: IS-A
+    source: backtracking
+    target: search
+    note: >
+      Backtracking is a depth-first search strategy used within CSPs: it guesses values in
+      sequence and reverts to the previous choice on a constraint violation.
+    quote: >
+      "backtracking…is a depth-first search strategy that involves guessing the values of
+      squares in a sequence then, when a violation of a constraint happens, going back one
+      move."
+
+  - type: IS-A
+    source: representation_learning
+    target: boltzmann_machines
+    note: >
+      Representation learning is the term used in machine learning for learning the
+      constraint network in a Boltzmann machine — learning the probability distribution
+      over variables from data.
+    quote: >
+      "'learning' the constraint network, also called 'representation learning'."
+
+  # --- PART-OF ---
+  - type: PART-OF
+    source: variables
+    target: constraint_network
+    note: >
+      Variables are the nodes of a constraint network, representing anything measurable
+      and relevant to the problem.
+    quote: >
+      "Any complex problem can be defined as a set of (i) variables, (ii) variable domains,
+      and (iii) constraints."
+
+  - type: PART-OF
+    source: domain
+    target: constraint_network
+    note: >
+      Domains define the allowable values for each variable, constituting one of three
+      structural elements of a constraint problem.
+    quote: >
+      "A domain is a set of allowable values for variables."
+
+  - type: PART-OF
+    source: weights_boltzmann
+    target: boltzmann_machines
+    note: >
+      Weights are the learned correlations (soft constraints) between binary input and output
+      variables in a Boltzmann machine.
+    quote: >
+      "These correlations are probabilities called 'weights', rather than actual cause-effect
+      relationships, which are the constraints in the network."
+
+  - type: PART-OF
+    source: entropy_minimization_boltzmann
+    target: boltzmann_machines
+    note: >
+      Entropy minimisation is the learning procedure in a Boltzmann machine: propagation
+      modifies weights until the overall "cost" (entropy) is minimised.
+    quote: >
+      "Propagation refers to sending information across the network to modify the weights
+      until the overall 'cost' is minimized (also called minimizing the entropy in the network)."
+
+  - type: PART-OF
+    source: productions
+    target: expert_systems
+    note: >
+      Productions are the if-then heuristic rules that constitute the knowledge base of an
+      expert system, codifying domain experts' experience as search procedures.
+    quote: >
+      "The if-then heuristic rules, called 'productions', are acquired from 'experts'."
+
+  - type: PART-OF
+    source: conditional_probabilities
+    target: bayesian_networks
+    note: >
+      Conditional probabilities are the constraints in a causal net: the probability of a
+      variable taking a value given another variable's value, representing cause-effect beliefs.
+    quote: >
+      "The constraints in a causal net refer to conditional probabilities between variables."
+
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: bayesian_networks
+    target: judea_pearl
+    note: >
+      Judea Pearl developed causal nets (Bayesian networks) as a formal framework for
+      representing and testing cause-effect relations in constraint networks.
+    quote: >
+      "One approach, developed by the AI scholar Judea Pearl, called causal nets (or also
+      Bayesian networks)."
+
+  - type: ATTRIBUTED-TO
+    source: boltzmann_machines
+    target: geoff_hinton
+    note: >
+      Geoff Hinton invented Boltzmann machines, establishing the foundational conceptual
+      building block of modern deep learning.
+    quote: >
+      "Boltzmann machines — invented by the recent Nobel Prize in physics and deep learning
+      leader Geoff Hinton — is perhaps the foundational conceptual building block of deep
+      learning models."
+
+  - type: ATTRIBUTED-TO
+    source: expert_systems
+    target: feigenbaum
+    note: >
+      Edward Feigenbaum identified the knowledge acquisition bottleneck in 1964, a
+      foundational limitation of expert systems.
+    quote: >
+      "what is referred to as the knowledge acquisition bottleneck (Feigenbaum 1964)."
+
+  # --- CONTRASTS-WITH ---
+  - type: CONTRASTS-WITH
+    source: constraint_network
+    target: search_tree
+    note: >
+      A constraint network is far more general than a search tree: its links carry rich
+      constraint information enabling propagation, whereas a search tree's links only indicate
+      sequential state transitions.
+    quote: >
+      "The idea of a constraint network is far more general… nodes of a constraint network
+      are any set of variables. The links are any set of constraints that define relations
+      among these variables."
+
+  - type: CONTRASTS-WITH
+    source: hard_constraints
+    target: soft_constraints
+    note: >
+      Hard constraints are binary: a violation rules out a solution entirely. Soft constraints
+      impose a probabilistic cost on violations, so solutions exist on a continuum.
+    quote: >
+      "Hard constraints mean that a constraint is either satisfied by a value or it is violated…
+      Soft constraints instead define constraints in terms of preferences or subjective beliefs."
+
+  - type: CONTRASTS-WITH
+    source: physics_hypothesis
+    target: society_of_mind_hypothesis
+    note: >
+      The physics hypothesis (Boltzmann machines / deep learning) reduces intelligence to a
+      few statistical laws. The society of mind hypothesis requires diverse representations
+      corresponding to the document's KRR perspective.
+    quote: >
+      "we will make sense of these examples in terms of two 'hypotheses' about how
+      representations lead to intelligence…the 'physics hypothesis' and the 'society of mind
+      hypothesis'."
+
+  - type: CONTRASTS-WITH
+    source: explicit_knowledge
+    target: tacit_knowledge
+    note: >
+      In expert systems, explicit knowledge is articulable and codifiable as rules; tacit
+      knowledge is experiential know-how that experts cannot easily express.
+    quote: >
+      "Rules that can be articulated, and thus codified, are called explicit knowledge; rules
+      that are too hard to extract are called tacit knowledge."
+
+  # --- CAUSES ---
+  - type: CAUSES
+    source: principle_of_locality
+    target: constraint_propagation
+    note: >
+      Because most constraints can be reduced to binary (local) constraints, propagation is
+      tractable: each piece of information about one constraint yields useful feedback for
+      neighbouring variables.
+    quote: >
+      "unlike the idea of the curse of dimensionality, you usually need to process information
+      only about local interdependencies (i.e., between two variables), and hence can avoid
+      combinatorial complexity."
+
+  - type: CAUSES
+    source: tacit_knowledge
+    target: knowledge_acquisition_bottleneck
+    note: >
+      The knowledge acquisition bottleneck arises because much expert knowledge is tacit —
+      experts cannot articulate it for codification into production rules.
+    quote: >
+      "The bottleneck concerns the difficulty in getting experts to articulate all the heuristic
+      rules that they know."
+
+  - type: CAUSES
+    source: brittleness
+    target: knowledge_acquisition_bottleneck
+    note: >
+      Brittleness compounds the knowledge acquisition bottleneck: even codified rules
+      generalize poorly beyond their specific problem environment, requiring yet more rules.
+    quote: >
+      "rules in expert systems are ultimately correlations developed from specific
+      problem-solving environments, and often do not generalize well. This is called the
+      brittleness issue."
+
+  # --- COMPLICATES ---
+  - type: COMPLICATES
+    source: infinite_regress
+    target: expert_systems
+    note: >
+      Infinite regress makes expert systems fundamentally hard to complete: even within a
+      narrow domain, an unlimited number of rules would theoretically be needed to cover
+      all contingencies.
+    quote: >
+      "Hubert Dreyfus…called this the issue of infinite regress, meaning that one would
+      theoretically need an infinite number of rules to capture all the contingencies."
+
+  # --- ADDRESSES ---
+  - type: ADDRESSES
+    source: constraint_network
+    target: spatial_interdependence
+    note: >
+      Constraint networks address spatial interdependence by encoding interdependencies
+      as explicit constraints and exploiting propagation rather than combinatorial search.
+    quote: >
+      "if an agent can identify constraints, it can exploit these sources of stability to
+      simplify its representation of its environment."
+
+  - type: ADDRESSES
+    source: csp
+    target: sparse_learning
+    note: >
+      CSPs address sparse learning challenges: understanding the representation of a problem
+      (satisfying constraints) can matter more than finding the globally optimal solution.
+    quote: >
+      "this ability to just satisfy a set of constraints is fundamental to addressing challenges
+      of sparse learning, where understanding the representation of a problem may be more
+      important than finding an optimal solution."
+
+  # --- REQUIRES ---
+  - type: REQUIRES
+    source: constraint_propagation
+    target: constraint_network
+    note: >
+      Propagation presupposes a constraint network: without explicitly-defined constraints
+      as links between variables, there is nothing to propagate across.
+    quote: >
+      "Propagation refers to the sending of information across the links of a network."
+
+  - type: REQUIRES
+    source: expert_systems
+    target: commonsense_knowledge
+    note: >
+      Brittleness in expert systems is attributed to lacking commonsense knowledge —
+      the vast set of domain-independent background rules needed for any narrow domain
+      to generalise.
+    quote: >
+      "brittleness is thought to be the result of expert systems needing commonsense
+      knowledge, conceived of as a vast set of heuristic rules of humans' basic
+      domain-independent understanding of the world."
+
+  # --- INSTANCE-OF ---
+  - type: INSTANCE-OF
+    source: bayesian_networks
+    target: mental_models
+    note: >
+      Causal nets (Bayesian networks) are a paradigmatic example of a mental model:
+      a simplified, causal representation of a given problem that enables rational behaviour
+      under uncertainty.
+    quote: >
+      "Pearl intended causal nets to define the essence of reasoning about a given problem
+      where the causes are uncertain… This is an example of what is referred to in AI…
+      as 'mental models'."
+
+  - type: INSTANCE-OF
+    source: autoencoders
+    target: boltzmann_machines
+    note: >
+      Autoencoders are a variant of Boltzmann machines that automatically encode (compress)
+      correlations among sets of input and output variables.
+    quote: >
+      "alternative versions of the Boltzmann machine in deep learning that perform similar
+      functions are called 'autoencoders'."
+

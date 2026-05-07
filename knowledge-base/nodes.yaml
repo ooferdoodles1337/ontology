@@ -2400,6 +2400,14 @@ concepts:
     reason about complex, evolving real-world situations.
   source_documents:
   - notes_krr
+- id: principle_of_locality
+  label: Principle of Locality
+  description: >
+    The observation that, even for highly complex problems, most constraints can usually be
+    reduced to binary constraints (between two variables), allowing agents to process only
+    local interdependencies and avoid combinatorial complexity.
+  source_documents:
+  - notes_representation
 people_and_institutions:
 - id: alan_turing
   label: Alan Turing

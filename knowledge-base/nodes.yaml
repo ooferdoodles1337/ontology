@@ -889,6 +889,7 @@ concepts:
     '
   source_documents:
   - notes_search
+  - notes_physical_world
 - id: backtracking
   label: Backtracking
   description: 'A search technique that undoes recent choices and tries alternatives when a partial solution
@@ -1590,6 +1591,7 @@ concepts:
     '
   source_documents:
   - notes_krr
+  - notes_physical_world
 - id: propagation
   label: Propagation
   description: 'The spreading of information or constraint values through a network of connected nodes
@@ -2130,6 +2132,7 @@ concepts:
     of that reality, ensuring representations remain grounded.
   source_documents:
   - notes_interaction
+  - notes_physical_world
 - id: subsumption_architecture
   label: Subsumption Architecture
   description: >
@@ -2193,6 +2196,7 @@ concepts:
     for action.
   source_documents:
   - notes_interaction
+  - notes_physical_world
 - id: resources_for_action
   label: Resources for Action
   description: >
@@ -2255,6 +2259,7 @@ concepts:
     "frame-by-frame" stability across actions in an unfolding situation.
   source_documents:
   - notes_krr
+  - notes_physical_world
 - id: inference_engine
   label: Inference Engine
   description: >
@@ -2277,6 +2282,7 @@ concepts:
     a key criterion for scalable KRR.
   source_documents:
   - notes_krr
+  - notes_physical_world
 - id: elaboration
   label: Elaboration
   description: >
@@ -2392,6 +2398,7 @@ concepts:
     reasoning and prediction.
   source_documents:
   - notes_krr
+  - notes_physical_world
 - id: ontology
   label: Ontology (Formal)
   description: >
@@ -2432,6 +2439,169 @@ concepts:
     the problem representation during search rather than before it.
   source_documents:
   - notes_search
+
+# -----------------------------------------------------------
+# Course Notes 8 — Reasoning about the Physical World
+# -----------------------------------------------------------
+- id: reasoning_about_physical_world
+  label: Reasoning about the Physical World
+  description: >
+    The process of reflectively reasoning about physical systems in which AI systems
+    and organisations are situated to identify and resolve breakdowns; involves
+    constructing and debugging causal interpretations rather than searching predefined
+    state spaces.
+  source_documents:
+  - notes_physical_world
+
+- id: debugging
+  label: Debugging
+  description: >
+    The AI idea of credit assignment as the ability to detect and resolve discrepancies
+    between a representation of a physical system and the world; encompasses both
+    troubleshooting and theory formation, and extends generate-and-test with
+    representation-modification.
+  source_documents:
+  - notes_physical_world
+
+- id: bugs
+  label: Bugs
+  description: >
+    In the MIT engineering tradition, any discrepancy, symptom, or constraint violation
+    signalling a mismatch between a representation and the physical world; errors of
+    registration rather than mere software syntax errors.
+  source_documents:
+  - notes_physical_world
+
+- id: troubleshooting
+  label: Troubleshooting
+  description: >
+    A debugging strategy that assumes the representation is correct and seeks to
+    identify and repair faults in the physical system itself (e.g., reconciling a
+    malfunctioning circuit board with a known-correct schematic).
+  source_documents:
+  - notes_physical_world
+
+- id: theory_formation
+  label: Theory Formation
+  description: >
+    A debugging strategy that assumes the physical system is correct and seeks to
+    construct or repair the representation of it (e.g., drafting a new schematic
+    for a new ICB design or correcting a wrong one).
+  source_documents:
+  - notes_physical_world
+
+- id: causal_interpretation
+  label: Causal Interpretation
+  description: >
+    A tentative threshold-level representation of how a physical system's function
+    emerges from its structure; describes not just how components are assembled but
+    how they causally produce behaviour, and can itself be debugged.
+  source_documents:
+  - notes_physical_world
+
+- id: generate_test_and_debug
+  label: Generate-Test-and-Debug
+  description: >
+    An extension of generate-and-test in which a debugging step allows modifying the
+    problem representation itself — adding, removing, or re-ordering actions and
+    components — rather than only testing candidate solutions against a fixed landscape.
+  source_documents:
+  - notes_physical_world
+
+- id: first_principles_reasoning
+  label: First Principles Reasoning
+  description: >
+    A debugging strategy that relies on a small set of stable, fundamental laws of a
+    domain (e.g., voltage laws in electrical engineering) rather than heuristics or
+    exhaustive knowledge; reduces combinatorial explosion by anchoring reasoning in
+    domain-wide constraints.
+  source_documents:
+  - notes_physical_world
+
+- id: domain_specific_language
+  label: Domain-Specific Language
+  description: >
+    A formal language that represents the fundamental entities and relations of a
+    domain to support reasoning from that domain's first principles; examples include
+    CAD software for geometric reasoning and Nvidia CUDA for GPU chip design.
+  source_documents:
+  - notes_physical_world
+
+- id: qualitative_reasoning
+  label: Qualitative Reasoning
+  description: >
+    Reasoning about physical systems without precise numerical values, using
+    commonsense knowledge of domain laws to envision how a system's state will
+    change; most useful when the system's functioning is not yet precisely understood
+    and quantitative reasoning would be premature.
+  source_documents:
+  - notes_physical_world
+
+- id: envisioning
+  label: Envisioning
+  description: >
+    De Kleer's term for "running a qualitative simulation in the mind's eye":
+    predicting and analysing qualitative state transitions in a physical system
+    to construct a causal interpretation of how its components function together.
+  source_documents:
+  - notes_physical_world
+
+- id: confluences
+  label: Confluences
+  description: >
+    De Kleer's term for qualitative constraints representing mutual influences between
+    variables in a physical system; unlike discrete CSP constraints, confluences
+    capture the messy, continuous interdependencies of real-world domains.
+  source_documents:
+  - notes_physical_world
+
+- id: dependency_network
+  label: Dependency Network
+  description: >
+    A propagator-level memory that tracks qualitative knowledge, tentative assumptions,
+    and their interdependencies during debugging; complements the constraint network
+    by storing justifications and enabling truth maintenance.
+  source_documents:
+  - notes_physical_world
+
+- id: truth_maintenance
+  label: Truth Maintenance
+  description: >
+    The process of making, tracking, and retracting tentative assumptions about a
+    physical system's representation during debugging; implemented by a truth
+    maintenance system (TMS) whose nodes are knowledge assertions and whose links
+    are justifications labelled "in" or "out".
+  source_documents:
+  - notes_physical_world
+
+- id: dependency_directed_reasoning
+  label: Dependency-Directed Reasoning
+  description: >
+    Problem-solving informed by rich tracking of interdependencies among assumptions
+    in a dependency network; enables tracing bugs to specific assumptions, explaining
+    provenance, resolving inconsistencies, and reusing prior results.
+  source_documents:
+  - notes_physical_world
+
+- id: justifications
+  label: Justifications
+  description: >
+    Belief links in a dependency network representing logical relationships such as
+    consequences, antecedents, or explanations; labelled "in" or "out" to indicate
+    whether the associated assumption is currently believed true.
+  source_documents:
+  - notes_physical_world
+
+- id: function_from_structure
+  label: Function from Structure
+  description: >
+    The inference of what a physical system does (its function) from observing its
+    components and how they are assembled (its structure); the core reasoning task
+    in the MIT tradition of debugging-based AI, and held to be generally applicable
+    to products, organisations, and manufacturing processes alike.
+  source_documents:
+  - notes_physical_world
+
 people_and_institutions:
 - id: alan_turing
   label: Alan Turing
@@ -2554,6 +2724,7 @@ people_and_institutions:
   source_documents:
   - notes_representation
   - notes_krr
+  - notes_physical_world
 - id: richard_sutton
   label: Richard Sutton
   type: person
@@ -3042,6 +3213,34 @@ people_and_institutions:
     of the mathematical logic approach to KRR in practice.
   source_documents:
   - notes_krr
+
+# -----------------------------------------------------------
+# Course Notes 8 — Reasoning about the Physical World
+# -----------------------------------------------------------
+- id: ken_forbus
+  label: Ken Forbus
+  type: person
+  era: "1980s–present"
+  affiliation: MIT AI Lab; Northwestern University
+  description: >
+    MIT AI Lab alumnus and Minsky protégé; co-authored Building Problem Solvers with
+    Johan de Kleer; pioneer of qualitative reasoning as a strategy for AI reasoning
+    about physical systems.
+  source_documents:
+  - notes_physical_world
+
+- id: johan_de_kleer
+  label: Johan de Kleer
+  type: person
+  era: "1970s–present"
+  affiliation: MIT AI Lab; Xerox PARC
+  description: >
+    MIT AI Lab alumnus who coined "envisioning" (qualitative simulation) and
+    "confluences" (qualitative constraints) as foundations for reasoning about
+    physical systems; co-authored Building Problem Solvers with Ken Forbus.
+  source_documents:
+  - notes_physical_world
+
 examples_and_metaphors:
 - id: ex_checkers_game
   label: Checkers Game (Samuel, 1959)
@@ -3508,3 +3707,40 @@ examples_and_metaphors:
   illustrates: [direct_manipulation, resources_for_action]
   source_documents:
   - notes_interaction
+
+# -----------------------------------------------------------
+# Course Notes 8 — Reasoning about the Physical World
+# -----------------------------------------------------------
+- id: ex_integrated_circuit_board
+  label: Integrated Circuit Board Design and Repair
+  description: >
+    The canonical MIT-tradition example of physical-world debugging: identifying
+    faults in an ICB involves combinatorially explosive combinations of parts and
+    functions, requiring first-principles reasoning and qualitative envisioning
+    rather than simple search or pattern matching.
+  source: "MIT AI Lab tradition, 1970s–1980s"
+  illustrates: [debugging, first_principles_reasoning, troubleshooting, theory_formation]
+  source_documents:
+  - notes_physical_world
+
+- id: ex_three_containers
+  label: Three Water Containers at Different Heights
+  description: >
+    De Kleer's example for qualitative reasoning: three containers connected by pipes
+    at different heights, illustrating how water-flow direction can be inferred from
+    domain laws alone (gravity) without any numerical values.
+  source: "Johan de Kleer / Ken Forbus, Building Problem Solvers"
+  illustrates: [qualitative_reasoning, envisioning, first_principles_reasoning]
+  source_documents:
+  - notes_physical_world
+
+- id: ex_nvidia_cuda
+  label: Nvidia CUDA Language
+  description: >
+    Nvidia's domain-specific programming language for GPU chip design; cited as an
+    example of a domain-specific language that enables reasoning about physical
+    systems based on the first principles of a narrow technical domain.
+  source: "Nvidia, 2000s–present"
+  illustrates: [domain_specific_language, first_principles_reasoning]
+  source_documents:
+  - notes_physical_world

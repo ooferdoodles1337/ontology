@@ -69,6 +69,19 @@ to disk — it forces explicit justification and makes it easy to catch duplicat
 Append new entries under the correct top-level section. Group them with a comment naming
 the source document. Do not add relation instances here.
 
+**IMPORTANT — uniform schema rule:** Every node — concept, person, institution, or example —
+uses exactly these four fields and no others:
+
+```
+id              snake_case identifier
+label           Human-readable name
+description     One or two sentences (block scalar style >)
+source_documents  list of doc_id strings
+```
+
+Do not add `type`, `era`, `affiliation`, `source`, `illustrates`, `module`, or any other field.
+Put information about affiliation, era, or what an example illustrates in the `description` text.
+
 **Concept:**
 ```yaml
 - id: concept_name
@@ -79,27 +92,12 @@ the source document. Do not add relation instances here.
   - <doc_id>
 ```
 
-**Person:**
+**Person or Institution:**
 ```yaml
 - id: firstname_lastname
   label: Full Name
-  type: person
-  era: "1950s–1970s"
-  affiliation: University or Organisation Name
   description: >
-    Brief bio focused on their contribution to topics in this course.
-  source_documents:
-  - <doc_id>
-```
-
-**Institution:**
-```yaml
-- id: institution_name
-  label: Full Institution Name
-  type: institution
-  affiliation: City, Country
-  description: >
-    What this institution contributed to the topics in this course.
+    Brief bio or description including era, affiliation, and contribution to the course topics.
   source_documents:
   - <doc_id>
 ```
@@ -109,9 +107,7 @@ the source document. Do not add relation instances here.
 - id: ex_short_name
   label: Descriptive Example Name
   description: >
-    What this example illustrates and how it is used in the text.
-  source: "Author / Work / Year (if known)"
-  illustrates: [concept_id_1, concept_id_2]
+    What this example illustrates, how it is used in the text, and source/author if relevant.
   source_documents:
   - <doc_id>
 ```

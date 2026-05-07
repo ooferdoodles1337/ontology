@@ -29,12 +29,7 @@ def build_db():
             id          TEXT PRIMARY KEY,
             label       TEXT NOT NULL,
             description TEXT NOT NULL DEFAULT '',
-            node_type   TEXT NOT NULL CHECK(node_type IN ('concept','person','institution','example')),
-            module      INTEGER,
-            person_type TEXT CHECK(person_type IN ('person','institution')),
-            era         TEXT,
-            affiliation TEXT,
-            example_source TEXT
+            node_type   TEXT NOT NULL CHECK(node_type IN ('concept','person','example'))
         )
     """)
     cur.execute("""
@@ -71,18 +66,10 @@ def build_db():
         md = md or {}
         label       = md.get("label", nid.replace("_", " ").title())
         description = md.get("description", "")
-        module      = md.get("module") if node_type == "concept" else None
-        person_type = md.get("type") if node_type in ("person", "institution") else None
-        era         = md.get("era") if node_type in ("person", "institution") else None
-        affiliation = md.get("affiliation") if node_type in ("person", "institution") else None
-        example_src = md.get("source") if node_type == "example" else None
         cur.execute("""
-            INSERT OR IGNORE INTO nodes
-                (id, label, description, node_type, module,
-                 person_type, era, affiliation, example_source)
-            VALUES (?,?,?,?,?,?,?,?,?)
-        """, (nid, label, description, node_type, module,
-              person_type, era, affiliation, example_src))
+            INSERT OR IGNORE INTO nodes (id, label, description, node_type)
+            VALUES (?,?,?,?)
+        """, (nid, label, description, node_type))
         inserted.add(nid)
         for doc_id in md.get("source_documents", []):
             cur.execute("INSERT OR IGNORE INTO source_documents (node_id, doc_id) VALUES (?,?)",
@@ -92,8 +79,7 @@ def build_db():
         insert_node(entry["id"], "concept", entry)
 
     for entry in nodes_data.get("people_and_institutions", []):
-        ntype = entry.get("type", "person")
-        insert_node(entry["id"], ntype, entry)
+        insert_node(entry["id"], "person", entry)
 
     for entry in nodes_data.get("examples_and_metaphors", []):
         insert_node(entry["id"], "example", entry)

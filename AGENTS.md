@@ -78,37 +78,18 @@ For each document (working through them in module order):
 
 ## Entry Formats
 
-### knowledge-base/nodes.yaml — adding a concept
+**Uniform schema rule:** Every node uses exactly four fields — `id`, `label`, `description`,
+`source_documents` — and nothing else. Do not add `type`, `era`, `affiliation`, `source`,
+`illustrates`, `module`, or any other field. Encode affiliation, era, and what an example
+illustrates in the `description` text.
+
+### knowledge-base/nodes.yaml — adding any node
 ```yaml
-- id: concept_name
+- id: node_id
   label: Human Readable Name
   description: >
-    One or two sentences defining this concept.
-  source_documents:
-  - doc_id
-```
-
-### knowledge-base/nodes.yaml — adding a person
-```yaml
-- id: firstname_lastname
-  label: Full Name
-  type: person            # or: institution
-  era: "1950s–1970s"
-  affiliation: University Name
-  description: >
-    Brief bio or description of their contribution.
-  source_documents:
-  - doc_id
-```
-
-### knowledge-base/nodes.yaml — adding an example
-```yaml
-- id: ex_short_name
-  label: Descriptive Example Name
-  description: >
-    What this example illustrates and how.
-  source: "Author / Work / Year"
-  illustrates: [concept_id_1, concept_id_2]
+    One or two sentences. For people, include era and affiliation here.
+    For examples, mention what the example illustrates and its source.
   source_documents:
   - doc_id
 ```

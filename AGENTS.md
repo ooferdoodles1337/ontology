@@ -3,7 +3,7 @@
 > **`.agents/` is the primary source of truth** — all settings, skills, and configuration live here.
 > **`.claude/` is a symlink to `.agents/`** for tool compatibility. Do not edit `.claude/` directly; make all changes in `.agents/`.
 
-This project builds a concept graph for a course (FAB 2026). The graph is stored in YAML files and rendered via `visualize.py`.
+This project builds a concept graph for a course (FAB 2026). The graph is stored in YAML files and a SQLite database (`ontology.db`).
 
 ## File Roles
 
@@ -156,7 +156,7 @@ Before finishing any update session, verify:
   uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/relations.yaml'))"
   uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/relation-schema.yaml'))"
   ```
-- [ ] Graph regenerates cleanly: `python visualize.py`
+- [ ] DB rebuilds cleanly: `uv run python scripts/build_db.py`
 
 ---
 
@@ -165,6 +165,5 @@ Before finishing any update session, verify:
 - Do not invent relations that are not supported by the course documents.
 - Do not add a node ID that is a near-duplicate of an existing one (check before adding).
 - Do not read all documents first and then batch-write relations. Process one document, write, then move to the next.
-- Do not modify `visualize.py` during an ontology update session.
 - Do not write YAML files programmatically using `cat` heredocs or shell redirects. Use the Edit/Write tools to modify YAML files directly — this is safer, avoids escaping issues, and produces clean diffs.
 - Do not query or inspect the SQLite database by writing inline Python scripts. Use the `sqlite-utils` CLI instead (e.g. `sqlite-utils query ontology.db "SELECT ..." --table`).

@@ -74,8 +74,8 @@ sqlite-utils query ontology.db "
   WHERE ns.id IS NULL OR nt.id IS NULL
 " --table
 
-# Graph regeneration
-uv run python visualize.py && echo "visualizer OK"
+# DB rebuild
+uv run python scripts/build_db.py && echo "DB OK"
 ```
 
 Fix any errors before reporting the ingestion as complete.

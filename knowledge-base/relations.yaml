@@ -2700,3 +2700,492 @@ relations:
       "'depth-first' (search only one or a few paths, but generate-and-test many actions
       for each path)."
 
+  # =========================================================
+  # Course Notes 7 — Interaction
+  # Source: Course Notes 7 — Interaction - FAB.pdf
+  # =========================================================
+
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: cartesianism
+    target: rene_descartes
+    note: >
+      Cartesianism as a paradigm of intelligence is traced back to René Descartes, whose
+      phrase "I think, therefore I am" implies that the very existence of intelligence is
+      constituted by internal symbol manipulations.
+    quote: >
+      "Such a view of intelligence goes back at least to the 17th century and the French
+      philosopher René Descartes. His phrase, 'I think, therefore I am' implies that the very
+      existence of intelligence is constituted by internal symbol manipulations."
+
+  - type: ATTRIBUTED-TO
+    source: creature_hypothesis
+    target: rodney_brooks
+    note: >
+      The creature hypothesis was proposed by roboticist Rodney Brooks to explain Moravec's
+      paradox from an interactionist standpoint, arguing that sensorimotor abilities are
+      evolutionarily older and genuinely harder than symbolic reasoning.
+    quote: >
+      "Roboticist Rodney Brooks proposed a 'creature hypothesis' of intelligent learning that
+      explains the paradox from an interactionist point of view."
+
+  - type: ATTRIBUTED-TO
+    source: critical_technical_practice
+    target: phil_agre
+    note: >
+      Phil Agre introduced critical technical practice (CTP) at MIT in the 1980s as a method
+      for surfacing and evaluating the narrow Cartesian assumptions embedded in AI language.
+    quote: >
+      "In pioneering work in the 1980s at MIT, the AI scholar Phil Agre introduced a method
+      for surfacing what he saw as the narrow yet vague language of AI ideas…he called
+      'critical technical practice' (CTP)."
+
+  - type: ATTRIBUTED-TO
+    source: homeostasis
+    target: w_ross_ashby
+    note: >
+      The cybernetician W. Ross Ashby coined the term "homeostasis" to describe the goal
+      of maintaining a stable state through feedback from environmental interaction rather
+      than optimising a fixed objective.
+    quote: >
+      "This idea of maintaining a goal was termed by the cybernetician W. Ross Ashby as
+      homeostasis ('same state')."
+
+  - type: ATTRIBUTED-TO
+    source: variety
+    target: norbert_wiener
+    note: >
+      Norbert Wiener proposed variety as a concept of complexity better suited to natural
+      biological and social systems than to internal symbol manipulations, influencing
+      interactionist AI researchers to seek non-Cartesian measures of complexity.
+    quote: >
+      "the MIT mathematician and polymath Norbert Wiener proposed a concept of complexity
+      in terms of variety, where variety referred to a level of complexity more reflective of
+      natural systems (biological organisms or human societies and organizations) than internal
+      symbol manipulations."
+
+  - type: ATTRIBUTED-TO
+    source: subsumption_architecture
+    target: rodney_brooks
+    note: >
+      Rodney Brooks designed the subsumption architecture as a layered set of goals
+      implemented through finite state machines, enabling robust homeostatic behavior
+      without any symbolic representations.
+    quote: >
+      "Brooks proposed that an AI system or organization could be formally designed as a set
+      of multiple goals…what Brooks called the 'subsumption architecture'."
+
+  - type: ATTRIBUTED-TO
+    source: moravecs_paradox
+    target: hans_moravec
+    note: >
+      Moravec's paradox is named after Carnegie-Mellon roboticist Hans Moravec: seemingly
+      complex AI tasks are often simpler than expected, while apparently simple sensorimotor
+      tasks prove far harder.
+    quote: >
+      "This is called Moravec's paradox, after Carnegie-Mellon roboticist Hans Moravec:
+      seemingly complex problems in AI are often simpler than expected; seemingly simple
+      problems in AI are often (much more) complex than expected!"
+
+  - type: ATTRIBUTED-TO
+    source: indexing
+    target: phil_agre
+    note: >
+      Phil Agre developed the concept of indexing at MIT, proposing that objects in the
+      real world are stored in memory with respect to specific situations rather than as
+      abstract names that designate other symbols.
+    quote: >
+      "In this view, developed also by Phil Agre at MIT, objects in the real-world are 'indexed'
+      in an agent's memory, which means that they are stored with respect to a specific situation."
+
+  - type: ATTRIBUTED-TO
+    source: registration
+    target: brian_cantwell_smith
+    note: >
+      Brian Cantwell-Smith proposed registration as a theory of how AI systems must account
+      for the coherence between symbolic schemes, lived experience, and physical reality
+      through ongoing "reckoning and judgment".
+    quote: >
+      "In a complementary theory proposed also at MIT by AI researcher Brian Cantwell-Smith,
+      AI systems need to engage in the 'registration' of symbols."
+
+  - type: ATTRIBUTED-TO
+    source: cybernetics
+    target: norbert_wiener
+    note: >
+      Cybernetics arose in the 1940s under the leadership of Norbert Wiener; its focus on
+      feedback-based control from environmental interaction made it the immediate predecessor
+      of interactionist AI.
+    quote: >
+      "The earliest ideas about interaction in AI originated in the field's immediate predecessor
+      called cybernetics, which arose in the 1940s led by Wiener."
+
+  - type: ATTRIBUTED-TO
+    source: ex_roomba
+    target: rodney_brooks
+    note: >
+      The Roomba was designed by Rodney Brooks and colleagues at MIT, applying the
+      subsumption architecture to produce the best-selling robot of all time with over
+      40 million units sold.
+    quote: >
+      "the MIT roboticist Rodney Brooks built a series of robots inspired by Walter's ideas,
+      which led to developing a commercial robot vacuum cleaner called the Roomba."
+
+  - type: ATTRIBUTED-TO
+    source: ex_walter_tortoise
+    target: w_grey_walter
+    note: >
+      W. Grey Walter designed the tortoise robot in the early 1950s using simple analog
+      circuits to navigate a real-world room, making it a foundational example of homeostatic
+      cybernetic interaction.
+    quote: >
+      "In the early 1950s, another cybernetician W. Grey Walter designed a 'tortoise' robot
+      that used a small set of simple analog circuits to navigate around a room."
+
+  - type: ATTRIBUTED-TO
+    source: ex_sketchpad
+    target: ivan_sutherland
+    note: >
+      Ivan Sutherland's Sketchpad system at MIT is the canonical early instance of direct
+      manipulation, enabling engineers to draft and tinker with circuit diagrams as graphical
+      objects on a physical screen, forerunner to CAD and the GUI.
+    quote: >
+      "Ivan Sutherland's Sketchpad system (the forerunner to CAD software and the GUI
+      (graphical user interface) of personal computers), envisioned software that would enable
+      drafting a diagram of a circuit or other complex machine in digital form."
+
+  # --- IS-A ---
+  - type: IS-A
+    source: comportment
+    target: homeostasis
+    note: >
+      Comportment is an alternative term for homeostasis in the phenomenological tradition,
+      emphasising authentic, moment-to-moment alignment between an agent's goals and
+      the unfolding physical world rather than convergence to a fixed target state.
+    quote: >
+      "Another term for this homeostasis is 'comportment', which means maintaining an authentic
+      alignment between our goals and the physical world based on our moment-to-moment coping."
+
+  # --- PART-OF ---
+  - type: PART-OF
+    source: situatedness
+    target: interaction
+    note: >
+      Situatedness is one of three defining characteristics of intelligent interaction: action
+      must sense and respond to ongoing changes in particular real-world situations rather
+      than to abstract symbolic representations.
+    quote: >
+      "Intelligent action is situated in that it depends on sensing and responding to ongoing
+      changes in particular situations in the world."
+
+  - type: PART-OF
+    source: embodiment
+    target: interaction
+    note: >
+      Embodiment is a defining characteristic of intelligent interaction: intelligence depends
+      on a body learning physical actions, not just a mind manipulating symbols, and is
+      constrained by the physical limits of bodily movement.
+    quote: >
+      "Intelligent action is embodied, meaning that it depends on the ability of a body to learn
+      physical actions, not just the mind's ability to learn symbols."
+
+  - type: PART-OF
+    source: embeddedness
+    target: interaction
+    note: >
+      Embeddedness is a defining characteristic of intelligent interaction: intelligent action
+      is shaped by the local cultural context in which it takes place, which changes the goals
+      of intelligent action.
+    quote: >
+      "Intelligent action is culturally embedded, meaning that it depends on the local culture
+      in which it takes place, which changes the goals of intelligent action."
+
+  - type: PART-OF
+    source: sensorimotor
+    target: interaction
+    note: >
+      Sensorimotor action — perceptual senses and physical movements — is a fundamental
+      component of interaction-based intelligence, foregrounded by interactionist researchers
+      against purely internal cognition.
+    quote: >
+      "The term interaction is used to emphasize roles beyond internal cognition in intelligence
+      of sensorimotor action (perceptual senses and physical movements) and experiencing
+      phenomena in the world."
+
+  - type: PART-OF
+    source: finite_state_machines
+    target: subsumption_architecture
+    note: >
+      In Brooks' subsumption architecture, each goal or behavior layer is implemented through
+      highly simple circuits called finite state machines (FSMs), with no communication
+      channels between layers.
+    quote: >
+      "these goals or behaviors in his proposal are only implemented through highly simple
+      circuits, called finite state machines (FSMs), with no communication channels."
+
+  - type: PART-OF
+    source: homeostasis
+    target: cybernetics
+    note: >
+      Homeostasis is the central goal-concept of cybernetics, describing how agents maintain
+      stable states through environmental feedback rather than optimising a fixed objective.
+    quote: >
+      "This canonical example illustrates the first major concept in AI ideas of interactionism,
+      which is an emphasis on goals of maintaining a state, rather than of optimizing or
+      satisfying a specific goal within a state. This idea of maintaining a goal was termed by
+      the cybernetician W. Ross Ashby as homeostasis."
+
+  - type: PART-OF
+    source: resources_for_action
+    target: interaction
+    note: >
+      Resources for action is the interactionist view that symbolic representations are not
+      necessary for intelligence but become useful secondary tools in particular moments when
+      homeostatic comportment fails.
+    quote: >
+      "Symbolic representations are not necessary for interacting with the world; they are
+      resources for action."
+
+  - type: PART-OF
+    source: designation
+    target: symbol_manipulation
+    note: >
+      Designation — the idea that symbols give names to objects in the actual world — is
+      a core concept within Simon's symbol manipulation framework and the physical symbol
+      system hypothesis.
+    quote: >
+      "consider how this 'resources for action' view compares to our earlier notion of Simon
+      information and its emphasis on designation — that intelligence requires symbols that
+      'designate' objects in the actual world by giving them names."
+
+  - type: PART-OF
+    source: wishful_mnemonics
+    target: cartesianism
+    note: >
+      Wishful mnemonics are a product of Cartesian AI language: memorable terms for symbol
+      manipulation processes that tempt us to "wish" that such processes actually capture
+      real-world phenomena such as planning or searching.
+    quote: >
+      "They serve as what have been called 'wishful mnemonics' — memorable (mnemonic) terms
+      for symbol manipulation processes that allow us to 'wish' that such processes actually
+      capture real-world phenomena."
+
+  # --- INSTANCE-OF ---
+  - type: INSTANCE-OF
+    source: ex_thermostat
+    target: homeostasis
+    note: >
+      The analog thermostat is the canonical cybernetic example of homeostasis: set to
+      maintain room temperature within a range, it uses environmental feedback rather than
+      converging to a fixed goal state.
+    quote: >
+      "Perhaps the most canonical example of interaction in cybernetics is an analog thermostat
+      in a room. The thermostat is set to maintain the temperature of the room within a certain
+      range; if it gets too cold, the thermostat is triggered and the heater starts."
+
+  - type: INSTANCE-OF
+    source: ex_walter_tortoise
+    target: homeostasis
+    note: >
+      Walter's tortoise exemplifies homeostasis: rather than learning a specific path through
+      a labyrinth, it learned to wander any room and find its way back, maintaining a stable
+      state via simple analog circuits.
+    quote: >
+      "Walter's tortoise was homeostatic in that it learned how to wander around the far less
+      structured environment of a house and find its way back from anywhere in the house."
+
+  - type: INSTANCE-OF
+    source: ex_roomba
+    target: subsumption_architecture
+    note: >
+      The Roomba is the commercial realisation of Brooks' subsumption architecture: no CPU,
+      no complex algorithms, just simple layered circuits enabling it to navigate any real-world
+      home environment homestatically.
+    quote: >
+      "Brooks' approach with the Roomba succeeded based on its simplicity — the Roomba had
+      no CPU, no complex algorithms, and no vast stores of data. Rather, it used only a small
+      set of simple circuits to learn to react to any type of room by wandering around."
+
+  - type: INSTANCE-OF
+    source: ex_sketchpad
+    target: direct_manipulation
+    note: >
+      Sutherland's Sketchpad is the canonical early instance of direct manipulation, enabling
+      engineers to draft and tinker with circuit diagrams as graphical objects on a physical
+      screen instead of writing code.
+    quote: >
+      "Ivan Sutherland's Sketchpad system…envisioned software that would enable drafting a
+      diagram of a circuit or other complex machine in digital form, and then 'tinkering' with
+      this by interacting with the diagram on a physical screen."
+
+  - type: INSTANCE-OF
+    source: digital_ecosystem
+    target: subsumption_architecture
+    note: >
+      The digital ecosystem is a recent organisational analogue of the subsumption architecture:
+      its layered software stack (from semiconductors to user interfaces) must be orchestrated
+      in priority order just as Brooks' behavior layers subsume one another.
+    quote: >
+      "a canonical recent example of this view of intelligence is the idea of a digital ecosystem…
+      A digital ecosystem can be thought of as consisting of the various lower- and higher-level
+      goals of a 'software stack'…Intelligence is achieved by 'orchestrating' all of the goals
+      of the stack so that they work together."
+
+  # --- CONTRASTS-WITH ---
+  - type: CONTRASTS-WITH
+    source: interaction
+    target: cartesianism
+    note: >
+      Interaction and Cartesianism are the document's central opposing paradigms: interactionism
+      grounds intelligence in moment-to-moment sensorimotor engagement with the world, whereas
+      Cartesianism locates intelligence in internal symbol manipulations.
+    quote: >
+      "All symbol manipulation approaches to studying AI systems and organizations are repeating
+      the same mistakes as narrow Cartesianism (also called cognitivism) approaches of not
+      dealing adequately with the external world."
+
+  - type: CONTRASTS-WITH
+    source: indexing
+    target: designation
+    note: >
+      Indexing contrasts with designation by grounding reference in a specific physical situation:
+      an indexed object is stored as "that-apple-right-there", not merely as a pointer to another
+      symbol in an abstract list.
+    quote: >
+      "Indexing, in contrast, refers to using 'apple' to refer to a particular physical object
+      (a particular apple) in the world…not just a list structure — one name points to another name."
+
+  - type: CONTRASTS-WITH
+    source: registration
+    target: designation
+    note: >
+      Registration goes beyond designation by requiring agents to evaluate whether symbolic
+      schemes accurately reflect experience and whether experience accurately reflects physical
+      reality — engaging reckoning and judgment rather than mere naming.
+    quote: >
+      "designation is not enough — it only accounts for the real-world meaning of symbols
+      (i.e. lists) for a given problem, and not to the holistic experience of a specific situation
+      as it unfolds."
+
+  - type: CONTRASTS-WITH
+    source: subsumption_architecture
+    target: reinforcement_learning
+    note: >
+      The subsumption architecture contrasts with reinforcement learning as competing paradigms
+      for robot learning: it uses simple analog circuits and layered homeostatic behaviors, without
+      the vast datasets and deep learning models that RL requires.
+    quote: >
+      "Brooks' approach differed from the prior paradigm in robotics that was based on search and
+      representation (and from today's dominant paradigm, which is based on deep learning and
+      reinforcement learning using vast volumes of data)."
+
+  - type: CONTRASTS-WITH
+    source: variety
+    target: shannon_information
+    note: >
+      Wiener's variety contrasts with Shannon information as competing complexity measures:
+      variety reflects the complexity of natural biological and social systems, whereas Shannon
+      information is rooted in Cartesian, internalist symbol manipulation.
+    quote: >
+      "Norbert Wiener proposed a concept of complexity in terms of variety, where variety
+      referred to a level of complexity more reflective of natural systems (biological organisms
+      or human societies and organizations) than internal symbol manipulations."
+
+  # --- ADDRESSES ---
+  - type: ADDRESSES
+    source: creature_hypothesis
+    target: moravecs_paradox
+    note: >
+      The creature hypothesis addresses Moravec's paradox by explaining that simple sensorimotor
+      interactions are evolutionarily ancient and genuinely hard, while symbolic reasoning
+      developed late and rapidly, making the paradox unsurprising from an evolutionary view.
+    quote: >
+      "Roboticist Rodney Brooks proposed a 'creature hypothesis' of intelligent learning that
+      explains the paradox from an interactionist point of view."
+
+  - type: ADDRESSES
+    source: critical_technical_practice
+    target: wishful_mnemonics
+    note: >
+      Critical technical practice directly addresses wishful mnemonics by surfacing the Cartesian
+      assumptions hidden in AI language, evaluating them against real-world phenomena, and
+      guiding construction of alternative AI ideas and systems.
+    quote: >
+      "The CTP method involves (1) surfacing assumptions in the language of AI ideas, (2)
+      evaluating assumptions with respect to observations and experience of concrete phenomena
+      in the world, and (3) using the evaluations to guide the construction of alternative AI
+      ideas and systems."
+
+  - type: ADDRESSES
+    source: subsumption_architecture
+    target: cartesianism
+    note: >
+      The subsumption architecture is Brooks' primary technical response to Cartesian AI:
+      it demonstrates robust intelligent behavior through layered sensorimotor goals and simple
+      circuits, without any symbolic representations.
+    quote: >
+      "Next, we will consider two main technical proposals: Brooks' subsumption architecture
+      (which does not require any symbol manipulation), and the notion of direct manipulation
+      of symbols as resources for action."
+
+  - type: ADDRESSES
+    source: direct_manipulation
+    target: cartesianism
+    note: >
+      Direct manipulation is the second main technical alternative to Cartesian AI in the
+      document: it foregrounds the sensorimotor, physical nature of how humans interact with
+      digital representations on screens rather than writing symbolic code.
+    quote: >
+      "Another main area of research on interaction in AI and organizations concerns directly
+      interacting with physical media, and specifically digital representations in personal
+      computers and other personal or collaborative digital devices."
+
+  # --- CAUSES ---
+  - type: CAUSES
+    source: cartesianism
+    target: extrapolation_fallacy
+    note: >
+      Cartesianism produces the extrapolation fallacy as a recurring consequence: by setting
+      benchmarks in terms of symbolic tasks, it encourages the false belief that gains in one
+      symbolic domain imply proximity to general intelligence.
+    quote: >
+      "For Brooks, one consequence of a Cartesian view of learning is a recurring theme in the
+      AI field of extrapolation — of believing that a large gain in performance on one type of
+      task…means that the field is close to solving most other types of task."
+
+  - type: CAUSES
+    source: breakdowns
+    target: resources_for_action
+    note: >
+      Breakdowns — moments when homeostatic comportment fails — cause symbolic representations
+      to become salient as resources for action, making them secondary but useful tools triggered
+      by situational failure.
+    quote: >
+      "Representations become significant in particular moments when our homeostatic comportment
+      fails, referred to as 'breakdowns'."
+
+  # --- COMPLICATES ---
+  - type: COMPLICATES
+    source: wishful_mnemonics
+    target: interaction
+    note: >
+      Wishful mnemonics complicate the interactionist research programme by making Cartesian
+      assumptions invisible: if researchers accept that "searching" or "planning" genuinely
+      describes real-world activity, they will not see the need for interactionist alternatives.
+    quote: >
+      "The danger is that such metaphors become a self-fulfilling prophecy: we may start thinking
+      about search, planning (or learning or knowledge) as what happens symbolically inside of
+      a computer."
+
+  - type: COMPLICATES
+    source: extrapolation_fallacy
+    target: interaction
+    note: >
+      The extrapolation fallacy complicates interactionist AI by shifting attention and resources
+      to whichever symbolic paradigm currently dominates, leaving the genuinely complex
+      sensorimotor and embodied aspects of intelligence perpetually unaddressed.
+    quote: >
+      "such extrapolation leads to large shifts in attention and resources to whatever the current
+      paradigm is (e.g., LLMs today), while all the actually complex parts of intelligence…run
+      the risk of never getting addressed."
+

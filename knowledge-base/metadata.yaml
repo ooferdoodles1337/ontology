@@ -25,9 +25,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - foundational
-  - core
   source_documents:
   - notes_credit_assignment
 - id: general_problem_of_intelligence
@@ -37,9 +34,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - foundational
-  - core
   source_documents:
   - notes_credit_assignment
 - id: credit_assignment
@@ -48,9 +42,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - foundational
-  - reinforcement-learning
   source_documents:
   - notes_credit_assignment
 - id: feedback
@@ -59,8 +50,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - learning
   source_documents:
   - notes_credit_assignment
 - id: delayed_feedback
@@ -70,9 +59,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - learning
-  - difficulty
   source_documents:
   - notes_credit_assignment
 - id: ambiguous_feedback
@@ -82,9 +68,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - learning
-  - difficulty
   source_documents:
   - notes_credit_assignment
 - id: sparse_feedback
@@ -94,9 +77,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - learning
-  - difficulty
   source_documents:
   - notes_credit_assignment
 - id: intermediate_feedback
@@ -106,8 +86,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - learning
   source_documents:
   - notes_credit_assignment
 - id: trial_and_error
@@ -117,9 +95,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - learning
-  - search
   source_documents:
   - notes_credit_assignment
 - id: reinforcement_learning
@@ -129,9 +104,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - learning
-  - paradigm
   source_documents:
   - notes_credit_assignment
   - notes_information_processing
@@ -142,9 +114,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - reinforcement-learning
-  - theory
   source_documents:
   - notes_credit_assignment
 - id: policy
@@ -153,8 +122,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - reinforcement-learning
   source_documents:
   - notes_credit_assignment
 - id: value_function
@@ -164,8 +131,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - reinforcement-learning
   source_documents:
   - notes_credit_assignment
 - id: utility_function
@@ -174,8 +139,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - decision-theory
   source_documents:
   - notes_credit_assignment
 - id: temporal_differencing
@@ -185,9 +148,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - reinforcement-learning
-  - algorithm
   source_documents:
   - notes_credit_assignment
 - id: aggregate_rewards
@@ -196,8 +156,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - reinforcement-learning
   source_documents:
   - notes_credit_assignment
 - id: maximize_rewards
@@ -206,9 +164,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - reinforcement-learning
-  - objective
   source_documents:
   - notes_credit_assignment
 - id: goal_directed_agents
@@ -217,8 +172,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - agency
   source_documents:
   - notes_credit_assignment
 - id: agent_environment_distinction
@@ -227,9 +180,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - agency
-  - foundational
   source_documents:
   - notes_credit_assignment
 - id: agentic_environment
@@ -239,8 +189,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - agency
   source_documents:
   - notes_credit_assignment
 - id: task_environment
@@ -250,9 +198,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - agency
-  - design
   source_documents:
   - notes_credit_assignment
   - notes_search
@@ -262,8 +207,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - learning
   source_documents:
   - notes_credit_assignment
 - id: superstitious_learning
@@ -273,9 +216,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - learning
-  - failure-mode
   source_documents:
   - notes_credit_assignment
   - notes_evolutionary_strategies
@@ -285,9 +225,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - organisational-learning
-  - dynamics
   source_documents:
   - notes_credit_assignment
   - notes_evolutionary_strategies
@@ -298,9 +235,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - credit-assignment
-  - complexity
   source_documents:
   - notes_credit_assignment
 - id: management_hypothesis
@@ -310,9 +244,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - organisational-learning
-  - theory
   source_documents:
   - notes_credit_assignment
 - id: society_of_mind_hypothesis
@@ -321,9 +252,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - theory
-  - cognitive-architecture
   source_documents:
   - notes_credit_assignment
   - notes_representation
@@ -334,9 +262,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - modelling
-  - assumption
   source_documents:
   - notes_credit_assignment
 - id: agent_specialization
@@ -346,9 +271,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - organisation
-  - design
   source_documents:
   - notes_credit_assignment
 - id: division_of_labor
@@ -357,9 +279,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - organisation
-  - economics
   source_documents:
   - notes_credit_assignment
   - notes_search
@@ -371,9 +290,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - learning
-  - organisation
   source_documents:
   - notes_credit_assignment
 - id: organizational_memory
@@ -382,9 +298,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - organisation
-  - memory
   source_documents:
   - notes_credit_assignment
 - id: organizational_programs
@@ -393,9 +306,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - organisation
-  - behaviour
   source_documents:
   - notes_credit_assignment
   - notes_search
@@ -405,9 +315,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - organisation
-  - management
   source_documents:
   - notes_credit_assignment
 - id: hierarchical_management
@@ -417,9 +324,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - organisation
-  - structure
   source_documents:
   - notes_credit_assignment
 - id: gains_to_specialization
@@ -429,9 +333,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - economics
-  - organisation
   source_documents:
   - notes_credit_assignment
   - notes_search
@@ -443,9 +344,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - philosophy
-  - problem
   source_documents:
   - notes_credit_assignment
 - id: learning
@@ -455,9 +353,6 @@ concepts:
 
     '
   module: 1
-  tags:
-  - foundational
-  - core
   source_documents:
   - notes_credit_assignment
   - notes_evolutionary_strategies
@@ -468,9 +363,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - foundational
-  - information-theory
   source_documents:
   - notes_information_processing
 - id: shannon_information
@@ -479,8 +371,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
   source_documents:
   - notes_information_processing
 - id: simon_information
@@ -490,9 +380,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - cognitive-science
   source_documents:
   - notes_information_processing
 - id: syntactic_information
@@ -502,8 +389,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
   source_documents:
   - notes_information_processing
 - id: semantic_information
@@ -512,9 +397,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - meaning
   source_documents:
   - notes_information_processing
 - id: shannon_entropy
@@ -524,9 +406,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - measure
   source_documents:
   - notes_information_processing
 - id: entropy
@@ -536,9 +415,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - physics
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -548,8 +424,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
   source_documents:
   - notes_information_processing
 - id: decoding
@@ -558,8 +432,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
   source_documents:
   - notes_information_processing
 - id: channel_capacity
@@ -569,8 +441,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
   source_documents:
   - notes_information_processing
 - id: bandwidth
@@ -579,9 +449,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - communication
   source_documents:
   - notes_information_processing
 - id: noise
@@ -590,9 +457,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - communication
   source_documents:
   - notes_information_processing
 - id: signal_to_noise_ratio
@@ -602,9 +466,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - measure
   source_documents:
   - notes_information_processing
 - id: compression
@@ -613,9 +474,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - algorithms
   source_documents:
   - notes_information_processing
 - id: statistical_redundancy_removal
@@ -624,9 +482,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - compression
   source_documents:
   - notes_information_processing
 - id: abstraction
@@ -635,9 +490,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - representation
-  - foundational
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -648,8 +500,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - representation
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -659,9 +509,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - representation
-  - computing
   source_documents:
   - notes_information_processing
 - id: bit
@@ -670,9 +517,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - unit
   source_documents:
   - notes_information_processing
 - id: bit_strings
@@ -681,9 +525,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - information-theory
-  - computing
   source_documents:
   - notes_information_processing
 - id: information_theory
@@ -693,9 +534,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - field
-  - information-theory
   source_documents:
   - notes_information_processing
 - id: information_processing
@@ -704,9 +542,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - computing
-  - cognitive-science
   source_documents:
   - notes_information_processing
 - id: internal_representations
@@ -715,9 +550,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - representation
-  - cognition
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -727,9 +559,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - representation
-  - cognition
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -739,9 +568,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - representation
-  - cognition
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -752,9 +578,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - theory
-  - cognitive-science
   source_documents:
   - notes_information_processing
   - notes_search
@@ -765,9 +588,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - theory
-  - philosophy
   source_documents:
   - notes_information_processing
 - id: symbol_manipulation
@@ -777,9 +597,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - computing
-  - cognitive-science
   source_documents:
   - notes_information_processing
   - notes_search
@@ -789,9 +606,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - complexity
-  - computing
   source_documents:
   - notes_information_processing
 - id: processing_capacity
@@ -800,9 +614,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - cognition
-  - computing
   source_documents:
   - notes_information_processing
 - id: processing_power
@@ -811,9 +622,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - computing
-  - hardware
   source_documents:
   - notes_information_processing
 - id: combinatorial_explosion
@@ -822,9 +630,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - complexity
-  - search
   source_documents:
   - notes_information_processing
   - notes_search
@@ -835,8 +640,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - complexity
   source_documents:
   - notes_information_processing
   - notes_search
@@ -846,9 +649,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - complexity
-  - machine-learning
   source_documents:
   - notes_information_processing
 - id: tacit_knowledge
@@ -858,9 +658,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - knowledge
-  - cognition
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -870,8 +667,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - knowledge
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -882,9 +677,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - knowledge
-  - ai-challenge
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -895,9 +687,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - modelling
-  - epistemology
   source_documents:
   - notes_information_processing
 - id: mechanization_of_thought
@@ -906,9 +695,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - history-of-ai
-  - philosophy
   source_documents:
   - notes_information_processing
 - id: turing_machine
@@ -918,9 +704,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - computing
-  - theory
   source_documents:
   - notes_information_processing
   - notes_search
@@ -930,9 +713,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - computing
-  - algorithm
   source_documents:
   - notes_information_processing
   - notes_search
@@ -942,9 +722,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - algorithm
-  - efficiency
   source_documents:
   - notes_information_processing
 - id: algorithm
@@ -954,9 +731,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - computing
-  - foundational
   source_documents:
   - notes_information_processing
   - notes_search
@@ -967,9 +741,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - cognition
-  - memory
   source_documents:
   - notes_information_processing
 - id: memory_management
@@ -978,9 +749,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - computing
-  - cognition
   source_documents:
   - notes_information_processing
 - id: iid_problems
@@ -990,9 +758,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - machine-learning
-  - problem-type
   source_documents:
   - notes_information_processing
 - id: ood_problems
@@ -1001,9 +766,6 @@ concepts:
 
     '
   module: 2
-  tags:
-  - machine-learning
-  - problem-type
   source_documents:
   - notes_information_processing
 - id: search
@@ -1013,9 +775,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - foundational
-  - algorithm
   source_documents:
   - notes_search
 - id: state_space
@@ -1025,9 +784,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - representation
   source_documents:
   - notes_search
 - id: search_space
@@ -1037,8 +793,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
   source_documents:
   - notes_search
 - id: initial_state
@@ -1047,8 +801,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
   source_documents:
   - notes_search
 - id: goal_state
@@ -1057,8 +809,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
   source_documents:
   - notes_search
 - id: intermediate_state
@@ -1067,8 +817,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
   source_documents:
   - notes_search
 - id: state
@@ -1077,9 +825,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - representation
   source_documents:
   - notes_search
 - id: state_transitions
@@ -1088,8 +833,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
   source_documents:
   - notes_search
 - id: operators
@@ -1099,8 +842,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
   source_documents:
   - notes_search
 - id: actions
@@ -1109,9 +850,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - agency
   source_documents:
   - notes_search
 - id: paths
@@ -1120,8 +858,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
   source_documents:
   - notes_search
 - id: search_tree
@@ -1130,9 +866,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - data-structure
   source_documents:
   - notes_search
 - id: branches
@@ -1141,8 +874,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
   source_documents:
   - notes_search
 - id: node
@@ -1151,9 +882,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - data-structure
   source_documents:
   - notes_search
 - id: uninformed_search
@@ -1163,9 +891,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - algorithm
   source_documents:
   - notes_search
 - id: breadth_first_search
@@ -1175,9 +900,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - algorithm
   source_documents:
   - notes_search
 - id: depth_first_search
@@ -1187,9 +909,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - algorithm
   source_documents:
   - notes_search
 - id: informed_search
@@ -1198,9 +917,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - algorithm
   source_documents:
   - notes_search
 - id: heuristics
@@ -1209,9 +925,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - cognitive-science
   source_documents:
   - notes_search
   - notes_evolutionary_strategies
@@ -1222,8 +935,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
   source_documents:
   - notes_search
 - id: hill_climbing
@@ -1233,10 +944,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - algorithm
-  - local-search
   source_documents:
   - notes_search
   - notes_evolutionary_strategies
@@ -1247,9 +954,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - algorithm
   source_documents:
   - notes_search
 - id: backtracking
@@ -1258,9 +962,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - algorithm
   source_documents:
   - notes_search
   - notes_krr
@@ -1270,9 +971,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - optimisation
   source_documents:
   - notes_search
 - id: brute_force
@@ -1282,9 +980,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - algorithm
   source_documents:
   - notes_information_processing
   - notes_search
@@ -1296,9 +991,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - csp
   source_documents:
   - notes_search
   - notes_krr
@@ -1309,9 +1001,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - game-theory
   source_documents:
   - notes_search
 - id: game_tree
@@ -1320,9 +1009,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - game-theory
   source_documents:
   - notes_search
 - id: von_neumann_search
@@ -1331,9 +1017,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - game-theory
   source_documents:
   - notes_search
 - id: simon_search
@@ -1343,9 +1026,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - bounded-rationality
   source_documents:
   - notes_search
 - id: means_ends_analysis
@@ -1355,10 +1035,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - planning
-  - algorithm
   source_documents:
   - notes_search
 - id: giant_strides
@@ -1368,9 +1044,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - efficiency
   source_documents:
   - notes_search
 - id: planning
@@ -1379,9 +1052,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - agency
   source_documents:
   - notes_search
 - id: subgoals
@@ -1390,9 +1060,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - planning
-  - decomposition
   source_documents:
   - notes_search
 - id: memory_of_action_sequences
@@ -1401,9 +1068,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - memory
-  - planning
   source_documents:
   - notes_search
 - id: global_optimum
@@ -1412,8 +1076,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - optimisation
   source_documents:
   - notes_search
   - notes_evolutionary_strategies
@@ -1423,9 +1085,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - optimisation
-  - local-search
   source_documents:
   - notes_search
   - notes_evolutionary_strategies
@@ -1436,9 +1095,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - optimisation
-  - search
   source_documents:
   - notes_search
   - notes_evolutionary_strategies
@@ -1449,9 +1105,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - failure-mode
   source_documents:
   - notes_search
   - notes_evolutionary_strategies
@@ -1462,9 +1115,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - decision-theory
-  - bounded-rationality
   source_documents:
   - notes_search
   - notes_evolutionary_strategies
@@ -1475,9 +1125,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - decision-theory
-  - bounded-rationality
   source_documents:
   - notes_search
   - notes_evolutionary_strategies
@@ -1487,9 +1134,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - objective
   source_documents:
   - notes_search
 - id: find_all_solutions_goal
@@ -1498,9 +1142,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - objective
   source_documents:
   - notes_search
 - id: find_best_solution_goal
@@ -1510,10 +1151,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - objective
-  - optimisation
   source_documents:
   - notes_search
 - id: optimization_goal
@@ -1522,9 +1159,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - objective
   source_documents:
   - notes_search
 - id: differences_current_vs_goal
@@ -1534,9 +1168,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - search
-  - planning
   source_documents:
   - notes_search
 - id: effectuation
@@ -1546,9 +1177,6 @@ concepts:
 
     '
   module: 3
-  tags:
-  - decision-theory
-  - planning
   source_documents:
   - notes_search
 - id: representation
@@ -1558,9 +1186,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - foundational
-  - cognition
   source_documents:
   - notes_representation
 - id: schema
@@ -1570,9 +1195,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - representation
-  - cognition
   source_documents:
   - notes_representation
   - notes_evolutionary_strategies
@@ -1583,8 +1205,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - representation
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -1595,9 +1215,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - representation
-  - cognition
   source_documents:
   - notes_representation
 - id: modularity
@@ -1607,9 +1224,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - design
-  - systems
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -1620,9 +1234,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - design
-  - systems
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -1633,9 +1244,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - design
-  - problem-solving
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -1646,9 +1254,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - design
-  - structure
   source_documents:
   - notes_information_processing
   - notes_representation
@@ -1660,9 +1265,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - krr
-  - representation
   source_documents:
   - notes_representation
   - notes_krr
@@ -1672,9 +1274,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - krr
-  - representation
   source_documents:
   - notes_representation
 - id: expert_systems
@@ -1684,9 +1283,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - ai-systems
-  - krr
   source_documents:
   - notes_search
   - notes_representation
@@ -1697,9 +1293,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - expert-systems
-  - problem
   source_documents:
   - notes_search
   - notes_representation
@@ -1709,9 +1302,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - expert-systems
-  - failure-mode
   source_documents:
   - notes_search
   - notes_representation
@@ -1722,9 +1312,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - machine-learning
-  - representation
   source_documents:
   - notes_representation
 - id: pattern_recognition
@@ -1733,9 +1320,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - machine-learning
-  - cognition
   source_documents:
   - notes_representation
 - id: pattern_matching
@@ -1744,9 +1328,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - algorithm
-  - representation
   source_documents:
   - notes_representation
 - id: gradient_descent
@@ -1755,9 +1336,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - optimisation
-  - machine-learning
   source_documents:
   - notes_representation
   - notes_evolutionary_strategies
@@ -1768,9 +1346,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - neural-networks
-  - algorithm
   source_documents:
   - notes_representation
 - id: autoencoders
@@ -1780,9 +1355,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - neural-networks
-  - representation-learning
   source_documents:
   - notes_representation
 - id: boltzmann_machines
@@ -1791,9 +1363,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - neural-networks
-  - probabilistic
   source_documents:
   - notes_representation
 - id: binary_variables_boltzmann
@@ -1802,8 +1371,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - boltzmann-machines
   source_documents:
   - notes_representation
 - id: weights_boltzmann
@@ -1813,8 +1380,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - boltzmann-machines
   source_documents:
   - notes_representation
 - id: entropy_minimization_boltzmann
@@ -1824,9 +1389,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - boltzmann-machines
-  - learning
   source_documents:
   - notes_representation
 - id: learning_rate
@@ -1835,9 +1397,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - machine-learning
-  - hyperparameter
   source_documents:
   - notes_representation
 - id: paradigms
@@ -1846,8 +1405,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - philosophy-of-science
   source_documents:
   - notes_representation
 - id: coherence
@@ -1856,9 +1413,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - representation
-  - epistemology
   source_documents:
   - notes_representation
 - id: abstraction_level
@@ -1868,8 +1422,6 @@ concepts:
 
     '
   module: 4
-  tags:
-  - representation
   source_documents:
   - notes_representation
 - id: krr
@@ -1879,9 +1431,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - field
-  - foundational
   source_documents:
   - notes_krr
 - id: csp
@@ -1890,9 +1439,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - problem-type
-  - krr
   source_documents:
   - notes_krr
 - id: variables
@@ -1901,8 +1447,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
   source_documents:
   - notes_krr
 - id: domain
@@ -1911,8 +1455,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
   source_documents:
   - notes_krr
 - id: hard_constraints
@@ -1921,8 +1463,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
   source_documents:
   - notes_krr
 - id: soft_constraints
@@ -1931,9 +1471,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
-  - optimisation
   source_documents:
   - notes_krr
 - id: unary_constraint
@@ -1942,8 +1479,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
   source_documents:
   - notes_krr
 - id: binary_constraint
@@ -1952,8 +1487,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
   source_documents:
   - notes_krr
 - id: higher_order_constraint
@@ -1962,8 +1495,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
   source_documents:
   - notes_krr
 - id: constraint_propagation
@@ -1972,9 +1503,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
-  - algorithm
   source_documents:
   - notes_representation
   - notes_krr
@@ -1985,9 +1513,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
-  - algorithm
   source_documents:
   - notes_krr
 - id: forward_checking
@@ -1997,9 +1522,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
-  - algorithm
   source_documents:
   - notes_krr
 - id: constraint_network
@@ -2008,9 +1530,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
-  - representation
   source_documents:
   - notes_krr
 - id: complete_assignment
@@ -2019,8 +1538,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
   source_documents:
   - notes_krr
 - id: partial_assignment
@@ -2029,9 +1546,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
-  - search
   source_documents:
   - notes_krr
 - id: consistent_assignment
@@ -2040,8 +1554,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
   source_documents:
   - notes_krr
 - id: solution
@@ -2050,9 +1562,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
-  - goal
   source_documents:
   - notes_krr
 - id: costs_soft_violation
@@ -2061,9 +1570,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - csp
-  - optimisation
   source_documents:
   - notes_krr
 - id: cost_function
@@ -2072,8 +1578,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - optimisation
   source_documents:
   - notes_krr
 - id: bayesian_networks
@@ -2083,9 +1587,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - probabilistic
-  - krr
   source_documents:
   - notes_representation
   - notes_krr
@@ -2095,9 +1596,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - probabilistic
-  - reasoning
   source_documents:
   - notes_representation
   - notes_krr
@@ -2107,8 +1605,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - probability
   source_documents:
   - notes_representation
   - notes_krr
@@ -2118,9 +1614,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - probability
-  - foundational
   source_documents:
   - notes_representation
   - notes_krr
@@ -2131,9 +1624,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - probability
-  - agency
   source_documents:
   - notes_krr
 - id: random_variables
@@ -2142,8 +1632,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - probability
   source_documents:
   - notes_krr
 - id: probability_distribution
@@ -2152,8 +1640,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - probability
   source_documents:
   - notes_information_processing
   - notes_krr
@@ -2164,9 +1650,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - probability
-  - statistics
   source_documents:
   - notes_information_processing
   - notes_krr
@@ -2177,9 +1660,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - graph-theory
-  - representation
   source_documents:
   - notes_krr
 - id: parent_variable
@@ -2189,8 +1669,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - bayesian-networks
   source_documents:
   - notes_krr
 - id: child_variable
@@ -2199,8 +1677,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - bayesian-networks
   source_documents:
   - notes_krr
 - id: possible_worlds
@@ -2209,9 +1685,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - logic
-  - probability
   source_documents:
   - notes_krr
 - id: relations_possible_worlds
@@ -2221,8 +1694,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - logic
   source_documents:
   - notes_krr
 - id: propagator_model
@@ -2232,9 +1703,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - computation
-  - krr
   source_documents:
   - notes_krr
 - id: propagation
@@ -2244,9 +1712,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - algorithm
-  - krr
   source_documents:
   - notes_krr
 - id: objects_propagator
@@ -2256,8 +1721,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - propagator-model
   source_documents:
   - notes_krr
 - id: relational_databases
@@ -2266,9 +1729,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - databases
-  - representation
   source_documents:
   - notes_representation
   - notes_krr
@@ -2278,8 +1738,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - databases
   source_documents:
   - notes_krr
 - id: tuples
@@ -2288,8 +1746,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - databases
   source_documents:
   - notes_krr
 - id: lists
@@ -2298,8 +1754,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - data-structures
   source_documents:
   - notes_information_processing
   - notes_krr
@@ -2310,9 +1764,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - propagator-model
-  - representation
   source_documents:
   - notes_krr
 - id: decision_models
@@ -2321,8 +1772,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - decision-theory
   source_documents:
   - notes_krr
 - id: mental_models
@@ -2332,9 +1781,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - cognition
-  - representation
   source_documents:
   - notes_krr
 - id: iid_vs_ood_problems
@@ -2344,9 +1790,6 @@ concepts:
 
     '
   module: 5
-  tags:
-  - machine-learning
-  - problem-type
   source_documents:
   - notes_information_processing
   - notes_krr
@@ -2357,9 +1800,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - optimisation
-  - algorithm
   source_documents:
   - notes_evolutionary_strategies
 - id: evolutionary_operators
@@ -2368,8 +1808,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
   source_documents:
   - notes_evolutionary_strategies
 - id: genetic_algorithms
@@ -2379,9 +1817,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - optimisation
-  - algorithm
   source_documents:
   - notes_evolutionary_strategies
 - id: fitness
@@ -2391,8 +1826,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
   source_documents:
   - notes_evolutionary_strategies
 - id: fitness_function
@@ -2401,8 +1834,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
   source_documents:
   - notes_evolutionary_strategies
 - id: fitness_measure
@@ -2411,8 +1842,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
   source_documents:
   - notes_evolutionary_strategies
 - id: selection
@@ -2421,9 +1850,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - operator
   source_documents:
   - notes_evolutionary_strategies
 - id: crossover
@@ -2432,9 +1858,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - operator
   source_documents:
   - notes_evolutionary_strategies
 - id: mutation
@@ -2444,9 +1867,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - operator
   source_documents:
   - notes_evolutionary_strategies
 - id: chromosome
@@ -2455,9 +1875,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - representation
   source_documents:
   - notes_evolutionary_strategies
 - id: genotype
@@ -2466,9 +1883,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - biology
   source_documents:
   - notes_evolutionary_strategies
 - id: genes
@@ -2477,8 +1891,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
   source_documents:
   - notes_evolutionary_strategies
 - id: alleles
@@ -2487,9 +1899,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - biology
   source_documents:
   - notes_evolutionary_strategies
 - id: gene_allele
@@ -2498,8 +1907,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
   source_documents:
   - notes_evolutionary_strategies
 - id: genetic_sequences
@@ -2508,8 +1915,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
   source_documents:
   - notes_evolutionary_strategies
 - id: schema_genetic
@@ -2519,9 +1924,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - theory
   source_documents:
   - notes_evolutionary_strategies
 - id: building_blocks
@@ -2531,9 +1933,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - theory
   source_documents:
   - notes_evolutionary_strategies
 - id: implicit_parallelism
@@ -2542,9 +1941,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - efficiency
   source_documents:
   - notes_evolutionary_strategies
 - id: natural_selection
@@ -2553,9 +1949,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - biology
-  - evolution
   source_documents:
   - notes_evolutionary_strategies
 - id: artificial_selection
@@ -2564,9 +1957,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - biology
-  - evolution
   source_documents:
   - notes_evolutionary_strategies
 - id: population_of_chromosomes
@@ -2575,8 +1965,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
   source_documents:
   - notes_evolutionary_strategies
 - id: population_level_learning
@@ -2585,9 +1973,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - learning
   source_documents:
   - notes_evolutionary_strategies
 - id: exploration_exploitation_tradeoff
@@ -2597,10 +1982,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - foundational
-  - optimisation
-  - learning
   source_documents:
   - notes_credit_assignment
   - notes_search
@@ -2611,9 +1992,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - optimisation
-  - learning
   source_documents:
   - notes_credit_assignment
   - notes_search
@@ -2624,9 +2002,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - optimisation
-  - learning
   source_documents:
   - notes_credit_assignment
   - notes_search
@@ -2637,9 +2012,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - optimisation
-  - metaphor
   source_documents:
   - notes_evolutionary_strategies
 - id: rugged_landscape
@@ -2648,9 +2020,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - optimisation
-  - landscape
   source_documents:
   - notes_evolutionary_strategies
 - id: single_peaked_landscape
@@ -2659,9 +2028,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - optimisation
-  - landscape
   source_documents:
   - notes_evolutionary_strategies
 - id: mesa_landscape
@@ -2670,9 +2036,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - optimisation
-  - landscape
   source_documents:
   - notes_evolutionary_strategies
 - id: mesa_topology
@@ -2682,9 +2045,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - optimisation
-  - landscape
   source_documents:
   - notes_evolutionary_strategies
 - id: smoothing_topology
@@ -2694,9 +2054,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - optimisation
-  - landscape
   source_documents:
   - notes_evolutionary_strategies
 - id: long_jumping
@@ -2706,9 +2063,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - search
   source_documents:
   - notes_evolutionary_strategies
 - id: watchmaker_parable
@@ -2718,9 +2072,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - metaphor
-  - evolution
   source_documents:
   - notes_evolutionary_strategies
   - notes_search
@@ -2731,9 +2082,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - vsr
   source_documents:
   - notes_evolutionary_strategies
 - id: retention
@@ -2742,9 +2090,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - vsr
   source_documents:
   - notes_evolutionary_strategies
 - id: vsr
@@ -2754,9 +2099,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - framework
   source_documents:
   - notes_evolutionary_strategies
 - id: adaptation
@@ -2766,9 +2108,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolution
-  - learning
   source_documents:
   - notes_evolutionary_strategies
 - id: novel_configurations
@@ -2777,8 +2116,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
   source_documents:
   - notes_evolutionary_strategies
 - id: modifications
@@ -2787,8 +2124,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
   source_documents:
   - notes_evolutionary_strategies
 - id: mendelian_approach
@@ -2798,9 +2133,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - biology
-  - genetics
   source_documents:
   - notes_evolutionary_strategies
 - id: sparse_learning
@@ -2809,9 +2141,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - learning
-  - difficulty
   source_documents:
   - notes_evolutionary_strategies
 - id: spatial_interdependence
@@ -2821,9 +2150,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - evolutionary-algorithms
-  - complexity
   source_documents:
   - notes_evolutionary_strategies
 - id: market_mechanism
@@ -2832,9 +2158,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - economics
-  - selection
   source_documents:
   - notes_evolutionary_strategies
 - id: cumulative_expected_value
@@ -2844,9 +2167,6 @@ concepts:
 
     '
   module: 6
-  tags:
-  - decision-theory
-  - optimisation
   source_documents:
   - notes_evolutionary_strategies
 people_and_institutions:

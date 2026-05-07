@@ -166,3 +166,5 @@ Before finishing any update session, verify:
 - Do not add a node ID that is a near-duplicate of an existing one (check before adding).
 - Do not read all documents first and then batch-write relations. Process one document, write, then move to the next.
 - Do not modify `visualize.py` during an ontology update session.
+- Do not write YAML files programmatically using `cat` heredocs or shell redirects. Use the Edit/Write tools to modify YAML files directly — this is safer, avoids escaping issues, and produces clean diffs.
+- Do not query or inspect the SQLite database by writing inline Python scripts. Use the `sqlite-utils` CLI instead (e.g. `sqlite-utils query ontology.db "SELECT ..." --table`).

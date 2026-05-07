@@ -9,9 +9,9 @@ Relation types are not predefined — they come from a shared vocabulary in
 
 ## Step 0 — Load the relation-type vocabulary
 
-Read `knowledge-base/relation-schema.yaml`. This is the evolving list of relation types coined
-across all previously processed documents. Internalise every entry: its name, description, and
-direction. You will match new relations against this vocabulary before inventing anything new.
+Read `knowledge-base/relation-schema.yaml` directly. Internalise every entry: its name,
+description, and direction. You will match new relations against this vocabulary before
+inventing anything new.
 
 If the file has no entries yet (first document), you will build the initial vocabulary from scratch.
 
@@ -19,9 +19,11 @@ If the file has no entries yet (first document), you will build the initial voca
 
 ## Step 1 — Orient yourself in the existing graph
 
-Query the database using `sqlite-utils` CLI to understand what's already there before writing anything.
+Read `knowledge-base/nodes.yaml` directly to see what nodes exist — no script needed.
+Grep or skim for the `doc_id` you are working on to identify which nodes belong to this document.
 
-**Get all nodes introduced by this document:**
+For queries that require a JOIN (e.g., "all nodes with this source document"), use `sqlite-utils`:
+
 ```bash
 sqlite-utils query ontology.db "
 SELECT n.id, n.label, n.node_type
@@ -32,21 +34,14 @@ ORDER BY n.node_type, n.label
 " --table
 ```
 
-**Check whether a relation already exists (avoid duplicates):**
+**Check whether a relation already exists (avoid duplicates)** — read `relations.yaml` directly
+and search for the pair, or use `sqlite-utils` for precision:
+
 ```bash
 sqlite-utils query ontology.db "
 SELECT rel_type, note FROM relations
 WHERE (source_id = 'a' AND target_id = 'b')
    OR (source_id = 'b' AND target_id = 'a')
-" --table
-```
-
-**Get all existing relations for a node:**
-```bash
-sqlite-utils query ontology.db "
-SELECT rel_type, source_id, target_id
-FROM relations
-WHERE source_id = 'node_id' OR target_id = 'node_id'
 " --table
 ```
 
@@ -94,15 +89,15 @@ Only refactor when the improvement is clear. Don't rename types just for style.
 
 ## Step 4 — Verify node IDs
 
-Before writing any relation, confirm both `source` and `target` are real node IDs:
+Read `knowledge-base/nodes.yaml` directly and confirm both `source` and `target` IDs exist
+before writing any relation. If you need to check many IDs at once, grep for them:
 
 ```bash
-sqlite-utils query ontology.db "SELECT id FROM nodes WHERE id IN ('source_id_1','target_id_1','source_id_2','target_id_2')"
+grep -E "^- id: (id1|id2|id3)$" knowledge-base/nodes.yaml
 ```
 
-Any ID that appears in your candidate list but not in the query result is missing — fix the
-spelling or add the node in `knowledge-base/nodes.yaml` first (then rebuild the DB) before
-writing the relation.
+Any ID not found is missing — fix the spelling or add the node in `knowledge-base/nodes.yaml`
+first (then rebuild the DB with `uv run python scripts/build_db.py`) before writing the relation.
 
 ---
 
@@ -157,20 +152,14 @@ uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/relations.yam
 uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/relation-schema.yaml'))" && echo "schema OK"
 
 # Referential integrity — every source/target must exist as a node
-uv run python -c "
-import yaml, sys
-nodes = yaml.safe_load(open('knowledge-base/nodes.yaml'))
-ids = {e['id'] for section in ['concepts','people_and_institutions','examples_and_metaphors']
-       for e in nodes.get(section, [])}
-rels = yaml.safe_load(open('knowledge-base/relations.yaml'))
-bad = [(r['source'], r['target'], r['type']) for r in rels.get('relations', [])
-       if r.get('source') not in ids or r.get('target') not in ids]
-if bad:
-    for b in bad: print('BROKEN:', b)
-    sys.exit(1)
-else:
-    print(f'All {len(rels[\"relations\"])} relations valid')
-"
+# (no rows = all refs valid; any rows = broken references that must be fixed)
+sqlite-utils query ontology.db "
+  SELECT r.source_id, r.target_id, r.rel_type
+  FROM relations r
+  LEFT JOIN nodes ns ON ns.id = r.source_id
+  LEFT JOIN nodes nt ON nt.id = r.target_id
+  WHERE ns.id IS NULL OR nt.id IS NULL
+" --table
 ```
 
 Fix any errors before returning control to the parent skill.

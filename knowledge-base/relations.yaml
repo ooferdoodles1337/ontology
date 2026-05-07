@@ -1596,3 +1596,380 @@ relations:
     quote: >
       "a schema for representing a problem is analogized to a 'chromosome'."
 
+
+  # =========================================================
+  # Knowledge Representation and Reasoning (KRR)
+  # Source: Course Notes — Knowledge Representation and Reasoning - FAB Spring 2026.pdf
+  # =========================================================
+
+  # --- IS-A ---
+  - type: IS-A
+    source: krr
+    target: credit_assignment
+    note: >
+      KRR is framed in the document as a distinct approach to the general credit-assignment
+      problem: instead of search or reinforcement, it assigns credit by reasoning about
+      knowledge of phenomena across situations.
+    quote: >
+      "KRR instead is based on an epistemological approach, in which the assumption is
+      that we have to get to know problems before even considering how to search for
+      solutions to them."
+
+  - type: IS-A
+    source: epistemological_approach
+    target: krr
+    note: >
+      The epistemological approach is the defining methodological stance of KRR: know the
+      problem first, then reason about how to solve it.
+    quote: >
+      "KRR instead is based on an epistemological approach, in which the assumption is
+      that we have to get to know problems before even considering how to search for
+      solutions to them."
+
+  - type: IS-A
+    source: mathematical_logic_approach
+    target: krr
+    note: >
+      The mathematical logic approach is one of two main approaches to KRR studied in
+      the document, using explicit logical representations and reasoning procedures.
+    quote: >
+      "Another approach, pioneered by John McCarthy himself, is based on mathematical logic."
+
+  - type: IS-A
+    source: deep_learning_krr
+    target: krr
+    note: >
+      The deep learning approach is the other main KRR approach, representing knowledge
+      as statistical patterns in bit strings extracted from large-scale data.
+    quote: >
+      "The currently-popular approach to knowledge representation and reasoning (KRR) is
+      based on deep learning."
+
+  - type: IS-A
+    source: chain_of_thought
+    target: heuristics
+    note: >
+      Chain-of-thought is described as a heuristic strategy for prompting LLMs to reason;
+      it is not a formal reasoning procedure but an educated guess about how to elicit
+      reasoning behaviour.
+    quote: >
+      "AI systems in a mathematical logic approach also use explicit reasoning procedures
+      (rather than heuristic strategies such as 'chain-of-thought')."
+
+  - type: IS-A
+    source: logical_entailment
+    target: implicit_knowledge
+    note: >
+      Logical entailment is the mechanism by which implicit knowledge is derived: the
+      connection between two facts that yields a new fact without it ever being explicitly stated.
+    quote: >
+      "The connection between these two facts is called a logical entailment. This entailment
+      was implicit in your commonsense knowledge."
+
+  # --- PART-OF ---
+  - type: PART-OF
+    source: knowledge_base
+    target: krr
+    note: >
+      The knowledge base is one of the two structural components of a KRR system, storing
+      representations of knowledge about phenomena.
+    quote: >
+      "augment constraints with representations of knowledge, or what is often called in AI
+      a knowledge base."
+
+  - type: PART-OF
+    source: inference_engine
+    target: krr
+    note: >
+      The inference engine is the second structural component of a KRR system, providing
+      the reasoning strategies that operate over the knowledge base.
+    quote: >
+      "augment basic ways of evaluating constraints with more complex reasoning strategies,
+      or what is often called in AI an inference engine."
+
+  - type: PART-OF
+    source: commonsense_knowledge
+    target: krr
+    note: >
+      Commonsense knowledge is the foundational content requirement of any KRR system;
+      McCarthy argued it is a prerequisite for representing and reasoning about any specific
+      problem.
+    quote: >
+      "the ability of an AI system or organization to represent and reason about knowledge
+      about any particular problem depends on (indeed, presupposes) a base of commonsense
+      knowledge and reasoning."
+
+  - type: PART-OF
+    source: commonsense_reasoning
+    target: krr
+    note: >
+      Commonsense reasoning is the reasoning capability required alongside commonsense
+      knowledge for a general-purpose KRR system to work.
+    quote: >
+      "McCarthy's overall point of view was that an intelligent AI system or organization
+      is one that has common sense, defined as a general capacity to represent and reason
+      about knowledge across situations."
+
+  - type: PART-OF
+    source: default_reasoning
+    target: elaboration_tolerance
+    note: >
+      Default reasoning is a necessary mechanism for elaboration tolerance: by reasoning
+      from defaults and revising only on new evidence, an agent limits how much knowledge
+      must be updated for each elaboration.
+    quote: >
+      "elaborating our commonsense knowledge efficiently requires doing so on the basis of
+      some default assumptions."
+
+  - type: PART-OF
+    source: expressiveness
+    target: elaboration_tolerance
+    note: >
+      An expressive formal language is required for elaboration tolerance so that all
+      necessary operations on the knowledge repository can be expressed precisely.
+    quote: >
+      "we call such a language as having adequate expressiveness — essentially, being able
+      to express any operators you need to reason about and modify the representations of
+      knowledge as situations change."
+
+  # --- ATTRIBUTED-TO ---
+  - type: ATTRIBUTED-TO
+    source: advice_taker
+    target: john_mccarthy
+    note: >
+      McCarthy proposed the Advice Taker in 1959 as his vision of a KRR-based AI system
+      that learns from natural-language advice and reasons about knowledge declaratively.
+    quote: >
+      "In 1959, McCarthy outlined a vision of the possibilities for KRR in terms of a
+      hypothetical AI system that he called the 'advice taker'."
+
+  - type: ATTRIBUTED-TO
+    source: frame_problem
+    target: john_mccarthy
+    note: >
+      McCarthy identified the frame problem in 1969 as the fundamental credit-assignment
+      challenge in KRR.
+    quote: >
+      "A decade of research later, in 1969, he outlined what he had found to be the
+      fundamental credit assignment challenge in KRR that he called the 'frame problem'."
+
+  - type: ATTRIBUTED-TO
+    source: krr
+    target: john_mccarthy
+    note: >
+      John McCarthy pioneered KRR in AI, proposing the epistemological stance, the Advice
+      Taker, and the formal logic approach.
+    quote: >
+      "Our guiding light for exploring KRR will be mathematician John McCarthy…who
+      pioneered KRR ideas in AI."
+
+  - type: ATTRIBUTED-TO
+    source: elaboration_tolerance
+    target: john_mccarthy
+    note: >
+      McCarthy coined and formalised the concept of elaboration tolerance as the key
+      quality required of an intelligent KRR system.
+    quote: >
+      "He called such a quality of an intelligent system to 'take out the trash' efficiently
+      as its elaboration tolerance."
+
+  # --- CONTRASTS-WITH ---
+  - type: CONTRASTS-WITH
+    source: mathematical_logic_approach
+    target: deep_learning_krr
+    note: >
+      The mathematical logic approach uses explicit, declarative representations and formal
+      reasoning; the deep learning approach uses statistical patterns and emergent reasoning —
+      the two paradigmatically-different approaches to KRR examined in the document.
+    quote: >
+      "One approach…derives from the idea of Boltzmann machines… Another approach…
+      derives from McCarthy himself and views knowledge representations as emerging
+      from patterns in lists."
+
+  - type: CONTRASTS-WITH
+    source: declarative_knowledge
+    target: procedural_knowledge
+    note: >
+      Declarative knowledge (stand-alone facts and concepts) is contrasted with procedural
+      knowledge (step-by-step algorithms); McCarthy argued declarative representations
+      are more efficient for commonsense KRR.
+    quote: >
+      "McCarthy proposed that this efficiency…depends on representing explicit knowledge
+      in AI systems or organizations declaratively…rather than procedurally."
+
+  - type: CONTRASTS-WITH
+    source: explicit_knowledge
+    target: implicit_knowledge
+    note: >
+      Explicit knowledge is stored directly; implicit knowledge is derivable from explicit
+      knowledge via logical entailment. McCarthy's insight was that explicit commonsense
+      representations yield vast implicit knowledge efficiently.
+    quote: >
+      "If most commonsense knowledge is implicit, then we can represent it efficiently by
+      representing a still vast, yet much smaller amount of explicit knowledge."
+
+  - type: CONTRASTS-WITH
+    source: epistemological_approach
+    target: heuristics
+    note: >
+      KRR's epistemological approach requires knowing what a problem is before solving it,
+      contrasted with heuristic search which assumes the problem is already given.
+    quote: >
+      "In this heuristic approach, it was assumed that we already knew the problem: the search
+      tree was given… KRR instead is based on an epistemological approach."
+
+  # --- ADDRESSES ---
+  - type: ADDRESSES
+    source: advice_taker
+    target: frame_problem
+    note: >
+      The Advice Taker is McCarthy's proposed AI system that would need elaboration
+      tolerance and commonsense knowledge to address the frame problem.
+    quote: >
+      "McCarthy's proposed AI system can be summarized as having the following
+      characteristics: (1) The Advice Taker easily learns new representations just by you
+      telling it facts about the situation."
+
+  - type: ADDRESSES
+    source: elaboration_tolerance
+    target: frame_problem
+    note: >
+      Elaboration tolerance is McCarthy's proposed criterion for addressing the frame
+      problem: a system that can efficiently update its knowledge as situations unfold
+      handles the combinatorial complexity of tracking relevant vs irrelevant facts.
+    quote: >
+      "having common sense knowledge requires having some automatic way of 'taking out
+      the trash' in the repository after each elaboration of it."
+
+  - type: ADDRESSES
+    source: mathematical_logic_approach
+    target: frame_problem
+    note: >
+      The mathematical logic approach directly addresses the frame problem by formally
+      specifying what changes and what stays the same across situations.
+    quote: >
+      "They directly address issues like the frame problem by trying to formally specify
+      what changes and what stays the same across situations."
+
+  - type: ADDRESSES
+    source: declarative_knowledge
+    target: commonsense_knowledge
+    note: >
+      Representing knowledge declaratively is McCarthy's proposed strategy for efficiently
+      capturing vast commonsense knowledge, because facts can be reused across many
+      situations unlike procedural code.
+    quote: >
+      "The reason is that facts can be implicitly derived across many more situations than
+      sequential procedures."
+
+  # --- CAUSES ---
+  - type: CAUSES
+    source: frame_problem
+    target: elaboration
+    note: >
+      The frame problem means that every action in the world triggers a need for novel
+      elaboration of the knowledge base — an agent must know what changed and what did not.
+    quote: >
+      "each action in the world, or interaction (query, prompt, etc.) results in a need for
+      novel elaboration of the knowledge bases or databases of an AI system."
+
+  - type: CAUSES
+    source: logical_entailment
+    target: implicit_knowledge
+    note: >
+      Logical entailment is the mechanism that causes implicit knowledge to exist: facts
+      entail further facts that were never explicitly stated but are derivable.
+    quote: >
+      "The connection between these two facts is called a logical entailment. This entailment
+      was implicit in your commonsense knowledge."
+
+  # --- COMPLICATES ---
+  - type: COMPLICATES
+    source: frame_problem
+    target: credit_assignment
+    note: >
+      The frame problem vastly complicates credit assignment: an AI system must know not
+      just which actions are relevant, but also the entire set of facts that remain unchanged,
+      expanding the knowledge requirement combinatorially.
+    quote: >
+      "Such a system would need to assign credit to the events and actions of the entire
+      universe and do so dynamically as situations unfold frame-by-frame."
+
+  - type: COMPLICATES
+    source: speech_acts
+    target: commonsense_knowledge
+    note: >
+      Speech acts require goal-oriented contextual interpretation that commonsense
+      knowledge alone cannot provide — they introduce pragmatic complexity beyond
+      general world knowledge.
+    quote: >
+      "knowledge for interpreting what is said or written cannot be handled by general
+      common sense alone — it requires knowledge of the pragmatic (i.e., goal-oriented)
+      context of the organization."
+
+  # --- REQUIRES ---
+  - type: REQUIRES
+    source: krr
+    target: commonsense_knowledge
+    note: >
+      A KRR system requires commonsense knowledge as its foundational content: without it,
+      reasoning about any specific problem presupposes knowledge the system does not have.
+    quote: >
+      "McCarthy proposed that such an 'Advice Taker' AI system could be generally
+      intelligent when it is provided with (1) enough knowledge…to represent any problem
+      in the world."
+
+  - type: REQUIRES
+    source: elaboration_tolerance
+    target: declarative_knowledge
+    note: >
+      Elaboration tolerance requires knowledge to be represented declaratively, because
+      declarative facts can be added, modified, or removed without cascading side effects
+      through procedural code.
+    quote: >
+      "A clear advantage is that this formalization means that it is always possible to
+      reason precisely about how any conclusions are reached, and to modify knowledge
+      in a principled fashion."
+
+  # --- INSTANCE-OF ---
+  - type: INSTANCE-OF
+    source: chain_of_thought
+    target: commonsense_reasoning
+    note: >
+      Chain-of-thought is described as a heuristic approximation of commonsense reasoning
+      that emerges from training LLMs on large data; proponents treat it as an "emergent"
+      form of the reasoning McCarthy sought.
+    quote: >
+      "The surprisingly powerful results of this and other strategies has led proponents of
+      the deep learning approach to think of commonsense reasoning as an 'emergent ability'."
+
+  - type: INSTANCE-OF
+    source: retrieval_augmented_generation
+    target: context_engineering
+    note: >
+      RAG is a specific technique within the broader context engineering paradigm, enabling
+      LLMs to pull in relevant external knowledge at inference time.
+    quote: >
+      "Techniques such as retrieval-augmented generation (RAG) enable systems to
+      incorporate information from external repositories."
+
+  - type: INSTANCE-OF
+    source: ontology
+    target: knowledge_base
+    note: >
+      An ontology is a specific form of knowledge base used in the mathematical logic
+      approach, formally categorising phenomena into objects and their relationships.
+    quote: >
+      "AI systems in this approach construct rich conceptual structures, such as formal
+      databases and ontologies — categorizations of phenomena into objects."
+
+  - type: INSTANCE-OF
+    source: palantir
+    target: mathematical_logic_approach
+    note: >
+      Palantir is cited as a recent commercial example of the mathematical logic approach,
+      building vast ontologies of real-world entities and relationships for client organisations.
+    quote: >
+      "the software platform Palantir builds vast ontologies that structure data for specific
+      client organizations in terms of real-world 'entities'…and their relationships."
+

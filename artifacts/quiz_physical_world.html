@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reasoning about the Physical World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #141210;
+    --surface: #1e1b18;
+    --surface2: #262320;
+    --border: #3a3530;
+    --text: #e2d9cc;
+    --text-muted: #8a8078;
+    --accent: #c9954a;
+    --accent-dim: rgba(201,149,74,0.12);
+    --correct: #4a7c59;
+    --correct-bg: rgba(74,124,89,0.15);
+    --wrong: #8b4040;
+    --wrong-bg: rgba(139,64,64,0.15);
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px 80px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 680px;
+  }
+
+  header { text-align: center; margin-bottom: 48px; }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .meta { font-size: 14px; color: var(--text-muted); font-style: italic; }
+
+  .progress-wrap { margin-bottom: 36px; }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .progress-track { height: 2px; background: var(--border); border-radius: 1px; overflow: hidden; }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 1px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 0%;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    margin-bottom: 20px;
+    animation: fadeUp 0.35s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .q-number {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .q-text { font-size: 18px; line-height: 1.6; color: var(--text); margin-bottom: 28px; }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s, transform 0.1s;
+    text-align: left;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.5;
+    width: 100%;
+  }
+
+  .opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-dim); transform: translateX(3px); }
+
+  .opt-letter {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    color: var(--text-muted);
+    transition: background 0.18s, color 0.18s;
+    margin-top: 1px;
+  }
+
+  .opt.correct { border-color: var(--correct); background: var(--correct-bg); }
+  .opt.correct .opt-letter { background: var(--correct); color: #fff; }
+  .opt.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+  .opt.wrong .opt-letter { background: var(--wrong); color: #fff; }
+  .opt.dim { opacity: 0.38; }
+
+  .explanation {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: var(--accent-dim);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.6;
+    display: none;
+    animation: fadeUp 0.25s ease both;
+  }
+
+  .explanation.show { display: block; }
+
+  .btn-next {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    color: var(--accent);
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    display: none;
+  }
+
+  .btn-next:hover { background: var(--accent); color: var(--bg); }
+  .btn-next.show { display: block; }
+
+  #score-screen { display: none; text-align: center; animation: fadeUp 0.4s ease both; }
+  #score-screen.show { display: block; }
+  #quiz-area.hidden { display: none; }
+
+  .score-ring { width: 140px; height: 140px; margin: 0 auto 28px; position: relative; }
+  .score-ring svg { transform: rotate(-90deg); }
+  .score-ring circle { fill: none; stroke-width: 8; stroke-linecap: round; }
+  .score-ring .track { stroke: var(--border); }
+  .score-ring .fill { stroke: var(--accent); transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s; }
+
+  .score-num { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-big { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .score-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
+
+  .score-verdict { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 10px; }
+  .score-sub { font-size: 15px; color: var(--text-muted); font-style: italic; margin-bottom: 36px; }
+
+  .btn-restart {
+    padding: 13px 32px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    color: var(--bg);
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.18s;
+  }
+
+  .btn-restart:hover { opacity: 0.85; }
+
+  @media (max-width: 520px) {
+    .card { padding: 24px 20px; }
+    .q-text { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="eyebrow">FAB 2026 — Study Quiz</div>
+    <h1>Reasoning about the Physical World</h1>
+    <p class="meta">10 questions · shuffled each attempt</p>
+  </header>
+
+  <div id="quiz-area">
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="prog-text">Question 1 of 10</span>
+        <span id="prog-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="prog-bar"></div></div>
+    </div>
+
+    <div class="card" id="q-card">
+      <div class="q-number" id="q-num">Question 1</div>
+      <div class="q-text" id="q-text"></div>
+      <div class="options" id="opts"></div>
+      <div class="explanation" id="expl"></div>
+    </div>
+
+    <button class="btn-next" id="btn-next">Continue →</button>
+  </div>
+
+  <div id="score-screen">
+    <div class="score-ring">
+      <svg viewBox="0 0 120 120" width="140" height="140">
+        <circle class="track" cx="60" cy="60" r="54"/>
+        <circle class="fill" id="ring-fill" cx="60" cy="60" r="54"/>
+      </svg>
+      <div class="score-num">
+        <div class="score-big" id="score-big">0</div>
+        <div class="score-label">correct</div>
+      </div>
+    </div>
+    <div class="score-verdict" id="score-verdict"></div>
+    <div class="score-sub" id="score-sub"></div>
+    <button class="btn-restart" onclick="restart()">Try Again</button>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    q: "Session 8 reframes intelligence as the ability to do what with representations of the physical world?",
+    opts: [
+      "Search through predefined state spaces using heuristics",
+      "Detect and resolve discrepancies — i.e., to 'debug' them",
+      "Improvise sensorimotor responses to environmental stimuli",
+      "Train neural networks on large labelled datasets"
+    ],
+    ans: 1,
+    expl: "Session 8 defines intelligence (credit assignment) as the ability to 'debug' representations — detecting and resolving bugs (discrepancies) between a representation and the physical world. This extends generate-and-test with representation modification."
+  },
+  {
+    q: "What distinguishes troubleshooting from theory formation as debugging strategies?",
+    opts: [
+      "Troubleshooting assumes the representation is correct and fixes the physical system; theory formation assumes the system is correct and repairs the representation",
+      "Troubleshooting uses qualitative reasoning; theory formation uses quantitative reasoning",
+      "Troubleshooting generates candidate solutions; theory formation tests them",
+      "Troubleshooting applies to hardware; theory formation applies to software"
+    ],
+    ans: 0,
+    expl: "The course defines two complementary strategies: troubleshooting (correct representation → find faults in the system) and theory formation (correct system → construct or repair the representation). ICB repair is troubleshooting; drafting a new schematic is theory formation."
+  },
+  {
+    q: "Who coined the term 'envisioning' and developed confluences as qualitative constraints?",
+    opts: [
+      "Gerald Sussman",
+      "John McCarthy",
+      "Ken Forbus",
+      "Johan de Kleer"
+    ],
+    ans: 3,
+    expl: "De Kleer coined 'envisioning' — running a qualitative simulation in the mind's eye — and introduced 'confluences' as the qualitative constraint form that represents mutual influences between variables according to domain first principles."
+  },
+  {
+    q: "In the MIT tradition, what are 'confluences'?",
+    opts: [
+      "Discrete, precise constraints like those used in Sudoku",
+      "Nodes in a dependency network that store tentative assumptions",
+      "Qualitative constraints representing mutual causal influences between variables in a physical system",
+      "Justification links labelled 'in' or 'out' inside a truth maintenance system"
+    ],
+    ans: 2,
+    expl: "Confluences are de Kleer's term for qualitative constraints in which variables mutually influence one another according to domain first principles. Unlike CSP constraints (discrete, precise), confluences capture the continuous, messy interdependencies of real physical systems."
+  },
+  {
+    q: "What does the dependency network enable during physical-world debugging?",
+    opts: [
+      "Generating and testing candidate solutions against a fixed landscape",
+      "Truth maintenance — making, tracking, and retracting tentative assumptions",
+      "First-principles reasoning by storing a library of domain laws",
+      "Qualitative envisioning of state transitions"
+    ],
+    ans: 1,
+    expl: "The dependency network, pioneered by Sussman, supplements the constraint network and enables truth maintenance: its nodes store knowledge assertions and its justification links track which assumptions are 'in' or 'out', allowing debugging to make and retract tentative beliefs."
+  },
+  {
+    q: "The three-containers example (water poured into the highest of three connected containers) is a canonical illustration of which concept?",
+    opts: [
+      "Generate-and-test search",
+      "Dependency-directed reasoning",
+      "Qualitative reasoning and envisioning",
+      "First-principles troubleshooting"
+    ],
+    ans: 2,
+    expl: "De Kleer uses the three-containers example to demonstrate qualitative reasoning: water flow direction can be inferred from gravity alone, with no numerical values. This is also an instance of envisioning — predicting qualitative state transitions using domain laws."
+  },
+  {
+    q: "Who pioneered the dependency network and truth maintenance in the 1970s at the MIT AI Lab?",
+    opts: [
+      "Johan de Kleer",
+      "Marvin Minsky",
+      "Ken Forbus",
+      "Gerald Sussman"
+    ],
+    ans: 3,
+    expl: "Gerald Sussman (Minsky's student at MIT) pioneered the dependency network as a complement to constraint propagation, giving rise to truth maintenance. He also developed the propagator model of computation."
+  },
+  {
+    q: "How does qualitative reasoning differ from a standard Constraint Satisfaction Problem (CSP)?",
+    opts: [
+      "CSPs use heuristic search; qualitative reasoning uses exhaustive enumeration",
+      "CSP constraints are discrete and precise; qualitative constraints (confluences) are continuous and represent mutual causal influences",
+      "CSPs are only for physical domains; qualitative reasoning applies to abstract problems",
+      "Qualitative reasoning requires precise numerical values; CSPs do not"
+    ],
+    ans: 1,
+    expl: "In a CSP, constraints are discrete and precise (e.g., Sudoku's allowed digits). Qualitative reasoning instead uses confluences — continuous, mutually influencing constraints reflecting domain first principles — because real physical systems are too messy for discrete enumeration."
+  },
+  {
+    q: "What is a 'causal interpretation' in the context of debugging physical systems?",
+    opts: [
+      "A complete log of all assumptions retracted during truth maintenance",
+      "A threshold-level representation of how a system's function emerges from its structure",
+      "The minimal set of domain laws used in first-principles reasoning",
+      "A qualitative variable describing a container as 'full' or 'empty'"
+    ],
+    ans: 1,
+    expl: "A causal interpretation is the threshold-level representation an AI system or organisation constructs to understand how a physical system's components causally produce its behaviour. It is the central product of debugging and can itself be debugged."
+  },
+  {
+    q: "Why does the course argue that first-principles reasoning is necessary for debugging physical systems, rather than exhaustive heuristics?",
+    opts: [
+      "First-principles reasoning avoids the need for any representation of the system",
+      "Heuristics require a dependency network that is too memory-intensive to build",
+      "The number of possible bugs in even a simple physical system is combinatorially explosive, far beyond any finite set of heuristics",
+      "First-principles reasoning is faster because it searches a predefined state space"
+    ],
+    ans: 2,
+    expl: "Even a mechanical watch has combinatorially explosive bug possibilities. First-principles reasoning anchors debugging in a small set of stable domain laws (e.g., voltage rules in electronics), dramatically reducing the search space compared to accumulating heuristics for every scenario."
+  }
+];
+
+const LETTERS = ['A','B','C','D'];
+let current = 0, score = 0, answered = false;
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+const ORDER = shuffle(QUESTIONS.map((_, i) => i));
+
+function render() {
+  const q = QUESTIONS[ORDER[current]];
+  const total = QUESTIONS.length;
+  answered = false;
+
+  document.getElementById('q-num').textContent = `Question ${current + 1}`;
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('prog-text').textContent = `Question ${current + 1} of ${total}`;
+  document.getElementById('prog-pct').textContent = `${Math.round(current / total * 100)}%`;
+  document.getElementById('prog-bar').style.width = `${current / total * 100}%`;
+
+  const expl = document.getElementById('expl');
+  expl.textContent = q.expl;
+  expl.classList.remove('show');
+
+  const nextBtn = document.getElementById('btn-next');
+  nextBtn.classList.remove('show');
+
+  const optsEl = document.getElementById('opts');
+  optsEl.innerHTML = '';
+  q.opts.forEach((text, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML = `<span class="opt-letter">${LETTERS[i]}</span><span>${text}</span>`;
+    btn.onclick = () => pick(i, q.ans);
+    optsEl.appendChild(btn);
+  });
+}
+
+function pick(chosen, correct) {
+  if (answered) return;
+  answered = true;
+  if (chosen === correct) score++;
+
+  document.querySelectorAll('.opt').forEach((el, i) => {
+    el.disabled = true;
+    if (i === correct)     el.classList.add('correct');
+    else if (i === chosen) el.classList.add('wrong');
+    else                   el.classList.add('dim');
+  });
+
+  document.getElementById('expl').classList.add('show');
+  const nextBtn = document.getElementById('btn-next');
+  nextBtn.textContent = current + 1 < QUESTIONS.length ? 'Continue →' : 'See Results';
+  nextBtn.classList.add('show');
+}
+
+document.getElementById('btn-next').onclick = () => {
+  current++;
+  if (current < QUESTIONS.length) {
+    const card = document.getElementById('q-card');
+    card.style.animation = 'none';
+    requestAnimationFrame(() => { card.style.animation = ''; render(); });
+  } else {
+    showScore();
+  }
+};
+
+function showScore() {
+  document.getElementById('quiz-area').classList.add('hidden');
+  document.getElementById('score-screen').classList.add('show');
+
+  const total = QUESTIONS.length;
+  const pct = score / total;
+  document.getElementById('score-big').textContent = `${score}/${total}`;
+
+  const C = 2 * Math.PI * 54;
+  const ring = document.getElementById('ring-fill');
+  ring.style.strokeDasharray = C;
+  ring.style.strokeDashoffset = C;
+  setTimeout(() => { ring.style.strokeDashoffset = C * (1 - pct); }, 50);
+
+  const [, verdict, sub] = [
+    [0.9, "Outstanding",   "Your grasp of this material is exceptional."],
+    [0.7, "Well done",     "A solid understanding with a few gaps to revisit."],
+    [0.5, "Good effort",   "Review the explanations and try again."],
+    [0,   "Keep studying", "Go back to the course notes and give this another go."],
+  ].find(([t]) => pct >= t);
+
+  document.getElementById('score-verdict').textContent = verdict;
+  document.getElementById('score-sub').textContent = sub;
+}
+
+function restart() {
+  current = 0; score = 0;
+  shuffle(ORDER);
+  document.getElementById('quiz-area').classList.remove('hidden');
+  document.getElementById('score-screen').classList.remove('show');
+  render();
+}
+
+render();
+</script>
+</body>
+</html>

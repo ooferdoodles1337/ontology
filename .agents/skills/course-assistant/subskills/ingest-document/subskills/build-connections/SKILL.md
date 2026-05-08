@@ -19,29 +19,25 @@ If the file has no entries yet (first document), you will build the initial voca
 
 ## Step 1 — Orient yourself in the existing graph
 
-Read `knowledge-base/nodes.yaml` directly to see what nodes exist — no script needed.
-Grep or skim for the `doc_id` you are working on to identify which nodes belong to this document.
-
-For queries that require a JOIN (e.g., "all nodes with this source document"), use `sqlite-utils`:
+Read `knowledge-base/nodes.yaml` directly to see what nodes exist.
+For queries that require a JOIN, use `sqlite-utils`:
 
 ```bash
 sqlite-utils query ontology.db "
-SELECT n.id, n.label, n.node_type
-FROM nodes n
-JOIN source_documents sd ON sd.node_id = n.id
-WHERE sd.doc_id = '<doc_id>'
-ORDER BY n.node_type, n.label
+  SELECT n.id, n.label, n.node_type
+  FROM nodes n
+  JOIN source_documents sd ON sd.node_id = n.id
+  WHERE sd.doc_id = '<doc_id>'
+  ORDER BY n.node_type, n.label
 " --table
 ```
 
-**Check whether a relation already exists (avoid duplicates)** — read `relations.yaml` directly
-and search for the pair, or use `sqlite-utils` for precision:
-
+**Check whether a relation already exists (avoid duplicates):**
 ```bash
 sqlite-utils query ontology.db "
-SELECT rel_type, note FROM relations
-WHERE (source_id = 'a' AND target_id = 'b')
-   OR (source_id = 'b' AND target_id = 'a')
+  SELECT rel_type, note FROM relations
+  WHERE (source_id = 'a' AND target_id = 'b')
+     OR (source_id = 'b' AND target_id = 'a')
 " --table
 ```
 
@@ -55,15 +51,13 @@ a meaningful relationship, draft a candidate relation:
 1. **Check the existing vocabulary** — does any existing type fit?
    Use it if there's a reasonable match. Consistency across documents matters more than precision.
 2. **Invent a new type** only if no existing one captures the relationship without distorting it.
-   Guidelines for new types:
    - Short verb phrase in UPPER-CASE, hyphenated: `ENABLES`, `MOTIVATES`, `OPERATIONALISES`, `SCALES-WITH`
    - Precise enough to be reusable across multiple concept pairs from different documents
    - Avoid single-use types — if it would only ever apply to this one pair, put the nuance in `note` instead
 
 **Quote discipline:** As you identify each relation, locate the exact supporting sentence in the
 document and copy it verbatim — you'll need it for the `quote` field. If the relation is
-structurally implied (e.g., section ordering implies prerequisite) rather than stated outright,
-flag it so you can write `quote: ~` later.
+structurally implied rather than stated outright, flag it so you can write `quote: ~` later.
 
 ---
 
@@ -90,31 +84,21 @@ Only refactor when the improvement is clear. Don't rename types just for style.
 ## Step 4 — Verify node IDs
 
 Read `knowledge-base/nodes.yaml` directly and confirm both `source` and `target` IDs exist
-before writing any relation. If you need to check many IDs at once, grep for them:
+before writing any relation. If you need to check many IDs at once:
 
 ```bash
 grep -E "^- id: (id1|id2|id3)$" knowledge-base/nodes.yaml
 ```
 
 Any ID not found is missing — fix the spelling or add the node in `knowledge-base/nodes.yaml`
-first (then rebuild the DB with `uv run python scripts/build_db.py`) before writing the relation.
+first (then rebuild: `uv run python scripts/build_db.py`) before writing the relation.
 
 ---
 
 ## Step 5 — Update the relation-type vocabulary
 
-For every **new** type coined in Step 2, append an entry to `knowledge-base/relation-schema.yaml`:
-
-```yaml
-- name: NEW-TYPE
-  description: "One sentence: what this relation means, what it captures."
-  direction: "A → B (role of A → role of B)"
-  first_seen: <doc_id>
-  aliases: []
-```
-
-Add only types not already present. Keep `description` crisp — it should let a future reader
-decide whether to reuse this type.
+For every **new** type coined in Step 2, append an entry to `knowledge-base/relation-schema.yaml`.
+Entry format is in the master SKILL.md. Add only types not already present.
 
 ---
 
@@ -147,12 +131,9 @@ Keep quotes ≤ 2 sentences; use `…` to trim middle text.
 ## Step 7 — Validate YAML and referential integrity
 
 ```bash
-# Parse check
 uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/relations.yaml'))" && echo "relations OK"
 uv run python -c "import yaml; yaml.safe_load(open('knowledge-base/relation-schema.yaml'))" && echo "schema OK"
 
-# Referential integrity — every source/target must exist as a node
-# (no rows = all refs valid; any rows = broken references that must be fixed)
 sqlite-utils query ontology.db "
   SELECT r.source_id, r.target_id, r.rel_type
   FROM relations r
@@ -162,4 +143,4 @@ sqlite-utils query ontology.db "
 " --table
 ```
 
-Fix any errors before returning control to the parent skill.
+Fix any errors before returning control to the parent subskill.

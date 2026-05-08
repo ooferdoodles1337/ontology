@@ -30,13 +30,30 @@ sqlite-utils query ontology.db "SELECT id, label FROM nodes ORDER BY id" --table
 ## Step 3 — Extract new terms
 
 Read through the full parsed text carefully. Produce a rationale table before writing anything
-to disk — it forces explicit justification and makes it easy to catch duplicates:
+to disk — it forces explicit justification and makes it easy to catch duplicates.
+
+**Worked example** — given this passage:
+
+> "Founders of AI referred to this general problem of intelligence as that of learning to assign credit (Samuel 1959; Minsky 1961). **Credit assignment** refers to any process for evaluating effects of individual actions on solving a problem. […] all three examples involved (1) **goal-directed agents** who (2) generated **actions** (3) tested effects on **goals** using (4) **trial-and-error feedback**, and used this to (5) **modify** actions. […] Samuel called the evaluation of such proxies the use of **'intermediate feedback'** to assign credit."
+
+The extraction table would be:
 
 | Candidate ID | Type | Why extracted |
 |---|---|---|
-| `intermediate_feedback` | concept | Named explicitly with a definition |
-| `arthur_samuel` | person | Named as the originator of the idea |
-| `ex_checkers_game` | example | Concrete case illustrating intermediate feedback |
+| `credit_assignment` | concept | Central term, explicitly defined |
+| `goal_directed_agents` | concept | Explicitly listed as a structural building block |
+| `actions` | concept | Explicitly listed — the things agents generate and test |
+| `goals` | concept | Explicitly listed — criteria against which actions are evaluated |
+| `trial_and_error_feedback` | concept | Explicitly listed — the feedback mechanism |
+| `interdependence_of_actions` | concept | Named as the fundamental challenge |
+| `delayed_feedback` | concept | Named as a key difficulty |
+| `ambiguous_feedback` | concept | Named as a key difficulty |
+| `intermediate_feedback` | concept | Named explicitly with a definition (Samuel's term) |
+| `arthur_samuel` | person | Named as the IBM scientist who first described the solution |
+| `ex_checkers_game` | example | Concrete case used to illustrate intermediate feedback |
+
+Note what was *not* extracted: "IBM" (only Arthur Samuel's employer, not load-bearing);
+"number of pieces" (a detail inside the checkers example, not a standalone concept).
 
 **What to extract:**
 - **Explicitly defined** terms ("credit assignment refers to…")

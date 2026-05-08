@@ -50,7 +50,11 @@ to disk — it forces explicit justification and makes it easy to catch duplicat
 - General-purpose words used in their everyday sense ("process", "effect", "problem")
 - Specific details *inside* a larger example that don't stand alone as concepts
 
-Node ID conventions are in the master SKILL.md.
+**ID conventions:**
+- All IDs: `snake_case`, lowercase only
+- Concepts: plain noun phrase — `credit_assignment`, `constraint_propagation`
+- People / institutions: `firstname_lastname` or institution name — `herbert_simon`, `carnegie_mellon`
+- Examples / metaphors: always prefixed `ex_` — `ex_checkers_game`, `ex_watchmaker_parable`
 
 ---
 
@@ -59,8 +63,48 @@ Node ID conventions are in the master SKILL.md.
 Append new entries under the correct top-level section. Group them with a comment naming
 the source document. Do not add relation instances here.
 
-Entry format is in the master SKILL.md. Four fields only — `id`, `label`, `description`,
-`source_documents` — no others.
+**IMPORTANT — uniform schema rule:** Every node — concept, person, institution, or example —
+uses exactly these four fields and no others:
+
+```
+id              snake_case identifier
+label           Human-readable name
+description     One or two sentences (block scalar style >)
+source_documents  list of doc_id strings
+```
+
+Do not add `type`, `era`, `affiliation`, `source`, `illustrates`, `module`, or any other field.
+Put information about affiliation, era, or what an example illustrates in the `description` text.
+
+**Concept:**
+```yaml
+- id: concept_name
+  label: Human Readable Name
+  description: >
+    One or two sentences defining this concept in the context of the course.
+  source_documents:
+  - <doc_id>
+```
+
+**Person or Institution:**
+```yaml
+- id: firstname_lastname
+  label: Full Name
+  description: >
+    Brief bio or description including era, affiliation, and contribution to the course topics.
+  source_documents:
+  - <doc_id>
+```
+
+**Example / metaphor:**
+```yaml
+- id: ex_short_name
+  label: Descriptive Example Name
+  description: >
+    What this example illustrates, how it is used in the text, and source/author if relevant.
+  source_documents:
+  - <doc_id>
+```
 
 **If a node was introduced in an earlier document** and appears again in this one, do not
 create a duplicate — add the new `doc_id` to its existing `source_documents` list instead.

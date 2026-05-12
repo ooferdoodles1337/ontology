@@ -1,0 +1,157 @@
+rules:
+- id: low_recent_recall
+  consequent_kind: struggling_with
+  event_types:
+  - flashcard_rating
+  - quiz_answer
+  window_days: 7
+  threshold: 0.45
+- id: recent_struggle_report
+  consequent_kind: struggling_with
+  event_types:
+  - self_report
+  window_days: 14
+  polarity: struggle
+- id: high_recent_recall
+  consequent_kind: mastered
+  event_types:
+  - flashcard_rating
+  - quiz_answer
+  window_days: 7
+  threshold: 0.8
+  min_attempts: 3
+- id: explicit_mastery
+  consequent_kind: mastered
+  event_types:
+  - mastery_mark
+  - user_assertion
+- id: one_hop_prerequisite_gap
+  consequent_kind: likely_prerequisite_gap
+  relation_types:
+  - REQUIRES
+  - ENABLES
+  - PART-OF
+  - COMPLICATES
+- id: schedule_capacity_check
+  consequent_kind: overloaded_schedule
+- id: recommend_next
+  consequent_kind: recommended_next
+active_derivations:
+- id: just_schedule_capacity_check
+  rule_id: schedule_capacity_check
+  consequent: overloaded_schedule:true
+  status: in
+  support:
+  - profile:session_preferences
+  - study_schedule.yaml
+  measure:
+    required_daily_concepts: 8.0
+    preferred_daily_concepts: 8
+- id: just_recommend_next:reinforcement_learning
+  rule_id: recommend_next
+  consequent: recommended_next:reinforcement_learning
+  status: in
+  support:
+  - schedule:2026-05-15:reinforcement_learning
+  - priority:4:reinforcement_learning
+  measure:
+    score: 0.34
+- id: just_recommend_next:information_processing
+  rule_id: recommend_next
+  consequent: recommended_next:information_processing
+  status: in
+  support:
+  - schedule:2026-05-20:information_processing
+  - priority:8:information_processing
+  measure:
+    score: 0.328
+- id: just_recommend_next:society_of_mind_hypothesis
+  rule_id: recommend_next
+  consequent: recommended_next:society_of_mind_hypothesis
+  status: in
+  support:
+  - schedule:2026-05-16:society_of_mind_hypothesis
+  - priority:11:society_of_mind_hypothesis
+  measure:
+    score: 0.323
+- id: just_recommend_next:brute_force
+  rule_id: recommend_next
+  consequent: recommended_next:brute_force
+  status: in
+  support:
+  - schedule:2026-05-17:brute_force
+  - priority:16:brute_force
+  measure:
+    score: 0.313
+- id: just_recommend_next:channel_capacity
+  rule_id: recommend_next
+  consequent: recommended_next:channel_capacity
+  status: in
+  support:
+  - schedule:2026-05-18:channel_capacity
+  - priority:17:channel_capacity
+  measure:
+    score: 0.313
+- id: just_recommend_next:feedback
+  rule_id: recommend_next
+  consequent: recommended_next:feedback
+  status: in
+  support:
+  - schedule:2026-05-13:feedback
+  - priority:18:feedback
+  measure:
+    score: 0.309
+- id: just_recommend_next:combinatorial_explosion
+  rule_id: recommend_next
+  consequent: recommended_next:combinatorial_explosion
+  status: in
+  support:
+  - schedule:2026-05-18:combinatorial_explosion
+  - priority:19:combinatorial_explosion
+  measure:
+    score: 0.309
+- id: just_recommend_next:commonsense_knowledge
+  rule_id: recommend_next
+  consequent: recommended_next:commonsense_knowledge
+  status: in
+  support:
+  - schedule:2026-05-18:commonsense_knowledge
+  - priority:21:commonsense_knowledge
+  measure:
+    score: 0.307
+- id: just_recommend_next:policy
+  rule_id: recommend_next
+  consequent: recommended_next:policy
+  status: in
+  support:
+  - schedule:2026-05-15:policy
+  - priority:25:policy
+  measure:
+    score: 0.305
+- id: just_recommend_next:semantic_information
+  rule_id: recommend_next
+  consequent: recommended_next:semantic_information
+  status: in
+  support:
+  - schedule:2026-05-22:semantic_information
+  - priority:26:semantic_information
+  measure:
+    score: 0.304
+- id: just_recommend_next:temporal_differencing
+  rule_id: recommend_next
+  consequent: recommended_next:temporal_differencing
+  status: in
+  support:
+  - schedule:2026-05-16:temporal_differencing
+  - priority:35:temporal_differencing
+  measure:
+    score: 0.301
+- id: just_recommend_next:superstitious_learning
+  rule_id: recommend_next
+  consequent: recommended_next:superstitious_learning
+  status: in
+  support:
+  - schedule:2026-05-16:superstitious_learning
+  - priority:36:superstitious_learning
+  measure:
+    score: 0.301

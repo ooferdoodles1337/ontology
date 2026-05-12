@@ -3,6 +3,7 @@
 ═══════════════════════════════════════ */
 let kbInitialised    = false;
 let notesInitialised = false;
+let learnerInitialised = false;
 
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -18,6 +19,10 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     if (btn.dataset.tab === 'notes' && !notesInitialised) {
       notesInitialised = true;
       initNotes();
+    }
+    if (btn.dataset.tab === 'learner' && !learnerInitialised) {
+      learnerInitialised = true;
+      initLearner();
     }
   });
 });
@@ -560,6 +565,271 @@ async function submitNewNode() {
 }
 
 /* ═══════════════════════════════════════
+   LEARNER MODEL
+═══════════════════════════════════════ */
+let learnerProfile = {};
+let learnerBeliefs = [];
+let learnerRecommendations = [];
+let learnerEvents = [];
+let learnerNodes = [];
+
+async function initLearner() {
+  const retryBtn = document.getElementById('learner-retry-btn');
+  retryBtn.textContent = 'Connecting…';
+  try {
+    [learnerProfile, learnerBeliefs, learnerRecommendations, learnerEvents, learnerNodes] = await Promise.all([
+      fetch('/api/learner/profile').then(r => { if (!r.ok) throw 0; return r.json(); }),
+      fetch('/api/learner/beliefs').then(r => r.json()),
+      fetch('/api/learner/recommendations?limit=8').then(r => r.json()),
+      fetch('/api/learner/events?limit=40').then(r => r.json()),
+      fetch('/api/nodes').then(r => r.json()),
+    ]);
+    document.getElementById('learner-offline').style.display = 'none';
+    document.getElementById('learner-app').style.display = 'flex';
+    wireLearnerControls();
+    renderLearner();
+  } catch (_) {
+    retryBtn.textContent = 'Retry connection';
+    document.getElementById('learner-offline').style.display = 'flex';
+    document.getElementById('learner-app').style.display = 'none';
+  }
+}
+
+function wireLearnerControls() {
+  if (wireLearnerControls.done) return;
+  wireLearnerControls.done = true;
+  document.getElementById('learner-save-profile').addEventListener('click', saveLearnerProfile);
+  document.getElementById('learner-add-event').addEventListener('click', appendLearnerEvent);
+  document.getElementById('learner-beliefs').addEventListener('click', e => {
+    const row = e.target.closest('[data-belief-id]');
+    if (row) showLearnerExplanation(row.dataset.beliefId);
+  });
+  document.getElementById('learner-struggles').addEventListener('click', e => {
+    const row = e.target.closest('[data-belief-id]');
+    if (row) showLearnerExplanation(row.dataset.beliefId);
+  });
+  document.getElementById('learner-recommendations').addEventListener('click', e => {
+    const row = e.target.closest('[data-belief-id]');
+    if (row) showLearnerExplanation(row.dataset.beliefId);
+  });
+}
+
+function learnerLabel(id) {
+  const node = learnerNodes.find(n => n.id === id);
+  return node ? node.label : id;
+}
+
+function renderLearner() {
+  renderLearnerProfile();
+  renderLearnerConcepts();
+  renderLearnerRecommendations();
+  renderLearnerStruggles();
+  renderLearnerBeliefs();
+}
+
+function renderLearnerProfile() {
+  const prefs = learnerProfile.session_preferences || {};
+  document.getElementById('learner-student-name').value = learnerProfile.student_name || '';
+  document.getElementById('learner-exam-date').value = learnerProfile.exam_date || '';
+  document.getElementById('learner-target-outcome').value = learnerProfile.target_outcome || '';
+  document.getElementById('learner-sessions-per-day').value = prefs.sessions_per_day || 2;
+  document.getElementById('learner-concepts-per-session').value = prefs.concepts_per_session || 4;
+}
+
+function renderLearnerConcepts() {
+  const datalist = document.getElementById('learner-concepts');
+  datalist.innerHTML = learnerNodes
+    .filter(n => nodeType(n) === 'concept')
+    .map(n => `<option value="${escA(n.id)}">${esc(n.label)}</option>`)
+    .join('');
+}
+
+function learnerConfidence(value) {
+  return `${Math.round((value || 0) * 100)}%`;
+}
+
+function learnerBeliefButton(belief, compact=false) {
+  const label = belief.subject_label || learnerLabel(belief.subject);
+  return `
+    <button class="learner-belief-row ${belief.status}" data-belief-id="${escA(belief.id)}">
+      <span>
+        <strong>${esc(label)}</strong>
+        ${compact ? '' : `<em>${esc(belief.id)}</em>`}
+      </span>
+      <span class="learner-status">
+        <b>${esc(belief.status)}</b>
+        ${learnerConfidence(belief.confidence)}
+      </span>
+    </button>`;
+}
+
+function renderLearnerRecommendations() {
+  const container = document.getElementById('learner-recommendations');
+  if (!learnerRecommendations.length) {
+    container.innerHTML = '<div class="learner-empty">No active recommendations.</div>';
+    return;
+  }
+  container.innerHTML = learnerRecommendations
+    .map(belief => learnerBeliefButton(belief, true))
+    .join('');
+}
+
+function renderLearnerStruggles() {
+  const struggles = learnerBeliefs
+    .filter(b => b.kind === 'struggling_with' && b.status === 'in')
+    .sort((a, b) => b.confidence - a.confidence);
+  const container = document.getElementById('learner-struggles');
+  container.innerHTML = struggles.length
+    ? struggles.map(belief => learnerBeliefButton(belief)).join('')
+    : '<div class="learner-empty">No active struggle assumptions.</div>';
+}
+
+function renderLearnerBeliefs() {
+  const groups = learnerBeliefs.reduce((acc, belief) => {
+    (acc[belief.kind] ||= []).push(belief);
+    return acc;
+  }, {});
+  const container = document.getElementById('learner-beliefs');
+  const keys = Object.keys(groups).sort();
+  if (!keys.length) {
+    container.innerHTML = '<div class="learner-empty">No generated beliefs yet.</div>';
+    return;
+  }
+  container.innerHTML = keys.map(kind => `
+    <div class="learner-belief-group">
+      <div class="learner-kind">${esc(kind.replace(/_/g, ' '))}</div>
+      ${groups[kind]
+        .sort((a, b) => (b.status === 'in') - (a.status === 'in') || b.confidence - a.confidence)
+        .map(belief => learnerBeliefButton(belief))
+        .join('')}
+    </div>
+  `).join('');
+}
+
+async function refreshLearnerData() {
+  [learnerBeliefs, learnerRecommendations, learnerEvents] = await Promise.all([
+    fetch('/api/learner/beliefs').then(r => r.json()),
+    fetch('/api/learner/recommendations?limit=8').then(r => r.json()),
+    fetch('/api/learner/events?limit=40').then(r => r.json()),
+  ]);
+  renderLearner();
+}
+
+async function saveLearnerProfile() {
+  const profile = {
+    ...learnerProfile,
+    student_name: document.getElementById('learner-student-name').value.trim() || null,
+    exam_date: document.getElementById('learner-exam-date').value || null,
+    target_outcome: document.getElementById('learner-target-outcome').value.trim() || null,
+    session_preferences: {
+      ...(learnerProfile.session_preferences || {}),
+      sessions_per_day: Number(document.getElementById('learner-sessions-per-day').value || 1),
+      concepts_per_session: Number(document.getElementById('learner-concepts-per-session').value || 1),
+    },
+  };
+  learnerProfile = await fetch('/api/learner/profile', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(profile),
+  }).then(r => r.json());
+  await refreshLearnerData();
+}
+
+async function appendLearnerEvent() {
+  const type = document.getElementById('learner-event-type').value;
+  const conceptId = document.getElementById('learner-event-concept').value.trim();
+  const rating = Number(document.getElementById('learner-event-rating').value);
+  const polarity = document.getElementById('learner-event-polarity').value;
+  const text = document.getElementById('learner-event-text').value.trim();
+  const event = { type, source: 'study_hub' };
+
+  if (type !== 'goal_set') {
+    if (!conceptId) { alert('Concept is required for this event.'); return; }
+    event.concept_id = conceptId;
+  }
+  if (type === 'flashcard_rating') event.rating = rating;
+  if (type === 'quiz_answer') event.score = ({0: 0, 1: 0.33, 2: 0.66, 3: 1})[rating];
+  if (type === 'self_report') {
+    event.polarity = polarity;
+    if (text) event.text = text;
+  }
+  if (type === 'mastery_mark') event.mastered = true;
+  if (type === 'goal_set') {
+    event.goal_id = 'exam_pass';
+    event.exam_date = document.getElementById('learner-exam-date').value || undefined;
+    event.target_outcome = document.getElementById('learner-target-outcome').value.trim() || undefined;
+    if (text) event.text = text;
+  }
+
+  await fetch('/api/learner/events', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(event),
+  });
+  document.getElementById('learner-event-text').value = '';
+  await refreshLearnerData();
+}
+
+function explainItemHtml(item) {
+  const data = item.data;
+  if (!data) return `<div class="learner-ref"><code>${esc(item.ref)}</code></div>`;
+  if (item.kind === 'event') {
+    const bits = [data.type, data.concept_id, data.rating !== undefined ? `rating ${data.rating}` : '', data.polarity]
+      .filter(Boolean).join(' · ');
+    return `<div class="learner-ref"><code>${esc(item.ref)}</code><span>${esc(bits)}</span>${data.text ? `<p>${esc(data.text)}</p>` : ''}</div>`;
+  }
+  if (item.kind === 'justification') {
+    const measure = data.measure ? ` · ${esc(JSON.stringify(data.measure))}` : '';
+    return `<div class="learner-ref"><code>${esc(item.ref)}</code><span>${esc(data.rule_id || '')}${measure}</span></div>`;
+  }
+  if (item.kind === 'relation') {
+    return `<div class="learner-ref"><code>${esc(item.ref)}</code><span>${esc(data.source_label || data.source_id)} → ${esc(data.rel_type)} → ${esc(data.target_label || data.target_id)}</span>${data.note ? `<p>${esc(data.note)}</p>` : ''}</div>`;
+  }
+  if (item.kind === 'belief') {
+    return `<div class="learner-ref"><code>${esc(item.ref)}</code><span>${esc(data.id)} · ${esc(data.status)} · ${learnerConfidence(data.confidence)}</span></div>`;
+  }
+  if (item.kind === 'schedule') {
+    const concept = data.concept || {};
+    return `<div class="learner-ref"><code>${esc(item.ref)}</code><span>${esc(data.date)} · ${esc(concept.label || data.concept_id || '')}</span></div>`;
+  }
+  if (item.kind === 'priority') {
+    return `<div class="learner-ref"><code>${esc(item.ref)}</code><span>rank ${esc(data.rank)} · centrality ${esc(data.centrality || '')}</span></div>`;
+  }
+  return `<div class="learner-ref"><code>${esc(item.ref)}</code></div>`;
+}
+
+async function showLearnerExplanation(beliefId) {
+  const data = await fetch(`/api/learner/explain/${encodeURIComponent(beliefId)}`).then(r => r.json());
+  const container = document.getElementById('learner-explain');
+  if (data.error) {
+    container.innerHTML = '<div class="learner-empty">Belief not found.</div>';
+    return;
+  }
+  const belief = data.belief;
+  container.innerHTML = `
+    <div class="learner-explain-head">
+      <div>
+        <div class="learner-kind">${esc(belief.kind.replace(/_/g, ' '))}</div>
+        <h3>${esc(belief.subject_label || learnerLabel(belief.subject))}</h3>
+        <code>${esc(belief.id)}</code>
+      </div>
+      <span class="learner-status ${esc(belief.status)}"><b>${esc(belief.status)}</b>${learnerConfidence(belief.confidence)}</span>
+    </div>
+    ${belief.reason ? `<p class="learner-reason">${esc(belief.reason)}</p>` : ''}
+    <div class="learner-proof">
+      <div>
+        <div class="sect-label">Support</div>
+        ${data.support.length ? data.support.map(explainItemHtml).join('') : '<div class="learner-empty">No support.</div>'}
+      </div>
+      <div>
+        <div class="sect-label">Opposition</div>
+        ${data.opposition.length ? data.opposition.map(explainItemHtml).join('') : '<div class="learner-empty">No opposition.</div>'}
+      </div>
+    </div>
+  `;
+}
+
+/* ═══════════════════════════════════════
    NOTES READER
 ═══════════════════════════════════════ */
 const noteNodeMap     = new Map(); // id → node
@@ -567,6 +837,13 @@ const noteRelCount    = new Map(); // id → relation count
 const noteDocsData    = new Map(); // docId → {title, sections[]}
 let   noteAnnRe       = null;
 let   noteAnnIdMap    = {};        // lowercase label → node.id
+let   activeNoteDocId = null;
+let   noteScrollWired = false;
+let   notePdfjsPromise = null;
+let   notePdfRenderToken = 0;
+let   noteActivePageNumber = 1;
+let   noteSelectedTermId = null;
+const notePageTerms = new Map(); // page number -> node[]
 
 async function initNotes() {
   const retryBtn = document.getElementById('notes-retry-btn');
@@ -586,6 +863,7 @@ async function initNotes() {
     document.getElementById('notes-offline').style.display = 'none';
     const reader = document.getElementById('notes-reader');
     reader.style.display = 'flex';
+    _wireNoteScrollSpy();
     _renderNoteDocList(docsData);
   } catch (_) {
     retryBtn.textContent = 'Retry connection';
@@ -606,25 +884,93 @@ function _buildNoteAnnotationIndex(nodesList) {
   noteAnnRe = patterns.length ? new RegExp('\\b(' + patterns.join('|') + ')\\b', 'gi') : null;
 }
 
-function _annotateSection(text) {
-  if (!noteAnnRe) return esc(text);
-  const parts = [];
-  let last = 0;
-  noteAnnRe.lastIndex = 0;
-  let m;
-  while ((m = noteAnnRe.exec(text)) !== null) {
-    if (m.index > last) parts.push(esc(text.slice(last, m.index)));
-    const nodeId = noteAnnIdMap[m[0].toLowerCase()];
-    const node   = nodeId ? noteNodeMap.get(nodeId) : null;
-    if (node) {
-      parts.push(`<span class="ann" data-id="${esc(node.id)}" data-type="${esc(node._type || 'concept')}">${esc(m[0])}</span>`);
-    } else {
-      parts.push(esc(m[0]));
-    }
-    last = m.index + m[0].length;
+async function _loadPdfJs() {
+  if (!notePdfjsPromise) {
+    notePdfjsPromise = import('/lib/pdfjs/pdf.mjs').then(pdfjs => {
+      pdfjs.GlobalWorkerOptions.workerSrc = '/lib/pdfjs/pdf.worker.mjs';
+      return pdfjs;
+    });
   }
-  if (last < text.length) parts.push(esc(text.slice(last)));
-  return parts.join('').replace(/\n/g, '<br>');
+  return notePdfjsPromise;
+}
+
+function _termsFromPdfText(text) {
+  if (!noteAnnRe || !text) return [];
+  const seen = new Set();
+  const terms = [];
+  noteAnnRe.lastIndex = 0;
+  let match;
+  while ((match = noteAnnRe.exec(text)) !== null) {
+    const nodeId = noteAnnIdMap[match[0].toLowerCase()];
+    const node = nodeId ? noteNodeMap.get(nodeId) : null;
+    if (!node || seen.has(node.id)) continue;
+    seen.add(node.id);
+    terms.push(node);
+  }
+  return terms;
+}
+
+function _renderNoteTermPanel(force = false) {
+  const panel = document.getElementById('notes-term-panel');
+  if (!panel) return;
+
+  const terms = notePageTerms.get(noteActivePageNumber) || [];
+  if (!terms.some(term => term.id === noteSelectedTermId)) {
+    noteSelectedTermId = terms[0]?.id || null;
+  }
+  if (!force && panel.dataset.page === String(noteActivePageNumber) && panel.dataset.selected === String(noteSelectedTermId || '')) {
+    return;
+  }
+
+  const selected = noteSelectedTermId ? noteNodeMap.get(noteSelectedTermId) : null;
+  const relCount = selected ? (noteRelCount.get(selected.id) || 0) : 0;
+  panel.dataset.page = String(noteActivePageNumber);
+  panel.dataset.selected = String(noteSelectedTermId || '');
+  panel.innerHTML = `
+    <div class="notes-term-top">
+      <div>
+        <div class="sect-label">Page ${noteActivePageNumber}</div>
+        <h3>Terms</h3>
+      </div>
+      <span class="notes-term-count">${terms.length}</span>
+    </div>
+    <div class="notes-term-chips">
+      ${terms.length ? terms.map(term => `
+        <button class="notes-term-chip ${term.id === noteSelectedTermId ? 'active' : ''}" data-node-id="${escA(term.id)}">
+          ${esc(term.label)}
+        </button>
+      `).join('') : '<div class="notes-term-empty">No indexed terms on this page.</div>'}
+    </div>
+    ${selected ? `
+      <div class="notes-term-detail">
+        <div class="notes-term-type ${esc(selected._type || 'concept')}">${esc(selected._type || 'concept')}</div>
+        <h4>${esc(selected.label)}</h4>
+        <p>${esc(selected.description || '')}</p>
+        <div class="notes-term-meta">${relCount} relation${relCount !== 1 ? 's' : ''} in the graph</div>
+      </div>
+    ` : ''}
+  `;
+}
+
+function _setNoteActivePage(pageNumber, force = false) {
+  if (!force && noteActivePageNumber === pageNumber) return;
+  noteActivePageNumber = pageNumber;
+  _renderNoteTermPanel(force);
+}
+
+function _wireNoteScrollSpy() {
+  if (noteScrollWired) return;
+  noteScrollWired = true;
+  const main = document.getElementById('notes-main');
+  main.addEventListener('scroll', debounce(() => {
+    if (activeNoteDocId) _syncNoteActiveSection(activeNoteDocId);
+  }, 80));
+  main.addEventListener('click', e => {
+    const chip = e.target.closest('.notes-term-chip');
+    if (!chip) return;
+    noteSelectedTermId = chip.dataset.nodeId;
+    _renderNoteTermPanel(true);
+  });
 }
 
 function _renderNoteDocList(docs) {
@@ -639,58 +985,184 @@ function _renderNoteDocList(docs) {
     </div>
   `).join('');
 
-  sidebar.addEventListener('click', async e => {
+  sidebar.onclick = async e => {
     const docBtn = e.target.closest('.notes-doc-btn');
     const secBtn = e.target.closest('.notes-sec-btn');
     if (secBtn) {
-      _selectNoteSection(secBtn.dataset.docId, +secBtn.dataset.secIdx);
+      await _jumpToNoteSection(secBtn.dataset.docId, +secBtn.dataset.secIdx);
       return;
     }
     if (docBtn) {
       const docId  = docBtn.dataset.docId;
       const secsEl = document.getElementById('nsecs-' + docId);
-      const isOpen = secsEl.classList.contains('open');
       document.querySelectorAll('.notes-sections.open').forEach(el => el.classList.remove('open'));
       document.querySelectorAll('.notes-doc-btn.open').forEach(el => el.classList.remove('open'));
-      if (!isOpen) {
-        docBtn.classList.add('open');
-        secsEl.classList.add('open');
-        if (!noteDocsData.has(docId)) {
-          secsEl.innerHTML = '<div style="padding:8px 14px 8px 22px;color:var(--text-muted);font-size:11px;">Loading…</div>';
-          const data = await fetch(`/api/docs/${docId}/sections`).then(r => r.json()).catch(() => null);
-          if (!data || data.error) {
-            secsEl.innerHTML = '<div style="padding:8px 14px;color:var(--text-muted);font-size:11px;">Failed to load.</div>';
-            return;
-          }
-          noteDocsData.set(docId, data);
-          secsEl.innerHTML = data.sections.map((s, i) =>
-            `<button class="notes-sec-btn level-${s.level}" data-doc-id="${esc(docId)}" data-sec-idx="${i}">${esc(s.title)}</button>`
-          ).join('');
-        }
-      }
+      docBtn.classList.add('open');
+      secsEl.classList.add('open');
+      const data = await _ensureNoteDocLoaded(docId, secsEl);
+      if (data) await _renderNoteDocument(docId);
     }
-  });
+  };
 }
 
-function _selectNoteSection(docId, secIdx) {
+async function _ensureNoteDocLoaded(docId, secsEl) {
+  if (noteDocsData.has(docId)) return noteDocsData.get(docId);
+  secsEl.innerHTML = '<div class="notes-status">Loading…</div>';
+  const data = await fetch(`/api/docs/${docId}/sections`).then(r => r.json()).catch(() => null);
+  if (!data || data.error) {
+    secsEl.innerHTML = '<div class="notes-status">Failed to load.</div>';
+    return null;
+  }
+  noteDocsData.set(docId, data);
+  secsEl.innerHTML = data.sections.map((s, i) =>
+    `<button class="notes-sec-btn level-${s.level}" data-doc-id="${escA(docId)}" data-sec-idx="${i}">${esc(s.title)}</button>`
+  ).join('');
+  return data;
+}
+
+function _noteSectionId(docId, secIdx) {
+  const data = noteDocsData.get(docId);
+  const section = data && data.sections[secIdx];
+  const page = section ? section.page_start : 1;
+  return `note-page-${docId}-${page}`;
+}
+
+function _setNoteSectionActive(docId, secIdx) {
   document.querySelectorAll('.notes-sec-btn').forEach(b => b.classList.remove('active'));
   const secsEl = document.getElementById('nsecs-' + docId);
   const btn    = secsEl ? secsEl.querySelector(`[data-sec-idx="${secIdx}"]`) : null;
   if (btn) btn.classList.add('active');
+}
 
-  const data    = noteDocsData.get(docId);
-  const section = data && data.sections[secIdx];
-  if (!section) return;
+function _sectionIndexForPdfPage(docId, pageNumber) {
+  const data = noteDocsData.get(docId);
+  if (!data || !data.sections.length) return 0;
 
-  document.getElementById('notes-main').innerHTML = `
+  let sectionIndex = 0;
+  data.sections.forEach((section, index) => {
+    if (section.page_start <= pageNumber) sectionIndex = index;
+  });
+  return sectionIndex;
+}
+
+async function _renderPdfPage(pdfjs, pdfDoc, pageNumber, container, scale, token) {
+  if (token !== notePdfRenderToken) return;
+
+  const page = await pdfDoc.getPage(pageNumber);
+  if (token !== notePdfRenderToken) return;
+
+  const viewport = page.getViewport({ scale });
+  const pageEl = container.querySelector(`[data-page-number="${pageNumber}"]`);
+  if (!pageEl) return;
+
+  const canvas = pageEl.querySelector('canvas');
+  const outputScale = window.devicePixelRatio || 1;
+
+  pageEl.style.width = `${viewport.width}px`;
+  pageEl.style.height = `${viewport.height}px`;
+  pageEl.style.setProperty('--total-scale-factor', String(scale));
+  canvas.width = Math.floor(viewport.width * outputScale);
+  canvas.height = Math.floor(viewport.height * outputScale);
+  canvas.style.width = `${Math.floor(viewport.width)}px`;
+  canvas.style.height = `${Math.floor(viewport.height)}px`;
+
+  const context = canvas.getContext('2d', { alpha: false });
+  const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+  await page.render({ canvasContext: context, transform, viewport }).promise;
+  if (token !== notePdfRenderToken) return;
+
+  const textContent = await page.getTextContent();
+  if (token !== notePdfRenderToken) return;
+  const pageText = textContent.items.map(item => item.str || '').join(' ');
+  notePageTerms.set(pageNumber, _termsFromPdfText(pageText));
+  if (pageNumber === noteActivePageNumber) _renderNoteTermPanel(true);
+  pageEl.classList.add('rendered');
+}
+
+async function _renderNoteDocument(docId) {
+  const data = noteDocsData.get(docId);
+  if (!data) return;
+  activeNoteDocId = docId;
+  const token = ++notePdfRenderToken;
+  noteActivePageNumber = 1;
+  noteSelectedTermId = null;
+  notePageTerms.clear();
+
+  const main = document.getElementById('notes-main');
+  main.innerHTML = `
     <div class="notes-content-inner">
-      <div class="notes-section-head">
-        <h2 class="notes-section-title">${esc(section.title)}</h2>
-        <div class="notes-section-meta">p. ${esc(String(section.page_start))} · ${esc(data.title)}</div>
+      <div class="notes-document-head">
+        <div class="eyebrow">Course Notes</div>
+        <h2 class="notes-document-title">${esc(data.title)}</h2>
+        <div class="notes-document-meta">Loading PDF · ${data.sections.length} sections</div>
       </div>
-      <div class="notes-prose">${_annotateSection(section.text)}</div>
+      <aside class="notes-term-panel" id="notes-term-panel"></aside>
+      <div class="notes-pdf-pages" id="notes-pdf-pages"></div>
     </div>
   `;
+  main.scrollTop = 0;
+  _setNoteSectionActive(docId, 0);
+  _renderNoteTermPanel(true);
+
+  try {
+    const pdfjs = await _loadPdfJs();
+    if (token !== notePdfRenderToken) return;
+
+    const pdfDoc = await pdfjs.getDocument({ url: `/api/docs/${encodeURIComponent(docId)}/pdf` }).promise;
+    if (token !== notePdfRenderToken) return;
+
+    const firstPage = await pdfDoc.getPage(1);
+    const baseViewport = firstPage.getViewport({ scale: 1 });
+    const availableWidth = Math.max(420, Math.min(main.clientWidth - 96, 920));
+    const scale = Math.max(0.62, Math.min(1.5, availableWidth / baseViewport.width));
+    const pagesEl = document.getElementById('notes-pdf-pages');
+    const metaEl = main.querySelector('.notes-document-meta');
+    metaEl.textContent = `PDF view · ${pdfDoc.numPages} pages · ${data.sections.length} sections`;
+    pagesEl.innerHTML = Array.from({ length: pdfDoc.numPages }, (_, index) => {
+      const pageNumber = index + 1;
+      return `
+        <section class="notes-pdf-page" id="note-page-${escA(docId)}-${pageNumber}" data-page-number="${pageNumber}">
+          <div class="notes-page-number">Page ${pageNumber}</div>
+          <canvas></canvas>
+        </section>
+      `;
+    }).join('');
+
+    for (let pageNumber = 1; pageNumber <= pdfDoc.numPages; pageNumber++) {
+      await _renderPdfPage(pdfjs, pdfDoc, pageNumber, pagesEl, scale, token);
+    }
+  } catch (err) {
+    console.error('PDF render failed', err);
+    if (token !== notePdfRenderToken) return;
+    main.querySelector('.notes-document-meta').textContent = 'PDF failed to load';
+    document.getElementById('notes-pdf-pages').innerHTML =
+      '<div class="notes-pdf-error">Could not render this PDF. Try restarting the local server.</div>';
+  }
+}
+
+async function _jumpToNoteSection(docId, secIdx) {
+  if (activeNoteDocId !== docId) await _renderNoteDocument(docId);
+  _setNoteSectionActive(docId, secIdx);
+
+  const main = document.getElementById('notes-main');
+  const target = document.getElementById(_noteSectionId(docId, secIdx));
+  if (!target) return;
+  main.scrollTo({ top: Math.max(target.offsetTop - 22, 0), behavior: 'smooth' });
+}
+
+function _syncNoteActiveSection(docId) {
+  const main = document.getElementById('notes-main');
+  const pages = [...main.querySelectorAll('.notes-pdf-page')];
+  if (!pages.length) return;
+
+  let currentPage = Number(pages[0].dataset.pageNumber || 1);
+  const mainTop = main.getBoundingClientRect().top;
+  for (const page of pages) {
+    if (page.getBoundingClientRect().top - mainTop <= 140) currentPage = Number(page.dataset.pageNumber || 1);
+    else break;
+  }
+  _setNoteSectionActive(docId, _sectionIndexForPdfPage(docId, currentPage));
+  _setNoteActivePage(currentPage);
 }
 
 /* ── Annotation tooltip ── */

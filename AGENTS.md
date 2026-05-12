@@ -7,32 +7,6 @@ This project builds a concept graph for a course (FAB 2026). The graph is stored
 
 ---
 
-## Operating Modes
-
-There are two operating modes. **User mode is the default.**
-
-### User mode (default)
-
-In user mode you may:
-- Query the ontology and RAG index to answer course questions.
-- Ingest new course-note documents (add nodes, relations, rebuild the DB).
-- Write or update entries in `knowledge-base/*.yaml`.
-- Run validation and DB-rebuild scripts.
-
-In user mode you may **not**:
-- Edit skills (`.agents/skills/`).
-- Edit system instructions (`AGENTS.md`, `CLAUDE.md`).
-- Edit agent settings (`settings.json`, `settings.local.json`).
-- Create, rename, or delete skill files or configuration files.
-
-### Dev mode
-
-Dev mode is for actively developing or changing the system itself. In dev mode all of the above restrictions are lifted and you may edit skills, instructions, and configuration freely.
-
-**To enter dev mode**, the user must explicitly say so — e.g. *"switch to dev mode"* or *"we're in dev mode now"*. Until that signal is given, stay in user mode and decline requests that would modify system files.
-
----
-
 ## File Roles
 
 | File | Purpose |

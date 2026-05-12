@@ -28,6 +28,7 @@ Read the task, pick one subskill, load it, then follow its instructions.
 | Generate a study artifact (quiz, flashcards, etc.) | `subskills/artifacts/SKILL.md` |
 | Rank concepts by importance; prioritise what to study; select top concepts for a time budget | `subskills/concept-ranker/SKILL.md` |
 | Build a day-by-day study schedule; show today's sessions; mark a concept as mastered | `subskills/study-planner/SKILL.md` |
+| Remember the student, update goals, inspect struggles/mastery, explain recommendations | `subskills/learner-model/SKILL.md` |
 
 When the task spans two concerns (e.g. "answer a course question and then make a quiz about it"),
 complete them sequentially: finish the first, then load the second subskill.

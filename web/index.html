@@ -16,6 +16,7 @@
     <button class="tab-btn active" data-tab="artifacts">Artifacts</button>
     <button class="tab-btn" data-tab="kb">Knowledge Base</button>
     <button class="tab-btn" data-tab="notes">Notes</button>
+    <button class="tab-btn" data-tab="learner">Learner</button>
   </nav>
 </div>
 
@@ -178,7 +179,7 @@
 
       <!-- Main reading area -->
       <div class="notes-main" id="notes-main">
-        <div class="notes-placeholder">Select a section to begin reading</div>
+        <div class="notes-placeholder">Select a document to begin reading</div>
       </div>
 
     </div>
@@ -186,6 +187,151 @@
 
 </div><!-- /.notes-wrapper -->
 </div><!-- /#tab-notes -->
+
+<!-- ════════════════════════════════════════
+     TAB 4: Learner Model
+     ════════════════════════════════════════ -->
+<div id="tab-learner" class="tab-panel">
+<div class="learner-wrapper">
+
+  <div id="learner-offline" class="kb-offline">
+    <div class="eyebrow">Learner Model</div>
+    <p>Start the local server to inspect learner memory.</p>
+    <div class="kb-cmd">uv run python scripts/serve.py</div>
+    <button id="learner-retry-btn" class="btn btn-ghost" onclick="initLearner()">Retry connection</button>
+  </div>
+
+  <div id="learner-app" style="display:none; flex-direction:column; flex:1; min-height:0;">
+    <div class="learner-layout">
+
+      <div class="learner-left">
+        <section class="learner-panel">
+          <div class="learner-panel-head">
+            <div>
+              <div class="sect-label">Goals</div>
+              <h2>Profile</h2>
+            </div>
+            <button id="learner-save-profile" class="btn btn-primary">Save</button>
+          </div>
+          <div class="learner-form-grid">
+            <label class="form-field">
+              <span class="form-label">Student</span>
+              <input id="learner-student-name" class="form-input" placeholder="Name">
+            </label>
+            <label class="form-field">
+              <span class="form-label">Exam Date</span>
+              <input id="learner-exam-date" class="form-input" type="date">
+            </label>
+            <label class="form-field learner-wide">
+              <span class="form-label">Target Outcome</span>
+              <input id="learner-target-outcome" class="form-input" placeholder="Pass FAB exam">
+            </label>
+            <label class="form-field">
+              <span class="form-label">Sessions / Day</span>
+              <input id="learner-sessions-per-day" class="form-input" type="number" min="1" value="2">
+            </label>
+            <label class="form-field">
+              <span class="form-label">Concepts / Session</span>
+              <input id="learner-concepts-per-session" class="form-input" type="number" min="1" value="4">
+            </label>
+          </div>
+        </section>
+
+        <section class="learner-panel">
+          <div class="learner-panel-head">
+            <div>
+              <div class="sect-label">Observation</div>
+              <h2>Event Capture</h2>
+            </div>
+            <button id="learner-add-event" class="btn btn-primary">Append</button>
+          </div>
+          <div class="learner-form-grid">
+            <label class="form-field learner-wide">
+              <span class="form-label">Concept</span>
+              <input id="learner-event-concept" class="form-input" list="learner-concepts" placeholder="credit_assignment">
+              <datalist id="learner-concepts"></datalist>
+            </label>
+            <label class="form-field">
+              <span class="form-label">Type</span>
+              <select id="learner-event-type" class="form-select">
+                <option value="flashcard_rating">Flashcard Rating</option>
+                <option value="quiz_answer">Quiz Answer</option>
+                <option value="self_report">Self Report</option>
+                <option value="mastery_mark">Mastery Mark</option>
+                <option value="goal_set">Goal Set</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span class="form-label">Rating</span>
+              <select id="learner-event-rating" class="form-select">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span class="form-label">Polarity</span>
+              <select id="learner-event-polarity" class="form-select">
+                <option value="struggle">Struggle</option>
+                <option value="confident">Confident</option>
+                <option value="mastered">Mastered</option>
+              </select>
+            </label>
+            <label class="form-field learner-wide">
+              <span class="form-label">Text</span>
+              <textarea id="learner-event-text" class="form-textarea" rows="3" placeholder="I don't get in/out labels"></textarea>
+            </label>
+          </div>
+        </section>
+      </div>
+
+      <div class="learner-main">
+        <section class="learner-strip">
+          <div>
+            <div class="sect-label">Recommendations</div>
+            <div id="learner-recommendations" class="learner-rec-list"></div>
+          </div>
+        </section>
+
+        <div class="learner-grid">
+          <section class="learner-panel">
+            <div class="learner-panel-head">
+              <div>
+                <div class="sect-label">Active</div>
+                <h2>Struggles</h2>
+              </div>
+            </div>
+            <div id="learner-struggles" class="learner-list"></div>
+          </section>
+
+          <section class="learner-panel">
+            <div class="learner-panel-head">
+              <div>
+                <div class="sect-label">JTMS Cache</div>
+                <h2>Beliefs</h2>
+              </div>
+            </div>
+            <div id="learner-beliefs" class="learner-belief-groups"></div>
+          </section>
+        </div>
+
+        <section class="learner-panel learner-explain-panel">
+          <div class="learner-panel-head">
+            <div>
+              <div class="sect-label">Provenance</div>
+              <h2>Explanation</h2>
+            </div>
+          </div>
+          <div id="learner-explain" class="learner-explain">Select a belief to inspect support and opposition.</div>
+        </section>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div><!-- /#tab-learner -->
 
 <!-- Annotation tooltip (shared across tabs) -->
 <div id="ann-tip" class="ann-tip" role="tooltip"></div>

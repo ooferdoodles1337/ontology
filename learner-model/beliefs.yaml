@@ -1,0 +1,169 @@
+beliefs:
+- id: overloaded_schedule:true
+  kind: overloaded_schedule
+  subject: 'true'
+  status: in
+  confidence: 0.82
+  support:
+  - profile:session_preferences
+  - study_schedule.yaml
+  - just_schedule_capacity_check
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  reason: Schedule asks for about 8.0 concepts/day; preference allows 8.
+- id: recommended_next:brute_force
+  kind: recommended_next
+  subject: brute_force
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-17:brute_force
+  - priority:16:brute_force
+  - just_recommend_next:brute_force
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Brute Force
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:channel_capacity
+  kind: recommended_next
+  subject: channel_capacity
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-18:channel_capacity
+  - priority:17:channel_capacity
+  - just_recommend_next:channel_capacity
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Channel Capacity
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:combinatorial_explosion
+  kind: recommended_next
+  subject: combinatorial_explosion
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-18:combinatorial_explosion
+  - priority:19:combinatorial_explosion
+  - just_recommend_next:combinatorial_explosion
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Combinatorial Explosion
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:commonsense_knowledge
+  kind: recommended_next
+  subject: commonsense_knowledge
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-18:commonsense_knowledge
+  - priority:21:commonsense_knowledge
+  - just_recommend_next:commonsense_knowledge
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Commonsense Knowledge
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:feedback
+  kind: recommended_next
+  subject: feedback
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-13:feedback
+  - priority:18:feedback
+  - just_recommend_next:feedback
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Feedback
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:information_processing
+  kind: recommended_next
+  subject: information_processing
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-20:information_processing
+  - priority:8:information_processing
+  - just_recommend_next:information_processing
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Information Processing
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:policy
+  kind: recommended_next
+  subject: policy
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-15:policy
+  - priority:25:policy
+  - just_recommend_next:policy
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Policy
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:reinforcement_learning
+  kind: recommended_next
+  subject: reinforcement_learning
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-15:reinforcement_learning
+  - priority:4:reinforcement_learning
+  - just_recommend_next:reinforcement_learning
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Reinforcement Learning
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:semantic_information
+  kind: recommended_next
+  subject: semantic_information
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-22:semantic_information
+  - priority:26:semantic_information
+  - just_recommend_next:semantic_information
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Semantic Information
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:society_of_mind_hypothesis
+  kind: recommended_next
+  subject: society_of_mind_hypothesis
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-16:society_of_mind_hypothesis
+  - priority:11:society_of_mind_hypothesis
+  - just_recommend_next:society_of_mind_hypothesis
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Society of Mind Hypothesis
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:superstitious_learning
+  kind: recommended_next
+  subject: superstitious_learning
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-16:superstitious_learning
+  - priority:36:superstitious_learning
+  - just_recommend_next:superstitious_learning
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Superstitious Learning
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.
+- id: recommended_next:temporal_differencing
+  kind: recommended_next
+  subject: temporal_differencing
+  status: in
+  confidence: 0.35
+  support:
+  - schedule:2026-05-16:temporal_differencing
+  - priority:35:temporal_differencing
+  - just_recommend_next:temporal_differencing
+  opposition: []
+  updated_at: '2026-05-12T16:29:40Z'
+  subject_label: Temporal Differencing
+  reason: Recommended by current struggle, prerequisite, schedule, and centrality signals.

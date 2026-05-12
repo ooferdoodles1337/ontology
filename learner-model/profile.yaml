@@ -1,0 +1,9 @@
+profile:
+  student_name: null
+  exam_date: null
+  target_outcome: null
+  available_days: []
+  session_preferences:
+    sessions_per_day: 2
+    concepts_per_session: 4
+  active_goal_ids: []

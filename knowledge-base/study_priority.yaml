@@ -1,0 +1,3876 @@
+study_priority:
+  generated_at: '2026-05-11'
+  method: pagerank=0.40, betweenness=0.35, in_degree=0.25
+  node_type_filter: all
+  total_ranked: 430
+  concepts:
+  - rank: 1
+    id: credit_assignment
+    label: Credit Assignment
+    type: concept
+    composite_score: 1.0
+    pagerank: 0.012652
+    betweenness: 0.202315
+    in_degree: 23
+    out_degree: 6
+  - rank: 2
+    id: search
+    label: Search
+    type: concept
+    composite_score: 0.3357
+    pagerank: 0.004167
+    betweenness: 0.073888
+    in_degree: 7
+    out_degree: 4
+  - rank: 3
+    id: shannon_information
+    label: Shannon Information
+    type: concept
+    composite_score: 0.328
+    pagerank: 0.004174
+    betweenness: 0.056798
+    in_degree: 9
+    out_degree: 3
+  - rank: 4
+    id: reinforcement_learning
+    label: Reinforcement Learning
+    type: concept
+    composite_score: 0.2991
+    pagerank: 0.003661
+    betweenness: 0.068307
+    in_degree: 6
+    out_degree: 3
+  - rank: 5
+    id: interaction
+    label: Interaction
+    type: concept
+    composite_score: 0.2811
+    pagerank: 0.005089
+    betweenness: 0.019236
+    in_degree: 8
+    out_degree: 1
+  - rank: 6
+    id: krr
+    label: Knowledge Representation and Reasoning (KRR)
+    type: concept
+    composite_score: 0.2643
+    pagerank: 0.004475
+    betweenness: 0.02701
+    in_degree: 7
+    out_degree: 3
+  - rank: 7
+    id: cartesianism
+    label: Cartesianism / Cognitivism
+    type: concept
+    composite_score: 0.2601
+    pagerank: 0.005617
+    betweenness: 0.022558
+    in_degree: 4
+    out_degree: 2
+  - rank: 8
+    id: information_processing
+    label: Information Processing
+    type: concept
+    composite_score: 0.2395
+    pagerank: 0.004281
+    betweenness: 0.028779
+    in_degree: 5
+    out_degree: 0
+  - rank: 9
+    id: marvin_minsky
+    label: Marvin Minsky
+    type: person
+    composite_score: 0.2315
+    pagerank: 0.004057
+    betweenness: 0.040813
+    in_degree: 3
+    out_degree: 0
+  - rank: 10
+    id: simon_information
+    label: Simon Information
+    type: concept
+    composite_score: 0.2225
+    pagerank: 0.003096
+    betweenness: 0.028038
+    in_degree: 7
+    out_degree: 2
+  - rank: 11
+    id: society_of_mind_hypothesis
+    label: Society of Mind Hypothesis
+    type: concept
+    composite_score: 0.2173
+    pagerank: 0.002802
+    betweenness: 0.043013
+    in_degree: 5
+    out_degree: 2
+  - rank: 12
+    id: constraint_network
+    label: Constraint Network
+    type: concept
+    composite_score: 0.2099
+    pagerank: 0.002462
+    betweenness: 0.038647
+    in_degree: 6
+    out_degree: 2
+  - rank: 13
+    id: heuristics
+    label: Heuristics
+    type: concept
+    composite_score: 0.1963
+    pagerank: 0.002481
+    betweenness: 0.024123
+    in_degree: 7
+    out_degree: 1
+  - rank: 14
+    id: debugging
+    label: Debugging
+    type: concept
+    composite_score: 0.1955
+    pagerank: 0.002497
+    betweenness: 0.02969
+    in_degree: 6
+    out_degree: 2
+  - rank: 15
+    id: evolutionary_strategies
+    label: Evolutionary Strategies
+    type: concept
+    composite_score: 0.1681
+    pagerank: 0.002536
+    betweenness: 0.025663
+    in_degree: 4
+    out_degree: 2
+  - rank: 16
+    id: brute_force
+    label: Brute Force
+    type: concept
+    composite_score: 0.1638
+    pagerank: 0.001531
+    betweenness: 0.054115
+    in_degree: 2
+    out_degree: 5
+  - rank: 17
+    id: channel_capacity
+    label: Channel Capacity
+    type: concept
+    composite_score: 0.1627
+    pagerank: 0.002173
+    betweenness: 0.016613
+    in_degree: 6
+    out_degree: 1
+  - rank: 18
+    id: feedback
+    label: Feedback
+    type: concept
+    composite_score: 0.1469
+    pagerank: 0.002923
+    betweenness: 4.9e-05
+    in_degree: 5
+    out_degree: 0
+  - rank: 19
+    id: combinatorial_explosion
+    label: Combinatorial Explosion
+    type: concept
+    composite_score: 0.1437
+    pagerank: 0.001539
+    betweenness: 0.023502
+    in_degree: 5
+    out_degree: 1
+  - rank: 20
+    id: spatial_interdependence
+    label: Spatial Interdependence
+    type: concept
+    composite_score: 0.1354
+    pagerank: 0.001988
+    betweenness: 0.023088
+    in_degree: 3
+    out_degree: 1
+  - rank: 21
+    id: commonsense_knowledge
+    label: Commonsense Knowledge
+    type: concept
+    composite_score: 0.1328
+    pagerank: 0.002442
+    betweenness: 0.007005
+    in_degree: 4
+    out_degree: 1
+  - rank: 22
+    id: subsumption_architecture
+    label: Subsumption Architecture
+    type: concept
+    composite_score: 0.1326
+    pagerank: 0.00109
+    betweenness: 0.037857
+    in_degree: 3
+    out_degree: 3
+  - rank: 23
+    id: frame_problem
+    label: Frame Problem
+    type: concept
+    composite_score: 0.1289
+    pagerank: 0.00108
+    betweenness: 0.029637
+    in_degree: 4
+    out_degree: 3
+  - rank: 24
+    id: first_principles_reasoning
+    label: First Principles Reasoning
+    type: concept
+    composite_score: 0.1289
+    pagerank: 0.001298
+    betweenness: 0.038223
+    in_degree: 2
+    out_degree: 4
+  - rank: 25
+    id: policy
+    label: Policy
+    type: concept
+    composite_score: 0.1261
+    pagerank: 0.001467
+    betweenness: 0.02093
+    in_degree: 4
+    out_degree: 1
+  - rank: 26
+    id: semantic_information
+    label: Semantic Information
+    type: concept
+    composite_score: 0.119
+    pagerank: 0.00305
+    betweenness: 0.000468
+    in_degree: 2
+    out_degree: 0
+  - rank: 27
+    id: john_mccarthy
+    label: John McCarthy
+    type: person
+    composite_score: 0.1188
+    pagerank: 0.002338
+    betweenness: 0.000789
+    in_degree: 4
+    out_degree: 0
+  - rank: 28
+    id: john_holland
+    label: John Holland
+    type: person
+    composite_score: 0.1162
+    pagerank: 0.002404
+    betweenness: 0.010639
+    in_degree: 2
+    out_degree: 0
+  - rank: 29
+    id: boltzmann_machines
+    label: Boltzmann Machines
+    type: concept
+    composite_score: 0.1155
+    pagerank: 0.001535
+    betweenness: 0.013561
+    in_degree: 4
+    out_degree: 2
+  - rank: 30
+    id: herbert_simon
+    label: Herbert Simon
+    type: person
+    composite_score: 0.1134
+    pagerank: 0.0021
+    betweenness: 0.002057
+    in_degree: 4
+    out_degree: 0
+  - rank: 31
+    id: claude_shannon
+    label: Claude Shannon
+    type: person
+    composite_score: 0.1123
+    pagerank: 0.002026
+    betweenness: 0.002745
+    in_degree: 4
+    out_degree: 0
+  - rank: 32
+    id: vsr
+    label: Variation–Selection–Retention (VSR)
+    type: concept
+    composite_score: 0.1111
+    pagerank: 0.001742
+    betweenness: 0.013529
+    in_degree: 3
+    out_degree: 1
+  - rank: 33
+    id: symbol_manipulation
+    label: Symbol Manipulation
+    type: concept
+    composite_score: 0.1109
+    pagerank: 0.00149
+    betweenness: 0.018029
+    in_degree: 3
+    out_degree: 1
+  - rank: 34
+    id: qualitative_reasoning
+    label: Qualitative Reasoning
+    type: concept
+    composite_score: 0.1095
+    pagerank: 0.001132
+    betweenness: 0.017468
+    in_degree: 4
+    out_degree: 3
+  - rank: 35
+    id: temporal_differencing
+    label: Temporal Differencing
+    type: concept
+    composite_score: 0.1041
+    pagerank: 0.000942
+    betweenness: 0.030388
+    in_degree: 2
+    out_degree: 4
+  - rank: 36
+    id: superstitious_learning
+    label: Superstitious Learning
+    type: concept
+    composite_score: 0.1039
+    pagerank: 0.002416
+    betweenness: 0.003365
+    in_degree: 2
+    out_degree: 0
+  - rank: 37
+    id: genetic_algorithms
+    label: Genetic Algorithms
+    type: concept
+    composite_score: 0.1039
+    pagerank: 0.001238
+    betweenness: 0.018578
+    in_degree: 3
+    out_degree: 4
+  - rank: 38
+    id: learning
+    label: Learning
+    type: concept
+    composite_score: 0.1032
+    pagerank: 0.002577
+    betweenness: 0.0
+    in_degree: 2
+    out_degree: 0
+  - rank: 39
+    id: combinatorial_complexity
+    label: Combinatorial Complexity
+    type: concept
+    composite_score: 0.1012
+    pagerank: 0.00151
+    betweenness: 0.018357
+    in_degree: 2
+    out_degree: 3
+  - rank: 40
+    id: extrapolation_fallacy
+    label: Extrapolation Fallacy
+    type: concept
+    composite_score: 0.0974
+    pagerank: 0.002736
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 1
+  - rank: 41
+    id: rene_descartes
+    label: René Descartes
+    type: person
+    composite_score: 0.0974
+    pagerank: 0.002736
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 42
+    id: exploration_exploitation_tradeoff
+    label: Exploration–Exploitation Trade-off
+    type: concept
+    composite_score: 0.0947
+    pagerank: 0.001308
+    betweenness: 0.011977
+    in_degree: 3
+    out_degree: 1
+  - rank: 43
+    id: schema
+    label: Schema
+    type: concept
+    composite_score: 0.0927
+    pagerank: 0.001456
+    betweenness: 0.008159
+    in_degree: 3
+    out_degree: 0
+  - rank: 44
+    id: norbert_wiener
+    label: Norbert Wiener
+    type: person
+    composite_score: 0.0916
+    pagerank: 0.001187
+    betweenness: 0.018681
+    in_degree: 2
+    out_degree: 0
+  - rank: 45
+    id: constraint_propagation
+    label: Constraint Propagation
+    type: concept
+    composite_score: 0.0915
+    pagerank: 0.000942
+    betweenness: 0.023088
+    in_degree: 2
+    out_degree: 2
+  - rank: 46
+    id: adaptation
+    label: Adaptation
+    type: concept
+    composite_score: 0.0908
+    pagerank: 0.001427
+    betweenness: 0.02012
+    in_degree: 1
+    out_degree: 1
+  - rank: 47
+    id: homeostasis
+    label: Homeostasis
+    type: concept
+    composite_score: 0.0905
+    pagerank: 0.00109
+    betweenness: 0.01355
+    in_degree: 3
+    out_degree: 2
+  - rank: 48
+    id: management_hypothesis
+    label: Management Hypothesis
+    type: concept
+    composite_score: 0.0876
+    pagerank: 0.001293
+    betweenness: 0.008159
+    in_degree: 3
+    out_degree: 1
+  - rank: 49
+    id: ood_problems
+    label: OOD Problems
+    type: concept
+    composite_score: 0.0862
+    pagerank: 0.001446
+    betweenness: 0.010838
+    in_degree: 2
+    out_degree: 1
+  - rank: 50
+    id: causal_interpretation
+    label: Causal Interpretation
+    type: concept
+    composite_score: 0.0846
+    pagerank: 0.001706
+    betweenness: 0.005155
+    in_degree: 2
+    out_degree: 2
+  - rank: 51
+    id: richard_sutton
+    label: Richard Sutton
+    type: person
+    composite_score: 0.0833
+    pagerank: 0.000908
+    betweenness: 0.012733
+    in_degree: 3
+    out_degree: 0
+  - rank: 52
+    id: propagator_model
+    label: Propagator Model
+    type: concept
+    composite_score: 0.0808
+    pagerank: 0.001041
+    betweenness: 0.008816
+    in_degree: 3
+    out_degree: 3
+  - rank: 53
+    id: means_ends_analysis
+    label: Means–Ends Analysis
+    type: concept
+    composite_score: 0.0793
+    pagerank: 0.000911
+    betweenness: 0.01033
+    in_degree: 3
+    out_degree: 3
+  - rank: 54
+    id: general_problem_of_intelligence
+    label: General Problem of Intelligence
+    type: concept
+    composite_score: 0.0786
+    pagerank: 0.002141
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 55
+    id: arthur_samuel
+    label: Arthur Samuel
+    type: person
+    composite_score: 0.0786
+    pagerank: 0.002141
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 56
+    id: rodney_brooks
+    label: Rodney Brooks
+    type: person
+    composite_score: 0.0769
+    pagerank: 0.000954
+    betweenness: 0.008137
+    in_degree: 3
+    out_degree: 0
+  - rank: 57
+    id: exploitation
+    label: Exploitation
+    type: concept
+    composite_score: 0.0756
+    pagerank: 0.001109
+    betweenness: 0.01086
+    in_degree: 2
+    out_degree: 3
+  - rank: 58
+    id: dependency_network
+    label: Dependency Network
+    type: concept
+    composite_score: 0.0756
+    pagerank: 0.000782
+    betweenness: 0.016869
+    in_degree: 2
+    out_degree: 5
+  - rank: 59
+    id: syntactic_information
+    label: Syntactic Information
+    type: concept
+    composite_score: 0.0736
+    pagerank: 0.00163
+    betweenness: 0.000194
+    in_degree: 2
+    out_degree: 1
+  - rank: 60
+    id: local_peaks
+    label: Local Peaks
+    type: concept
+    composite_score: 0.0734
+    pagerank: 0.000892
+    betweenness: 0.007284
+    in_degree: 3
+    out_degree: 1
+  - rank: 61
+    id: mit_ai_lab
+    label: MIT AI Lab
+    type: person
+    composite_score: 0.0709
+    pagerank: 0.000723
+    betweenness: 0.015213
+    in_degree: 2
+    out_degree: 0
+  - rank: 62
+    id: gerald_sussman
+    label: Gerald Jay Sussman
+    type: person
+    composite_score: 0.0706
+    pagerank: 0.001186
+    betweenness: 0.000252
+    in_degree: 3
+    out_degree: 0
+  - rank: 63
+    id: von_neumann_search
+    label: Von Neumann Search
+    type: concept
+    composite_score: 0.0703
+    pagerank: 0.000942
+    betweenness: 0.010871
+    in_degree: 2
+    out_degree: 4
+  - rank: 64
+    id: expert_systems
+    label: Expert Systems
+    type: concept
+    composite_score: 0.066
+    pagerank: 0.000942
+    betweenness: 0.008387
+    in_degree: 2
+    out_degree: 3
+  - rank: 65
+    id: representation
+    label: Representation
+    type: concept
+    composite_score: 0.0656
+    pagerank: 0.000616
+    betweenness: 0.020397
+    in_degree: 1
+    out_degree: 2
+  - rank: 66
+    id: johan_de_kleer
+    label: Johan de Kleer
+    type: person
+    composite_score: 0.0652
+    pagerank: 0.001029
+    betweenness: 5.0e-06
+    in_degree: 3
+    out_degree: 0
+  - rank: 67
+    id: cybernetics
+    label: Cybernetics
+    type: concept
+    composite_score: 0.0644
+    pagerank: 0.000812
+    betweenness: 0.016077
+    in_degree: 1
+    out_degree: 1
+  - rank: 68
+    id: elaboration_tolerance
+    label: Elaboration Tolerance
+    type: concept
+    composite_score: 0.0644
+    pagerank: 0.000942
+    betweenness: 0.007446
+    in_degree: 2
+    out_degree: 3
+  - rank: 69
+    id: designation
+    label: Designation
+    type: concept
+    composite_score: 0.0615
+    pagerank: 0.000645
+    betweenness: 0.011178
+    in_degree: 2
+    out_degree: 1
+  - rank: 70
+    id: bit_strings
+    label: Bit Strings
+    type: concept
+    composite_score: 0.061
+    pagerank: 0.000942
+    betweenness: 0.005457
+    in_degree: 2
+    out_degree: 1
+  - rank: 71
+    id: iid_problems
+    label: IID Problems
+    type: concept
+    composite_score: 0.061
+    pagerank: 0.000942
+    betweenness: 0.005457
+    in_degree: 2
+    out_degree: 1
+  - rank: 72
+    id: selection
+    label: Selection
+    type: concept
+    composite_score: 0.061
+    pagerank: 0.000942
+    betweenness: 0.005457
+    in_degree: 2
+    out_degree: 1
+  - rank: 73
+    id: domain_specific_language
+    label: Domain-Specific Language
+    type: concept
+    composite_score: 0.061
+    pagerank: 0.000942
+    betweenness: 0.005457
+    in_degree: 2
+    out_degree: 1
+  - rank: 74
+    id: implicit_knowledge
+    label: Implicit Knowledge
+    type: concept
+    composite_score: 0.0578
+    pagerank: 0.000794
+    betweenness: 4.4e-05
+    in_degree: 3
+    out_degree: 0
+  - rank: 75
+    id: modularity
+    label: Modularity
+    type: concept
+    composite_score: 0.0573
+    pagerank: 0.000906
+    betweenness: 0.004029
+    in_degree: 2
+    out_degree: 2
+  - rank: 76
+    id: breakdowns
+    label: Breakdowns
+    type: concept
+    composite_score: 0.057
+    pagerank: 0.00086
+    betweenness: 0.004637
+    in_degree: 2
+    out_degree: 1
+  - rank: 77
+    id: charles_darwin
+    label: Charles Darwin
+    type: person
+    composite_score: 0.056
+    pagerank: 0.001427
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 78
+    id: knowledge_acquisition_bottleneck
+    label: Knowledge Acquisition Bottleneck
+    type: concept
+    composite_score: 0.0556
+    pagerank: 0.001068
+    betweenness: 4.4e-05
+    in_degree: 2
+    out_degree: 0
+  - rank: 79
+    id: search_tree
+    label: Search Tree
+    type: concept
+    composite_score: 0.055
+    pagerank: 0.001395
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 80
+    id: richard_bellman
+    label: Richard Bellman
+    type: person
+    composite_score: 0.0547
+    pagerank: 0.001386
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 81
+    id: simon_search
+    label: Simon Search
+    type: concept
+    composite_score: 0.0522
+    pagerank: 0.000678
+    betweenness: 0.005246
+    in_degree: 2
+    out_degree: 3
+  - rank: 82
+    id: intermediate_feedback
+    label: Intermediate Feedback
+    type: concept
+    composite_score: 0.0516
+    pagerank: 0.000794
+    betweenness: 0.002739
+    in_degree: 2
+    out_degree: 2
+  - rank: 83
+    id: ex_budgeting_committee
+    label: Budgeting Committee
+    type: example
+    composite_score: 0.0502
+    pagerank: 0.000349
+    betweenness: 0.022647
+    in_degree: 0
+    out_degree: 2
+  - rank: 84
+    id: variety
+    label: Variety (Wiener)
+    type: concept
+    composite_score: 0.0478
+    pagerank: 0.000349
+    betweenness: 0.021262
+    in_degree: 0
+    out_degree: 2
+  - rank: 85
+    id: resources_for_action
+    label: Resources for Action
+    type: concept
+    composite_score: 0.0477
+    pagerank: 0.00108
+    betweenness: 0.001532
+    in_degree: 1
+    out_degree: 1
+  - rank: 86
+    id: phil_agre
+    label: Phil Agre
+    type: person
+    composite_score: 0.0468
+    pagerank: 0.000645
+    betweenness: 0.0027
+    in_degree: 2
+    out_degree: 0
+  - rank: 87
+    id: bayesian_networks
+    label: Bayesian Networks
+    type: concept
+    composite_score: 0.0454
+    pagerank: 0.000645
+    betweenness: 0.008169
+    in_degree: 1
+    out_degree: 3
+  - rank: 88
+    id: csp
+    label: Constraint Satisfaction Problem (CSP)
+    type: concept
+    composite_score: 0.0436
+    pagerank: 0.00067
+    betweenness: 0.006701
+    in_degree: 1
+    out_degree: 2
+  - rank: 89
+    id: dependency_directed_reasoning
+    label: Dependency-Directed Reasoning
+    type: concept
+    composite_score: 0.0426
+    pagerank: 0.000482
+    betweenness: 0.009549
+    in_degree: 1
+    out_degree: 3
+  - rank: 90
+    id: geoff_hinton
+    label: Geoffrey Hinton
+    type: person
+    composite_score: 0.0425
+    pagerank: 0.001001
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 91
+    id: division_of_labor
+    label: Division of Labour
+    type: concept
+    composite_score: 0.0407
+    pagerank: 0.000645
+    betweenness: 0.005457
+    in_degree: 1
+    out_degree: 2
+  - rank: 92
+    id: allen_newell
+    label: Allen Newell
+    type: person
+    composite_score: 0.0406
+    pagerank: 0.000593
+    betweenness: 9.4e-05
+    in_degree: 2
+    out_degree: 0
+  - rank: 93
+    id: reasoning_about_physical_world
+    label: Reasoning about the Physical World
+    type: concept
+    composite_score: 0.0377
+    pagerank: 0.000349
+    betweenness: 0.015437
+    in_degree: 0
+    out_degree: 3
+  - rank: 94
+    id: mathematical_logic_approach
+    label: Mathematical Logic Approach (KRR)
+    type: concept
+    composite_score: 0.0368
+    pagerank: 0.000645
+    betweenness: 0.003176
+    in_degree: 1
+    out_degree: 3
+  - rank: 95
+    id: w_ross_ashby
+    label: W. Ross Ashby
+    type: person
+    composite_score: 0.0365
+    pagerank: 0.000812
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 96
+    id: agent_specialization
+    label: Agent Specialisation
+    type: concept
+    composite_score: 0.036
+    pagerank: 0.000645
+    betweenness: 0.002734
+    in_degree: 1
+    out_degree: 1
+  - rank: 97
+    id: organizational_memory
+    label: Organisational Memory
+    type: concept
+    composite_score: 0.036
+    pagerank: 0.000645
+    betweenness: 0.002734
+    in_degree: 1
+    out_degree: 1
+  - rank: 98
+    id: bandwidth
+    label: Bandwidth
+    type: concept
+    composite_score: 0.036
+    pagerank: 0.000645
+    betweenness: 0.002734
+    in_degree: 1
+    out_degree: 1
+  - rank: 99
+    id: compression
+    label: Compression
+    type: concept
+    composite_score: 0.036
+    pagerank: 0.000645
+    betweenness: 0.002734
+    in_degree: 1
+    out_degree: 2
+  - rank: 100
+    id: hill_climbing
+    label: Hill Climbing
+    type: concept
+    composite_score: 0.036
+    pagerank: 0.000645
+    betweenness: 0.002734
+    in_degree: 1
+    out_degree: 1
+  - rank: 101
+    id: generate_and_test
+    label: Generate and Test
+    type: concept
+    composite_score: 0.036
+    pagerank: 0.000645
+    betweenness: 0.002734
+    in_degree: 1
+    out_degree: 1
+  - rank: 102
+    id: knowledge_base
+    label: Knowledge Base
+    type: concept
+    composite_score: 0.036
+    pagerank: 0.000645
+    betweenness: 0.002734
+    in_degree: 1
+    out_degree: 1
+  - rank: 103
+    id: chromosome
+    label: Chromosome
+    type: concept
+    composite_score: 0.036
+    pagerank: 0.000645
+    betweenness: 0.002734
+    in_degree: 1
+    out_degree: 1
+  - rank: 104
+    id: direct_manipulation
+    label: Direct Manipulation
+    type: concept
+    composite_score: 0.036
+    pagerank: 0.000497
+    betweenness: 0.005446
+    in_degree: 1
+    out_degree: 1
+  - rank: 105
+    id: declarative_knowledge
+    label: Declarative Knowledge
+    type: concept
+    composite_score: 0.0355
+    pagerank: 0.000616
+    betweenness: 0.002964
+    in_degree: 1
+    out_degree: 2
+  - rank: 106
+    id: general_problem_solver
+    label: General Problem Solver (GPS)
+    type: concept
+    composite_score: 0.0353
+    pagerank: 0.000607
+    betweenness: 0.003014
+    in_degree: 1
+    out_degree: 4
+  - rank: 107
+    id: hans_moravec
+    label: Hans Moravec
+    type: person
+    composite_score: 0.0353
+    pagerank: 0.000771
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 108
+    id: bugs
+    label: Bugs
+    type: concept
+    composite_score: 0.0349
+    pagerank: 0.000485
+    betweenness: 0.005044
+    in_degree: 1
+    out_degree: 1
+  - rank: 109
+    id: mesa_landscape
+    label: Mesa Landscape
+    type: concept
+    composite_score: 0.0338
+    pagerank: 0.000644
+    betweenness: 0.001471
+    in_degree: 1
+    out_degree: 1
+  - rank: 110
+    id: wishful_mnemonics
+    label: Wishful Mnemonics
+    type: concept
+    composite_score: 0.0328
+    pagerank: 0.000497
+    betweenness: 0.003603
+    in_degree: 1
+    out_degree: 2
+  - rank: 111
+    id: physical_symbol_system_hypothesis
+    label: Physical Symbol System Hypothesis
+    type: concept
+    composite_score: 0.0323
+    pagerank: 0.000541
+    betweenness: 0.002502
+    in_degree: 1
+    out_degree: 4
+  - rank: 112
+    id: ken_forbus
+    label: Ken Forbus
+    type: person
+    composite_score: 0.032
+    pagerank: 0.00067
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 113
+    id: path_dependence
+    label: Path Dependence
+    type: concept
+    composite_score: 0.0318
+    pagerank: 0.000663
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 114
+    id: myopia
+    label: Myopia
+    type: concept
+    composite_score: 0.0318
+    pagerank: 0.000663
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 115
+    id: elaboration
+    label: Elaboration
+    type: concept
+    composite_score: 0.0316
+    pagerank: 0.000655
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 116
+    id: exploration
+    label: Exploration
+    type: concept
+    composite_score: 0.0314
+    pagerank: 0.000497
+    betweenness: 0.002764
+    in_degree: 1
+    out_degree: 2
+  - rank: 117
+    id: soft_constraints
+    label: Soft Constraints
+    type: concept
+    composite_score: 0.0313
+    pagerank: 0.000645
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 118
+    id: moravecs_paradox
+    label: Moravec's Paradox
+    type: concept
+    composite_score: 0.0313
+    pagerank: 0.000497
+    betweenness: 0.002734
+    in_degree: 1
+    out_degree: 1
+  - rank: 119
+    id: context_engineering
+    label: Context Engineering
+    type: concept
+    composite_score: 0.0313
+    pagerank: 0.000645
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 120
+    id: alan_turing
+    label: Alan Turing
+    type: person
+    composite_score: 0.0313
+    pagerank: 0.000645
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 121
+    id: charles_babbage
+    label: Charles Babbage
+    type: person
+    composite_score: 0.0313
+    pagerank: 0.000645
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 122
+    id: sparse_learning
+    label: Sparse Learning
+    type: concept
+    composite_score: 0.0309
+    pagerank: 0.000633
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 123
+    id: adam_smith
+    label: Adam Smith
+    type: person
+    composite_score: 0.0306
+    pagerank: 0.000623
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 124
+    id: feigenbaum
+    label: Edward Feigenbaum
+    type: person
+    composite_score: 0.0303
+    pagerank: 0.000616
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 125
+    id: procedural_knowledge
+    label: Procedural Knowledge
+    type: concept
+    composite_score: 0.0302
+    pagerank: 0.000611
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 126
+    id: ill_defined_problems
+    label: Ill-Defined Problems
+    type: concept
+    composite_score: 0.0301
+    pagerank: 0.000607
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 127
+    id: abstraction
+    label: Abstraction
+    type: concept
+    composite_score: 0.0296
+    pagerank: 0.000464
+    betweenness: 0.002355
+    in_degree: 1
+    out_degree: 2
+  - rank: 128
+    id: utility_function
+    label: Utility Function
+    type: concept
+    composite_score: 0.0282
+    pagerank: 0.000549
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 129
+    id: john_von_neumann
+    label: John von Neumann
+    type: person
+    composite_score: 0.0282
+    pagerank: 0.000549
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 130
+    id: andrew_barto
+    label: Andrew Barto
+    type: person
+    composite_score: 0.0282
+    pagerank: 0.000549
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 131
+    id: mental_models
+    label: Mental Models
+    type: concept
+    composite_score: 0.0277
+    pagerank: 0.000532
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 132
+    id: deep_learning_krr
+    label: Deep Learning Approach (KRR)
+    type: concept
+    composite_score: 0.0277
+    pagerank: 0.000532
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 1
+  - rank: 133
+    id: judea_pearl
+    label: Judea Pearl
+    type: person
+    composite_score: 0.0277
+    pagerank: 0.000532
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 134
+    id: commonsense_reasoning
+    label: Commonsense Reasoning
+    type: concept
+    composite_score: 0.0276
+    pagerank: 0.000497
+    betweenness: 0.000583
+    in_degree: 1
+    out_degree: 1
+  - rank: 135
+    id: lists
+    label: Lists
+    type: concept
+    composite_score: 0.0274
+    pagerank: 0.000497
+    betweenness: 0.000468
+    in_degree: 1
+    out_degree: 1
+  - rank: 136
+    id: tacit_knowledge
+    label: Tacit Knowledge
+    type: concept
+    composite_score: 0.0267
+    pagerank: 0.000497
+    betweenness: 6.5e-05
+    in_degree: 1
+    out_degree: 1
+  - rank: 137
+    id: organizational_learning
+    label: Organisational Learning
+    type: concept
+    composite_score: 0.0266
+    pagerank: 0.000497
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 138
+    id: delegation
+    label: Delegation
+    type: concept
+    composite_score: 0.0266
+    pagerank: 0.000497
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 1
+  - rank: 139
+    id: convenient_fictions
+    label: Convenient Fictions
+    type: concept
+    composite_score: 0.0266
+    pagerank: 0.000497
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 140
+    id: theory_formation
+    label: Theory Formation
+    type: concept
+    composite_score: 0.0266
+    pagerank: 0.000497
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 1
+  - rank: 141
+    id: envisioning
+    label: Envisioning
+    type: concept
+    composite_score: 0.0266
+    pagerank: 0.000497
+    betweenness: 5.0e-06
+    in_degree: 1
+    out_degree: 2
+  - rank: 142
+    id: gregor_mendel
+    label: Gregor Mendel
+    type: person
+    composite_score: 0.0266
+    pagerank: 0.000497
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 143
+    id: w_grey_walter
+    label: W. Grey Walter
+    type: person
+    composite_score: 0.0266
+    pagerank: 0.000497
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 144
+    id: brian_cantwell_smith
+    label: Brian Cantwell-Smith
+    type: person
+    composite_score: 0.0266
+    pagerank: 0.000497
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 145
+    id: ivan_sutherland
+    label: Ivan Sutherland
+    type: person
+    composite_score: 0.0266
+    pagerank: 0.000497
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 146
+    id: truth_maintenance
+    label: Truth Maintenance
+    type: concept
+    composite_score: 0.0261
+    pagerank: 0.000482
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 1
+  - rank: 147
+    id: satisficing
+    label: Satisficing
+    type: concept
+    composite_score: 0.0252
+    pagerank: 0.000349
+    betweenness: 0.008178
+    in_degree: 0
+    out_degree: 3
+  - rank: 148
+    id: entropy
+    label: Entropy
+    type: concept
+    composite_score: 0.025
+    pagerank: 0.000448
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 149
+    id: optimization_goal
+    label: Optimisation Goal
+    type: concept
+    composite_score: 0.025
+    pagerank: 0.000448
+    betweenness: 0.0
+    in_degree: 1
+    out_degree: 0
+  - rank: 150
+    id: noise
+    label: Noise
+    type: concept
+    composite_score: 0.0236
+    pagerank: 0.000349
+    betweenness: 0.007281
+    in_degree: 0
+    out_degree: 2
+  - rank: 151
+    id: interdependence_of_actions
+    label: Interdependence of Actions
+    type: concept
+    composite_score: 0.023
+    pagerank: 0.000349
+    betweenness: 0.006947
+    in_degree: 0
+    out_degree: 2
+  - rank: 152
+    id: creature_hypothesis
+    label: Creature Hypothesis
+    type: concept
+    composite_score: 0.0205
+    pagerank: 0.000349
+    betweenness: 0.005446
+    in_degree: 0
+    out_degree: 2
+  - rank: 153
+    id: reward_hypothesis
+    label: Reward Hypothesis
+    type: concept
+    composite_score: 0.019
+    pagerank: 0.000349
+    betweenness: 0.004619
+    in_degree: 0
+    out_degree: 3
+  - rank: 154
+    id: indexing
+    label: Indexing
+    type: concept
+    composite_score: 0.0184
+    pagerank: 0.000349
+    betweenness: 0.004268
+    in_degree: 0
+    out_degree: 2
+  - rank: 155
+    id: shannon_entropy
+    label: Shannon Entropy
+    type: concept
+    composite_score: 0.0158
+    pagerank: 0.000349
+    betweenness: 0.002734
+    in_degree: 0
+    out_degree: 3
+  - rank: 156
+    id: digital_abstraction
+    label: Digital Abstraction
+    type: concept
+    composite_score: 0.0158
+    pagerank: 0.000349
+    betweenness: 0.002734
+    in_degree: 0
+    out_degree: 2
+  - rank: 157
+    id: mendelian_approach
+    label: Mendelian Approach
+    type: concept
+    composite_score: 0.0158
+    pagerank: 0.000349
+    betweenness: 0.002734
+    in_degree: 0
+    out_degree: 2
+  - rank: 158
+    id: registration
+    label: Registration
+    type: concept
+    composite_score: 0.0158
+    pagerank: 0.000349
+    betweenness: 0.002734
+    in_degree: 0
+    out_degree: 2
+  - rank: 159
+    id: ex_shipbuilding_company
+    label: Shipbuilding Company
+    type: example
+    composite_score: 0.0158
+    pagerank: 0.000349
+    betweenness: 0.002734
+    in_degree: 0
+    out_degree: 2
+  - rank: 160
+    id: ex_walter_tortoise
+    label: Walter's Tortoise Robot
+    type: example
+    composite_score: 0.0158
+    pagerank: 0.000349
+    betweenness: 0.002734
+    in_degree: 0
+    out_degree: 2
+  - rank: 161
+    id: ex_sketchpad
+    label: Sutherland's Sketchpad
+    type: example
+    composite_score: 0.0158
+    pagerank: 0.000349
+    betweenness: 0.002734
+    in_degree: 0
+    out_degree: 2
+  - rank: 162
+    id: long_jumping
+    label: Long Jumping
+    type: concept
+    composite_score: 0.0156
+    pagerank: 0.000349
+    betweenness: 0.002641
+    in_degree: 0
+    out_degree: 2
+  - rank: 163
+    id: critical_technical_practice
+    label: Critical Technical Practice
+    type: concept
+    composite_score: 0.0148
+    pagerank: 0.000349
+    betweenness: 0.002195
+    in_degree: 0
+    out_degree: 2
+  - rank: 164
+    id: epistemological_approach
+    label: Epistemological Approach
+    type: concept
+    composite_score: 0.0143
+    pagerank: 0.000349
+    betweenness: 0.00187
+    in_degree: 0
+    out_degree: 2
+  - rank: 165
+    id: chain_of_thought
+    label: Chain-of-Thought Reasoning
+    type: concept
+    composite_score: 0.0119
+    pagerank: 0.000349
+    betweenness: 0.000499
+    in_degree: 0
+    out_degree: 2
+  - rank: 166
+    id: bit
+    label: Bit
+    type: concept
+    composite_score: 0.0113
+    pagerank: 0.000349
+    betweenness: 0.000185
+    in_degree: 0
+    out_degree: 2
+  - rank: 167
+    id: explicit_knowledge
+    label: Explicit Knowledge
+    type: concept
+    composite_score: 0.0111
+    pagerank: 0.000349
+    betweenness: 6.5e-05
+    in_degree: 0
+    out_degree: 2
+  - rank: 168
+    id: ex_theseus_robot_1950
+    label: Shannon's Theseus Maze-Solving Robot (1950)
+    type: example
+    composite_score: 0.0111
+    pagerank: 0.000349
+    betweenness: 1.8e-05
+    in_degree: 0
+    out_degree: 3
+  - rank: 169
+    id: intelligence
+    label: Intelligence
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 170
+    id: delayed_feedback
+    label: Delayed Feedback
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 171
+    id: ambiguous_feedback
+    label: Ambiguous Feedback
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 172
+    id: sparse_feedback
+    label: Sparse Feedback
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 173
+    id: trial_and_error
+    label: Trial and Error
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 174
+    id: value_function
+    label: Value Function
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 175
+    id: aggregate_rewards
+    label: Aggregate Rewards
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 176
+    id: maximize_rewards
+    label: Maximise Rewards
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 177
+    id: goal_directed_agents
+    label: Goal-Directed Agents
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 178
+    id: agent_environment_distinction
+    label: Agent–Environment Distinction
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 179
+    id: agentic_environment
+    label: Agentic Environment
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 180
+    id: task_environment
+    label: Task Environment
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 181
+    id: deliberate_practice
+    label: Deliberate Practice
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 182
+    id: unitary_actor_assumption
+    label: Unitary Actor Assumption
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 183
+    id: organizational_programs
+    label: Organisational Programs
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 184
+    id: hierarchical_management
+    label: Hierarchical Management
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 185
+    id: gains_to_specialization
+    label: Gains to Specialisation
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 186
+    id: infinite_regress
+    label: Infinite Regress
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 187
+    id: information
+    label: Information
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 188
+    id: encoding
+    label: Encoding
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 189
+    id: decoding
+    label: Decoding
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 190
+    id: signal_to_noise_ratio
+    label: Signal-to-Noise Ratio
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 191
+    id: statistical_redundancy_removal
+    label: Statistical Redundancy Removal
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 192
+    id: meaningful_abstraction
+    label: Meaningful Abstraction
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 193
+    id: information_theory
+    label: Information Theory
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 194
+    id: internal_representations
+    label: Internal Representations
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 195
+    id: external_representations
+    label: External Representations
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 196
+    id: cognitive_representations
+    label: Cognitive Representations
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 197
+    id: physics_hypothesis
+    label: Physics Hypothesis
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 198
+    id: processing_complexity
+    label: Processing Complexity
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 199
+    id: processing_capacity
+    label: Processing Capacity
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 200
+    id: processing_power
+    label: Processing Power
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 201
+    id: curse_of_dimensionality
+    label: Curse of Dimensionality
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 202
+    id: mechanization_of_thought
+    label: Mechanisation of Thought
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 203
+    id: turing_machine
+    label: Turing Machine
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 204
+    id: effective_procedure
+    label: Effective Procedure
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 205
+    id: minimal_effective_procedure
+    label: Minimal Effective Procedure
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 206
+    id: algorithm
+    label: Algorithm
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 207
+    id: short_term_long_term_memory
+    label: Short-Term vs Long-Term Memory
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 208
+    id: memory_management
+    label: Memory Management
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 209
+    id: state_space
+    label: State Space
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 210
+    id: search_space
+    label: Search Space
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 211
+    id: initial_state
+    label: Initial State
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 212
+    id: goal_state
+    label: Goal State
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 213
+    id: intermediate_state
+    label: Intermediate State
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 214
+    id: state
+    label: State
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 215
+    id: state_transitions
+    label: State Transitions
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 216
+    id: operators
+    label: Operators
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 217
+    id: actions
+    label: Actions
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 218
+    id: paths
+    label: Paths
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 219
+    id: branches
+    label: Branches
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 220
+    id: node
+    label: Node
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 221
+    id: uninformed_search
+    label: Uninformed Search
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 222
+    id: breadth_first_search
+    label: Breadth-First Search
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 223
+    id: depth_first_search
+    label: Depth-First Search
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 224
+    id: informed_search
+    label: Informed Search
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 225
+    id: evaluation_function
+    label: Evaluation Function
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 226
+    id: backtracking
+    label: Backtracking
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 227
+    id: pruning
+    label: Pruning
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 228
+    id: forward_checking_search
+    label: Forward Checking Search
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 229
+    id: adversarial_search
+    label: Adversarial Search
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 230
+    id: game_tree
+    label: Game Tree
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 231
+    id: giant_strides
+    label: Giant Strides
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 232
+    id: planning
+    label: Planning
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 233
+    id: subgoals
+    label: Subgoals
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 234
+    id: memory_of_action_sequences
+    label: Memory of Action Sequences
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 235
+    id: global_optimum
+    label: Global Optimum
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 236
+    id: local_vs_global_optima
+    label: Local vs Global Optima
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 237
+    id: aspiration_level
+    label: Aspiration Level
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 238
+    id: find_any_solution_goal
+    label: Find-Any-Solution Goal
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 239
+    id: find_all_solutions_goal
+    label: Find-All-Solutions Goal
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 240
+    id: find_best_solution_goal
+    label: Find-Best-Solution Goal
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 241
+    id: differences_current_vs_goal
+    label: Difference (Current vs Goal State)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 242
+    id: effectuation
+    label: Effectuation
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 243
+    id: abstract_patterns
+    label: Abstract Patterns
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 244
+    id: conceptual_units
+    label: Conceptual Units
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 245
+    id: modules
+    label: Modules
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 246
+    id: decomposition
+    label: Decomposition
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 247
+    id: hierarchy
+    label: Hierarchy
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 248
+    id: productions
+    label: Productions
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 249
+    id: brittleness
+    label: Brittleness
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 250
+    id: representation_learning
+    label: Representation Learning
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 251
+    id: pattern_recognition
+    label: Pattern Recognition
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 252
+    id: pattern_matching
+    label: Pattern Matching
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 253
+    id: gradient_descent
+    label: Gradient Descent
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 254
+    id: backward_propagation
+    label: Backpropagation
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 255
+    id: autoencoders
+    label: Autoencoders
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 256
+    id: binary_variables_boltzmann
+    label: Binary Variables (Boltzmann)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 257
+    id: weights_boltzmann
+    label: Weights (Boltzmann)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 258
+    id: entropy_minimization_boltzmann
+    label: Entropy Minimisation (Boltzmann)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 259
+    id: learning_rate
+    label: Learning Rate
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 260
+    id: paradigms
+    label: Paradigms
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 261
+    id: coherence
+    label: Coherence
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 262
+    id: abstraction_level
+    label: Abstraction Level
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 263
+    id: variables
+    label: Variables (CSP)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 264
+    id: domain
+    label: Domain (CSP)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 265
+    id: hard_constraints
+    label: Hard Constraints
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 266
+    id: unary_constraint
+    label: Unary Constraint
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 267
+    id: binary_constraint
+    label: Binary Constraint
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 268
+    id: higher_order_constraint
+    label: Higher-Order Constraint
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 269
+    id: arc_consistency
+    label: Arc Consistency
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 270
+    id: forward_checking
+    label: Forward Checking
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 271
+    id: complete_assignment
+    label: Complete Assignment
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 272
+    id: partial_assignment
+    label: Partial Assignment
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 273
+    id: consistent_assignment
+    label: Consistent Assignment
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 274
+    id: solution
+    label: Solution
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 275
+    id: costs_soft_violation
+    label: Costs of Soft Constraint Violation
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 276
+    id: cost_function
+    label: Cost Function
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 277
+    id: bayesian_inference
+    label: Bayesian Inference
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 278
+    id: conditional_probabilities
+    label: Conditional Probabilities
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 279
+    id: probabilities
+    label: Probabilities
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 280
+    id: beliefs
+    label: Beliefs
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 281
+    id: random_variables
+    label: Random Variables
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 282
+    id: probability_distribution
+    label: Probability Distribution
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 283
+    id: statistical_distribution
+    label: Statistical Distribution
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 284
+    id: dag
+    label: Directed Acyclic Graph (DAG)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 285
+    id: parent_variable
+    label: Parent Variable
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 286
+    id: child_variable
+    label: Child Variable
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 287
+    id: possible_worlds
+    label: Possible Worlds
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 288
+    id: relations_possible_worlds
+    label: Relations Between Possible Worlds
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 289
+    id: propagation
+    label: Propagation
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 290
+    id: objects_propagator
+    label: Objects (Propagator)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 291
+    id: relational_databases
+    label: Relational Databases
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 292
+    id: database_integrity
+    label: Database Integrity
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 293
+    id: tuples
+    label: Tuples
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 294
+    id: cells_objects
+    label: Cells / Objects
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 295
+    id: decision_models
+    label: Decision Models
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 296
+    id: iid_vs_ood_problems
+    label: IID vs OOD Problems
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 297
+    id: evolutionary_operators
+    label: Evolutionary Operators
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 298
+    id: fitness
+    label: Fitness
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 299
+    id: fitness_function
+    label: Fitness Function
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 300
+    id: fitness_measure
+    label: Fitness Measure
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 301
+    id: crossover
+    label: Crossover
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 302
+    id: mutation
+    label: Mutation
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 303
+    id: genotype
+    label: Genotype
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 304
+    id: genes
+    label: Genes
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 305
+    id: alleles
+    label: Alleles
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 306
+    id: gene_allele
+    label: Gene–Allele Pair
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 307
+    id: genetic_sequences
+    label: Genetic Sequences
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 308
+    id: schema_genetic
+    label: Schema (Genetic)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 309
+    id: building_blocks
+    label: Building Blocks
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 310
+    id: implicit_parallelism
+    label: Implicit Parallelism
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 311
+    id: natural_selection
+    label: Natural Selection
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 312
+    id: artificial_selection
+    label: Artificial Selection
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 313
+    id: population_of_chromosomes
+    label: Population of Chromosomes
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 314
+    id: population_level_learning
+    label: Population-Level Learning
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 315
+    id: performance_landscape
+    label: Performance Landscape
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 316
+    id: rugged_landscape
+    label: Rugged Landscape
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 317
+    id: single_peaked_landscape
+    label: Single-Peaked Landscape
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 318
+    id: mesa_topology
+    label: Mesa Topology
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 319
+    id: smoothing_topology
+    label: Smoothing Topology
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 320
+    id: watchmaker_parable
+    label: Watchmaker Parable
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 321
+    id: variation
+    label: Variation
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 322
+    id: retention
+    label: Retention
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 323
+    id: novel_configurations
+    label: Novel Configurations
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 324
+    id: modifications
+    label: Modifications
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 325
+    id: market_mechanism
+    label: Market Mechanism
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 326
+    id: cumulative_expected_value
+    label: Cumulative Expected Value
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 327
+    id: comportment
+    label: Comportment
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 328
+    id: situatedness
+    label: Situatedness
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 329
+    id: embodiment
+    label: Embodiment
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 330
+    id: embeddedness
+    label: Embeddedness
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 331
+    id: sensorimotor
+    label: Sensorimotor Action
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 332
+    id: digital_ecosystem
+    label: Digital Ecosystem
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 333
+    id: finite_state_machines
+    label: Finite State Machines
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 334
+    id: knowledge_about_phenomena
+    label: Knowledge About Phenomena
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 335
+    id: situation
+    label: Situation
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 336
+    id: advice_taker
+    label: Advice Taker
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 337
+    id: inference_engine
+    label: Inference Engine
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 338
+    id: default_reasoning
+    label: Default Reasoning
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 339
+    id: expressiveness
+    label: Expressiveness (KRR)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 340
+    id: logical_entailment
+    label: Logical Entailment
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 341
+    id: speech_acts
+    label: Speech Acts
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 342
+    id: vector_databases
+    label: Vector Databases
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 343
+    id: retrieval_augmented_generation
+    label: Retrieval-Augmented Generation (RAG)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 344
+    id: world_models
+    label: World Models
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 345
+    id: ontology
+    label: Ontology (Formal)
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 346
+    id: principle_of_locality
+    label: Principle of Locality
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 347
+    id: procedural_complexity
+    label: Procedural Complexity
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 348
+    id: troubleshooting
+    label: Troubleshooting
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 349
+    id: generate_test_and_debug
+    label: Generate-Test-and-Debug
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 350
+    id: confluences
+    label: Confluences
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 351
+    id: justifications
+    label: Justifications
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 352
+    id: function_from_structure
+    label: Function from Structure
+    type: concept
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 353
+    id: carnegie_mellon
+    label: Carnegie Mellon University
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 354
+    id: bell_labs_att
+    label: Bell Labs (AT&T)
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 355
+    id: umass_amherst
+    label: University of Massachusetts Amherst
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 356
+    id: rand_corporation
+    label: RAND Corporation
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 357
+    id: ibm
+    label: IBM
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 358
+    id: ludwig_von_boltzmann
+    label: Ludwig Boltzmann
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 359
+    id: demis_hassabis
+    label: Demis Hassabis
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 360
+    id: google_deepmind
+    label: Google DeepMind
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 361
+    id: hubert_dreyfus
+    label: Hubert Dreyfus
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 362
+    id: cantwell_smith
+    label: Brian Cantwell Smith
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 363
+    id: russell_norvig
+    label: Russell & Norvig
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 364
+    id: levitt_march
+    label: Levitt & March
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 365
+    id: cyert_march
+    label: Cyert & March
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 366
+    id: denrell_fang_levinthal
+    label: Denrell, Fang & Levinthal
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 367
+    id: lave_march
+    label: Lave & March
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 368
+    id: thomke
+    label: Stefan Thomke
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 369
+    id: prietula_simon
+    label: Prietula & Simon
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 370
+    id: argote_epple
+    label: Argote & Epple
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 371
+    id: saleema_amershi
+    label: Saleema Amershi
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 372
+    id: microsoft_research
+    label: Microsoft Research
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 373
+    id: newton
+    label: Isaac Newton
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 374
+    id: wittgenstein
+    label: Ludwig Wittgenstein
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 375
+    id: minsky_1961
+    label: Minsky (1961) — Steps Toward AI
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 376
+    id: palantir
+    label: Palantir Technologies
+    type: person
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 377
+    id: ex_checkers_game
+    label: Checkers Game (Samuel, 1959)
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 378
+    id: ex_tmaze_mouse_cheese
+    label: T-Maze Mouse Experiment
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 379
+    id: ex_hedge_maze
+    label: Hedge Maze Navigation
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 380
+    id: ex_coin_toss_fair
+    label: Fair Coin Toss
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 381
+    id: ex_coin_toss_weighted_70_30
+    label: Weighted Coin Toss (70/30)
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 382
+    id: ex_watchmaker_parable_1000_parts
+    label: Watchmaker Parable — 1000 Parts
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 383
+    id: ex_watchmaker_100_modules_of_10
+    label: Watchmaker Parable — 100 Modules of 10
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 384
+    id: ex_sudoku_9x9
+    label: 9×9 Sudoku Puzzle
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 385
+    id: ex_safe_combination_81_factorial
+    label: Combination Safe (81! Possibilities)
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 386
+    id: ex_crossword_puzzle
+    label: Crossword Puzzle
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 387
+    id: ex_pin_factory_adam_smith
+    label: Pin Factory (Adam Smith)
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 388
+    id: ex_pin_factory_csp_scheduling
+    label: Pin Factory Scheduling (CSP)
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 389
+    id: ex_toothache_cavity_diagnosis
+    label: Toothache–Cavity Diagnosis
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 390
+    id: ex_mycin_expert_system
+    label: MYCIN Expert System
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 391
+    id: ex_kaist_to_incheon_airport
+    label: KAIST to Incheon Airport Route
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 392
+    id: ex_visiCalc_apple_1979
+    label: VisiCalc on Apple II (1979)
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 393
+    id: ex_microsoft_excel_projections
+    label: Microsoft Excel Financial Projections
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 394
+    id: ex_dna_plant_breeding_mendel
+    label: Mendel's Pea Plant Breeding
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 395
+    id: ex_hippos_tropics_penguins_antarctica
+    label: Hippos in Tropics / Penguins in Antarctica
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 396
+    id: ex_biological_cells_propagator
+    label: Biological Cells as Propagators
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 397
+    id: ex_algebraic_notation_17th_century
+    label: Algebraic Notation (17th Century)
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 398
+    id: ex_double_entry_bookkeeping_15th_century
+    label: Double-Entry Bookkeeping (15th Century)
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 399
+    id: ex_engineering_drawings_gm_tamron
+    label: Engineering Drawings (GM / Tamron)
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 400
+    id: ex_cad_software
+    label: CAD Software
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 401
+    id: ex_image_classification_boltzmann
+    label: Image Classification with Boltzmann Machines
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 402
+    id: ex_llm_text_generation_boltzmann
+    label: LLM Text Generation via Boltzmann Distribution
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 403
+    id: ex_app_development_team
+    label: Software App Development Team
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 404
+    id: ex_pharmaceutical_company
+    label: Pharmaceutical Company R&D
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 405
+    id: ex_ab_testing
+    label: A/B Testing
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 406
+    id: ex_ceo_builder_grasp_move_agents
+    label: CEO–Builder–Grasp/Move Hierarchy
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 407
+    id: ex_muscle_fibers
+    label: Muscle Fibres
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 408
+    id: ex_neuron_synapses_100_trillion
+    label: 100 Trillion Neural Synapses
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 409
+    id: ex_electrical_circuits
+    label: Electrical Circuits
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 410
+    id: ex_telephone_network_routing
+    label: Telephone Network Routing
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 411
+    id: ex_pilot_cockpit_altimeter
+    label: Pilot's Cockpit Altimeter
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 412
+    id: ex_fiber_optic_5g_tv_bandwidth
+    label: Fibre Optic / 5G / TV Bandwidth
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 413
+    id: ex_english_word_distribution
+    label: English Word Frequency Distribution
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 414
+    id: ex_french_language_model
+    label: French Language Model (OOD)
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 415
+    id: ex_food_ordering_model
+    label: Food Ordering Probabilistic Model
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 416
+    id: ex_laptop_design_components
+    label: Laptop Design Components
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 417
+    id: ex_filing_cabinet_vs_relational_database
+    label: Filing Cabinet vs Relational Database
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 418
+    id: ex_relational_databases_sql
+    label: Relational Databases / SQL
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 419
+    id: ex_firm_strategy_as_performance_landscape
+    label: Firm Strategy as Performance Landscape
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 420
+    id: ex_car_exterior_interior_color_constraint
+    label: Car Exterior/Interior Colour Constraint
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 421
+    id: ex_net_present_value_cash_flows
+    label: Net Present Value / Cash Flow Projections
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 422
+    id: ex_kpi_milestones_customer_journey
+    label: KPIs, Milestones & Customer Journey
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 423
+    id: ex_artificial_brain_analogy
+    label: Artificial Brain Analogy
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 424
+    id: ex_mechanical_watch_assembly
+    label: Mechanical Watch Assembly
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 425
+    id: ex_market_forces_selection
+    label: Market Forces as Selection Pressure
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 0
+  - rank: 426
+    id: ex_thermostat
+    label: Analog Thermostat
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1
+  - rank: 427
+    id: ex_roomba
+    label: Roomba Vacuum Cleaner
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 428
+    id: ex_integrated_circuit_board
+    label: Integrated Circuit Board Design and Repair
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 429
+    id: ex_three_containers
+    label: Three Water Containers at Different Heights
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 2
+  - rank: 430
+    id: ex_nvidia_cuda
+    label: Nvidia CUDA Language
+    type: example
+    composite_score: 0.011
+    pagerank: 0.000349
+    betweenness: 0.0
+    in_degree: 0
+    out_degree: 1

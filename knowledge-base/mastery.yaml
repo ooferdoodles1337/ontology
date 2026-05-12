@@ -1,0 +1,1263 @@
+mastery:
+  updated_at: '2026-05-11'
+  concepts:
+  - id: abstract_patterns
+    label: Abstract Patterns
+    mastered: false
+    mastered_at: null
+  - id: abstraction
+    label: Abstraction
+    mastered: false
+    mastered_at: null
+  - id: abstraction_level
+    label: Abstraction Level
+    mastered: false
+    mastered_at: null
+  - id: actions
+    label: Actions
+    mastered: false
+    mastered_at: null
+  - id: adaptation
+    label: Adaptation
+    mastered: false
+    mastered_at: null
+  - id: adversarial_search
+    label: Adversarial Search
+    mastered: false
+    mastered_at: null
+  - id: advice_taker
+    label: Advice Taker
+    mastered: false
+    mastered_at: null
+  - id: agent_environment_distinction
+    label: Agent–Environment Distinction
+    mastered: false
+    mastered_at: null
+  - id: agent_specialization
+    label: Agent Specialisation
+    mastered: false
+    mastered_at: null
+  - id: agentic_environment
+    label: Agentic Environment
+    mastered: false
+    mastered_at: null
+  - id: aggregate_rewards
+    label: Aggregate Rewards
+    mastered: false
+    mastered_at: null
+  - id: algorithm
+    label: Algorithm
+    mastered: false
+    mastered_at: null
+  - id: alleles
+    label: Alleles
+    mastered: false
+    mastered_at: null
+  - id: ambiguous_feedback
+    label: Ambiguous Feedback
+    mastered: false
+    mastered_at: null
+  - id: arc_consistency
+    label: Arc Consistency
+    mastered: false
+    mastered_at: null
+  - id: artificial_selection
+    label: Artificial Selection
+    mastered: false
+    mastered_at: null
+  - id: aspiration_level
+    label: Aspiration Level
+    mastered: false
+    mastered_at: null
+  - id: autoencoders
+    label: Autoencoders
+    mastered: false
+    mastered_at: null
+  - id: backtracking
+    label: Backtracking
+    mastered: false
+    mastered_at: null
+  - id: backward_propagation
+    label: Backpropagation
+    mastered: false
+    mastered_at: null
+  - id: bandwidth
+    label: Bandwidth
+    mastered: false
+    mastered_at: null
+  - id: bayesian_inference
+    label: Bayesian Inference
+    mastered: false
+    mastered_at: null
+  - id: bayesian_networks
+    label: Bayesian Networks
+    mastered: false
+    mastered_at: null
+  - id: beliefs
+    label: Beliefs
+    mastered: false
+    mastered_at: null
+  - id: binary_constraint
+    label: Binary Constraint
+    mastered: false
+    mastered_at: null
+  - id: binary_variables_boltzmann
+    label: Binary Variables (Boltzmann)
+    mastered: false
+    mastered_at: null
+  - id: bit
+    label: Bit
+    mastered: false
+    mastered_at: null
+  - id: bit_strings
+    label: Bit Strings
+    mastered: false
+    mastered_at: null
+  - id: boltzmann_machines
+    label: Boltzmann Machines
+    mastered: false
+    mastered_at: null
+  - id: branches
+    label: Branches
+    mastered: false
+    mastered_at: null
+  - id: breadth_first_search
+    label: Breadth-First Search
+    mastered: false
+    mastered_at: null
+  - id: breakdowns
+    label: Breakdowns
+    mastered: false
+    mastered_at: null
+  - id: brittleness
+    label: Brittleness
+    mastered: false
+    mastered_at: null
+  - id: brute_force
+    label: Brute Force
+    mastered: false
+    mastered_at: null
+  - id: bugs
+    label: Bugs
+    mastered: false
+    mastered_at: null
+  - id: building_blocks
+    label: Building Blocks
+    mastered: false
+    mastered_at: null
+  - id: cartesianism
+    label: Cartesianism / Cognitivism
+    mastered: false
+    mastered_at: null
+  - id: causal_interpretation
+    label: Causal Interpretation
+    mastered: false
+    mastered_at: null
+  - id: cells_objects
+    label: Cells / Objects
+    mastered: false
+    mastered_at: null
+  - id: chain_of_thought
+    label: Chain-of-Thought Reasoning
+    mastered: false
+    mastered_at: null
+  - id: channel_capacity
+    label: Channel Capacity
+    mastered: false
+    mastered_at: null
+  - id: child_variable
+    label: Child Variable
+    mastered: false
+    mastered_at: null
+  - id: chromosome
+    label: Chromosome
+    mastered: false
+    mastered_at: null
+  - id: cognitive_representations
+    label: Cognitive Representations
+    mastered: false
+    mastered_at: null
+  - id: coherence
+    label: Coherence
+    mastered: false
+    mastered_at: null
+  - id: combinatorial_complexity
+    label: Combinatorial Complexity
+    mastered: false
+    mastered_at: null
+  - id: combinatorial_explosion
+    label: Combinatorial Explosion
+    mastered: false
+    mastered_at: null
+  - id: commonsense_knowledge
+    label: Commonsense Knowledge
+    mastered: false
+    mastered_at: null
+  - id: commonsense_reasoning
+    label: Commonsense Reasoning
+    mastered: false
+    mastered_at: null
+  - id: complete_assignment
+    label: Complete Assignment
+    mastered: false
+    mastered_at: null
+  - id: comportment
+    label: Comportment
+    mastered: false
+    mastered_at: null
+  - id: compression
+    label: Compression
+    mastered: false
+    mastered_at: null
+  - id: conceptual_units
+    label: Conceptual Units
+    mastered: false
+    mastered_at: null
+  - id: conditional_probabilities
+    label: Conditional Probabilities
+    mastered: false
+    mastered_at: null
+  - id: confluences
+    label: Confluences
+    mastered: false
+    mastered_at: null
+  - id: consistent_assignment
+    label: Consistent Assignment
+    mastered: false
+    mastered_at: null
+  - id: constraint_network
+    label: Constraint Network
+    mastered: false
+    mastered_at: null
+  - id: constraint_propagation
+    label: Constraint Propagation
+    mastered: false
+    mastered_at: null
+  - id: context_engineering
+    label: Context Engineering
+    mastered: false
+    mastered_at: null
+  - id: convenient_fictions
+    label: Convenient Fictions
+    mastered: false
+    mastered_at: null
+  - id: cost_function
+    label: Cost Function
+    mastered: false
+    mastered_at: null
+  - id: costs_soft_violation
+    label: Costs of Soft Constraint Violation
+    mastered: false
+    mastered_at: null
+  - id: creature_hypothesis
+    label: Creature Hypothesis
+    mastered: false
+    mastered_at: null
+  - id: credit_assignment
+    label: Credit Assignment
+    mastered: true
+    mastered_at: '2026-05-11'
+  - id: critical_technical_practice
+    label: Critical Technical Practice
+    mastered: false
+    mastered_at: null
+  - id: crossover
+    label: Crossover
+    mastered: false
+    mastered_at: null
+  - id: csp
+    label: Constraint Satisfaction Problem (CSP)
+    mastered: false
+    mastered_at: null
+  - id: cumulative_expected_value
+    label: Cumulative Expected Value
+    mastered: false
+    mastered_at: null
+  - id: curse_of_dimensionality
+    label: Curse of Dimensionality
+    mastered: false
+    mastered_at: null
+  - id: cybernetics
+    label: Cybernetics
+    mastered: false
+    mastered_at: null
+  - id: dag
+    label: Directed Acyclic Graph (DAG)
+    mastered: false
+    mastered_at: null
+  - id: database_integrity
+    label: Database Integrity
+    mastered: false
+    mastered_at: null
+  - id: debugging
+    label: Debugging
+    mastered: false
+    mastered_at: null
+  - id: decision_models
+    label: Decision Models
+    mastered: false
+    mastered_at: null
+  - id: declarative_knowledge
+    label: Declarative Knowledge
+    mastered: false
+    mastered_at: null
+  - id: decoding
+    label: Decoding
+    mastered: false
+    mastered_at: null
+  - id: decomposition
+    label: Decomposition
+    mastered: false
+    mastered_at: null
+  - id: deep_learning_krr
+    label: Deep Learning Approach (KRR)
+    mastered: false
+    mastered_at: null
+  - id: default_reasoning
+    label: Default Reasoning
+    mastered: false
+    mastered_at: null
+  - id: delayed_feedback
+    label: Delayed Feedback
+    mastered: false
+    mastered_at: null
+  - id: delegation
+    label: Delegation
+    mastered: false
+    mastered_at: null
+  - id: deliberate_practice
+    label: Deliberate Practice
+    mastered: false
+    mastered_at: null
+  - id: dependency_directed_reasoning
+    label: Dependency-Directed Reasoning
+    mastered: false
+    mastered_at: null
+  - id: dependency_network
+    label: Dependency Network
+    mastered: false
+    mastered_at: null
+  - id: depth_first_search
+    label: Depth-First Search
+    mastered: false
+    mastered_at: null
+  - id: designation
+    label: Designation
+    mastered: false
+    mastered_at: null
+  - id: differences_current_vs_goal
+    label: Difference (Current vs Goal State)
+    mastered: false
+    mastered_at: null
+  - id: digital_abstraction
+    label: Digital Abstraction
+    mastered: false
+    mastered_at: null
+  - id: digital_ecosystem
+    label: Digital Ecosystem
+    mastered: false
+    mastered_at: null
+  - id: direct_manipulation
+    label: Direct Manipulation
+    mastered: false
+    mastered_at: null
+  - id: division_of_labor
+    label: Division of Labour
+    mastered: false
+    mastered_at: null
+  - id: domain
+    label: Domain (CSP)
+    mastered: false
+    mastered_at: null
+  - id: domain_specific_language
+    label: Domain-Specific Language
+    mastered: false
+    mastered_at: null
+  - id: effective_procedure
+    label: Effective Procedure
+    mastered: false
+    mastered_at: null
+  - id: effectuation
+    label: Effectuation
+    mastered: false
+    mastered_at: null
+  - id: elaboration
+    label: Elaboration
+    mastered: false
+    mastered_at: null
+  - id: elaboration_tolerance
+    label: Elaboration Tolerance
+    mastered: false
+    mastered_at: null
+  - id: embeddedness
+    label: Embeddedness
+    mastered: false
+    mastered_at: null
+  - id: embodiment
+    label: Embodiment
+    mastered: false
+    mastered_at: null
+  - id: encoding
+    label: Encoding
+    mastered: false
+    mastered_at: null
+  - id: entropy
+    label: Entropy
+    mastered: false
+    mastered_at: null
+  - id: entropy_minimization_boltzmann
+    label: Entropy Minimisation (Boltzmann)
+    mastered: false
+    mastered_at: null
+  - id: envisioning
+    label: Envisioning
+    mastered: false
+    mastered_at: null
+  - id: epistemological_approach
+    label: Epistemological Approach
+    mastered: false
+    mastered_at: null
+  - id: evaluation_function
+    label: Evaluation Function
+    mastered: false
+    mastered_at: null
+  - id: evolutionary_operators
+    label: Evolutionary Operators
+    mastered: false
+    mastered_at: null
+  - id: evolutionary_strategies
+    label: Evolutionary Strategies
+    mastered: false
+    mastered_at: null
+  - id: expert_systems
+    label: Expert Systems
+    mastered: false
+    mastered_at: null
+  - id: explicit_knowledge
+    label: Explicit Knowledge
+    mastered: false
+    mastered_at: null
+  - id: exploitation
+    label: Exploitation
+    mastered: false
+    mastered_at: null
+  - id: exploration
+    label: Exploration
+    mastered: false
+    mastered_at: null
+  - id: exploration_exploitation_tradeoff
+    label: Exploration–Exploitation Trade-off
+    mastered: false
+    mastered_at: null
+  - id: expressiveness
+    label: Expressiveness (KRR)
+    mastered: false
+    mastered_at: null
+  - id: external_representations
+    label: External Representations
+    mastered: false
+    mastered_at: null
+  - id: extrapolation_fallacy
+    label: Extrapolation Fallacy
+    mastered: false
+    mastered_at: null
+  - id: feedback
+    label: Feedback
+    mastered: false
+    mastered_at: null
+  - id: find_all_solutions_goal
+    label: Find-All-Solutions Goal
+    mastered: false
+    mastered_at: null
+  - id: find_any_solution_goal
+    label: Find-Any-Solution Goal
+    mastered: false
+    mastered_at: null
+  - id: find_best_solution_goal
+    label: Find-Best-Solution Goal
+    mastered: false
+    mastered_at: null
+  - id: finite_state_machines
+    label: Finite State Machines
+    mastered: false
+    mastered_at: null
+  - id: first_principles_reasoning
+    label: First Principles Reasoning
+    mastered: false
+    mastered_at: null
+  - id: fitness
+    label: Fitness
+    mastered: false
+    mastered_at: null
+  - id: fitness_function
+    label: Fitness Function
+    mastered: false
+    mastered_at: null
+  - id: fitness_measure
+    label: Fitness Measure
+    mastered: false
+    mastered_at: null
+  - id: forward_checking
+    label: Forward Checking
+    mastered: false
+    mastered_at: null
+  - id: forward_checking_search
+    label: Forward Checking Search
+    mastered: false
+    mastered_at: null
+  - id: frame_problem
+    label: Frame Problem
+    mastered: false
+    mastered_at: null
+  - id: function_from_structure
+    label: Function from Structure
+    mastered: false
+    mastered_at: null
+  - id: gains_to_specialization
+    label: Gains to Specialisation
+    mastered: false
+    mastered_at: null
+  - id: game_tree
+    label: Game Tree
+    mastered: false
+    mastered_at: null
+  - id: gene_allele
+    label: Gene–Allele Pair
+    mastered: false
+    mastered_at: null
+  - id: general_problem_of_intelligence
+    label: General Problem of Intelligence
+    mastered: false
+    mastered_at: null
+  - id: general_problem_solver
+    label: General Problem Solver (GPS)
+    mastered: false
+    mastered_at: null
+  - id: generate_and_test
+    label: Generate and Test
+    mastered: false
+    mastered_at: null
+  - id: generate_test_and_debug
+    label: Generate-Test-and-Debug
+    mastered: false
+    mastered_at: null
+  - id: genes
+    label: Genes
+    mastered: false
+    mastered_at: null
+  - id: genetic_algorithms
+    label: Genetic Algorithms
+    mastered: false
+    mastered_at: null
+  - id: genetic_sequences
+    label: Genetic Sequences
+    mastered: false
+    mastered_at: null
+  - id: genotype
+    label: Genotype
+    mastered: false
+    mastered_at: null
+  - id: giant_strides
+    label: Giant Strides
+    mastered: false
+    mastered_at: null
+  - id: global_optimum
+    label: Global Optimum
+    mastered: false
+    mastered_at: null
+  - id: goal_directed_agents
+    label: Goal-Directed Agents
+    mastered: false
+    mastered_at: null
+  - id: goal_state
+    label: Goal State
+    mastered: false
+    mastered_at: null
+  - id: gradient_descent
+    label: Gradient Descent
+    mastered: false
+    mastered_at: null
+  - id: hard_constraints
+    label: Hard Constraints
+    mastered: false
+    mastered_at: null
+  - id: heuristics
+    label: Heuristics
+    mastered: false
+    mastered_at: null
+  - id: hierarchical_management
+    label: Hierarchical Management
+    mastered: false
+    mastered_at: null
+  - id: hierarchy
+    label: Hierarchy
+    mastered: false
+    mastered_at: null
+  - id: higher_order_constraint
+    label: Higher-Order Constraint
+    mastered: false
+    mastered_at: null
+  - id: hill_climbing
+    label: Hill Climbing
+    mastered: false
+    mastered_at: null
+  - id: homeostasis
+    label: Homeostasis
+    mastered: false
+    mastered_at: null
+  - id: iid_problems
+    label: IID Problems
+    mastered: false
+    mastered_at: null
+  - id: iid_vs_ood_problems
+    label: IID vs OOD Problems
+    mastered: false
+    mastered_at: null
+  - id: ill_defined_problems
+    label: Ill-Defined Problems
+    mastered: false
+    mastered_at: null
+  - id: implicit_knowledge
+    label: Implicit Knowledge
+    mastered: false
+    mastered_at: null
+  - id: implicit_parallelism
+    label: Implicit Parallelism
+    mastered: false
+    mastered_at: null
+  - id: indexing
+    label: Indexing
+    mastered: false
+    mastered_at: null
+  - id: inference_engine
+    label: Inference Engine
+    mastered: false
+    mastered_at: null
+  - id: infinite_regress
+    label: Infinite Regress
+    mastered: false
+    mastered_at: null
+  - id: information
+    label: Information
+    mastered: false
+    mastered_at: null
+  - id: information_processing
+    label: Information Processing
+    mastered: false
+    mastered_at: null
+  - id: information_theory
+    label: Information Theory
+    mastered: false
+    mastered_at: null
+  - id: informed_search
+    label: Informed Search
+    mastered: false
+    mastered_at: null
+  - id: initial_state
+    label: Initial State
+    mastered: false
+    mastered_at: null
+  - id: intelligence
+    label: Intelligence
+    mastered: false
+    mastered_at: null
+  - id: interaction
+    label: Interaction
+    mastered: false
+    mastered_at: null
+  - id: interdependence_of_actions
+    label: Interdependence of Actions
+    mastered: false
+    mastered_at: null
+  - id: intermediate_feedback
+    label: Intermediate Feedback
+    mastered: false
+    mastered_at: null
+  - id: intermediate_state
+    label: Intermediate State
+    mastered: false
+    mastered_at: null
+  - id: internal_representations
+    label: Internal Representations
+    mastered: false
+    mastered_at: null
+  - id: justifications
+    label: Justifications
+    mastered: false
+    mastered_at: null
+  - id: knowledge_about_phenomena
+    label: Knowledge About Phenomena
+    mastered: false
+    mastered_at: null
+  - id: knowledge_acquisition_bottleneck
+    label: Knowledge Acquisition Bottleneck
+    mastered: false
+    mastered_at: null
+  - id: knowledge_base
+    label: Knowledge Base
+    mastered: false
+    mastered_at: null
+  - id: krr
+    label: Knowledge Representation and Reasoning (KRR)
+    mastered: false
+    mastered_at: null
+  - id: learning
+    label: Learning
+    mastered: false
+    mastered_at: null
+  - id: learning_rate
+    label: Learning Rate
+    mastered: false
+    mastered_at: null
+  - id: lists
+    label: Lists
+    mastered: false
+    mastered_at: null
+  - id: local_peaks
+    label: Local Peaks
+    mastered: false
+    mastered_at: null
+  - id: local_vs_global_optima
+    label: Local vs Global Optima
+    mastered: false
+    mastered_at: null
+  - id: logical_entailment
+    label: Logical Entailment
+    mastered: false
+    mastered_at: null
+  - id: long_jumping
+    label: Long Jumping
+    mastered: false
+    mastered_at: null
+  - id: management_hypothesis
+    label: Management Hypothesis
+    mastered: false
+    mastered_at: null
+  - id: market_mechanism
+    label: Market Mechanism
+    mastered: false
+    mastered_at: null
+  - id: mathematical_logic_approach
+    label: Mathematical Logic Approach (KRR)
+    mastered: false
+    mastered_at: null
+  - id: maximize_rewards
+    label: Maximise Rewards
+    mastered: false
+    mastered_at: null
+  - id: meaningful_abstraction
+    label: Meaningful Abstraction
+    mastered: false
+    mastered_at: null
+  - id: means_ends_analysis
+    label: Means–Ends Analysis
+    mastered: false
+    mastered_at: null
+  - id: mechanization_of_thought
+    label: Mechanisation of Thought
+    mastered: false
+    mastered_at: null
+  - id: memory_management
+    label: Memory Management
+    mastered: false
+    mastered_at: null
+  - id: memory_of_action_sequences
+    label: Memory of Action Sequences
+    mastered: false
+    mastered_at: null
+  - id: mendelian_approach
+    label: Mendelian Approach
+    mastered: false
+    mastered_at: null
+  - id: mental_models
+    label: Mental Models
+    mastered: false
+    mastered_at: null
+  - id: mesa_landscape
+    label: Mesa Landscape
+    mastered: false
+    mastered_at: null
+  - id: mesa_topology
+    label: Mesa Topology
+    mastered: false
+    mastered_at: null
+  - id: minimal_effective_procedure
+    label: Minimal Effective Procedure
+    mastered: false
+    mastered_at: null
+  - id: modifications
+    label: Modifications
+    mastered: false
+    mastered_at: null
+  - id: modularity
+    label: Modularity
+    mastered: false
+    mastered_at: null
+  - id: modules
+    label: Modules
+    mastered: false
+    mastered_at: null
+  - id: moravecs_paradox
+    label: Moravec's Paradox
+    mastered: false
+    mastered_at: null
+  - id: mutation
+    label: Mutation
+    mastered: false
+    mastered_at: null
+  - id: myopia
+    label: Myopia
+    mastered: false
+    mastered_at: null
+  - id: natural_selection
+    label: Natural Selection
+    mastered: false
+    mastered_at: null
+  - id: node
+    label: Node
+    mastered: false
+    mastered_at: null
+  - id: noise
+    label: Noise
+    mastered: false
+    mastered_at: null
+  - id: novel_configurations
+    label: Novel Configurations
+    mastered: false
+    mastered_at: null
+  - id: objects_propagator
+    label: Objects (Propagator)
+    mastered: false
+    mastered_at: null
+  - id: ontology
+    label: Ontology (Formal)
+    mastered: false
+    mastered_at: null
+  - id: ood_problems
+    label: OOD Problems
+    mastered: false
+    mastered_at: null
+  - id: operators
+    label: Operators
+    mastered: false
+    mastered_at: null
+  - id: optimization_goal
+    label: Optimisation Goal
+    mastered: false
+    mastered_at: null
+  - id: organizational_learning
+    label: Organisational Learning
+    mastered: false
+    mastered_at: null
+  - id: organizational_memory
+    label: Organisational Memory
+    mastered: false
+    mastered_at: null
+  - id: organizational_programs
+    label: Organisational Programs
+    mastered: false
+    mastered_at: null
+  - id: paradigms
+    label: Paradigms
+    mastered: false
+    mastered_at: null
+  - id: parent_variable
+    label: Parent Variable
+    mastered: false
+    mastered_at: null
+  - id: partial_assignment
+    label: Partial Assignment
+    mastered: false
+    mastered_at: null
+  - id: path_dependence
+    label: Path Dependence
+    mastered: false
+    mastered_at: null
+  - id: paths
+    label: Paths
+    mastered: false
+    mastered_at: null
+  - id: pattern_matching
+    label: Pattern Matching
+    mastered: false
+    mastered_at: null
+  - id: pattern_recognition
+    label: Pattern Recognition
+    mastered: false
+    mastered_at: null
+  - id: performance_landscape
+    label: Performance Landscape
+    mastered: false
+    mastered_at: null
+  - id: physical_symbol_system_hypothesis
+    label: Physical Symbol System Hypothesis
+    mastered: false
+    mastered_at: null
+  - id: physics_hypothesis
+    label: Physics Hypothesis
+    mastered: false
+    mastered_at: null
+  - id: planning
+    label: Planning
+    mastered: false
+    mastered_at: null
+  - id: policy
+    label: Policy
+    mastered: false
+    mastered_at: null
+  - id: population_level_learning
+    label: Population-Level Learning
+    mastered: false
+    mastered_at: null
+  - id: population_of_chromosomes
+    label: Population of Chromosomes
+    mastered: false
+    mastered_at: null
+  - id: possible_worlds
+    label: Possible Worlds
+    mastered: false
+    mastered_at: null
+  - id: principle_of_locality
+    label: Principle of Locality
+    mastered: false
+    mastered_at: null
+  - id: probabilities
+    label: Probabilities
+    mastered: false
+    mastered_at: null
+  - id: probability_distribution
+    label: Probability Distribution
+    mastered: false
+    mastered_at: null
+  - id: procedural_complexity
+    label: Procedural Complexity
+    mastered: false
+    mastered_at: null
+  - id: procedural_knowledge
+    label: Procedural Knowledge
+    mastered: false
+    mastered_at: null
+  - id: processing_capacity
+    label: Processing Capacity
+    mastered: false
+    mastered_at: null
+  - id: processing_complexity
+    label: Processing Complexity
+    mastered: false
+    mastered_at: null
+  - id: processing_power
+    label: Processing Power
+    mastered: false
+    mastered_at: null
+  - id: productions
+    label: Productions
+    mastered: false
+    mastered_at: null
+  - id: propagation
+    label: Propagation
+    mastered: false
+    mastered_at: null
+  - id: propagator_model
+    label: Propagator Model
+    mastered: false
+    mastered_at: null
+  - id: pruning
+    label: Pruning
+    mastered: false
+    mastered_at: null
+  - id: qualitative_reasoning
+    label: Qualitative Reasoning
+    mastered: false
+    mastered_at: null
+  - id: random_variables
+    label: Random Variables
+    mastered: false
+    mastered_at: null
+  - id: reasoning_about_physical_world
+    label: Reasoning about the Physical World
+    mastered: false
+    mastered_at: null
+  - id: registration
+    label: Registration
+    mastered: false
+    mastered_at: null
+  - id: reinforcement_learning
+    label: Reinforcement Learning
+    mastered: false
+    mastered_at: null
+  - id: relational_databases
+    label: Relational Databases
+    mastered: false
+    mastered_at: null
+  - id: relations_possible_worlds
+    label: Relations Between Possible Worlds
+    mastered: false
+    mastered_at: null
+  - id: representation
+    label: Representation
+    mastered: false
+    mastered_at: null
+  - id: representation_learning
+    label: Representation Learning
+    mastered: false
+    mastered_at: null
+  - id: resources_for_action
+    label: Resources for Action
+    mastered: false
+    mastered_at: null
+  - id: retention
+    label: Retention
+    mastered: false
+    mastered_at: null
+  - id: retrieval_augmented_generation
+    label: Retrieval-Augmented Generation (RAG)
+    mastered: false
+    mastered_at: null
+  - id: reward_hypothesis
+    label: Reward Hypothesis
+    mastered: false
+    mastered_at: null
+  - id: rugged_landscape
+    label: Rugged Landscape
+    mastered: false
+    mastered_at: null
+  - id: satisficing
+    label: Satisficing
+    mastered: false
+    mastered_at: null
+  - id: schema
+    label: Schema
+    mastered: false
+    mastered_at: null
+  - id: schema_genetic
+    label: Schema (Genetic)
+    mastered: false
+    mastered_at: null
+  - id: search
+    label: Search
+    mastered: false
+    mastered_at: null
+  - id: search_space
+    label: Search Space
+    mastered: false
+    mastered_at: null
+  - id: search_tree
+    label: Search Tree
+    mastered: false
+    mastered_at: null
+  - id: selection
+    label: Selection
+    mastered: false
+    mastered_at: null
+  - id: semantic_information
+    label: Semantic Information
+    mastered: false
+    mastered_at: null
+  - id: sensorimotor
+    label: Sensorimotor Action
+    mastered: false
+    mastered_at: null
+  - id: shannon_entropy
+    label: Shannon Entropy
+    mastered: false
+    mastered_at: null
+  - id: shannon_information
+    label: Shannon Information
+    mastered: false
+    mastered_at: null
+  - id: short_term_long_term_memory
+    label: Short-Term vs Long-Term Memory
+    mastered: false
+    mastered_at: null
+  - id: signal_to_noise_ratio
+    label: Signal-to-Noise Ratio
+    mastered: false
+    mastered_at: null
+  - id: simon_information
+    label: Simon Information
+    mastered: false
+    mastered_at: null
+  - id: simon_search
+    label: Simon Search
+    mastered: false
+    mastered_at: null
+  - id: single_peaked_landscape
+    label: Single-Peaked Landscape
+    mastered: false
+    mastered_at: null
+  - id: situatedness
+    label: Situatedness
+    mastered: false
+    mastered_at: null
+  - id: situation
+    label: Situation
+    mastered: false
+    mastered_at: null
+  - id: smoothing_topology
+    label: Smoothing Topology
+    mastered: false
+    mastered_at: null
+  - id: society_of_mind_hypothesis
+    label: Society of Mind Hypothesis
+    mastered: false
+    mastered_at: null
+  - id: soft_constraints
+    label: Soft Constraints
+    mastered: false
+    mastered_at: null
+  - id: solution
+    label: Solution
+    mastered: false
+    mastered_at: null
+  - id: sparse_feedback
+    label: Sparse Feedback
+    mastered: false
+    mastered_at: null
+  - id: sparse_learning
+    label: Sparse Learning
+    mastered: false
+    mastered_at: null
+  - id: spatial_interdependence
+    label: Spatial Interdependence
+    mastered: false
+    mastered_at: null
+  - id: speech_acts
+    label: Speech Acts
+    mastered: false
+    mastered_at: null
+  - id: state
+    label: State
+    mastered: false
+    mastered_at: null
+  - id: state_space
+    label: State Space
+    mastered: false
+    mastered_at: null
+  - id: state_transitions
+    label: State Transitions
+    mastered: false
+    mastered_at: null
+  - id: statistical_distribution
+    label: Statistical Distribution
+    mastered: false
+    mastered_at: null
+  - id: statistical_redundancy_removal
+    label: Statistical Redundancy Removal
+    mastered: false
+    mastered_at: null
+  - id: subgoals
+    label: Subgoals
+    mastered: false
+    mastered_at: null
+  - id: subsumption_architecture
+    label: Subsumption Architecture
+    mastered: false
+    mastered_at: null
+  - id: superstitious_learning
+    label: Superstitious Learning
+    mastered: false
+    mastered_at: null
+  - id: symbol_manipulation
+    label: Symbol Manipulation
+    mastered: false
+    mastered_at: null
+  - id: syntactic_information
+    label: Syntactic Information
+    mastered: false
+    mastered_at: null
+  - id: tacit_knowledge
+    label: Tacit Knowledge
+    mastered: false
+    mastered_at: null
+  - id: task_environment
+    label: Task Environment
+    mastered: false
+    mastered_at: null
+  - id: temporal_differencing
+    label: Temporal Differencing
+    mastered: false
+    mastered_at: null
+  - id: theory_formation
+    label: Theory Formation
+    mastered: false
+    mastered_at: null
+  - id: trial_and_error
+    label: Trial and Error
+    mastered: false
+    mastered_at: null
+  - id: troubleshooting
+    label: Troubleshooting
+    mastered: false
+    mastered_at: null
+  - id: truth_maintenance
+    label: Truth Maintenance
+    mastered: false
+    mastered_at: null
+  - id: tuples
+    label: Tuples
+    mastered: false
+    mastered_at: null
+  - id: turing_machine
+    label: Turing Machine
+    mastered: false
+    mastered_at: null
+  - id: unary_constraint
+    label: Unary Constraint
+    mastered: false
+    mastered_at: null
+  - id: uninformed_search
+    label: Uninformed Search
+    mastered: false
+    mastered_at: null
+  - id: unitary_actor_assumption
+    label: Unitary Actor Assumption
+    mastered: false
+    mastered_at: null
+  - id: utility_function
+    label: Utility Function
+    mastered: false
+    mastered_at: null
+  - id: value_function
+    label: Value Function
+    mastered: false
+    mastered_at: null
+  - id: variables
+    label: Variables (CSP)
+    mastered: false
+    mastered_at: null
+  - id: variation
+    label: Variation
+    mastered: false
+    mastered_at: null
+  - id: variety
+    label: Variety (Wiener)
+    mastered: false
+    mastered_at: null
+  - id: vector_databases
+    label: Vector Databases
+    mastered: false
+    mastered_at: null
+  - id: von_neumann_search
+    label: Von Neumann Search
+    mastered: false
+    mastered_at: null
+  - id: vsr
+    label: Variation–Selection–Retention (VSR)
+    mastered: false
+    mastered_at: null
+  - id: watchmaker_parable
+    label: Watchmaker Parable
+    mastered: false
+    mastered_at: null
+  - id: weights_boltzmann
+    label: Weights (Boltzmann)
+    mastered: false
+    mastered_at: null
+  - id: wishful_mnemonics
+    label: Wishful Mnemonics
+    mastered: false
+    mastered_at: null
+  - id: world_models
+    label: World Models
+    mastered: false
+    mastered_at: null

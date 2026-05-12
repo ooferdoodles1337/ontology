@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards — notes_physical_world</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #141210;
+    --surface:    #1e1b18;
+    --surface2:   #262320;
+    --border:     #3a3530;
+    --text:       #e2d9cc;
+    --text-muted: #8a8078;
+    --accent:     #c9954a;
+    --accent-dim: rgba(201,149,74,0.12);
+    --correct:    #4a7c59;
+    --correct-bg: rgba(74,124,89,0.15);
+    --wrong:      #8b4040;
+    --wrong-bg:   rgba(139,64,64,0.15);
+    --warn:       #7c6b3a;
+    --warn-bg:    rgba(124,107,58,0.15);
+    --radius:     10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 80px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; opacity: 0.4; z-index: 0;
+  }
+
+  .container { position: relative; z-index: 1; width: 100%; max-width: 720px; }
+
+  /* ---- Header ---- */
+  header { text-align: center; margin-bottom: 40px; }
+  .eyebrow {
+    font-size: 11px; font-weight: 300; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 700; line-height: 1.2; margin-bottom: 14px;
+  }
+  .session-stats {
+    display: flex; justify-content: center; gap: 24px;
+    font-size: 13px; color: var(--text-muted);
+  }
+  .stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--accent); line-height: 1;
+  }
+  .stat-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* ---- Mastery overview bar ---- */
+  .mastery-overview {
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .mastery-ring-wrap { position: relative; flex-shrink: 0; }
+  .mastery-ring-wrap svg { transform: rotate(-90deg); }
+  .mastery-ring-wrap circle { fill: none; stroke-width: 6; stroke-linecap: round; }
+  .ring-track { stroke: var(--border); }
+  .ring-fill { stroke: var(--accent); transition: stroke-dashoffset 0.8s cubic-bezier(0.4,0,0.2,1); }
+  .ring-center {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .ring-pct { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--accent); line-height: 1; }
+  .ring-sub { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+  .mastery-bars { flex: 1; }
+  .mastery-bar-row {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 3px; font-size: 11px; color: var(--text-muted);
+  }
+  .mastery-bar-label { width: 64px; text-align: right; flex-shrink: 0; }
+  .mastery-bar-track { flex: 1; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .mastery-bar-fill { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+  .mastery-bar-count { width: 28px; font-size: 10px; }
+
+  /* ---- Card ---- */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.3s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .module-badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 300; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(201,149,74,0.25);
+    border-radius: 20px; padding: 2px 10px;
+    margin-bottom: 14px;
+  }
+
+  .card-label {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 700; line-height: 1.25;
+    color: var(--text); margin-bottom: 18px;
+  }
+
+  /* Mastery micro-bar */
+  .micro-mastery { margin-bottom: 24px; }
+  .micro-mastery-head {
+    display: flex; justify-content: space-between;
+    font-size: 11px; color: var(--text-muted);
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 5px;
+  }
+  .micro-track { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .micro-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; background: var(--accent); }
+
+  .btn-reveal {
+    width: 100%; padding: 14px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    color: var(--accent);
+    font-family: 'Source Serif 4', serif; font-size: 15px;
+    letter-spacing: 0.04em; cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+  .btn-reveal:hover { background: var(--accent); color: var(--bg); }
+
+  /* Back of card */
+  .definition {
+    font-size: 15px; line-height: 1.75;
+    color: var(--text); margin-bottom: 28px;
+    border-top: 1px solid var(--border); padding-top: 20px;
+  }
+
+  .rating-prompt {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 12px; text-align: center;
+  }
+  .rating-btns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+
+  .btn-rate {
+    padding: 12px 6px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface2);
+    color: var(--text);
+    font-family: 'Source Serif 4', serif; font-size: 13px;
+    cursor: pointer; transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    text-align: center; line-height: 1.3;
+  }
+  .btn-rate:hover { transform: translateY(-2px); }
+  .btn-rate.fail:hover  { border-color: var(--wrong);   background: var(--wrong-bg); }
+  .btn-rate.hard:hover  { border-color: var(--warn);    background: var(--warn-bg); }
+  .btn-rate.good:hover  { border-color: var(--accent);  background: var(--accent-dim); }
+  .btn-rate.easy:hover  { border-color: var(--correct); background: var(--correct-bg); }
+
+  .btn-rate .rate-label { font-size: 11px; color: var(--text-muted); display: block; margin-top: 3px; }
+
+  /* Next interval hint */
+  .interval-hints {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    margin-top: 6px;
+  }
+  .interval-hint {
+    text-align: center; font-size: 10px;
+    color: var(--text-muted); letter-spacing: 0.06em;
+  }
+
+  /* ---- Credit propagation panel ---- */
+  .credit-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 32px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.3s ease both;
+  }
+  .credit-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 600;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .credit-title .delta-badge {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px; padding: 2px 8px;
+    border-radius: 20px;
+  }
+  .credit-title.negative .delta-badge { background: var(--wrong-bg); color: #c46060; border: 1px solid rgba(139,64,64,0.3); }
+  .credit-title.positive .delta-badge { background: var(--correct-bg); color: #6aaa7e; border: 1px solid rgba(74,124,89,0.3); }
+  .credit-title.neutral  .delta-badge { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(201,149,74,0.2); }
+
+  .credit-entries { display: flex; flex-direction: column; gap: 6px; }
+  .credit-entry {
+    display: flex; align-items: center; gap: 12px;
+    padding: 8px 12px; border-radius: 6px;
+    font-size: 13px; animation: fadeUp 0.2s ease both;
+  }
+  .credit-entry.backward { background: var(--wrong-bg); }
+  .credit-entry.forward  { background: var(--correct-bg); }
+  .credit-arrow { font-size: 14px; flex-shrink: 0; }
+  .credit-concept { flex: 1; color: var(--text); }
+  .credit-delta {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px; font-weight: 600; flex-shrink: 0;
+  }
+  .credit-delta.neg { color: #c46060; }
+  .credit-delta.pos { color: #6aaa7e; }
+  .credit-hop { font-size: 10px; color: var(--text-muted); flex-shrink: 0; }
+  .credit-none { font-size: 13px; color: var(--text-muted); font-style: italic; }
+
+  .btn-next {
+    width: 100%; padding: 13px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 8px; color: var(--accent);
+    font-family: 'Source Serif 4', serif; font-size: 15px;
+    letter-spacing: 0.04em; cursor: pointer; margin-top: 12px;
+    transition: background 0.18s, color 0.18s;
+  }
+  .btn-next:hover { background: var(--accent); color: var(--bg); }
+
+  /* ---- Bottom dashboard ---- */
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .dash-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+  }
+  .dash-title {
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 14px;
+  }
+
+  .weakest-entry {
+    display: flex; align-items: center; gap: 10px;
+    padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12px;
+  }
+  .weakest-entry:last-child { border-bottom: none; }
+  .weakest-label { flex: 1; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .weakest-bar-wrap { width: 48px; height: 4px; background: var(--border); border-radius: 2px; flex-shrink: 0; }
+  .weakest-bar-fill { height: 100%; border-radius: 2px; background: var(--accent); }
+  .weakest-pct { width: 28px; text-align: right; color: var(--text-muted); font-size: 11px; flex-shrink: 0; }
+
+  .due-entry {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12px;
+  }
+  .due-entry:last-child { border-bottom: none; }
+  .due-label { color: var(--text); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .due-tag {
+    font-size: 10px; padding: 2px 7px; border-radius: 12px; flex-shrink: 0; margin-left: 8px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .due-tag.overdue  { background: var(--wrong-bg);   color: #c46060; }
+  .due-tag.today    { background: var(--accent-dim);  color: var(--accent); }
+  .due-tag.tomorrow { background: var(--surface2);    color: var(--text-muted); }
+
+  .reset-btn {
+    margin-top: 16px; width: 100%; padding: 9px;
+    background: transparent; border: 1px solid var(--border);
+    border-radius: 6px; color: var(--text-muted);
+    font-family: 'Source Serif 4', serif; font-size: 12px;
+    cursor: pointer; transition: border-color 0.15s, color 0.15s;
+  }
+  .reset-btn:hover { border-color: var(--wrong); color: #c46060; }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 520px) {
+    .card { padding: 24px 20px; }
+    .rating-btns { grid-template-columns: repeat(2, 1fr); }
+    .dashboard { grid-template-columns: 1fr; }
+    .mastery-overview { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">FAB 2026 — Flashcards</div>
+    <h1 id="deck-title">Flashcards — notes_physical_world</h1>
+    <div class="session-stats">
+      <div class="stat">
+        <span class="stat-num" id="stat-due">0</span>
+        <span class="stat-label">due now</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-mastered">0</span>
+        <span class="stat-label">mastered</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-session">0</span>
+        <span class="stat-label">this session</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-total">24</span>
+        <span class="stat-label">total cards</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mastery overview -->
+  <div class="mastery-overview">
+    <div class="mastery-ring-wrap">
+      <svg viewBox="0 0 80 80" width="80" height="80">
+        <circle class="ring-track" cx="40" cy="40" r="34"/>
+        <circle class="ring-fill" id="ring-fill" cx="40" cy="40" r="34"/>
+      </svg>
+      <div class="ring-center">
+        <span class="ring-pct" id="ring-pct">0%</span>
+        <span class="ring-sub">done</span>
+      </div>
+    </div>
+    <div class="mastery-bars" id="mastery-bars"></div>
+  </div>
+
+  <!-- Flashcard (front) -->
+  <div class="card" id="card-front">
+    <div class="module-badge" id="card-module">Module —</div>
+    <div class="card-label" id="card-label">Loading…</div>
+    <div class="micro-mastery">
+      <div class="micro-mastery-head">
+        <span>Mastery estimate</span>
+        <span id="card-mastery-pct">—</span>
+      </div>
+      <div class="micro-track"><div class="micro-fill" id="card-mastery-fill" style="width:0%"></div></div>
+    </div>
+    <button class="btn-reveal" onclick="flipCard()">Reveal Definition →</button>
+  </div>
+
+  <!-- Flashcard (back) -->
+  <div class="card hidden" id="card-back">
+    <div class="module-badge" id="card-module-back">Module —</div>
+    <div class="card-label" id="card-label-back"></div>
+    <p class="definition" id="card-definition"></p>
+    <div class="rating-prompt">How well did you recall this?</div>
+    <div class="rating-btns">
+      <button class="btn-rate fail" onclick="rate(0)">✗<span class="rate-label">Forgot</span></button>
+      <button class="btn-rate hard" onclick="rate(1)">≈<span class="rate-label">Hard</span></button>
+      <button class="btn-rate good" onclick="rate(2)">✓<span class="rate-label">Good</span></button>
+      <button class="btn-rate easy" onclick="rate(3)">★<span class="rate-label">Easy</span></button>
+    </div>
+    <div class="interval-hints" id="interval-hints"></div>
+  </div>
+
+  <!-- Credit propagation panel -->
+  <div class="card credit-panel hidden" id="credit-panel">
+    <div class="credit-title" id="credit-title"></div>
+    <div class="credit-entries" id="credit-entries"></div>
+    <button class="btn-next" onclick="nextCard()">Next Card →</button>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <div class="dash-panel">
+      <div class="dash-title">Weakest Concepts</div>
+      <div id="weakest-list"></div>
+    </div>
+    <div class="dash-panel">
+      <div class="dash-title">Coming Up</div>
+      <div id="due-list"></div>
+      <button class="reset-btn" onclick="confirmReset()">Reset all progress</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// DATA (embedded by flashcard_generator.py)
+// ============================================================
+const CARDS = [{"id": "breakdowns", "label": "Breakdowns", "description": "Moments when an agent's homeostatic comportment fails — when a situation is no longer handled automatically — prompting recourse to explicit symbolic representations as resources for action.", "module": 8}, {"id": "bugs", "label": "Bugs", "description": "In the MIT engineering tradition, any discrepancy, symptom, or constraint violation signalling a mismatch between a representation and the physical world; errors of registration rather than mere software syntax errors.", "module": 8}, {"id": "causal_interpretation", "label": "Causal Interpretation", "description": "A tentative threshold-level representation of how a physical system's function emerges from its structure; describes not just how components are assembled but how they causally produce behaviour, and can itself be debugged.", "module": 8}, {"id": "confluences", "label": "Confluences", "description": "De Kleer's term for qualitative constraints representing mutual influences between variables in a physical system; unlike discrete CSP constraints, confluences capture the messy, continuous interdependencies of real-world domains.", "module": 8}, {"id": "debugging", "label": "Debugging", "description": "The AI idea of credit assignment as the ability to detect and resolve discrepancies between a representation of a physical system and the world; encompasses both troubleshooting and theory formation, and extends generate-and-test with representation-modification.", "module": 8}, {"id": "dependency_network", "label": "Dependency Network", "description": "A propagator-level memory that tracks qualitative knowledge, tentative assumptions, and their interdependencies during debugging; complements the constraint network by storing justifications and enabling truth maintenance.", "module": 8}, {"id": "dependency_directed_reasoning", "label": "Dependency-Directed Reasoning", "description": "Problem-solving informed by rich tracking of interdependencies among assumptions in a dependency network; enables tracing bugs to specific assumptions, explaining provenance, resolving inconsistencies, and reusing prior results.", "module": 8}, {"id": "domain_specific_language", "label": "Domain-Specific Language", "description": "A formal language that represents the fundamental entities and relations of a domain to support reasoning from that domain's first principles; examples include CAD software for geometric reasoning and Nvidia CUDA for GPU chip design.", "module": 8}, {"id": "elaboration_tolerance", "label": "Elaboration Tolerance", "description": "McCarthy's quality of an intelligent system whereby the effort required to add new knowledge to a repository is proportional to the complexity of that new information; a key criterion for scalable KRR.", "module": 8}, {"id": "envisioning", "label": "Envisioning", "description": "De Kleer's term for \"running a qualitative simulation in the mind's eye\": predicting and analysing qualitative state transitions in a physical system to construct a causal interpretation of how its components function together.", "module": 8}, {"id": "first_principles_reasoning", "label": "First Principles Reasoning", "description": "A debugging strategy that relies on a small set of stable, fundamental laws of a domain (e.g., voltage laws in electrical engineering) rather than heuristics or exhaustive knowledge; reduces combinatorial explosion by anchoring reasoning in domain-wide constraints.", "module": 8}, {"id": "frame_problem", "label": "Frame Problem", "description": "McCarthy's 1969 insight that credit assignment in AI requires knowing not only what actions are relevant in a situation, but also the vast set of facts that remain unchanged — tracking \"frame-by-frame\" stability across actions in an unfolding situation.", "module": 8}, {"id": "function_from_structure", "label": "Function from Structure", "description": "The inference of what a physical system does (its function) from observing its components and how they are assembled (its structure); the core reasoning task in the MIT tradition of debugging-based AI, and held to be generally applicable to products, organisations, and manufacturing processes alike.", "module": 8}, {"id": "generate_and_test", "label": "Generate and Test", "description": "A search strategy that generates candidate solutions and tests each against the goal criteria, discarding failures.", "module": 8}, {"id": "generate_test_and_debug", "label": "Generate-Test-and-Debug", "description": "An extension of generate-and-test in which a debugging step allows modifying the problem representation itself — adding, removing, or re-ordering actions and components — rather than only testing candidate solutions against a fixed landscape.", "module": 8}, {"id": "justifications", "label": "Justifications", "description": "Belief links in a dependency network representing logical relationships such as consequences, antecedents, or explanations; labelled \"in\" or \"out\" to indicate whether the associated assumption is currently believed true.", "module": 8}, {"id": "propagator_model", "label": "Propagator Model", "description": "A computation model where autonomous objects communicate by propagating constraint values through a shared network.", "module": 8}, {"id": "qualitative_reasoning", "label": "Qualitative Reasoning", "description": "Reasoning about physical systems without precise numerical values, using commonsense knowledge of domain laws to envision how a system's state will change; most useful when the system's functioning is not yet precisely understood and quantitative reasoning would be premature.", "module": 8}, {"id": "reasoning_about_physical_world", "label": "Reasoning about the Physical World", "description": "The process of reflectively reasoning about physical systems in which AI systems and organisations are situated to identify and resolve breakdowns; involves constructing and debugging causal interpretations rather than searching predefined state spaces.", "module": 8}, {"id": "registration", "label": "Registration", "description": "Brian Cantwell-Smith's theory that intelligence requires an ongoing interplay — \"reckoning and judgment\" — between representational schemes, physical reality, and the agent's experience of that reality, ensuring representations remain grounded.", "module": 8}, {"id": "theory_formation", "label": "Theory Formation", "description": "A debugging strategy that assumes the physical system is correct and seeks to construct or repair the representation of it (e.g., drafting a new schematic for a new ICB design or correcting a wrong one).", "module": 8}, {"id": "troubleshooting", "label": "Troubleshooting", "description": "A debugging strategy that assumes the representation is correct and seeks to identify and repair faults in the physical system itself (e.g., reconciling a malfunctioning circuit board with a known-correct schematic).", "module": 8}, {"id": "truth_maintenance", "label": "Truth Maintenance", "description": "The process of making, tracking, and retracting tentative assumptions about a physical system's representation during debugging; implemented by a truth maintenance system (TMS) whose nodes are knowledge assertions and whose links are justifications labelled \"in\" or \"out\".", "module": 8}, {"id": "world_models", "label": "World Models", "description": "Deep learning systems that extend LLMs with external memories (vector databases, knowledge graphs, multimodal data) to construct richer representations of the world for reasoning and prediction.", "module": 8}];
+const ALL_EDGES = [["dependency_directed_reasoning", "bugs"], ["dependency_network", "frame_problem"], ["elaboration_tolerance", "frame_problem"], ["reasoning_about_physical_world", "breakdowns"], ["troubleshooting", "theory_formation"], ["world_models", "propagator_model"], ["dependency_network", "dependency_directed_reasoning"], ["dependency_network", "truth_maintenance"], ["domain_specific_language", "first_principles_reasoning"], ["first_principles_reasoning", "qualitative_reasoning"], ["bugs", "breakdowns"], ["generate_test_and_debug", "generate_and_test"], ["theory_formation", "debugging"], ["troubleshooting", "debugging"], ["causal_interpretation", "debugging"], ["confluences", "qualitative_reasoning"], ["dependency_network", "propagator_model"], ["envisioning", "qualitative_reasoning"], ["first_principles_reasoning", "debugging"], ["function_from_structure", "causal_interpretation"], ["justifications", "dependency_network"], ["debugging", "causal_interpretation"], ["dependency_directed_reasoning", "dependency_network"]];
+
+// Build adjacency: PREREQS[id] = [ids that point TO id]   (predecessors)
+//                 DEPENDENTS[id] = [ids that id points TO] (successors)
+const PREREQS    = {};
+const DEPENDENTS = {};
+CARDS.forEach(c => { PREREQS[c.id] = []; DEPENDENTS[c.id] = []; });
+ALL_EDGES.forEach(([src, tgt]) => {
+  if (PREREQS[tgt]    !== undefined) PREREQS[tgt].push(src);
+  if (DEPENDENTS[src] !== undefined) DEPENDENTS[src].push(tgt);
+});
+
+const CARD_MAP = {};
+CARDS.forEach(c => { CARD_MAP[c.id] = c; });
+
+// ============================================================
+// STATE  (persisted in localStorage)
+// ============================================================
+const STORAGE_KEY = 'fab2026_fc_v1_physical_world';
+
+function defaultCardState() {
+  return { mastery: 0.5, ease: 2.5, interval: 1, dueTime: Date.now(), reviews: 0, streak: 0 };
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  return null;
+}
+
+function initState() {
+  const saved = loadState();
+  const cards = {};
+  CARDS.forEach(c => {
+    cards[c.id] = (saved && saved.cards && saved.cards[c.id]) || defaultCardState();
+  });
+  return {
+    cards,
+    session: { reviewed: 0, correct: 0, startTime: Date.now() }
+  };
+}
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+let state = initState();
+
+// ============================================================
+// ALGORITHMS
+// ============================================================
+
+// --- TD Credit Propagation ---
+// α: TD step size (learning rate)
+// backwardDecay: blame decay per hop when failing
+// forwardDecay:  credit decay per hop when passing
+// maxDepth: max BFS depth for propagation
+const TD_ALPHA      = 0.15;
+const BACKWARD_DECAY = 0.5;
+const FORWARD_DECAY  = 0.3;
+const MAX_DEPTH      = 3;
+const MASTERY_THRESHOLD = 0.7; // above this = "mastered"
+
+// Rating → score mapping: 0=forgot, 1=hard, 2=good, 3=easy
+const RATING_SCORES = [0.0, 0.4, 0.7, 1.0];
+
+function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+function propagateCredit(cardId, delta) {
+  const log = [];
+
+  if (delta < 0) {
+    // FAIL: blame propagates backward through PREREQS (ancestors)
+    const visited = new Set([cardId]);
+    const queue = [[cardId, 1]];
+    while (queue.length) {
+      const [nodeId, depth] = queue.shift();
+      if (depth > MAX_DEPTH) continue;
+      for (const predId of (PREREQS[nodeId] || [])) {
+        if (visited.has(predId) || !state.cards[predId]) continue;
+        visited.add(predId);
+        const blame = delta * Math.pow(BACKWARD_DECAY, depth);
+        const prev = state.cards[predId].mastery;
+        state.cards[predId].mastery = clamp(prev + TD_ALPHA * blame, 0, 1);
+        log.push({ id: predId, label: CARD_MAP[predId].label, delta: blame, depth, dir: 'backward' });
+        queue.push([predId, depth + 1]);
+      }
+    }
+  } else if (delta > 0) {
+    // PASS: credit propagates forward through DEPENDENTS (successors)
+    const visited = new Set([cardId]);
+    const queue = [[cardId, 1]];
+    while (queue.length) {
+      const [nodeId, depth] = queue.shift();
+      if (depth > MAX_DEPTH) continue;
+      for (const depId of (DEPENDENTS[nodeId] || [])) {
+        if (visited.has(depId) || !state.cards[depId]) continue;
+        visited.add(depId);
+        const boost = delta * Math.pow(FORWARD_DECAY, depth);
+        const prev = state.cards[depId].mastery;
+        state.cards[depId].mastery = clamp(prev + TD_ALPHA * boost, 0, 1);
+        log.push({ id: depId, label: CARD_MAP[depId].label, delta: boost, depth, dir: 'forward' });
+        queue.push([depId, depth + 1]);
+      }
+    }
+  }
+
+  return log;
+}
+
+// --- SM-2 Scheduling ---
+function nextIntervals(cardId) {
+  const s = state.cards[cardId];
+  return [
+    1,                                                           // 0=forgot
+    Math.max(1, Math.round(s.interval * 1.2)),                  // 1=hard
+    Math.max(1, Math.round(s.interval * s.ease)),               // 2=good
+    Math.max(1, Math.round(s.interval * s.ease * 1.3)),         // 3=easy
+  ];
+}
+
+function updateSchedule(cardId, rating) {
+  const s = state.cards[cardId];
+  const actualScore = RATING_SCORES[rating];
+  const delta = actualScore - s.mastery;
+
+  // Update own mastery (TD update)
+  s.mastery = clamp(s.mastery + TD_ALPHA * delta, 0, 1);
+
+  // SM-2 interval update
+  if (rating === 0) {       // forgot
+    s.interval = 1;
+    s.ease = Math.max(1.3, s.ease - 0.2);
+    s.streak = 0;
+  } else if (rating === 1) { // hard
+    s.interval = Math.max(1, Math.round(s.interval * 1.2));
+    s.ease = Math.max(1.3, s.ease - 0.15);
+    s.streak = 0;
+  } else if (rating === 2) { // good
+    s.interval = Math.max(1, Math.round(s.interval * s.ease));
+    s.streak++;
+  } else {                   // easy
+    s.interval = Math.max(1, Math.round(s.interval * s.ease * 1.3));
+    s.ease = Math.min(3.0, s.ease + 0.1);
+    s.streak++;
+  }
+
+  s.dueTime = Date.now() + s.interval * 24 * 60 * 60 * 1000;
+  s.reviews++;
+
+  // Propagate credit through prerequisite graph
+  const propagationLog = propagateCredit(cardId, delta);
+
+  // Update session stats
+  state.session.reviewed++;
+  if (rating >= 2) state.session.correct++;
+
+  saveState();
+  return { delta, actualScore, propagationLog };
+}
+
+// --- Card Selection (Deliberate Practice) ---
+function isFrontier(cardId) {
+  const prereqs = PREREQS[cardId] || [];
+  if (!prereqs.length) return true;
+  return prereqs.every(pid => state.cards[pid] && state.cards[pid].mastery >= MASTERY_THRESHOLD);
+}
+
+function selectNextCard() {
+  const now = Date.now();
+
+  // 1. Due cards: sorted by mastery ascending (weakest first)
+  const due = CARDS.filter(c => state.cards[c.id].dueTime <= now)
+                   .sort((a, b) => state.cards[a.id].mastery - state.cards[b.id].mastery);
+  if (due.length) return due[0];
+
+  // 2. Frontier cards (unlocked but not yet mastered)
+  const frontier = CARDS.filter(c => !isMastered(c.id) && isFrontier(c.id))
+                        .sort((a, b) => state.cards[a.id].mastery - state.cards[b.id].mastery);
+  if (frontier.length) return frontier[0];
+
+  // 3. Globally weakest card
+  return CARDS.slice().sort((a, b) => state.cards[a.id].mastery - state.cards[b.id].mastery)[0];
+}
+
+function isMastered(cardId) { return state.cards[cardId].mastery >= MASTERY_THRESHOLD; }
+
+// ============================================================
+// UI RENDERING
+// ============================================================
+let currentCard = null;
+
+function showFront(card) {
+  currentCard = card;
+  const s = state.cards[card.id];
+  const pct = Math.round(s.mastery * 100);
+  const col = masteryColor(s.mastery);
+
+  document.getElementById('card-module').textContent = card.module < 900 ? `Module ${card.module}` : 'Misc';
+  document.getElementById('card-label').textContent = card.label;
+  document.getElementById('card-mastery-pct').textContent = pct + '%';
+  const fill = document.getElementById('card-mastery-fill');
+  fill.style.width = pct + '%';
+  fill.style.background = col;
+
+  // Interval hints on back
+  const hints = nextIntervals(card.id);
+  document.getElementById('interval-hints').innerHTML = hints.map((d, i) => {
+    const labels = ['Forgot','Hard','Good','Easy'];
+    return `<div class="interval-hint">${d}d</div>`;
+  }).join('');
+
+  show('card-front');
+  hide('card-back');
+  hide('credit-panel');
+}
+
+function flipCard() {
+  if (!currentCard) return;
+  const card = currentCard;
+  const hints = nextIntervals(card.id);
+
+  document.getElementById('card-module-back').textContent =
+    document.getElementById('card-module').textContent;
+  document.getElementById('card-label-back').textContent = card.label;
+  document.getElementById('card-definition').textContent = card.description;
+  document.getElementById('interval-hints').innerHTML = hints.map(d => `<div class="interval-hint">${d}d</div>`).join('');
+
+  hide('card-front');
+  show('card-back');
+  hide('credit-panel');
+}
+
+function rate(r) {
+  if (!currentCard) return;
+  const { delta, actualScore, propagationLog } = updateSchedule(currentCard.id, r);
+  renderCreditPanel(currentCard, r, delta, propagationLog);
+  hide('card-back');
+  show('credit-panel');
+  refreshStats();
+  refreshOverview();
+  refreshDashboard();
+}
+
+function nextCard() {
+  const next = selectNextCard();
+  if (next) showFront(next);
+}
+
+function renderCreditPanel(card, rating, delta, log) {
+  const titleEl = document.getElementById('credit-title');
+  const entriesEl = document.getElementById('credit-entries');
+  const ratingLabels = ['Forgot','Hard','Good','Easy'];
+  const ratingIcons  = ['✗','≈','✓','★'];
+
+  const own = Math.round(state.cards[card.id].mastery * 100);
+  const deltaSign = delta >= 0 ? '+' : '';
+  const cls = delta < 0 ? 'negative' : delta > 0 ? 'positive' : 'neutral';
+  const icon = delta < 0 ? '← blame' : delta > 0 ? '→ credit' : '— no change';
+
+  titleEl.className = `credit-title ${cls}`;
+  titleEl.innerHTML = `
+    ${ratingIcons[rating]} ${ratingLabels[rating]} — own mastery now ${own}%
+    <span class="delta-badge">${icon} δ=${deltaSign}${(TD_ALPHA * delta).toFixed(3)}</span>
+  `;
+
+  if (!log.length) {
+    entriesEl.innerHTML = `<div class="credit-none">No connected concepts affected (no edges in scope).</div>`;
+    return;
+  }
+
+  // Sort by abs(delta) descending
+  const sorted = log.slice().sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
+  entriesEl.innerHTML = sorted.map((e, i) => {
+    const arrow = e.dir === 'backward' ? '←' : '→';
+    const d = e.dir === 'backward' ? 'neg' : 'pos';
+    const sign = e.delta >= 0 ? '+' : '';
+    const adj = Math.round(state.cards[e.id].mastery * 100);
+    return `<div class="credit-entry ${e.dir}" style="animation-delay:${i*0.05}s">
+      <span class="credit-arrow">${arrow}</span>
+      <span class="credit-concept">${e.label}</span>
+      <span class="credit-delta ${d}">${sign}${(TD_ALPHA * e.delta).toFixed(3)}</span>
+      <span class="credit-hop">${e.depth} hop${e.depth > 1 ? 's' : ''} · ${adj}%</span>
+    </div>`;
+  }).join('');
+}
+
+// ============================================================
+// STATS & OVERVIEWS
+// ============================================================
+function masteryColor(v) {
+  if (v >= 0.7) return '#4a7c59';      // mastered: green
+  if (v >= 0.4) return '#c9954a';      // learning: amber
+  return '#8b4040';                    // weak: red
+}
+
+function refreshStats() {
+  const now = Date.now();
+  const dueCount = CARDS.filter(c => state.cards[c.id].dueTime <= now).length;
+  const masteredCount = CARDS.filter(c => isMastered(c.id)).length;
+  document.getElementById('stat-due').textContent = dueCount;
+  document.getElementById('stat-mastered').textContent = masteredCount;
+  document.getElementById('stat-session').textContent = state.session.reviewed;
+}
+
+function refreshOverview() {
+  const masteredCount = CARDS.filter(c => isMastered(c.id)).length;
+  const pct = CARDS.length ? masteredCount / CARDS.length : 0;
+  const C = 2 * Math.PI * 34;
+  const ring = document.getElementById('ring-fill');
+  ring.style.strokeDasharray = C;
+  ring.style.strokeDashoffset = C * (1 - pct);
+  document.getElementById('ring-pct').textContent = Math.round(pct * 100) + '%';
+
+  // Histogram bars
+  const buckets = [
+    { label: '0–20%',  min: 0,   max: 0.2  },
+    { label: '20–40%', min: 0.2, max: 0.4  },
+    { label: '40–60%', min: 0.4, max: 0.6  },
+    { label: '60–80%', min: 0.6, max: 0.8  },
+    { label: '80–100%',min: 0.8, max: 1.01 },
+  ];
+  const colors = ['#8b4040','#7c6b3a','#c9954a','#5a8c6a','#4a7c59'];
+  const maxCount = Math.max(...buckets.map(b =>
+    CARDS.filter(c => state.cards[c.id].mastery >= b.min && state.cards[c.id].mastery < b.max).length
+  ), 1);
+
+  document.getElementById('mastery-bars').innerHTML = buckets.map((b, i) => {
+    const count = CARDS.filter(c => state.cards[c.id].mastery >= b.min && state.cards[c.id].mastery < b.max).length;
+    const w = Math.round(count / maxCount * 100);
+    return `<div class="mastery-bar-row">
+      <span class="mastery-bar-label">${b.label}</span>
+      <div class="mastery-bar-track">
+        <div class="mastery-bar-fill" style="width:${w}%; background:${colors[i]}"></div>
+      </div>
+      <span class="mastery-bar-count">${count}</span>
+    </div>`;
+  }).join('');
+}
+
+function refreshDashboard() {
+  // Weakest concepts
+  const weakest = CARDS.slice()
+    .sort((a, b) => state.cards[a.id].mastery - state.cards[b.id].mastery)
+    .slice(0, 8);
+  document.getElementById('weakest-list').innerHTML = weakest.map(c => {
+    const v = state.cards[c.id].mastery;
+    const pct = Math.round(v * 100);
+    return `<div class="weakest-entry">
+      <span class="weakest-label" title="${c.label}">${c.label}</span>
+      <div class="weakest-bar-wrap"><div class="weakest-bar-fill" style="width:${pct}%; background:${masteryColor(v)}"></div></div>
+      <span class="weakest-pct">${pct}%</span>
+    </div>`;
+  }).join('');
+
+  // Coming up
+  const now = Date.now();
+  const dayMs = 24 * 60 * 60 * 1000;
+  const upcoming = CARDS.slice()
+    .sort((a, b) => state.cards[a.id].dueTime - state.cards[b.id].dueTime)
+    .slice(0, 8);
+  document.getElementById('due-list').innerHTML = upcoming.map(c => {
+    const due = state.cards[c.id].dueTime;
+    let tag, tagClass;
+    if (due <= now) { tag = 'now'; tagClass = 'overdue'; }
+    else if (due < now + dayMs) { tag = 'today'; tagClass = 'today'; }
+    else {
+      const days = Math.ceil((due - now) / dayMs);
+      tag = `${days}d`; tagClass = 'tomorrow';
+    }
+    return `<div class="due-entry">
+      <span class="due-label" title="${c.label}">${c.label}</span>
+      <span class="due-tag ${tagClass}">${tag}</span>
+    </div>`;
+  }).join('');
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+function show(id) { document.getElementById(id).classList.remove('hidden'); }
+function hide(id) { document.getElementById(id).classList.add('hidden'); }
+
+function confirmReset() {
+  if (confirm('Reset all flashcard progress? This cannot be undone.')) {
+    localStorage.removeItem(STORAGE_KEY);
+    state = initState();
+    saveState();
+    refreshStats(); refreshOverview(); refreshDashboard();
+    const next = selectNextCard();
+    if (next) showFront(next);
+  }
+}
+
+// ============================================================
+// BOOT
+// ============================================================
+(function boot() {
+  const C = 2 * Math.PI * 34;
+  document.getElementById('ring-fill').style.strokeDasharray = C;
+  document.getElementById('ring-fill').style.strokeDashoffset = C;
+
+  refreshStats();
+  refreshOverview();
+  refreshDashboard();
+
+  const first = selectNextCard();
+  if (first) showFront(first);
+})();
+</script>
+</body>
+</html>

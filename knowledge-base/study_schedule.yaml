@@ -1,0 +1,533 @@
+study_schedule:
+  exam_date: '2026-06-01'
+  sessions_per_day: 2
+  concepts_per_session: 4
+  capacity_per_day: 8
+  total_days_available: 20
+  total_concepts_scheduled: 160
+  mastered_excluded: 0
+  generated_at: '2026-05-11'
+  algorithm: AC-3 domain propagation + greedy assignment
+  warning: 'Warning: not enough time to study all 315 concepts. Schedule limited to
+    top 160 by module order. Consider reducing scope or extending your timeline.'
+  days:
+  - date: '2026-05-12'
+    concepts:
+    - id: agent_specialization
+      label: Agent Specialisation
+      module: 1
+    - id: agentic_environment
+      label: Agentic Environment
+      module: 1
+    - id: agent_environment_distinction
+      label: Agent–Environment Distinction
+      module: 1
+    - id: aggregate_rewards
+      label: Aggregate Rewards
+      module: 1
+    - id: ambiguous_feedback
+      label: Ambiguous Feedback
+      module: 1
+    - id: credit_assignment
+      label: Credit Assignment
+      module: 1
+    - id: delayed_feedback
+      label: Delayed Feedback
+      module: 1
+    - id: delegation
+      label: Delegation
+      module: 1
+  - date: '2026-05-13'
+    concepts:
+    - id: deliberate_practice
+      label: Deliberate Practice
+      module: 1
+    - id: division_of_labor
+      label: Division of Labour
+      module: 1
+    - id: exploitation
+      label: Exploitation
+      module: 1
+    - id: exploration
+      label: Exploration
+      module: 1
+    - id: exploration_exploitation_tradeoff
+      label: Exploration–Exploitation Trade-off
+      module: 1
+    - id: feedback
+      label: Feedback
+      module: 1
+    - id: gains_to_specialization
+      label: Gains to Specialisation
+      module: 1
+    - id: general_problem_of_intelligence
+      label: General Problem of Intelligence
+      module: 1
+  - date: '2026-05-14'
+    concepts:
+    - id: goal_directed_agents
+      label: Goal-Directed Agents
+      module: 1
+    - id: hierarchical_management
+      label: Hierarchical Management
+      module: 1
+    - id: infinite_regress
+      label: Infinite Regress
+      module: 1
+    - id: intelligence
+      label: Intelligence
+      module: 1
+    - id: interdependence_of_actions
+      label: Interdependence of Actions
+      module: 1
+    - id: intermediate_feedback
+      label: Intermediate Feedback
+      module: 1
+    - id: learning
+      label: Learning
+      module: 1
+    - id: management_hypothesis
+      label: Management Hypothesis
+      module: 1
+  - date: '2026-05-15'
+    concepts:
+    - id: maximize_rewards
+      label: Maximise Rewards
+      module: 1
+    - id: organizational_learning
+      label: Organisational Learning
+      module: 1
+    - id: organizational_memory
+      label: Organisational Memory
+      module: 1
+    - id: organizational_programs
+      label: Organisational Programs
+      module: 1
+    - id: path_dependence
+      label: Path Dependence
+      module: 1
+    - id: policy
+      label: Policy
+      module: 1
+    - id: reinforcement_learning
+      label: Reinforcement Learning
+      module: 1
+    - id: reward_hypothesis
+      label: Reward Hypothesis
+      module: 1
+  - date: '2026-05-16'
+    concepts:
+    - id: society_of_mind_hypothesis
+      label: Society of Mind Hypothesis
+      module: 1
+    - id: sparse_feedback
+      label: Sparse Feedback
+      module: 1
+    - id: superstitious_learning
+      label: Superstitious Learning
+      module: 1
+    - id: task_environment
+      label: Task Environment
+      module: 1
+    - id: temporal_differencing
+      label: Temporal Differencing
+      module: 1
+    - id: trial_and_error
+      label: Trial and Error
+      module: 1
+    - id: unitary_actor_assumption
+      label: Unitary Actor Assumption
+      module: 1
+    - id: utility_function
+      label: Utility Function
+      module: 1
+  - date: '2026-05-17'
+    concepts:
+    - id: value_function
+      label: Value Function
+      module: 1
+    - id: abstract_patterns
+      label: Abstract Patterns
+      module: 2
+    - id: abstraction
+      label: Abstraction
+      module: 2
+    - id: algorithm
+      label: Algorithm
+      module: 2
+    - id: bandwidth
+      label: Bandwidth
+      module: 2
+    - id: bit
+      label: Bit
+      module: 2
+    - id: bit_strings
+      label: Bit Strings
+      module: 2
+    - id: brute_force
+      label: Brute Force
+      module: 2
+  - date: '2026-05-18'
+    concepts:
+    - id: channel_capacity
+      label: Channel Capacity
+      module: 2
+    - id: cognitive_representations
+      label: Cognitive Representations
+      module: 2
+    - id: combinatorial_complexity
+      label: Combinatorial Complexity
+      module: 2
+    - id: combinatorial_explosion
+      label: Combinatorial Explosion
+      module: 2
+    - id: commonsense_knowledge
+      label: Commonsense Knowledge
+      module: 2
+    - id: compression
+      label: Compression
+      module: 2
+    - id: convenient_fictions
+      label: Convenient Fictions
+      module: 2
+    - id: curse_of_dimensionality
+      label: Curse of Dimensionality
+      module: 2
+  - date: '2026-05-19'
+    concepts:
+    - id: decoding
+      label: Decoding
+      module: 2
+    - id: decomposition
+      label: Decomposition
+      module: 2
+    - id: digital_abstraction
+      label: Digital Abstraction
+      module: 2
+    - id: effective_procedure
+      label: Effective Procedure
+      module: 2
+    - id: encoding
+      label: Encoding
+      module: 2
+    - id: entropy
+      label: Entropy
+      module: 2
+    - id: explicit_knowledge
+      label: Explicit Knowledge
+      module: 2
+    - id: external_representations
+      label: External Representations
+      module: 2
+  - date: '2026-05-20'
+    concepts:
+    - id: hierarchy
+      label: Hierarchy
+      module: 2
+    - id: iid_problems
+      label: IID Problems
+      module: 2
+    - id: iid_vs_ood_problems
+      label: IID vs OOD Problems
+      module: 2
+    - id: information
+      label: Information
+      module: 2
+    - id: information_processing
+      label: Information Processing
+      module: 2
+    - id: information_theory
+      label: Information Theory
+      module: 2
+    - id: internal_representations
+      label: Internal Representations
+      module: 2
+    - id: lists
+      label: Lists
+      module: 2
+  - date: '2026-05-21'
+    concepts:
+    - id: meaningful_abstraction
+      label: Meaningful Abstraction
+      module: 2
+    - id: mechanization_of_thought
+      label: Mechanisation of Thought
+      module: 2
+    - id: memory_management
+      label: Memory Management
+      module: 2
+    - id: minimal_effective_procedure
+      label: Minimal Effective Procedure
+      module: 2
+    - id: modularity
+      label: Modularity
+      module: 2
+    - id: modules
+      label: Modules
+      module: 2
+    - id: noise
+      label: Noise
+      module: 2
+    - id: ood_problems
+      label: OOD Problems
+      module: 2
+  - date: '2026-05-22'
+    concepts:
+    - id: physical_symbol_system_hypothesis
+      label: Physical Symbol System Hypothesis
+      module: 2
+    - id: physics_hypothesis
+      label: Physics Hypothesis
+      module: 2
+    - id: probability_distribution
+      label: Probability Distribution
+      module: 2
+    - id: processing_capacity
+      label: Processing Capacity
+      module: 2
+    - id: processing_complexity
+      label: Processing Complexity
+      module: 2
+    - id: processing_power
+      label: Processing Power
+      module: 2
+    - id: semantic_information
+      label: Semantic Information
+      module: 2
+    - id: shannon_entropy
+      label: Shannon Entropy
+      module: 2
+  - date: '2026-05-23'
+    concepts:
+    - id: shannon_information
+      label: Shannon Information
+      module: 2
+    - id: short_term_long_term_memory
+      label: Short-Term vs Long-Term Memory
+      module: 2
+    - id: signal_to_noise_ratio
+      label: Signal-to-Noise Ratio
+      module: 2
+    - id: simon_information
+      label: Simon Information
+      module: 2
+    - id: statistical_distribution
+      label: Statistical Distribution
+      module: 2
+    - id: statistical_redundancy_removal
+      label: Statistical Redundancy Removal
+      module: 2
+    - id: symbol_manipulation
+      label: Symbol Manipulation
+      module: 2
+    - id: syntactic_information
+      label: Syntactic Information
+      module: 2
+  - date: '2026-05-24'
+    concepts:
+    - id: tacit_knowledge
+      label: Tacit Knowledge
+      module: 2
+    - id: turing_machine
+      label: Turing Machine
+      module: 2
+    - id: actions
+      label: Actions
+      module: 3
+    - id: adversarial_search
+      label: Adversarial Search
+      module: 3
+    - id: aspiration_level
+      label: Aspiration Level
+      module: 3
+    - id: backtracking
+      label: Backtracking
+      module: 3
+    - id: branches
+      label: Branches
+      module: 3
+    - id: breadth_first_search
+      label: Breadth-First Search
+      module: 3
+  - date: '2026-05-25'
+    concepts:
+    - id: brittleness
+      label: Brittleness
+      module: 3
+    - id: depth_first_search
+      label: Depth-First Search
+      module: 3
+    - id: differences_current_vs_goal
+      label: Difference (Current vs Goal State)
+      module: 3
+    - id: effectuation
+      label: Effectuation
+      module: 3
+    - id: evaluation_function
+      label: Evaluation Function
+      module: 3
+    - id: expert_systems
+      label: Expert Systems
+      module: 3
+    - id: find_all_solutions_goal
+      label: Find-All-Solutions Goal
+      module: 3
+    - id: find_any_solution_goal
+      label: Find-Any-Solution Goal
+      module: 3
+  - date: '2026-05-26'
+    concepts:
+    - id: find_best_solution_goal
+      label: Find-Best-Solution Goal
+      module: 3
+    - id: forward_checking_search
+      label: Forward Checking Search
+      module: 3
+    - id: game_tree
+      label: Game Tree
+      module: 3
+    - id: general_problem_solver
+      label: General Problem Solver (GPS)
+      module: 3
+    - id: generate_and_test
+      label: Generate and Test
+      module: 3
+    - id: giant_strides
+      label: Giant Strides
+      module: 3
+    - id: global_optimum
+      label: Global Optimum
+      module: 3
+    - id: goal_state
+      label: Goal State
+      module: 3
+  - date: '2026-05-27'
+    concepts:
+    - id: heuristics
+      label: Heuristics
+      module: 3
+    - id: hill_climbing
+      label: Hill Climbing
+      module: 3
+    - id: ill_defined_problems
+      label: Ill-Defined Problems
+      module: 3
+    - id: informed_search
+      label: Informed Search
+      module: 3
+    - id: initial_state
+      label: Initial State
+      module: 3
+    - id: intermediate_state
+      label: Intermediate State
+      module: 3
+    - id: knowledge_acquisition_bottleneck
+      label: Knowledge Acquisition Bottleneck
+      module: 3
+    - id: local_peaks
+      label: Local Peaks
+      module: 3
+  - date: '2026-05-28'
+    concepts:
+    - id: local_vs_global_optima
+      label: Local vs Global Optima
+      module: 3
+    - id: means_ends_analysis
+      label: Means–Ends Analysis
+      module: 3
+    - id: memory_of_action_sequences
+      label: Memory of Action Sequences
+      module: 3
+    - id: myopia
+      label: Myopia
+      module: 3
+    - id: node
+      label: Node
+      module: 3
+    - id: operators
+      label: Operators
+      module: 3
+    - id: optimization_goal
+      label: Optimisation Goal
+      module: 3
+    - id: paths
+      label: Paths
+      module: 3
+  - date: '2026-05-29'
+    concepts:
+    - id: planning
+      label: Planning
+      module: 3
+    - id: procedural_complexity
+      label: Procedural Complexity
+      module: 3
+    - id: pruning
+      label: Pruning
+      module: 3
+    - id: satisficing
+      label: Satisficing
+      module: 3
+    - id: search
+      label: Search
+      module: 3
+    - id: search_space
+      label: Search Space
+      module: 3
+    - id: search_tree
+      label: Search Tree
+      module: 3
+    - id: simon_search
+      label: Simon Search
+      module: 3
+  - date: '2026-05-30'
+    concepts:
+    - id: state
+      label: State
+      module: 3
+    - id: state_space
+      label: State Space
+      module: 3
+    - id: state_transitions
+      label: State Transitions
+      module: 3
+    - id: subgoals
+      label: Subgoals
+      module: 3
+    - id: uninformed_search
+      label: Uninformed Search
+      module: 3
+    - id: von_neumann_search
+      label: Von Neumann Search
+      module: 3
+    - id: watchmaker_parable
+      label: Watchmaker Parable
+      module: 3
+    - id: abstraction_level
+      label: Abstraction Level
+      module: 4
+  - date: '2026-05-31'
+    concepts:
+    - id: autoencoders
+      label: Autoencoders
+      module: 4
+    - id: backward_propagation
+      label: Backpropagation
+      module: 4
+    - id: bayesian_inference
+      label: Bayesian Inference
+      module: 4
+    - id: bayesian_networks
+      label: Bayesian Networks
+      module: 4
+    - id: binary_variables_boltzmann
+      label: Binary Variables (Boltzmann)
+      module: 4
+    - id: boltzmann_machines
+      label: Boltzmann Machines
+      module: 4
+    - id: coherence
+      label: Coherence
+      module: 4
+    - id: conceptual_units
+      label: Conceptual Units
+      module: 4

@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAB 2026 — Full Deck Flashcards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #141210;
+    --surface:    #1e1b18;
+    --surface2:   #262320;
+    --border:     #3a3530;
+    --text:       #e2d9cc;
+    --text-muted: #8a8078;
+    --accent:     #c9954a;
+    --accent-dim: rgba(201,149,74,0.12);
+    --correct:    #4a7c59;
+    --correct-bg: rgba(74,124,89,0.15);
+    --wrong:      #8b4040;
+    --wrong-bg:   rgba(139,64,64,0.15);
+    --warn:       #7c6b3a;
+    --warn-bg:    rgba(124,107,58,0.15);
+    --radius:     10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 80px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; opacity: 0.4; z-index: 0;
+  }
+
+  .container { position: relative; z-index: 1; width: 100%; max-width: 720px; }
+
+  /* ---- Header ---- */
+  header { text-align: center; margin-bottom: 40px; }
+  .eyebrow {
+    font-size: 11px; font-weight: 300; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 700; line-height: 1.2; margin-bottom: 14px;
+  }
+  .session-stats {
+    display: flex; justify-content: center; gap: 24px;
+    font-size: 13px; color: var(--text-muted);
+  }
+  .stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--accent); line-height: 1;
+  }
+  .stat-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* ---- Mastery overview bar ---- */
+  .mastery-overview {
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .mastery-ring-wrap { position: relative; flex-shrink: 0; }
+  .mastery-ring-wrap svg { transform: rotate(-90deg); }
+  .mastery-ring-wrap circle { fill: none; stroke-width: 6; stroke-linecap: round; }
+  .ring-track { stroke: var(--border); }
+  .ring-fill { stroke: var(--accent); transition: stroke-dashoffset 0.8s cubic-bezier(0.4,0,0.2,1); }
+  .ring-center {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .ring-pct { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--accent); line-height: 1; }
+  .ring-sub { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+  .mastery-bars { flex: 1; }
+  .mastery-bar-row {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 3px; font-size: 11px; color: var(--text-muted);
+  }
+  .mastery-bar-label { width: 64px; text-align: right; flex-shrink: 0; }
+  .mastery-bar-track { flex: 1; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .mastery-bar-fill { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+  .mastery-bar-count { width: 28px; font-size: 10px; }
+
+  /* ---- Card ---- */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.3s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .module-badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 300; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(201,149,74,0.25);
+    border-radius: 20px; padding: 2px 10px;
+    margin-bottom: 14px;
+  }
+
+  .card-label {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 700; line-height: 1.25;
+    color: var(--text); margin-bottom: 18px;
+  }
+
+  /* Mastery micro-bar */
+  .micro-mastery { margin-bottom: 24px; }
+  .micro-mastery-head {
+    display: flex; justify-content: space-between;
+    font-size: 11px; color: var(--text-muted);
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 5px;
+  }
+  .micro-track { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .micro-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; background: var(--accent); }
+
+  .btn-reveal {
+    width: 100%; padding: 14px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    color: var(--accent);
+    font-family: 'Source Serif 4', serif; font-size: 15px;
+    letter-spacing: 0.04em; cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+  .btn-reveal:hover { background: var(--accent); color: var(--bg); }
+
+  /* Back of card */
+  .definition {
+    font-size: 15px; line-height: 1.75;
+    color: var(--text); margin-bottom: 28px;
+    border-top: 1px solid var(--border); padding-top: 20px;
+  }
+
+  .rating-prompt {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 12px; text-align: center;
+  }
+  .rating-btns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+
+  .btn-rate {
+    padding: 12px 6px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface2);
+    color: var(--text);
+    font-family: 'Source Serif 4', serif; font-size: 13px;
+    cursor: pointer; transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    text-align: center; line-height: 1.3;
+  }
+  .btn-rate:hover { transform: translateY(-2px); }
+  .btn-rate.fail:hover  { border-color: var(--wrong);   background: var(--wrong-bg); }
+  .btn-rate.hard:hover  { border-color: var(--warn);    background: var(--warn-bg); }
+  .btn-rate.good:hover  { border-color: var(--accent);  background: var(--accent-dim); }
+  .btn-rate.easy:hover  { border-color: var(--correct); background: var(--correct-bg); }
+
+  .btn-rate .rate-label { font-size: 11px; color: var(--text-muted); display: block; margin-top: 3px; }
+
+  /* Next interval hint */
+  .interval-hints {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    margin-top: 6px;
+  }
+  .interval-hint {
+    text-align: center; font-size: 10px;
+    color: var(--text-muted); letter-spacing: 0.06em;
+  }
+
+  /* ---- Credit propagation panel ---- */
+  .credit-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 32px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.3s ease both;
+  }
+  .credit-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 600;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .credit-title .delta-badge {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px; padding: 2px 8px;
+    border-radius: 20px;
+  }
+  .credit-title.negative .delta-badge { background: var(--wrong-bg); color: #c46060; border: 1px solid rgba(139,64,64,0.3); }
+  .credit-title.positive .delta-badge { background: var(--correct-bg); color: #6aaa7e; border: 1px solid rgba(74,124,89,0.3); }
+  .credit-title.neutral  .delta-badge { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(201,149,74,0.2); }
+
+  .credit-entries { display: flex; flex-direction: column; gap: 6px; }
+  .credit-entry {
+    display: flex; align-items: center; gap: 12px;
+    padding: 8px 12px; border-radius: 6px;
+    font-size: 13px; animation: fadeUp 0.2s ease both;
+  }
+  .credit-entry.backward { background: var(--wrong-bg); }
+  .credit-entry.forward  { background: var(--correct-bg); }
+  .credit-arrow { font-size: 14px; flex-shrink: 0; }
+  .credit-concept { flex: 1; color: var(--text); }
+  .credit-delta {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px; font-weight: 600; flex-shrink: 0;
+  }
+  .credit-delta.neg { color: #c46060; }
+  .credit-delta.pos { color: #6aaa7e; }
+  .credit-hop { font-size: 10px; color: var(--text-muted); flex-shrink: 0; }
+  .credit-none { font-size: 13px; color: var(--text-muted); font-style: italic; }
+
+  .btn-next {
+    width: 100%; padding: 13px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 8px; color: var(--accent);
+    font-family: 'Source Serif 4', serif; font-size: 15px;
+    letter-spacing: 0.04em; cursor: pointer; margin-top: 12px;
+    transition: background 0.18s, color 0.18s;
+  }
+  .btn-next:hover { background: var(--accent); color: var(--bg); }
+
+  /* ---- Bottom dashboard ---- */
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .dash-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+  }
+  .dash-title {
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 14px;
+  }
+
+  .weakest-entry {
+    display: flex; align-items: center; gap: 10px;
+    padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12px;
+  }
+  .weakest-entry:last-child { border-bottom: none; }
+  .weakest-label { flex: 1; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .weakest-bar-wrap { width: 48px; height: 4px; background: var(--border); border-radius: 2px; flex-shrink: 0; }
+  .weakest-bar-fill { height: 100%; border-radius: 2px; background: var(--accent); }
+  .weakest-pct { width: 28px; text-align: right; color: var(--text-muted); font-size: 11px; flex-shrink: 0; }
+
+  .due-entry {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12px;
+  }
+  .due-entry:last-child { border-bottom: none; }
+  .due-label { color: var(--text); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .due-tag {
+    font-size: 10px; padding: 2px 7px; border-radius: 12px; flex-shrink: 0; margin-left: 8px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .due-tag.overdue  { background: var(--wrong-bg);   color: #c46060; }
+  .due-tag.today    { background: var(--accent-dim);  color: var(--accent); }
+  .due-tag.tomorrow { background: var(--surface2);    color: var(--text-muted); }
+
+  .reset-btn {
+    margin-top: 16px; width: 100%; padding: 9px;
+    background: transparent; border: 1px solid var(--border);
+    border-radius: 6px; color: var(--text-muted);
+    font-family: 'Source Serif 4', serif; font-size: 12px;
+    cursor: pointer; transition: border-color 0.15s, color 0.15s;
+  }
+  .reset-btn:hover { border-color: var(--wrong); color: #c46060; }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 520px) {
+    .card { padding: 24px 20px; }
+    .rating-btns { grid-template-columns: repeat(2, 1fr); }
+    .dashboard { grid-template-columns: 1fr; }
+    .mastery-overview { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">FAB 2026 — Flashcards</div>
+    <h1 id="deck-title">FAB 2026 — Full Deck Flashcards</h1>
+    <div class="session-stats">
+      <div class="stat">
+        <span class="stat-num" id="stat-due">0</span>
+        <span class="stat-label">due now</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-mastered">0</span>
+        <span class="stat-label">mastered</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-session">0</span>
+        <span class="stat-label">this session</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-total">315</span>
+        <span class="stat-label">total cards</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mastery overview -->
+  <div class="mastery-overview">
+    <div class="mastery-ring-wrap">
+      <svg viewBox="0 0 80 80" width="80" height="80">
+        <circle class="ring-track" cx="40" cy="40" r="34"/>
+        <circle class="ring-fill" id="ring-fill" cx="40" cy="40" r="34"/>
+      </svg>
+      <div class="ring-center">
+        <span class="ring-pct" id="ring-pct">0%</span>
+        <span class="ring-sub">done</span>
+      </div>
+    </div>
+    <div class="mastery-bars" id="mastery-bars"></div>
+  </div>
+
+  <!-- Flashcard (front) -->
+  <div class="card" id="card-front">
+    <div class="module-badge" id="card-module">Module —</div>
+    <div class="card-label" id="card-label">Loading…</div>
+    <div class="micro-mastery">
+      <div class="micro-mastery-head">
+        <span>Mastery estimate</span>
+        <span id="card-mastery-pct">—</span>
+      </div>
+      <div class="micro-track"><div class="micro-fill" id="card-mastery-fill" style="width:0%"></div></div>
+    </div>
+    <button class="btn-reveal" onclick="flipCard()">Reveal Definition →</button>
+  </div>
+
+  <!-- Flashcard (back) -->
+  <div class="card hidden" id="card-back">
+    <div class="module-badge" id="card-module-back">Module —</div>
+    <div class="card-label" id="card-label-back"></div>
+    <p class="definition" id="card-definition"></p>
+    <div class="rating-prompt">How well did you recall this?</div>
+    <div class="rating-btns">
+      <button class="btn-rate fail" onclick="rate(0)">✗<span class="rate-label">Forgot</span></button>
+      <button class="btn-rate hard" onclick="rate(1)">≈<span class="rate-label">Hard</span></button>
+      <button class="btn-rate good" onclick="rate(2)">✓<span class="rate-label">Good</span></button>
+      <button class="btn-rate easy" onclick="rate(3)">★<span class="rate-label">Easy</span></button>
+    </div>
+    <div class="interval-hints" id="interval-hints"></div>
+  </div>
+
+  <!-- Credit propagation panel -->
+  <div class="card credit-panel hidden" id="credit-panel">
+    <div class="credit-title" id="credit-title"></div>
+    <div class="credit-entries" id="credit-entries"></div>
+    <button class="btn-next" onclick="nextCard()">Next Card →</button>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <div class="dash-panel">
+      <div class="dash-title">Weakest Concepts</div>
+      <div id="weakest-list"></div>
+    </div>
+    <div class="dash-panel">
+      <div class="dash-title">Coming Up</div>
+      <div id="due-list"></div>
+      <button class="reset-btn" onclick="confirmReset()">Reset all progress</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// DATA (embedded by flashcard_generator.py)
+// ============================================================
+const CARDS = [{"id": "agent_specialization", "label": "Agent Specialisation", "description": "The differentiation of agents into distinct roles with narrow, focused capabilities that together cover a broader task.", "module": 1}, {"id": "agentic_environment", "label": "Agentic Environment", "description": "The environment as modelled and acted upon by an intelligent agent, including the effects of the agent's own actions.", "module": 1}, {"id": "agent_environment_distinction", "label": "Agent–Environment Distinction", "description": "The conceptual boundary separating the learning agent from the world it perceives and acts upon.", "module": 1}, {"id": "aggregate_rewards", "label": "Aggregate Rewards", "description": "The total sum of rewards accumulated by an agent across a sequence of actions and time steps.", "module": 1}, {"id": "ambiguous_feedback", "label": "Ambiguous Feedback", "description": "Feedback whose causal link to specific actions is unclear, complicating the identification of what behaviour produced a given outcome.", "module": 1}, {"id": "credit_assignment", "label": "Credit Assignment", "description": "The problem of determining which specific actions in a sequence deserve credit (or blame) for a final outcome.", "module": 1}, {"id": "delayed_feedback", "label": "Delayed Feedback", "description": "Feedback that arrives well after the actions that caused it, making it harder to assign credit to the right decisions.", "module": 1}, {"id": "delegation", "label": "Delegation", "description": "The assignment of authority and responsibility for a task from a higher-level agent to a subordinate sub-agent.", "module": 1}, {"id": "deliberate_practice", "label": "Deliberate Practice", "description": "Effortful, focused practice designed to improve specific skills through rapid feedback and targeted repetition.", "module": 1}, {"id": "division_of_labor", "label": "Division of Labour", "description": "The allocation of distinct tasks to specialised agents or workers to increase collective efficiency and throughput.", "module": 1}, {"id": "exploitation", "label": "Exploitation", "description": "Applying existing knowledge to refine and improve known good solutions rather than searching new territory.", "module": 1}, {"id": "exploration", "label": "Exploration", "description": "Searching new, unknown regions of the solution space to discover potentially better solutions.", "module": 1}, {"id": "exploration_exploitation_tradeoff", "label": "Exploration–Exploitation Trade-off", "description": "The fundamental tension between exploring new, unknown regions of the solution space and exploiting known good solutions.", "module": 1}, {"id": "feedback", "label": "Feedback", "description": "Information an agent receives about the consequences of its actions, used to update its behaviour.", "module": 1}, {"id": "gains_to_specialization", "label": "Gains to Specialisation", "description": "The increased efficiency and output achieved when agents focus on narrow, well-practised tasks rather than general ones.", "module": 1}, {"id": "general_problem_of_intelligence", "label": "General Problem of Intelligence", "description": "The overarching challenge of creating agents that can learn which actions to take in order to achieve goals, despite sparse and delayed feedback.", "module": 1}, {"id": "goal_directed_agents", "label": "Goal-Directed Agents", "description": "Agents that select actions based on an internal representation of a desired end state rather than fixed reflexes.", "module": 1}, {"id": "hierarchical_management", "label": "Hierarchical Management", "description": "An organisational structure where agents are arranged in levels, with each level supervising and coordinating the level below it.", "module": 1}, {"id": "infinite_regress", "label": "Infinite Regress", "description": "A logical problem where justifying or explaining something requires invoking the same type of explanation indefinitely.", "module": 1}, {"id": "intelligence", "label": "Intelligence", "description": "The general capacity of an agent to adapt behaviour and solve problems across varied environments, typically by learning from experience.", "module": 1}, {"id": "interdependence_of_actions", "label": "Interdependence of Actions", "description": "The property that the value or appropriateness of one action depends on other actions taken concurrently or previously.", "module": 1}, {"id": "intermediate_feedback", "label": "Intermediate Feedback", "description": "Proxy signals that indicate progress toward a goal before a final outcome is known, used to assign credit earlier.", "module": 1}, {"id": "learning", "label": "Learning", "description": "The general process by which an agent modifies its representations or behaviour based on experience with its environment.", "module": 1}, {"id": "management_hypothesis", "label": "Management Hypothesis", "description": "The hypothesis that intelligence at scale requires coordination, delegation, and management of specialised sub-agents.", "module": 1}, {"id": "maximize_rewards", "label": "Maximise Rewards", "description": "The objective of selecting actions so as to obtain the highest possible cumulative reward over time.", "module": 1}, {"id": "organizational_learning", "label": "Organisational Learning", "description": "The process by which collectives of agents update their shared knowledge, routines, and behaviour based on experience.", "module": 1}, {"id": "organizational_memory", "label": "Organisational Memory", "description": "Stored knowledge, routines, and programs that persist in an organisation beyond any individual member.", "module": 1}, {"id": "organizational_programs", "label": "Organisational Programs", "description": "Encoded routines and standard operating procedures that guide an organisation's responses to recurring situations.", "module": 1}, {"id": "path_dependence", "label": "Path Dependence", "description": "The phenomenon where the sequence of past decisions constrains which options remain available in the future.", "module": 1}, {"id": "policy", "label": "Policy", "description": "A mapping from states to actions that specifies what an agent does in each situation it encounters.", "module": 1}, {"id": "reinforcement_learning", "label": "Reinforcement Learning", "description": "A learning paradigm where an agent improves its policy by receiving rewards or penalties for actions taken in an environment.", "module": 1}, {"id": "reward_hypothesis", "label": "Reward Hypothesis", "description": "The proposition that all goals and purposes can be expressed as the maximisation of cumulative scalar reward (Sutton & Barto).", "module": 1}, {"id": "society_of_mind_hypothesis", "label": "Society of Mind Hypothesis", "description": "Minsky's proposal that high-level intelligence emerges from the interaction of many simple, specialised sub-agents.", "module": 1}, {"id": "sparse_feedback", "label": "Sparse Feedback", "description": "A feedback regime in which only a small fraction of actions generate informative signals, as identified by Minsky.", "module": 1}, {"id": "superstitious_learning", "label": "Superstitious Learning", "description": "The acquisition of a false causal model due to coincidental correlation between actions and outcomes under sparse feedback.", "module": 1}, {"id": "task_environment", "label": "Task Environment", "description": "The full specification of a problem faced by an agent, including its goals, percepts, actions, and performance measure.", "module": 1}, {"id": "temporal_differencing", "label": "Temporal Differencing", "description": "A reinforcement learning method that updates value estimates by bootstrapping from differences between successive time-step predictions.", "module": 1}, {"id": "trial_and_error", "label": "Trial and Error", "description": "A basic learning strategy that explores actions and reinforces those that produce positive outcomes while abandoning unsuccessful ones.", "module": 1}, {"id": "unitary_actor_assumption", "label": "Unitary Actor Assumption", "description": "The simplifying assumption that an agent acts as a single coherent decision-maker rather than an organisation of sub-agents.", "module": 1}, {"id": "utility_function", "label": "Utility Function", "description": "A function mapping states or outcomes to scalar values representing their desirability to an agent.", "module": 1}, {"id": "value_function", "label": "Value Function", "description": "A function estimating the expected cumulative reward an agent will receive from a given state onward under a given policy.", "module": 1}, {"id": "abstract_patterns", "label": "Abstract Patterns", "description": "High-level regularities that generalise across specific instances, forming the basis of schematic and structural knowledge.", "module": 2}, {"id": "abstraction", "label": "Abstraction", "description": "The process of removing irrelevant detail to focus on essential structure, patterns, or relationships.", "module": 2}, {"id": "algorithm", "label": "Algorithm", "description": "A finite, deterministic procedure for solving a class of problems, guaranteed to terminate with a correct answer.", "module": 2}, {"id": "bandwidth", "label": "Bandwidth", "description": "The range of frequencies or throughput available for transmitting information across a communication channel.", "module": 2}, {"id": "bit", "label": "Bit", "description": "The fundamental unit of information, representing a binary choice between two equally likely outcomes.", "module": 2}, {"id": "bit_strings", "label": "Bit Strings", "description": "Sequences of bits used to encode arbitrary information in digital computational systems.", "module": 2}, {"id": "brute_force", "label": "Brute Force", "description": "Search that exhaustively enumerates all possibilities without heuristic guidance; complete but computationally expensive.", "module": 2}, {"id": "channel_capacity", "label": "Channel Capacity", "description": "The maximum rate at which information can be reliably transmitted through a noisy channel (Shannon's capacity theorem).", "module": 2}, {"id": "cognitive_representations", "label": "Cognitive Representations", "description": "Internal symbolic or distributed structures encoding knowledge and beliefs used in reasoning and decision-making.", "module": 2}, {"id": "combinatorial_complexity", "label": "Combinatorial Complexity", "description": "The class of problems whose solution space grows combinatorially (exponentially or factorially) with input size.", "module": 2}, {"id": "combinatorial_explosion", "label": "Combinatorial Explosion", "description": "The exponential growth of the number of possible configurations as the number of components or variables increases.", "module": 2}, {"id": "commonsense_knowledge", "label": "Commonsense Knowledge", "description": "Implicit background knowledge about everyday situations that humans apply effortlessly but is hard to formalise for AI systems.", "module": 2}, {"id": "compression", "label": "Compression", "description": "Reducing the size of a data representation while preserving its essential information content.", "module": 2}, {"id": "convenient_fictions", "label": "Convenient Fictions", "description": "Simplifying assumptions known to be imperfect but useful for modelling complex systems tractably.", "module": 2}, {"id": "curse_of_dimensionality", "label": "Curse of Dimensionality", "description": "The exponential growth in data requirements and computation as the number of input dimensions increases.", "module": 2}, {"id": "decoding", "label": "Decoding", "description": "The process of recovering original information from an encoded representation.", "module": 2}, {"id": "decomposition", "label": "Decomposition", "description": "Breaking a complex problem or system into smaller, more tractable sub-problems or sub-components.", "module": 2}, {"id": "digital_abstraction", "label": "Digital Abstraction", "description": "The representation of information as discrete symbolic states rather than continuous analogue values.", "module": 2}, {"id": "effective_procedure", "label": "Effective Procedure", "description": "A deterministic, finite sequence of unambiguous steps that correctly solves every instance of a class of problems.", "module": 2}, {"id": "encoding", "label": "Encoding", "description": "The process of converting information into a formal representation suitable for transmission or storage.", "module": 2}, {"id": "entropy", "label": "Entropy", "description": "A measure of disorder, uncertainty, or unpredictability in a system; used in both thermodynamics and information theory.", "module": 2}, {"id": "explicit_knowledge", "label": "Explicit Knowledge", "description": "Knowledge that can be stated, recorded, and transferred in formal representations such as text or rules.", "module": 2}, {"id": "external_representations", "label": "External Representations", "description": "Physical artifacts such as diagrams, notation, and tools that offload cognitive work into the environment.", "module": 2}, {"id": "hierarchy", "label": "Hierarchy", "description": "An organisational structure of levels where higher levels subsume, control, or abstract over lower ones.", "module": 2}, {"id": "iid_problems", "label": "IID Problems", "description": "Problems where data samples are independently and identically distributed, so training and test conditions match.", "module": 2}, {"id": "iid_vs_ood_problems", "label": "IID vs OOD Problems", "description": "The contrast between problems with consistent training and test distributions and those with distribution shift.", "module": 2}, {"id": "information", "label": "Information", "description": "Data that reduces uncertainty about the state of the world; can be characterised either syntactically (Shannon) or semantically (Simon).", "module": 2}, {"id": "information_processing", "label": "Information Processing", "description": "The manipulation, transformation, and transmission of information by a computational or cognitive system.", "module": 2}, {"id": "information_theory", "label": "Information Theory", "description": "Shannon's mathematical framework for quantifying information, channel capacity, compression, and reliable communication.", "module": 2}, {"id": "internal_representations", "label": "Internal Representations", "description": "Mental or computational structures that encode aspects of the world within an agent's memory or model.", "module": 2}, {"id": "lists", "label": "Lists", "description": "Ordered sequences of values used as fundamental data structures in computation and knowledge representation.", "module": 2}, {"id": "meaningful_abstraction", "label": "Meaningful Abstraction", "description": "An abstraction that preserves the semantically relevant features necessary for a given purpose or task.", "module": 2}, {"id": "mechanization_of_thought", "label": "Mechanisation of Thought", "description": "The project of formalising and automating cognitive processes through computation and formal symbol systems.", "module": 2}, {"id": "memory_management", "label": "Memory Management", "description": "The allocation, retrieval, and organisation of information in storage systems, both biological and artificial.", "module": 2}, {"id": "minimal_effective_procedure", "label": "Minimal Effective Procedure", "description": "The simplest effective procedure that achieves a desired result, with no redundant steps or representations.", "module": 2}, {"id": "modularity", "label": "Modularity", "description": "The design principle of decomposing a system into independent, interchangeable components with well-defined interfaces.", "module": 2}, {"id": "modules", "label": "Modules", "description": "Discrete, self-contained components of a system with defined inputs, outputs, and encapsulated internal behaviour.", "module": 2}, {"id": "noise", "label": "Noise", "description": "Unwanted random disturbances in a communication channel that corrupt or obscure the transmitted signal.", "module": 2}, {"id": "ood_problems", "label": "OOD Problems", "description": "Out-of-distribution problems where test conditions differ from the training distribution, challenging generalisation.", "module": 2}, {"id": "physical_symbol_system_hypothesis", "label": "Physical Symbol System Hypothesis", "description": "Newell and Simon's claim that a physical symbol system has the necessary and sufficient means for general intelligent action.", "module": 2}, {"id": "physics_hypothesis", "label": "Physics Hypothesis", "description": "The claim that the laws of physics set the boundary conditions and constraints within which any intelligent system must operate.", "module": 2}, {"id": "probability_distribution", "label": "Probability Distribution", "description": "A function assigning probabilities to all possible values of a random variable, summing to 1.", "module": 2}, {"id": "processing_capacity", "label": "Processing Capacity", "description": "The limit on the volume of information an agent can process within a given time period.", "module": 2}, {"id": "processing_complexity", "label": "Processing Complexity", "description": "The computational resources — time, space, energy — required to process or solve a given class of problems.", "module": 2}, {"id": "processing_power", "label": "Processing Power", "description": "The speed and throughput of a computational system's information- processing operations.", "module": 2}, {"id": "semantic_information", "label": "Semantic Information", "description": "Information characterised by its meaning and relevance to an agent's goals, beyond its statistical structure.", "module": 2}, {"id": "shannon_entropy", "label": "Shannon Entropy", "description": "A measure of the average information content (uncertainty) in a probability distribution, defined as H = −Σ p log₂ p.", "module": 2}, {"id": "shannon_information", "label": "Shannon Information", "description": "Information defined mathematically as the reduction in uncertainty, measured in bits, independent of meaning.", "module": 2}, {"id": "short_term_long_term_memory", "label": "Short-Term vs Long-Term Memory", "description": "The distinction between limited-capacity working memory (seconds) and virtually unlimited long-term storage in cognitive systems.", "module": 2}, {"id": "signal_to_noise_ratio", "label": "Signal-to-Noise Ratio", "description": "The ratio of useful signal power to background noise power, indicating how cleanly information can be extracted from a channel.", "module": 2}, {"id": "simon_information", "label": "Simon Information", "description": "Herbert Simon's view of information as meaning-laden representations that guide purposeful behaviour rather than mere signal statistics.", "module": 2}, {"id": "statistical_distribution", "label": "Statistical Distribution", "description": "A description of the frequency pattern of values in a dataset or random process, e.g., normal, Poisson, or Zipfian.", "module": 2}, {"id": "statistical_redundancy_removal", "label": "Statistical Redundancy Removal", "description": "Compression by eliminating predictable, repeated patterns in data, exploiting statistical regularities.", "module": 2}, {"id": "symbol_manipulation", "label": "Symbol Manipulation", "description": "The process of transforming formal symbol structures according to syntactic rules, without regard to semantic content.", "module": 2}, {"id": "syntactic_information", "label": "Syntactic Information", "description": "Information characterised purely by its formal structure and statistical properties, without regard to its meaning or context.", "module": 2}, {"id": "tacit_knowledge", "label": "Tacit Knowledge", "description": "Knowledge that is difficult or impossible to articulate explicitly, often embodied in skilled performance and intuition.", "module": 2}, {"id": "turing_machine", "label": "Turing Machine", "description": "A theoretical model of computation defining what is algorithmically computable by a deterministic finite-state tape automaton.", "module": 2}, {"id": "actions", "label": "Actions", "description": "The choices available to an agent at each state, which when applied produce state transitions.", "module": 3}, {"id": "adversarial_search", "label": "Adversarial Search", "description": "Search in competitive settings where an opponent actively opposes the agent's goal, requiring minimax or similar strategies.", "module": 3}, {"id": "aspiration_level", "label": "Aspiration Level", "description": "The minimum acceptable performance threshold used by a satisficing agent to decide when a solution is good enough.", "module": 3}, {"id": "backtracking", "label": "Backtracking", "description": "A search technique that undoes recent choices and tries alternatives when a partial solution cannot be extended.", "module": 3}, {"id": "branches", "label": "Branches", "description": "Edges in a search tree representing transitions from a parent state to a successor (child) state.", "module": 3}, {"id": "breadth_first_search", "label": "Breadth-First Search", "description": "An uninformed search strategy that explores all states at depth d before advancing to depth d+1, guaranteeing shortest paths.", "module": 3}, {"id": "brittleness", "label": "Brittleness", "description": "The tendency of a rule-based expert system to fail ungracefully outside its narrow domain of encoded expertise.", "module": 3}, {"id": "depth_first_search", "label": "Depth-First Search", "description": "An uninformed search strategy that fully explores one branch before backtracking, using minimal memory but risking infinite loops.", "module": 3}, {"id": "differences_current_vs_goal", "label": "Difference (Current vs Goal State)", "description": "The measured gap between the current state and the goal state, used in means–ends analysis to select reducing operators.", "module": 3}, {"id": "effectuation", "label": "Effectuation", "description": "A decision-making logic that starts from available means and constructs goals, contrasting with causal goal-first planning.", "module": 3}, {"id": "evaluation_function", "label": "Evaluation Function", "description": "A function that estimates the value or promise of a state in informed search, combining path cost and heuristic estimate.", "module": 3}, {"id": "expert_systems", "label": "Expert Systems", "description": "AI systems that encode domain expertise in a knowledge base of rules, enabling automated reasoning within a narrow domain.", "module": 3}, {"id": "find_all_solutions_goal", "label": "Find-All-Solutions Goal", "description": "A search objective that enumerates every valid solution in the search space before terminating.", "module": 3}, {"id": "find_any_solution_goal", "label": "Find-Any-Solution Goal", "description": "A search objective that terminates as soon as any valid solution is found, regardless of its quality.", "module": 3}, {"id": "find_best_solution_goal", "label": "Find-Best-Solution Goal", "description": "A search objective that seeks the optimal solution among all valid solutions, requiring exhaustive or heuristic optimisation.", "module": 3}, {"id": "forward_checking_search", "label": "Forward Checking Search", "description": "A CSP search procedure that after each variable assignment prunes values in unassigned neighbours' domains that would violate constraints.", "module": 3}, {"id": "game_tree", "label": "Game Tree", "description": "A search tree representing all possible move sequences in a two-player zero-sum game.", "module": 3}, {"id": "general_problem_solver", "label": "General Problem Solver (GPS)", "description": "Newell and Simon's AI system (1957) that modelled intelligent search through means-ends analysis: reducing the difference between current and goal states using pattern-matching and generate-and-test heuristics that could discover new heuristics during search.", "module": 3}, {"id": "generate_and_test", "label": "Generate and Test", "description": "A search strategy that generates candidate solutions and tests each against the goal criteria, discarding failures.", "module": 3}, {"id": "giant_strides", "label": "Giant Strides", "description": "Large jumps through the search space enabled by macro-operators or chunked knowledge, bypassing many intermediate states.", "module": 3}, {"id": "global_optimum", "label": "Global Optimum", "description": "The best solution across the entire search space, as opposed to solutions that are only locally superior.", "module": 3}, {"id": "goal_state", "label": "Goal State", "description": "A configuration that satisfies the problem's objective and constitutes a valid solution.", "module": 3}, {"id": "heuristics", "label": "Heuristics", "description": "Rules of thumb or approximation functions that guide search toward promising regions of the state space.", "module": 3}, {"id": "hill_climbing", "label": "Hill Climbing", "description": "A local search algorithm that greedily moves to the neighbouring state with the best evaluation; can get stuck at local optima.", "module": 3}, {"id": "ill_defined_problems", "label": "Ill-Defined Problems", "description": "Problems where the goal state, initial state, or available operators are not fully specified in advance. Contrasted with well-defined problems; requires constructing the problem representation during search rather than before it.", "module": 3}, {"id": "informed_search", "label": "Informed Search", "description": "Search that uses heuristic estimates of distance to the goal to guide exploration toward more promising states.", "module": 3}, {"id": "initial_state", "label": "Initial State", "description": "The starting configuration from which a search process begins.", "module": 3}, {"id": "intermediate_state", "label": "Intermediate State", "description": "A state encountered during search that is neither the initial state nor a goal state.", "module": 3}, {"id": "knowledge_acquisition_bottleneck", "label": "Knowledge Acquisition Bottleneck", "description": "The practical difficulty of extracting, formalising, and encoding expert knowledge into a rule-based system at scale.", "module": 3}, {"id": "local_peaks", "label": "Local Peaks", "description": "Solutions that are better than all immediate neighbours but not globally optimal; traps for greedy local search.", "module": 3}, {"id": "local_vs_global_optima", "label": "Local vs Global Optima", "description": "The tension between finding solutions that are locally superior and finding the globally best solution in the entire space.", "module": 3}, {"id": "means_ends_analysis", "label": "Means–Ends Analysis", "description": "A problem-solving strategy that identifies the difference between the current state and the goal and selects operators to reduce it.", "module": 3}, {"id": "memory_of_action_sequences", "label": "Memory of Action Sequences", "description": "Stored plans or scripts that can be retrieved and replayed when a familiar situation is encountered.", "module": 3}, {"id": "myopia", "label": "Myopia", "description": "A tendency to optimise for immediate gains at the expense of longer-term outcomes; short-sightedness in search or learning.", "module": 3}, {"id": "node", "label": "Node", "description": "A single state in a search tree, including its path history and accumulated cost from the root.", "module": 3}, {"id": "operators", "label": "Operators", "description": "Functions that apply transitions to states, producing successor states and defining the structure of the search space.", "module": 3}, {"id": "optimization_goal", "label": "Optimisation Goal", "description": "The objective of finding a solution that maximises or minimises a specified criterion over the solution space.", "module": 3}, {"id": "paths", "label": "Paths", "description": "Sequences of states and transitions that connect an initial state to a goal state through the search space.", "module": 3}, {"id": "planning", "label": "Planning", "description": "The process of constructing a sequence of actions in advance that will achieve a goal from an initial state.", "module": 3}, {"id": "procedural_complexity", "label": "Procedural Complexity", "description": "The complexity of a problem measured as the minimum number of actions (states) a program must transition through to solve it — Babbage and Turing's complement to information-theoretic measures of complexity.", "module": 3}, {"id": "pruning", "label": "Pruning", "description": "Eliminating branches of the search tree known to be suboptimal or infeasible, reducing computational cost.", "module": 3}, {"id": "satisficing", "label": "Satisficing", "description": "Accepting the first solution that meets a minimum performance threshold rather than searching for the optimal solution.", "module": 3}, {"id": "search", "label": "Search", "description": "The process of exploring a space of states or candidate solutions to find one that satisfies a given goal or criterion.", "module": 3}, {"id": "search_space", "label": "Search Space", "description": "The portion of the state space actively considered or reachable by a given search algorithm from the initial state.", "module": 3}, {"id": "search_tree", "label": "Search Tree", "description": "A tree structure representing the states and transitions explored during a search, rooted at the initial state.", "module": 3}, {"id": "simon_search", "label": "Simon Search", "description": "Simon's satisficing approach to search, stopping as soon as a solution meeting an aspiration threshold is found.", "module": 3}, {"id": "state", "label": "State", "description": "A complete description of the configuration of a system at a given point in time.", "module": 3}, {"id": "state_space", "label": "State Space", "description": "The set of all possible configurations a system or problem can be in, forming the domain over which search operates.", "module": 3}, {"id": "state_transitions", "label": "State Transitions", "description": "The operations that move a system from one state to another, defining the edges in the state space graph.", "module": 3}, {"id": "subgoals", "label": "Subgoals", "description": "Intermediate goals that decompose a complex objective into simpler, independently achievable steps.", "module": 3}, {"id": "uninformed_search", "label": "Uninformed Search", "description": "Search that uses no domain-specific knowledge about proximity to the goal; explores blindly based on structure alone.", "module": 3}, {"id": "von_neumann_search", "label": "Von Neumann Search", "description": "Von Neumann's approach to game trees emphasising exhaustive minimax evaluation of all possible futures.", "module": 3}, {"id": "watchmaker_parable", "label": "Watchmaker Parable", "description": "Dawkins' analogy showing how cumulative selection can produce complex structures that are impossible to assemble by chance alone.", "module": 3}, {"id": "abstraction_level", "label": "Abstraction Level", "description": "The degree of generality at which a concept or representation is defined, ranging from concrete instances to high-level abstractions.", "module": 4}, {"id": "autoencoders", "label": "Autoencoders", "description": "Neural networks trained to compress input into a compact latent representation and then reconstruct the original input.", "module": 4}, {"id": "backward_propagation", "label": "Backpropagation", "description": "The algorithm for computing gradients in neural networks by applying the chain rule backward through the computation graph.", "module": 4}, {"id": "bayesian_inference", "label": "Bayesian Inference", "description": "The process of updating probability estimates over hypotheses using Bayes' theorem as new evidence arrives.", "module": 4}, {"id": "bayesian_networks", "label": "Bayesian Networks", "description": "Probabilistic graphical models that encode conditional independence relationships among random variables as a DAG.", "module": 4}, {"id": "binary_variables_boltzmann", "label": "Binary Variables (Boltzmann)", "description": "The binary-valued units (0 or 1) that form the visible and hidden layers of a Boltzmann machine.", "module": 4}, {"id": "boltzmann_machines", "label": "Boltzmann Machines", "description": "Stochastic neural networks based on energy minimisation that learn probability distributions over binary configurations.", "module": 4}, {"id": "coherence", "label": "Coherence", "description": "The degree to which a representation or belief system is internally consistent, with no contradictory components.", "module": 4}, {"id": "conceptual_units", "label": "Conceptual Units", "description": "The basic building blocks of thought — discrete concepts that can be combined into complex ideas and propositions.", "module": 4}, {"id": "conditional_probabilities", "label": "Conditional Probabilities", "description": "The probability of an event given that another event has occurred, denoted P(A | B).", "module": 4}, {"id": "constraint_propagation", "label": "Constraint Propagation", "description": "Using active constraints to prune variable domains, eliminating values that cannot be part of any valid solution.", "module": 4}, {"id": "entropy_minimization_boltzmann", "label": "Entropy Minimisation (Boltzmann)", "description": "The learning principle in Boltzmann machines that minimises the KL divergence (free energy) between model and data distributions.", "module": 4}, {"id": "gradient_descent", "label": "Gradient Descent", "description": "An optimisation algorithm that iteratively adjusts parameters in the direction of steepest loss reduction.", "module": 4}, {"id": "knowledge_base", "label": "Knowledge Base", "description": "A structured repository of facts, rules, and relations used by a reasoning system to answer queries or make inferences.", "module": 4}, {"id": "learning_rate", "label": "Learning Rate", "description": "A hyperparameter controlling the step size of parameter updates during gradient-based optimisation.", "module": 4}, {"id": "paradigms", "label": "Paradigms", "description": "Dominant frameworks or worldviews that structure inquiry, methodology, and shared assumptions within a field.", "module": 4}, {"id": "pattern_matching", "label": "Pattern Matching", "description": "The process of checking whether a given input matches a stored template or rule condition.", "module": 4}, {"id": "pattern_recognition", "label": "Pattern Recognition", "description": "The identification of regularities, categories, or known templates in sensory or symbolic input.", "module": 4}, {"id": "principle_of_locality", "label": "Principle of Locality", "description": "The observation that, even for highly complex problems, most constraints can usually be reduced to binary constraints (between two variables), allowing agents to process only local interdependencies and avoid combinatorial complexity.", "module": 4}, {"id": "probabilities", "label": "Probabilities", "description": "Numerical measures in [0, 1] of the likelihood of events in a sample space.", "module": 4}, {"id": "productions", "label": "Productions", "description": "IF-THEN rules in a production system that fire when their condition patterns match elements in working memory.", "module": 4}, {"id": "relational_databases", "label": "Relational Databases", "description": "Data storage systems that organise information in structured tables with defined relations, queried via SQL.", "module": 4}, {"id": "representation", "label": "Representation", "description": "The encoding of information about the world in a format that an agent can store, retrieve, reason over, and act upon.", "module": 4}, {"id": "representation_learning", "label": "Representation Learning", "description": "The automatic discovery of useful feature representations from raw data, enabling downstream tasks without manual engineering.", "module": 4}, {"id": "schema", "label": "Schema", "description": "An abstract pattern or template that organises knowledge about a class of situations, enabling rapid recognition and inference.", "module": 4}, {"id": "weights_boltzmann", "label": "Weights (Boltzmann)", "description": "Numerical parameters in a Boltzmann machine encoding the strength of symmetric pairwise interactions between units.", "module": 4}, {"id": "adaptation", "label": "Adaptation", "description": "The process by which a system adjusts its structure or behaviour to improve fit with its environment over time.", "module": 5}, {"id": "alleles", "label": "Alleles", "description": "The possible values a gene can take, analogous to the variants of a gene in biological genetics.", "module": 5}, {"id": "artificial_selection", "label": "Artificial Selection", "description": "Deliberate selection of individuals with desired traits for breeding, analogous to natural selection but human-directed.", "module": 5}, {"id": "building_blocks", "label": "Building Blocks", "description": "Short, high-fitness schemata that the building block hypothesis proposes combine to form increasingly fit solutions.", "module": 5}, {"id": "chromosome", "label": "Chromosome", "description": "A candidate solution encoded as an ordered sequence of genes in a genetic algorithm.", "module": 5}, {"id": "crossover", "label": "Crossover", "description": "A genetic operator that combines segments of two parent chromosomes to produce novel offspring.", "module": 5}, {"id": "cumulative_expected_value", "label": "Cumulative Expected Value", "description": "The total expected payoff accumulated over many trials or time steps, as in multi-armed bandit or investment problems.", "module": 5}, {"id": "evolutionary_operators", "label": "Evolutionary Operators", "description": "The operations applied to populations — selection, crossover, and mutation — that drive evolutionary search.", "module": 5}, {"id": "evolutionary_strategies", "label": "Evolutionary Strategies", "description": "Optimisation algorithms inspired by biological evolution that use population-based search with variation and selection.", "module": 5}, {"id": "fitness", "label": "Fitness", "description": "A scalar measure of how well an individual solution performs on the objective, determining its reproductive success.", "module": 5}, {"id": "fitness_function", "label": "Fitness Function", "description": "The function that evaluates and assigns a fitness score to each individual chromosome in a population.", "module": 5}, {"id": "fitness_measure", "label": "Fitness Measure", "description": "The criterion or metric used to evaluate and rank individuals relative to the optimisation objective.", "module": 5}, {"id": "genes", "label": "Genes", "description": "The individual units of a chromosome, each encoding a specific feature or decision variable of the solution.", "module": 5}, {"id": "genetic_algorithms", "label": "Genetic Algorithms", "description": "Evolutionary algorithms that encode solutions as chromosomes and use selection, crossover, and mutation to search solution spaces.", "module": 5}, {"id": "genetic_sequences", "label": "Genetic Sequences", "description": "Ordered strings of genes forming chromosomes, constituting the solution encoding in a genetic algorithm.", "module": 5}, {"id": "gene_allele", "label": "Gene–Allele Pair", "description": "The pairing of a gene position with its specific allele value in a chromosome.", "module": 5}, {"id": "genotype", "label": "Genotype", "description": "The internal genetic encoding of an individual, as distinct from its expressed behaviour or performance (phenotype).", "module": 5}, {"id": "implicit_parallelism", "label": "Implicit Parallelism", "description": "The property of genetic algorithms that simultaneously evaluates exponentially many schemata across the population.", "module": 5}, {"id": "long_jumping", "label": "Long Jumping", "description": "A mutation-heavy search strategy that makes large random moves across the fitness landscape to escape local optima.", "module": 5}, {"id": "market_mechanism", "label": "Market Mechanism", "description": "The use of price signals and competitive selection to coordinate decentralised decisions without central control.", "module": 5}, {"id": "mendelian_approach", "label": "Mendelian Approach", "description": "Genetics based on discrete heritable units (genes) that segregate independently, following Mendel's laws of inheritance.", "module": 5}, {"id": "mesa_landscape", "label": "Mesa Landscape", "description": "A fitness landscape with a broad flat plateau of similar performance, where many solutions are equally good.", "module": 5}, {"id": "mesa_topology", "label": "Mesa Topology", "description": "The topological structure of a performance landscape characterised by a large flat region (plateau) surrounded by steep edges.", "module": 5}, {"id": "modifications", "label": "Modifications", "description": "Changes to existing solutions produced by evolutionary operators, introducing incremental variation.", "module": 5}, {"id": "mutation", "label": "Mutation", "description": "A genetic operator that randomly alters individual genes in a chromosome to introduce variation and prevent stagnation.", "module": 5}, {"id": "natural_selection", "label": "Natural Selection", "description": "The biological process favouring heritable traits that improve survival and reproduction in a given environment.", "module": 5}, {"id": "novel_configurations", "label": "Novel Configurations", "description": "New combinations of features not present in any parent, produced by crossover and mutation operators.", "module": 5}, {"id": "performance_landscape", "label": "Performance Landscape", "description": "A metaphor mapping solution configurations to performance values, visualised as a terrain with peaks and valleys.", "module": 5}, {"id": "population_of_chromosomes", "label": "Population of Chromosomes", "description": "The set of candidate solutions maintained and collectively evolved by a genetic algorithm across generations.", "module": 5}, {"id": "population_level_learning", "label": "Population-Level Learning", "description": "Learning that occurs through the evolution of a population rather than adaptation within a single individual.", "module": 5}, {"id": "retention", "label": "Retention", "description": "The preservation of high-fitness solutions across generations, ensuring that good discoveries are not lost.", "module": 5}, {"id": "rugged_landscape", "label": "Rugged Landscape", "description": "A fitness landscape with many local optima, making gradient-based or greedy search likely to get trapped.", "module": 5}, {"id": "schema_genetic", "label": "Schema (Genetic)", "description": "A template specifying fixed values at certain gene positions and wildcards at others, representing a subset of the chromosome space.", "module": 5}, {"id": "selection", "label": "Selection", "description": "The evolutionary operator that preferentially chooses fitter individuals to reproduce in the next generation.", "module": 5}, {"id": "single_peaked_landscape", "label": "Single-Peaked Landscape", "description": "A fitness landscape with one global optimum and no local optima, making hill climbing sufficient for optimisation.", "module": 5}, {"id": "smoothing_topology", "label": "Smoothing Topology", "description": "Techniques that transform a rugged fitness landscape into a smoother one to aid optimisation, e.g., by averaging or relaxing constraints.", "module": 5}, {"id": "sparse_learning", "label": "Sparse Learning", "description": "Learning in environments where informative feedback is rare, making credit assignment especially difficult.", "module": 5}, {"id": "spatial_interdependence", "label": "Spatial Interdependence", "description": "The property that the fitness contribution of a gene depends on the values of neighbouring genes, causing epistasis in the landscape.", "module": 5}, {"id": "variation", "label": "Variation", "description": "The generation of diverse candidate solutions through mutation and crossover, supplying the raw material for selection.", "module": 5}, {"id": "vsr", "label": "Variation–Selection–Retention (VSR)", "description": "The three-step evolutionary loop: generate variation, select the fittest, and retain winners for the next generation.", "module": 5}, {"id": "advice_taker", "label": "Advice Taker", "description": "McCarthy's 1959 vision of a hypothetical AI system that learns new knowledge by being told facts in natural language, represents knowledge declaratively across situations, and reasons logically rather than through hard-coded procedures.", "module": 6}, {"id": "arc_consistency", "label": "Arc Consistency", "description": "A preprocessing level ensuring that for every value of one variable there exists a compatible value for every constrained neighbour.", "module": 6}, {"id": "beliefs", "label": "Beliefs", "description": "An agent's probability assignments over possible world states, representing its epistemic state given available evidence.", "module": 6}, {"id": "binary_constraint", "label": "Binary Constraint", "description": "A constraint that restricts the joint values of exactly two variables.", "module": 6}, {"id": "cells_objects", "label": "Cells / Objects", "description": "Basic units in a propagator network or spreadsheet that store values and propagate updates when their content changes.", "module": 6}, {"id": "chain_of_thought", "label": "Chain-of-Thought Reasoning", "description": "A prompting strategy for LLMs that instructs the model to reason step-by-step; described as a heuristic approach to commonsense reasoning under the deep learning KRR paradigm.", "module": 6}, {"id": "child_variable", "label": "Child Variable", "description": "A variable that is conditionally dependent on its parent variables in a DAG.", "module": 6}, {"id": "commonsense_reasoning", "label": "Commonsense Reasoning", "description": "The human-like ability to reason flexibly about real-world situations using commonsense knowledge; McCarthy argued this is the deepest challenge for AI credit assignment.", "module": 6}, {"id": "complete_assignment", "label": "Complete Assignment", "description": "An assignment of values to every variable in a CSP, which may or may not satisfy all constraints.", "module": 6}, {"id": "consistent_assignment", "label": "Consistent Assignment", "description": "An assignment that violates none of the active constraints for the variables assigned so far.", "module": 6}, {"id": "constraint_network", "label": "Constraint Network", "description": "A graph representing a CSP where nodes are variables and edges represent binary constraints between them.", "module": 6}, {"id": "csp", "label": "Constraint Satisfaction Problem (CSP)", "description": "A problem defined by a set of variables, their domains, and constraints that any solution must satisfy.", "module": 6}, {"id": "context_engineering", "label": "Context Engineering", "description": "The practice of selecting and providing relevant information at inference time — via prompts, retrieved documents, or other inputs — to condition an LLM's behaviour on a specific situation; a substitute for explicit context representation in deep learning KRR.", "module": 6}, {"id": "cost_function", "label": "Cost Function", "description": "A function mapping variable assignments to numerical costs, used to guide optimisation toward low-cost solutions.", "module": 6}, {"id": "costs_soft_violation", "label": "Costs of Soft Constraint Violation", "description": "The numerical penalty incurred by violating a soft constraint, used to rank assignments in optimisation problems.", "module": 6}, {"id": "database_integrity", "label": "Database Integrity", "description": "The enforcement of constraints ensuring data in a database remains consistent, valid, and free from corruption.", "module": 6}, {"id": "decision_models", "label": "Decision Models", "description": "Formal representations of options, outcomes, and preferences used to structure and resolve decision problems.", "module": 6}, {"id": "declarative_knowledge", "label": "Declarative Knowledge", "description": "Knowledge represented as stand-alone facts or concepts (as in a database), independent of any procedure — as opposed to procedural knowledge encoded in step-by-step algorithms. McCarthy argued declarative representations are more efficient for commonsense KRR.", "module": 6}, {"id": "deep_learning_krr", "label": "Deep Learning Approach (KRR)", "description": "The currently dominant approach to KRR that represents knowledge as statistical bit-string patterns extracted from large-scale data and stored in vector databases; relies on emergent reasoning (e.g., chain-of-thought) rather than explicit logical procedures.", "module": 6}, {"id": "default_reasoning", "label": "Default Reasoning", "description": "Reasoning that proceeds from default assumptions about the world and revises them only when specific contradicting evidence arrives; required for elaboration tolerance.", "module": 6}, {"id": "dag", "label": "Directed Acyclic Graph (DAG)", "description": "A directed graph with no cycles, used as the structural backbone of Bayesian networks to encode causal or probabilistic dependencies.", "module": 6}, {"id": "domain", "label": "Domain (CSP)", "description": "The set of possible values that a variable is permitted to take in a constraint satisfaction problem.", "module": 6}, {"id": "elaboration", "label": "Elaboration", "description": "The process of adding or removing units of knowledge (facts, concepts, propositions) to an evolving knowledge base or repository as an agent interacts with the world.", "module": 6}, {"id": "elaboration_tolerance", "label": "Elaboration Tolerance", "description": "McCarthy's quality of an intelligent system whereby the effort required to add new knowledge to a repository is proportional to the complexity of that new information; a key criterion for scalable KRR.", "module": 6}, {"id": "epistemological_approach", "label": "Epistemological Approach", "description": "The KRR stance that an intelligent system must first come to know what a problem is before searching for solutions to it — contrasted with heuristic search, which assumes the problem is already given.", "module": 6}, {"id": "expressiveness", "label": "Expressiveness (KRR)", "description": "The adequacy of a representational language for expressing all the operations needed to reason about and modify knowledge as situations change; a requirement for elaboration tolerance in KRR systems.", "module": 6}, {"id": "forward_checking", "label": "Forward Checking", "description": "After each variable assignment, removes from unassigned neighbours' domains any values that would immediately violate a constraint.", "module": 6}, {"id": "frame_problem", "label": "Frame Problem", "description": "McCarthy's 1969 insight that credit assignment in AI requires knowing not only what actions are relevant in a situation, but also the vast set of facts that remain unchanged — tracking \"frame-by-frame\" stability across actions in an unfolding situation.", "module": 6}, {"id": "hard_constraints", "label": "Hard Constraints", "description": "Constraints that must be satisfied for an assignment to be a valid solution; violations are never acceptable.", "module": 6}, {"id": "higher_order_constraint", "label": "Higher-Order Constraint", "description": "A constraint involving three or more variables simultaneously.", "module": 6}, {"id": "implicit_knowledge", "label": "Implicit Knowledge", "description": "Facts that can be derived from a smaller set of explicitly-represented knowledge through logical entailment; McCarthy argued that capturing implicit knowledge efficiently is the core challenge of commonsense KRR.", "module": 6}, {"id": "inference_engine", "label": "Inference Engine", "description": "The reasoning component of a KRR system that draws conclusions from a knowledge base by applying logical or probabilistic procedures; contrasted with the knowledge base itself.", "module": 6}, {"id": "knowledge_about_phenomena", "label": "Knowledge About Phenomena", "description": "McCarthy's term for general, stable facts about the world that an AI system can represent and then use to reason about specific problem-solving situations.", "module": 6}, {"id": "krr", "label": "Knowledge Representation and Reasoning (KRR)", "description": "The subfield of AI studying how to formally encode knowledge and use it to support automated inference and decision-making.", "module": 6}, {"id": "logical_entailment", "label": "Logical Entailment", "description": "The implicit derivation of a fact from other known facts without it ever being explicitly stated; the basis on which declarative commonsense knowledge yields vast implicit knowledge.", "module": 6}, {"id": "mathematical_logic_approach", "label": "Mathematical Logic Approach (KRR)", "description": "McCarthy's approach to KRR that represents knowledge as precise, explicit logical statements (objects, properties, relationships) and draws inferences through formal reasoning procedures rather than statistical prediction.", "module": 6}, {"id": "mental_models", "label": "Mental Models", "description": "Internal cognitive representations of how the world works, used for simulation, prediction, and counterfactual reasoning.", "module": 6}, {"id": "objects_propagator", "label": "Objects (Propagator)", "description": "The autonomous computational entities in a propagator network that hold partial information and communicate updates to neighbours.", "module": 6}, {"id": "ontology", "label": "Ontology (Formal)", "description": "A formal categorisation of phenomena into objects and their relationships, used in the mathematical logic approach to KRR to structure knowledge so that AI systems can reason about complex, evolving real-world situations.", "module": 6}, {"id": "parent_variable", "label": "Parent Variable", "description": "A variable with a directed edge pointing to another (child) variable in a DAG, representing a direct probabilistic dependency.", "module": 6}, {"id": "partial_assignment", "label": "Partial Assignment", "description": "An assignment of values to some but not all variables in a CSP, used during incremental search.", "module": 6}, {"id": "possible_worlds", "label": "Possible Worlds", "description": "All conceivable states of affairs; used in modal logic and probabilistic reasoning to enumerate uncertainty.", "module": 6}, {"id": "procedural_knowledge", "label": "Procedural Knowledge", "description": "Knowledge encoded as step-by-step sequences of actions (algorithms or procedures); contrasted by McCarthy with declarative knowledge, which is more flexible and reusable across situations.", "module": 6}, {"id": "propagation", "label": "Propagation", "description": "The spreading of information or constraint values through a network of connected nodes until a stable state is reached.", "module": 6}, {"id": "propagator_model", "label": "Propagator Model", "description": "A computation model where autonomous objects communicate by propagating constraint values through a shared network.", "module": 6}, {"id": "random_variables", "label": "Random Variables", "description": "Variables whose values are determined by probabilistic outcomes of an experiment or process.", "module": 6}, {"id": "relations_possible_worlds", "label": "Relations Between Possible Worlds", "description": "Accessibility relations specifying which worlds are reachable from others, used in modal logic and probabilistic models.", "module": 6}, {"id": "retrieval_augmented_generation", "label": "Retrieval-Augmented Generation (RAG)", "description": "A technique that enables deep learning KRR systems to incorporate information from external repositories at inference time, extending their effective knowledge base beyond what was encoded during training.", "module": 6}, {"id": "situation", "label": "Situation", "description": "McCarthy's term for a specific real-world context in which an agent acts, to which general knowledge about phenomena is applied for reasoning and credit assignment.", "module": 6}, {"id": "soft_constraints", "label": "Soft Constraints", "description": "Constraints that are preferred but can be violated at a cost, allowing trade-offs in optimisation problems.", "module": 6}, {"id": "solution", "label": "Solution", "description": "A complete, consistent assignment that satisfies all constraints in a CSP.", "module": 6}, {"id": "speech_acts", "label": "Speech Acts", "description": "Goal-oriented utterances or written statements whose meaning depends on the pragmatic context — who is saying them and for what purpose; relevant to KRR because commonsense knowledge alone cannot interpret them without organisational context.", "module": 6}, {"id": "tuples", "label": "Tuples", "description": "Ordered sequences of values forming rows in a relational database table, representing individual records.", "module": 6}, {"id": "unary_constraint", "label": "Unary Constraint", "description": "A constraint that restricts the permissible values of a single variable independently of others.", "module": 6}, {"id": "variables", "label": "Variables (CSP)", "description": "The unknowns in a CSP whose values must be chosen from their respective domains to satisfy all constraints.", "module": 6}, {"id": "vector_databases", "label": "Vector Databases", "description": "Matrix-like data structures used in deep learning KRR systems to store bit-string representations of knowledge; concepts \"emerge\" as statistical patterns among stored vectors.", "module": 6}, {"id": "world_models", "label": "World Models", "description": "Deep learning systems that extend LLMs with external memories (vector databases, knowledge graphs, multimodal data) to construct richer representations of the world for reasoning and prediction.", "module": 6}, {"id": "breakdowns", "label": "Breakdowns", "description": "Moments when an agent's homeostatic comportment fails — when a situation is no longer handled automatically — prompting recourse to explicit symbolic representations as resources for action.", "module": 7}, {"id": "cartesianism", "label": "Cartesianism / Cognitivism", "description": "The view, tracing to Descartes, that intelligence is constituted by internal symbol manipulations divorced from the external world; also called cognitivism. Interactionists critique it for neglecting sensorimotor and cultural dimensions of intelligence.", "module": 7}, {"id": "comportment", "label": "Comportment", "description": "Maintaining an authentic, moment-to-moment alignment between an agent's actions and the unfolding physical world, relying on improvisation and homeostasis rather than pre-planned symbol manipulation.", "module": 7}, {"id": "creature_hypothesis", "label": "Creature Hypothesis", "description": "Rodney Brooks' hypothesis that the sensorimotor foundations of intelligence represent the evolutionarily hard part, requiring millions of years to develop, whereas symbolic language emerged only recently and relatively quickly. Explains Moravec's paradox from an interactionist view.", "module": 7}, {"id": "critical_technical_practice", "label": "Critical Technical Practice", "description": "Phil Agre's method (CTP) for (1) surfacing hidden assumptions in AI language, (2) evaluating them against concrete real-world experience, and (3) using the evaluation to guide alternative AI design. Targets wishful mnemonics embedded in everyday AI terminology.", "module": 7}, {"id": "cybernetics", "label": "Cybernetics", "description": "The science of control and communication in animals and machines, founded by Norbert Wiener in the 1940s. Uses feedback from environmental interaction as the basis of intelligent control, making it a precursor to interactionist AI.", "module": 7}, {"id": "designation", "label": "Designation", "description": "Newell and Simon's notion that intelligence requires symbols which \"designate\" objects in the world by giving them names. Contrasted by interactionists with indexing and registration as insufficient for grounding meaning in experience.", "module": 7}, {"id": "digital_ecosystem", "label": "Digital Ecosystem", "description": "A layered network of interdependent digital agents, services, and goals that has replaced the notion of a discrete industry as the unit of strategic innovation; analogised in the text to a subsumption architecture of lower- and higher-level goals.", "module": 7}, {"id": "direct_manipulation", "label": "Direct Manipulation", "description": "The paradigm of interacting with digital symbolic representations through physical sensorimotor actions on screens and devices, pioneered by Ivan Sutherland's Sketchpad and central to GUI design and modern software interaction.", "module": 7}, {"id": "embeddedness", "label": "Embeddedness", "description": "The property of intelligent action whereby it is shaped by the local cultural norms and context in which it occurs, altering both the goals and constraints of problem-solving.", "module": 7}, {"id": "embodiment", "label": "Embodiment", "description": "The property of intelligent action that grounds it in the physical capabilities and limits of a body, rather than treating it as pure symbol manipulation divorced from physical motion.", "module": 7}, {"id": "extrapolation_fallacy", "label": "Extrapolation Fallacy", "description": "The recurring tendency in AI to believe that impressive gains on one benchmark task (e.g., playing Go) signal imminent artificial general intelligence, diverting resources from the harder sensorimotor challenges identified by the creature hypothesis.", "module": 7}, {"id": "finite_state_machines", "label": "Finite State Machines", "description": "Simple computational circuits with no communication channels used to implement individual goal layers in Brooks' subsumption architecture; chosen for their low cost and robustness over complex representations.", "module": 7}, {"id": "homeostasis", "label": "Homeostasis", "description": "The goal of maintaining a system state within an acceptable range rather than optimising toward a fixed target. Coined by W. Ross Ashby in cybernetics and central to interactionist AI; contrasts with Cartesian satisficing and optimisation.", "module": 7}, {"id": "indexing", "label": "Indexing", "description": "Phil Agre's theory that objects are stored in an agent's memory relative to specific experienced situations rather than as abstract designations, enabling efficient sensorimotor action without explicit planning.", "module": 7}, {"id": "interaction", "label": "Interaction", "description": "The approach to AI and organisations that foregrounds agents' direct engagement with the external physical and cultural world rather than internal symbol manipulation, emphasising sensorimotor action and experiential phenomena.", "module": 7}, {"id": "moravecs_paradox", "label": "Moravec's Paradox", "description": "The observation by Hans Moravec that tasks deemed \"complex\" in AI (e.g., chess, Go) are often easier to solve than tasks that seem trivially simple to humans (e.g., navigating a real environment), inverting naive assumptions about AI difficulty.", "module": 7}, {"id": "registration", "label": "Registration", "description": "Brian Cantwell-Smith's theory that intelligence requires an ongoing interplay — \"reckoning and judgment\" — between representational schemes, physical reality, and the agent's experience of that reality, ensuring representations remain grounded.", "module": 7}, {"id": "resources_for_action", "label": "Resources for Action", "description": "The interactionist reframing of symbolic representations: not necessary for interacting with the world, but potentially valuable aids invoked when homeostatic comportment breaks down.", "module": 7}, {"id": "sensorimotor", "label": "Sensorimotor Action", "description": "Actions that combine perceptual sensing and physical movement, treated in interactionist AI as the fundamental medium of intelligence, prior to and more basic than symbolic representation.", "module": 7}, {"id": "situatedness", "label": "Situatedness", "description": "The property of intelligent action whereby it depends on sensing and responding to ongoing changes in particular real-world situations, not just abstract problem spaces.", "module": 7}, {"id": "subsumption_architecture", "label": "Subsumption Architecture", "description": "Rodney Brooks' AI system design organising behaviour as a hierarchy of simple, layered goals implemented by finite state machines, where higher-priority goals can subsume lower ones; no world model is required.", "module": 7}, {"id": "variety", "label": "Variety (Wiener)", "description": "Norbert Wiener's concept of complexity reflecting the richness of natural and social systems, contrasted with purely internal symbol-manipulation measures such as Shannon entropy or Turing-machine step counts.", "module": 7}, {"id": "wishful_mnemonics", "label": "Wishful Mnemonics", "description": "Memorable terms for symbol manipulation processes (e.g., \"search\", \"planning\", \"learning\") that invite the misleading assumption that such processes faithfully capture real-world phenomena. Coined in the context of Agre's critical technical practice.", "module": 7}, {"id": "bugs", "label": "Bugs", "description": "In the MIT engineering tradition, any discrepancy, symptom, or constraint violation signalling a mismatch between a representation and the physical world; errors of registration rather than mere software syntax errors.", "module": 8}, {"id": "causal_interpretation", "label": "Causal Interpretation", "description": "A tentative threshold-level representation of how a physical system's function emerges from its structure; describes not just how components are assembled but how they causally produce behaviour, and can itself be debugged.", "module": 8}, {"id": "confluences", "label": "Confluences", "description": "De Kleer's term for qualitative constraints representing mutual influences between variables in a physical system; unlike discrete CSP constraints, confluences capture the messy, continuous interdependencies of real-world domains.", "module": 8}, {"id": "debugging", "label": "Debugging", "description": "The AI idea of credit assignment as the ability to detect and resolve discrepancies between a representation of a physical system and the world; encompasses both troubleshooting and theory formation, and extends generate-and-test with representation-modification.", "module": 8}, {"id": "dependency_network", "label": "Dependency Network", "description": "A propagator-level memory that tracks qualitative knowledge, tentative assumptions, and their interdependencies during debugging; complements the constraint network by storing justifications and enabling truth maintenance.", "module": 8}, {"id": "dependency_directed_reasoning", "label": "Dependency-Directed Reasoning", "description": "Problem-solving informed by rich tracking of interdependencies among assumptions in a dependency network; enables tracing bugs to specific assumptions, explaining provenance, resolving inconsistencies, and reusing prior results.", "module": 8}, {"id": "domain_specific_language", "label": "Domain-Specific Language", "description": "A formal language that represents the fundamental entities and relations of a domain to support reasoning from that domain's first principles; examples include CAD software for geometric reasoning and Nvidia CUDA for GPU chip design.", "module": 8}, {"id": "envisioning", "label": "Envisioning", "description": "De Kleer's term for \"running a qualitative simulation in the mind's eye\": predicting and analysing qualitative state transitions in a physical system to construct a causal interpretation of how its components function together.", "module": 8}, {"id": "first_principles_reasoning", "label": "First Principles Reasoning", "description": "A debugging strategy that relies on a small set of stable, fundamental laws of a domain (e.g., voltage laws in electrical engineering) rather than heuristics or exhaustive knowledge; reduces combinatorial explosion by anchoring reasoning in domain-wide constraints.", "module": 8}, {"id": "function_from_structure", "label": "Function from Structure", "description": "The inference of what a physical system does (its function) from observing its components and how they are assembled (its structure); the core reasoning task in the MIT tradition of debugging-based AI, and held to be generally applicable to products, organisations, and manufacturing processes alike.", "module": 8}, {"id": "generate_test_and_debug", "label": "Generate-Test-and-Debug", "description": "An extension of generate-and-test in which a debugging step allows modifying the problem representation itself — adding, removing, or re-ordering actions and components — rather than only testing candidate solutions against a fixed landscape.", "module": 8}, {"id": "justifications", "label": "Justifications", "description": "Belief links in a dependency network representing logical relationships such as consequences, antecedents, or explanations; labelled \"in\" or \"out\" to indicate whether the associated assumption is currently believed true.", "module": 8}, {"id": "qualitative_reasoning", "label": "Qualitative Reasoning", "description": "Reasoning about physical systems without precise numerical values, using commonsense knowledge of domain laws to envision how a system's state will change; most useful when the system's functioning is not yet precisely understood and quantitative reasoning would be premature.", "module": 8}, {"id": "reasoning_about_physical_world", "label": "Reasoning about the Physical World", "description": "The process of reflectively reasoning about physical systems in which AI systems and organisations are situated to identify and resolve breakdowns; involves constructing and debugging causal interpretations rather than searching predefined state spaces.", "module": 8}, {"id": "theory_formation", "label": "Theory Formation", "description": "A debugging strategy that assumes the physical system is correct and seeks to construct or repair the representation of it (e.g., drafting a new schematic for a new ICB design or correcting a wrong one).", "module": 8}, {"id": "troubleshooting", "label": "Troubleshooting", "description": "A debugging strategy that assumes the representation is correct and seeks to identify and repair faults in the physical system itself (e.g., reconciling a malfunctioning circuit board with a known-correct schematic).", "module": 8}, {"id": "truth_maintenance", "label": "Truth Maintenance", "description": "The process of making, tracking, and retracting tentative assumptions about a physical system's representation during debugging; implemented by a truth maintenance system (TMS) whose nodes are knowledge assertions and whose links are justifications labelled \"in\" or \"out\".", "module": 8}];
+const ALL_EDGES = [["abstraction", "combinatorial_explosion"], ["advice_taker", "frame_problem"], ["brute_force", "combinatorial_explosion"], ["compression", "channel_capacity"], ["constraint_network", "spatial_interdependence"], ["creature_hypothesis", "moravecs_paradox"], ["critical_technical_practice", "wishful_mnemonics"], ["csp", "sparse_learning"], ["declarative_knowledge", "commonsense_knowledge"], ["decomposition", "spatial_interdependence"], ["dependency_directed_reasoning", "bugs"], ["dependency_network", "frame_problem"], ["direct_manipulation", "cartesianism"], ["elaboration_tolerance", "frame_problem"], ["first_principles_reasoning", "combinatorial_complexity"], ["intermediate_feedback", "credit_assignment"], ["long_jumping", "local_peaks"], ["management_hypothesis", "credit_assignment"], ["mathematical_logic_approach", "frame_problem"], ["means_ends_analysis", "ill_defined_problems"], ["modularity", "combinatorial_explosion"], ["propagator_model", "mesa_landscape"], ["reasoning_about_physical_world", "breakdowns"], ["reward_hypothesis", "credit_assignment"], ["satisficing", "local_peaks"], ["satisficing", "optimization_goal"], ["search", "combinatorial_complexity"], ["smoothing_topology", "local_peaks"], ["subsumption_architecture", "cartesianism"], ["temporal_differencing", "combinatorial_explosion"], ["breakdowns", "resources_for_action"], ["brittleness", "knowledge_acquisition_bottleneck"], ["cartesianism", "extrapolation_fallacy"], ["combinatorial_complexity", "search"], ["combinatorial_explosion", "superstitious_learning"], ["exploitation", "myopia"], ["exploitation", "path_dependence"], ["frame_problem", "elaboration"], ["gains_to_specialization", "division_of_labor"], ["interdependence_of_actions", "combinatorial_explosion"], ["local_peaks", "superstitious_learning"], ["logical_entailment", "implicit_knowledge"], ["principle_of_locality", "constraint_propagation"], ["tacit_knowledge", "knowledge_acquisition_bottleneck"], ["ambiguous_feedback", "credit_assignment"], ["combinatorial_complexity", "debugging"], ["combinatorial_complexity", "information_processing"], ["delayed_feedback", "credit_assignment"], ["extrapolation_fallacy", "interaction"], ["frame_problem", "credit_assignment"], ["infinite_regress", "expert_systems"], ["interdependence_of_actions", "credit_assignment"], ["mesa_landscape", "exploration_exploitation_tradeoff"], ["noise", "information_processing"], ["ood_problems", "credit_assignment"], ["sparse_feedback", "credit_assignment"], ["spatial_interdependence", "credit_assignment"], ["speech_acts", "commonsense_knowledge"], ["wishful_mnemonics", "interaction"], ["bit", "lists"], ["brute_force", "modularity"], ["constraint_network", "search_tree"], ["declarative_knowledge", "procedural_knowledge"], ["dependency_directed_reasoning", "means_ends_analysis"], ["epistemological_approach", "heuristics"], ["explicit_knowledge", "implicit_knowledge"], ["explicit_knowledge", "tacit_knowledge"], ["exploration", "exploitation"], ["genetic_algorithms", "propagator_model"], ["hard_constraints", "soft_constraints"], ["iid_problems", "ood_problems"], ["indexing", "designation"], ["interaction", "cartesianism"], ["mathematical_logic_approach", "deep_learning_krr"], ["physics_hypothesis", "society_of_mind_hypothesis"], ["qualitative_reasoning", "csp"], ["registration", "designation"], ["reinforcement_learning", "society_of_mind_hypothesis"], ["reward_hypothesis", "management_hypothesis"], ["search", "brute_force"], ["shannon_information", "simon_information"], ["subsumption_architecture", "reinforcement_learning"], ["syntactic_information", "semantic_information"], ["troubleshooting", "theory_formation"], ["variety", "shannon_information"], ["von_neumann_search", "simon_search"], ["world_models", "propagator_model"], ["dependency_network", "dependency_directed_reasoning"], ["dependency_network", "truth_maintenance"], ["domain_specific_language", "first_principles_reasoning"], ["first_principles_reasoning", "qualitative_reasoning"], ["autoencoders", "boltzmann_machines"], ["bayesian_networks", "mental_models"], ["breadth_first_search", "heuristics"], ["chain_of_thought", "commonsense_reasoning"], ["chromosome", "schema"], ["depth_first_search", "heuristics"], ["digital_ecosystem", "subsumption_architecture"], ["general_problem_solver", "means_ends_analysis"], ["market_mechanism", "selection"], ["natural_selection", "selection"], ["ontology", "knowledge_base"], ["retrieval_augmented_generation", "context_engineering"], ["watchmaker_parable", "spatial_interdependence"], ["adaptation", "credit_assignment"], ["adversarial_search", "von_neumann_search"], ["ambiguous_feedback", "feedback"], ["backtracking", "search"], ["bayesian_networks", "constraint_network"], ["boltzmann_machines", "constraint_network"], ["bugs", "breakdowns"], ["chain_of_thought", "heuristics"], ["comportment", "homeostasis"], ["constraint_propagation", "credit_assignment"], ["credit_assignment", "general_problem_of_intelligence"], ["credit_assignment", "information_processing"], ["csp", "constraint_network"], ["debugging", "credit_assignment"], ["deep_learning_krr", "krr"], ["delayed_feedback", "feedback"], ["digital_abstraction", "convenient_fictions"], ["division_of_labor", "credit_assignment"], ["epistemological_approach", "krr"], ["evolutionary_strategies", "adaptation"], ["expert_systems", "representation"], ["exploitation", "policy"], ["exploration", "policy"], ["forward_checking", "constraint_propagation"], ["general_problem_solver", "simon_search"], ["generate_test_and_debug", "generate_and_test"], ["genetic_algorithms", "evolutionary_strategies"], ["gradient_descent", "hill_climbing"], ["hill_climbing", "exploitation"], ["intermediate_feedback", "feedback"], ["krr", "credit_assignment"], ["logical_entailment", "implicit_knowledge"], ["long_jumping", "exploration"], ["mathematical_logic_approach", "krr"], ["means_ends_analysis", "heuristics"], ["mendelian_approach", "evolutionary_strategies"], ["planning", "search"], ["procedural_complexity", "credit_assignment"], ["propagator_model", "evolutionary_strategies"], ["reasoning_about_physical_world", "interaction"], ["reinforcement_learning", "learning"], ["representation", "credit_assignment"], ["representation", "schema"], ["representation_learning", "boltzmann_machines"], ["satisficing", "heuristics"], ["search", "credit_assignment"], ["shannon_entropy", "entropy"], ["shannon_information", "syntactic_information"], ["simon_information", "semantic_information"], ["simon_search", "search"], ["society_of_mind_hypothesis", "learning"], ["sparse_feedback", "feedback"], ["temporal_differencing", "reinforcement_learning"], ["theory_formation", "debugging"], ["troubleshooting", "debugging"], ["von_neumann_search", "search"], ["vsr", "evolutionary_strategies"], ["abstraction", "simon_information"], ["agent_specialization", "society_of_mind_hypothesis"], ["bandwidth", "channel_capacity"], ["beliefs", "policy"], ["bit", "shannon_information"], ["bit_strings", "shannon_information"], ["brute_force", "shannon_information"], ["causal_interpretation", "debugging"], ["channel_capacity", "shannon_information"], ["commonsense_knowledge", "krr"], ["commonsense_reasoning", "krr"], ["compression", "shannon_information"], ["conditional_probabilities", "bayesian_networks"], ["confluences", "qualitative_reasoning"], ["crossover", "genetic_algorithms"], ["decoding", "bit_strings"], ["default_reasoning", "elaboration_tolerance"], ["delegation", "society_of_mind_hypothesis"], ["dependency_network", "propagator_model"], ["designation", "symbol_manipulation"], ["digital_abstraction", "shannon_information"], ["domain", "constraint_network"], ["embeddedness", "interaction"], ["embodiment", "interaction"], ["encoding", "bit_strings"], ["entropy_minimization_boltzmann", "boltzmann_machines"], ["envisioning", "qualitative_reasoning"], ["evaluation_function", "von_neumann_search"], ["exploration_exploitation_tradeoff", "reinforcement_learning"], ["expressiveness", "elaboration_tolerance"], ["finite_state_machines", "subsumption_architecture"], ["first_principles_reasoning", "debugging"], ["function_from_structure", "causal_interpretation"], ["generate_and_test", "credit_assignment"], ["genes", "chromosome"], ["heuristics", "search"], ["hierarchical_management", "management_hypothesis"], ["homeostasis", "cybernetics"], ["implicit_parallelism", "genetic_algorithms"], ["inference_engine", "krr"], ["justifications", "dependency_network"], ["knowledge_base", "krr"], ["learning_rate", "policy"], ["lists", "simon_information"], ["maximize_rewards", "reinforcement_learning"], ["means_ends_analysis", "general_problem_solver"], ["modularity", "simon_information"], ["mutation", "genetic_algorithms"], ["noise", "channel_capacity"], ["organizational_memory", "management_hypothesis"], ["pattern_matching", "symbol_manipulation"], ["pattern_recognition", "symbol_manipulation"], ["physical_symbol_system_hypothesis", "simon_information"], ["policy", "reinforcement_learning"], ["productions", "expert_systems"], ["pruning", "search"], ["resources_for_action", "interaction"], ["retention", "vsr"], ["selection", "vsr"], ["sensorimotor", "interaction"], ["shannon_entropy", "shannon_information"], ["signal_to_noise_ratio", "channel_capacity"], ["situatedness", "interaction"], ["statistical_redundancy_removal", "compression"], ["subgoals", "means_ends_analysis"], ["symbol_manipulation", "information_processing"], ["value_function", "temporal_differencing"], ["variables", "constraint_network"], ["variation", "vsr"], ["weights_boltzmann", "boltzmann_machines"], ["wishful_mnemonics", "cartesianism"], ["brute_force", "channel_capacity"], ["constraint_propagation", "constraint_network"], ["credit_assignment", "feedback"], ["debugging", "causal_interpretation"], ["dependency_directed_reasoning", "dependency_network"], ["elaboration_tolerance", "declarative_knowledge"], ["expert_systems", "commonsense_knowledge"], ["genetic_algorithms", "exploration_exploitation_tradeoff"], ["krr", "commonsense_knowledge"], ["performance_landscape", "schema"], ["physical_symbol_system_hypothesis", "abstraction"], ["search", "heuristics"], ["simon_search", "physical_symbol_system_hypothesis"], ["von_neumann_search", "utility_function"]];
+
+// Build adjacency: PREREQS[id] = [ids that point TO id]   (predecessors)
+//                 DEPENDENTS[id] = [ids that id points TO] (successors)
+const PREREQS    = {};
+const DEPENDENTS = {};
+CARDS.forEach(c => { PREREQS[c.id] = []; DEPENDENTS[c.id] = []; });
+ALL_EDGES.forEach(([src, tgt]) => {
+  if (PREREQS[tgt]    !== undefined) PREREQS[tgt].push(src);
+  if (DEPENDENTS[src] !== undefined) DEPENDENTS[src].push(tgt);
+});
+
+const CARD_MAP = {};
+CARDS.forEach(c => { CARD_MAP[c.id] = c; });
+
+// ============================================================
+// STATE  (persisted in localStorage)
+// ============================================================
+const STORAGE_KEY = 'fab2026_fc_v1_full';
+
+function defaultCardState() {
+  return { mastery: 0.5, ease: 2.5, interval: 1, dueTime: Date.now(), reviews: 0, streak: 0 };
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  return null;
+}
+
+function initState() {
+  const saved = loadState();
+  const cards = {};
+  CARDS.forEach(c => {
+    cards[c.id] = (saved && saved.cards && saved.cards[c.id]) || defaultCardState();
+  });
+  return {
+    cards,
+    session: { reviewed: 0, correct: 0, startTime: Date.now() }
+  };
+}
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+let state = initState();
+
+// ============================================================
+// ALGORITHMS
+// ============================================================
+
+// --- TD Credit Propagation ---
+// α: TD step size (learning rate)
+// backwardDecay: blame decay per hop when failing
+// forwardDecay:  credit decay per hop when passing
+// maxDepth: max BFS depth for propagation
+const TD_ALPHA      = 0.15;
+const BACKWARD_DECAY = 0.5;
+const FORWARD_DECAY  = 0.3;
+const MAX_DEPTH      = 3;
+const MASTERY_THRESHOLD = 0.7; // above this = "mastered"
+
+// Rating → score mapping: 0=forgot, 1=hard, 2=good, 3=easy
+const RATING_SCORES = [0.0, 0.4, 0.7, 1.0];
+
+function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+function propagateCredit(cardId, delta) {
+  const log = [];
+
+  if (delta < 0) {
+    // FAIL: blame propagates backward through PREREQS (ancestors)
+    const visited = new Set([cardId]);
+    const queue = [[cardId, 1]];
+    while (queue.length) {
+      const [nodeId, depth] = queue.shift();
+      if (depth > MAX_DEPTH) continue;
+      for (const predId of (PREREQS[nodeId] || [])) {
+        if (visited.has(predId) || !state.cards[predId]) continue;
+        visited.add(predId);
+        const blame = delta * Math.pow(BACKWARD_DECAY, depth);
+        const prev = state.cards[predId].mastery;
+        state.cards[predId].mastery = clamp(prev + TD_ALPHA * blame, 0, 1);
+        log.push({ id: predId, label: CARD_MAP[predId].label, delta: blame, depth, dir: 'backward' });
+        queue.push([predId, depth + 1]);
+      }
+    }
+  } else if (delta > 0) {
+    // PASS: credit propagates forward through DEPENDENTS (successors)
+    const visited = new Set([cardId]);
+    const queue = [[cardId, 1]];
+    while (queue.length) {
+      const [nodeId, depth] = queue.shift();
+      if (depth > MAX_DEPTH) continue;
+      for (const depId of (DEPENDENTS[nodeId] || [])) {
+        if (visited.has(depId) || !state.cards[depId]) continue;
+        visited.add(depId);
+        const boost = delta * Math.pow(FORWARD_DECAY, depth);
+        const prev = state.cards[depId].mastery;
+        state.cards[depId].mastery = clamp(prev + TD_ALPHA * boost, 0, 1);
+        log.push({ id: depId, label: CARD_MAP[depId].label, delta: boost, depth, dir: 'forward' });
+        queue.push([depId, depth + 1]);
+      }
+    }
+  }
+
+  return log;
+}
+
+// --- SM-2 Scheduling ---
+function nextIntervals(cardId) {
+  const s = state.cards[cardId];
+  return [
+    1,                                                           // 0=forgot
+    Math.max(1, Math.round(s.interval * 1.2)),                  // 1=hard
+    Math.max(1, Math.round(s.interval * s.ease)),               // 2=good
+    Math.max(1, Math.round(s.interval * s.ease * 1.3)),         // 3=easy
+  ];
+}
+
+function updateSchedule(cardId, rating) {
+  const s = state.cards[cardId];
+  const actualScore = RATING_SCORES[rating];
+  const delta = actualScore - s.mastery;
+
+  // Update own mastery (TD update)
+  s.mastery = clamp(s.mastery + TD_ALPHA * delta, 0, 1);
+
+  // SM-2 interval update
+  if (rating === 0) {       // forgot
+    s.interval = 1;
+    s.ease = Math.max(1.3, s.ease - 0.2);
+    s.streak = 0;
+  } else if (rating === 1) { // hard
+    s.interval = Math.max(1, Math.round(s.interval * 1.2));
+    s.ease = Math.max(1.3, s.ease - 0.15);
+    s.streak = 0;
+  } else if (rating === 2) { // good
+    s.interval = Math.max(1, Math.round(s.interval * s.ease));
+    s.streak++;
+  } else {                   // easy
+    s.interval = Math.max(1, Math.round(s.interval * s.ease * 1.3));
+    s.ease = Math.min(3.0, s.ease + 0.1);
+    s.streak++;
+  }
+
+  s.dueTime = Date.now() + s.interval * 24 * 60 * 60 * 1000;
+  s.reviews++;
+
+  // Propagate credit through prerequisite graph
+  const propagationLog = propagateCredit(cardId, delta);
+
+  // Update session stats
+  state.session.reviewed++;
+  if (rating >= 2) state.session.correct++;
+
+  saveState();
+  return { delta, actualScore, propagationLog };
+}
+
+// --- Card Selection (Deliberate Practice) ---
+function isFrontier(cardId) {
+  const prereqs = PREREQS[cardId] || [];
+  if (!prereqs.length) return true;
+  return prereqs.every(pid => state.cards[pid] && state.cards[pid].mastery >= MASTERY_THRESHOLD);
+}
+
+function selectNextCard() {
+  const now = Date.now();
+
+  // 1. Due cards: sorted by mastery ascending (weakest first)
+  const due = CARDS.filter(c => state.cards[c.id].dueTime <= now)
+                   .sort((a, b) => state.cards[a.id].mastery - state.cards[b.id].mastery);
+  if (due.length) return due[0];
+
+  // 2. Frontier cards (unlocked but not yet mastered)
+  const frontier = CARDS.filter(c => !isMastered(c.id) && isFrontier(c.id))
+                        .sort((a, b) => state.cards[a.id].mastery - state.cards[b.id].mastery);
+  if (frontier.length) return frontier[0];
+
+  // 3. Globally weakest card
+  return CARDS.slice().sort((a, b) => state.cards[a.id].mastery - state.cards[b.id].mastery)[0];
+}
+
+function isMastered(cardId) { return state.cards[cardId].mastery >= MASTERY_THRESHOLD; }
+
+// ============================================================
+// UI RENDERING
+// ============================================================
+let currentCard = null;
+
+function showFront(card) {
+  currentCard = card;
+  const s = state.cards[card.id];
+  const pct = Math.round(s.mastery * 100);
+  const col = masteryColor(s.mastery);
+
+  document.getElementById('card-module').textContent = card.module < 900 ? `Module ${card.module}` : 'Misc';
+  document.getElementById('card-label').textContent = card.label;
+  document.getElementById('card-mastery-pct').textContent = pct + '%';
+  const fill = document.getElementById('card-mastery-fill');
+  fill.style.width = pct + '%';
+  fill.style.background = col;
+
+  // Interval hints on back
+  const hints = nextIntervals(card.id);
+  document.getElementById('interval-hints').innerHTML = hints.map((d, i) => {
+    const labels = ['Forgot','Hard','Good','Easy'];
+    return `<div class="interval-hint">${d}d</div>`;
+  }).join('');
+
+  show('card-front');
+  hide('card-back');
+  hide('credit-panel');
+}
+
+function flipCard() {
+  if (!currentCard) return;
+  const card = currentCard;
+  const hints = nextIntervals(card.id);
+
+  document.getElementById('card-module-back').textContent =
+    document.getElementById('card-module').textContent;
+  document.getElementById('card-label-back').textContent = card.label;
+  document.getElementById('card-definition').textContent = card.description;
+  document.getElementById('interval-hints').innerHTML = hints.map(d => `<div class="interval-hint">${d}d</div>`).join('');
+
+  hide('card-front');
+  show('card-back');
+  hide('credit-panel');
+}
+
+function rate(r) {
+  if (!currentCard) return;
+  const { delta, actualScore, propagationLog } = updateSchedule(currentCard.id, r);
+  renderCreditPanel(currentCard, r, delta, propagationLog);
+  hide('card-back');
+  show('credit-panel');
+  refreshStats();
+  refreshOverview();
+  refreshDashboard();
+}
+
+function nextCard() {
+  const next = selectNextCard();
+  if (next) showFront(next);
+}
+
+function renderCreditPanel(card, rating, delta, log) {
+  const titleEl = document.getElementById('credit-title');
+  const entriesEl = document.getElementById('credit-entries');
+  const ratingLabels = ['Forgot','Hard','Good','Easy'];
+  const ratingIcons  = ['✗','≈','✓','★'];
+
+  const own = Math.round(state.cards[card.id].mastery * 100);
+  const deltaSign = delta >= 0 ? '+' : '';
+  const cls = delta < 0 ? 'negative' : delta > 0 ? 'positive' : 'neutral';
+  const icon = delta < 0 ? '← blame' : delta > 0 ? '→ credit' : '— no change';
+
+  titleEl.className = `credit-title ${cls}`;
+  titleEl.innerHTML = `
+    ${ratingIcons[rating]} ${ratingLabels[rating]} — own mastery now ${own}%
+    <span class="delta-badge">${icon} δ=${deltaSign}${(TD_ALPHA * delta).toFixed(3)}</span>
+  `;
+
+  if (!log.length) {
+    entriesEl.innerHTML = `<div class="credit-none">No connected concepts affected (no edges in scope).</div>`;
+    return;
+  }
+
+  // Sort by abs(delta) descending
+  const sorted = log.slice().sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
+  entriesEl.innerHTML = sorted.map((e, i) => {
+    const arrow = e.dir === 'backward' ? '←' : '→';
+    const d = e.dir === 'backward' ? 'neg' : 'pos';
+    const sign = e.delta >= 0 ? '+' : '';
+    const adj = Math.round(state.cards[e.id].mastery * 100);
+    return `<div class="credit-entry ${e.dir}" style="animation-delay:${i*0.05}s">
+      <span class="credit-arrow">${arrow}</span>
+      <span class="credit-concept">${e.label}</span>
+      <span class="credit-delta ${d}">${sign}${(TD_ALPHA * e.delta).toFixed(3)}</span>
+      <span class="credit-hop">${e.depth} hop${e.depth > 1 ? 's' : ''} · ${adj}%</span>
+    </div>`;
+  }).join('');
+}
+
+// ============================================================
+// STATS & OVERVIEWS
+// ============================================================
+function masteryColor(v) {
+  if (v >= 0.7) return '#4a7c59';      // mastered: green
+  if (v >= 0.4) return '#c9954a';      // learning: amber
+  return '#8b4040';                    // weak: red
+}
+
+function refreshStats() {
+  const now = Date.now();
+  const dueCount = CARDS.filter(c => state.cards[c.id].dueTime <= now).length;
+  const masteredCount = CARDS.filter(c => isMastered(c.id)).length;
+  document.getElementById('stat-due').textContent = dueCount;
+  document.getElementById('stat-mastered').textContent = masteredCount;
+  document.getElementById('stat-session').textContent = state.session.reviewed;
+}
+
+function refreshOverview() {
+  const masteredCount = CARDS.filter(c => isMastered(c.id)).length;
+  const pct = CARDS.length ? masteredCount / CARDS.length : 0;
+  const C = 2 * Math.PI * 34;
+  const ring = document.getElementById('ring-fill');
+  ring.style.strokeDasharray = C;
+  ring.style.strokeDashoffset = C * (1 - pct);
+  document.getElementById('ring-pct').textContent = Math.round(pct * 100) + '%';
+
+  // Histogram bars
+  const buckets = [
+    { label: '0–20%',  min: 0,   max: 0.2  },
+    { label: '20–40%', min: 0.2, max: 0.4  },
+    { label: '40–60%', min: 0.4, max: 0.6  },
+    { label: '60–80%', min: 0.6, max: 0.8  },
+    { label: '80–100%',min: 0.8, max: 1.01 },
+  ];
+  const colors = ['#8b4040','#7c6b3a','#c9954a','#5a8c6a','#4a7c59'];
+  const maxCount = Math.max(...buckets.map(b =>
+    CARDS.filter(c => state.cards[c.id].mastery >= b.min && state.cards[c.id].mastery < b.max).length
+  ), 1);
+
+  document.getElementById('mastery-bars').innerHTML = buckets.map((b, i) => {
+    const count = CARDS.filter(c => state.cards[c.id].mastery >= b.min && state.cards[c.id].mastery < b.max).length;
+    const w = Math.round(count / maxCount * 100);
+    return `<div class="mastery-bar-row">
+      <span class="mastery-bar-label">${b.label}</span>
+      <div class="mastery-bar-track">
+        <div class="mastery-bar-fill" style="width:${w}%; background:${colors[i]}"></div>
+      </div>
+      <span class="mastery-bar-count">${count}</span>
+    </div>`;
+  }).join('');
+}
+
+function refreshDashboard() {
+  // Weakest concepts
+  const weakest = CARDS.slice()
+    .sort((a, b) => state.cards[a.id].mastery - state.cards[b.id].mastery)
+    .slice(0, 8);
+  document.getElementById('weakest-list').innerHTML = weakest.map(c => {
+    const v = state.cards[c.id].mastery;
+    const pct = Math.round(v * 100);
+    return `<div class="weakest-entry">
+      <span class="weakest-label" title="${c.label}">${c.label}</span>
+      <div class="weakest-bar-wrap"><div class="weakest-bar-fill" style="width:${pct}%; background:${masteryColor(v)}"></div></div>
+      <span class="weakest-pct">${pct}%</span>
+    </div>`;
+  }).join('');
+
+  // Coming up
+  const now = Date.now();
+  const dayMs = 24 * 60 * 60 * 1000;
+  const upcoming = CARDS.slice()
+    .sort((a, b) => state.cards[a.id].dueTime - state.cards[b.id].dueTime)
+    .slice(0, 8);
+  document.getElementById('due-list').innerHTML = upcoming.map(c => {
+    const due = state.cards[c.id].dueTime;
+    let tag, tagClass;
+    if (due <= now) { tag = 'now'; tagClass = 'overdue'; }
+    else if (due < now + dayMs) { tag = 'today'; tagClass = 'today'; }
+    else {
+      const days = Math.ceil((due - now) / dayMs);
+      tag = `${days}d`; tagClass = 'tomorrow';
+    }
+    return `<div class="due-entry">
+      <span class="due-label" title="${c.label}">${c.label}</span>
+      <span class="due-tag ${tagClass}">${tag}</span>
+    </div>`;
+  }).join('');
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+function show(id) { document.getElementById(id).classList.remove('hidden'); }
+function hide(id) { document.getElementById(id).classList.add('hidden'); }
+
+function confirmReset() {
+  if (confirm('Reset all flashcard progress? This cannot be undone.')) {
+    localStorage.removeItem(STORAGE_KEY);
+    state = initState();
+    saveState();
+    refreshStats(); refreshOverview(); refreshDashboard();
+    const next = selectNextCard();
+    if (next) showFront(next);
+  }
+}
+
+// ============================================================
+// BOOT
+// ============================================================
+(function boot() {
+  const C = 2 * Math.PI * 34;
+  document.getElementById('ring-fill').style.strokeDasharray = C;
+  document.getElementById('ring-fill').style.strokeDashoffset = C;
+
+  refreshStats();
+  refreshOverview();
+  refreshDashboard();
+
+  const first = selectNextCard();
+  if (first) showFront(first);
+})();
+</script>
+</body>
+</html>

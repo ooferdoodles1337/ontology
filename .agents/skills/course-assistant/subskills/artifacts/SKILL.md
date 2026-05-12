@@ -10,6 +10,7 @@ Each artifact is a self-contained file the student can open directly in a browse
 | Type | Subskill | Trigger phrases |
 |---|---|---|
 | Multiple-choice quiz | `subskills/multiple-choice-quiz/SKILL.md` | "make a quiz", "quiz me on X", "practice questions", "test on module N" |
+| Flashcards (spaced repetition + TD credit) | `subskills/flashcards/SKILL.md` | "make flashcards", "generate a flashcard deck", "spaced repetition", "study with flashcards", "flashcards for module N" |
 
 Read the user's request, pick one artifact type, load its subskill, and follow its instructions.
 

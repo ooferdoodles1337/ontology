@@ -7,10 +7,8 @@ Usage: uv run python scripts/rename_relation_type.py OLD-NAME NEW-NAME
 import sys
 import yaml
 
-try:
-    from .config import RELATIONS_YAML, RELATION_SCHEMA_YAML
-except ImportError:
-    from config import RELATIONS_YAML, RELATION_SCHEMA_YAML
+import _bootstrap  # noqa: F401
+from ontology_core.paths import RELATION_SCHEMA_YAML, RELATIONS_YAML
 
 RELATIONS = RELATIONS_YAML
 SCHEMA = RELATION_SCHEMA_YAML

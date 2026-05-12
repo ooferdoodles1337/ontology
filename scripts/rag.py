@@ -22,32 +22,19 @@ from typing import Any
 import yaml
 from pypdf import PdfReader
 
-try:
-    from .config import (
-        COURSE_NOTES_DIR,
-        DB_PATH,
-        DEFAULT_CHROMA_DIR,
-        DEFAULT_MANIFEST_DIR,
-        DEFAULT_RAG_DIR,
-        DEFAULT_REVIEW_DIR,
-        DOCUMENTS_YAML,
-        NODES_YAML,
-        RELATIONS_YAML,
-        ROOT,
-    )
-except ImportError:
-    from config import (
-        COURSE_NOTES_DIR,
-        DB_PATH,
-        DEFAULT_CHROMA_DIR,
-        DEFAULT_MANIFEST_DIR,
-        DEFAULT_RAG_DIR,
-        DEFAULT_REVIEW_DIR,
-        DOCUMENTS_YAML,
-        NODES_YAML,
-        RELATIONS_YAML,
-        ROOT,
-    )
+import _bootstrap  # noqa: F401
+from ontology_core.paths import (
+    COURSE_NOTES_DIR,
+    DB_PATH,
+    DEFAULT_CHROMA_DIR,
+    DEFAULT_MANIFEST_DIR,
+    DEFAULT_RAG_DIR,
+    DEFAULT_REVIEW_DIR,
+    DOCUMENTS_YAML,
+    NODES_YAML,
+    RELATIONS_YAML,
+    ROOT,
+)
 
 DEFAULT_COLLECTION = "fab_ontology"
 DEFAULT_EMBED_MODEL = os.environ.get(

@@ -3,17 +3,11 @@
 
 import json
 import sqlite3
-import yaml
 
-try:
-    from .config import DB_PATH, DOCUMENTS_YAML, NODES_YAML, RELATIONS_YAML
-except ImportError:
-    from config import DB_PATH, DOCUMENTS_YAML, NODES_YAML, RELATIONS_YAML
-
-
-def load_yaml(path):
-    with open(path) as f:
-        return yaml.safe_load(f)
+import _bootstrap  # noqa: F401
+from ontology_core.knowledge_base import NODE_SECTIONS
+from ontology_core.paths import DB_PATH, DOCUMENTS_YAML, NODES_YAML, RELATIONS_YAML
+from ontology_core.yaml_io import load_yaml
 
 
 def build_db():
@@ -98,14 +92,9 @@ def build_db():
             cur.execute("INSERT OR IGNORE INTO source_documents (node_id, doc_id) VALUES (?,?)",
                         (nid, doc_id))
 
-    for entry in nodes_data.get("concepts", []):
-        insert_node(entry["id"], "concept", entry)
-
-    for entry in nodes_data.get("people_and_institutions", []):
-        insert_node(entry["id"], "person", entry)
-
-    for entry in nodes_data.get("examples_and_metaphors", []):
-        insert_node(entry["id"], "example", entry)
+    for section, node_type in NODE_SECTIONS:
+        for entry in nodes_data.get(section, []):
+            insert_node(entry["id"], node_type, entry)
 
     for r in (rels_data.get("relations") or []):
         cur.execute("""

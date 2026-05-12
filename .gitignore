@@ -14,3 +14,6 @@ settings.local.json
 !.rag/reviews/
 !.rag/reviews/.gitkeep
 !.rag/reviews/*.section-review.md
+
+.playwright-mcp/
+.playwright-cli/

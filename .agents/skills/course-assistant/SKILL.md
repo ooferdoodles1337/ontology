@@ -4,31 +4,15 @@ description: >
   The unified assistant for the FAB 2026 ontology project. Use this skill for any task
   related to the course knowledge base — querying concepts, people, examples, and relations;
   answering natural-language questions from course notes; ingesting new documents into the
-  graph; generating study quizzes; or (in dev mode only) editing skills, instructions, and
-  settings. Triggers include: "what concepts are in module 3?", "what does the course say
+  graph; or generating study quizzes. Triggers include: "what concepts are in module 3?", "what does the course say
   about X?", "who are the people in the graph?", "how are X and Y connected?", "ingest this
-  document", "add the new course note", "make a quiz on search", "quiz me on module 3",
-  "switch to dev mode and update AGENTS.md", "edit the skill", "change a setting".
+  document", "add the new course note", "make a quiz on search", "quiz me on module 3".
 ---
 
 # FAB 2026 Course Assistant
 
 This skill is the single entry point for all work on the FAB 2026 concept graph.
 Read the shared context below, then load the appropriate subskill.
-
----
-
-## Operating Mode
-
-There are two modes. **User mode is the default.**
-
-| Mode | What is allowed |
-|---|---|
-| **User mode** (default) | Query ontology, answer course questions, ingest documents, generate quizzes, edit knowledge-base YAML |
-| **Dev mode** | Everything above, plus editing skills, `AGENTS.md`, and `settings.json` |
-
-The user must explicitly say "switch to dev mode" or "we're in dev mode" to unlock dev mode.
-Until then, refuse requests that modify system files (skills, instructions, settings).
 
 ---
 
@@ -42,7 +26,8 @@ Read the task, pick one subskill, load it, then follow its instructions.
 | Understand what the course *means* by a concept; fuzzy semantic question; source passage | `subskills/query-rag/SKILL.md` |
 | Ingest a new course-note document | `subskills/ingest-document/SKILL.md` |
 | Generate a study artifact (quiz, flashcards, etc.) | `subskills/artifacts/SKILL.md` |
-| Edit a skill, `AGENTS.md`, or `settings.json` (dev mode only) | `subskills/dev-ops/SKILL.md` |
+| Rank concepts by importance; prioritise what to study; select top concepts for a time budget | `subskills/concept-ranker/SKILL.md` |
+| Build a day-by-day study schedule; show today's sessions; mark a concept as mastered | `subskills/study-planner/SKILL.md` |
 
 When the task spans two concerns (e.g. "answer a course question and then make a quiz about it"),
 complete them sequentially: finish the first, then load the second subskill.
